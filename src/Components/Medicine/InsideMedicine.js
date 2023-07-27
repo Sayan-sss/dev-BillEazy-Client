@@ -5,6 +5,10 @@ import API from "../../api/index";
 import { Button } from "@mui/base";
 import toast, { Toaster } from 'react-hot-toast';
 
+
+
+export default function DataGridDemo() {
+
 const handleUpdate=async(e,cellValues)=>{
   try {
   
@@ -25,8 +29,7 @@ const handleUpdate=async(e,cellValues)=>{
 
 const handleDelete=async(e,cellValues)=>{
   try {
- 
-    const deleteselector=0;
+ e.preventDefault()
     // toast.custom(<div 
     //   style={{display:'flex',
     //   flexDirection:'column',
@@ -42,18 +45,17 @@ const handleDelete=async(e,cellValues)=>{
     //        <Button onClick={async(e)=>await (deleteselector+1)}>Delete</Button></div>)
 
     const Medicineid=cellValues.row._id;
-    console.log(deleteselector)
-    if(deleteselector===1)
-    {
+    
       const {data} = await API.delete(`api/medicine/deletemedicine/${Medicineid}`)
       if(data?.success){
         toast.success('Deleted successfully');
+        getAllMedicines();
       }
       else{
         toast.error('Something went wrong')
       }
-    }
- 
+    
+
   
   }
    catch (error) 
@@ -129,8 +131,6 @@ const columns = [
 
 
 
-
-export default function DataGridDemo() {
 
 
 
