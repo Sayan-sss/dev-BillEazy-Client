@@ -18,6 +18,7 @@ export default function MediaCard(props) {
         minHeight: "20vh",
         maxHeight: "25vh",
         margin: "3rem",
+        // border:'10px solid black'
       }}
     >
       <CardMedia
