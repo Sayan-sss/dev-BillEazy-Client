@@ -1,4 +1,5 @@
 import "./App.css";
+import Contact from "./Components/Contact/Contact";
 import Home from "./Components/Home/Home";
 import InvoiceViewer from "./Components/Invoice/invoice.viewer";
 import InsideMedicine from "./Components/Medicine/InsideMedicine";
@@ -11,6 +12,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/InsideMedicine" element={<InsideMedicine />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/home" element={<Home />}></Route>
         <Route path="/" element={<Home />}></Route>
         <Route path="/invoice" element={<InvoiceViewer />}></Route>
       </Routes>

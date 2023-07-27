@@ -1,16 +1,22 @@
 import React from "react";
 import "./Navbar.css";
-import Avatar from "./Avatar";
+import icon from "../Assets/icon.png";
+import { Button } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className="navbar">
       <div className="navbar__left">
-        <h3 className="navbar__title">sheerina enterprise</h3>
+        <Button onClick={() => navigate("/Home")}>Sheerina Enterprise</Button>
       </div>
-      <div className="navbar__middle"></div>
+      <div className="navbar__middle">
+        <Button onClick={() => navigate("/Contact")}>Contact</Button>
+      </div>
       <div className="navbar__right">
-        <Avatar className="avatar" />
+        <Avatar />
       </div>
     </div>
   );
