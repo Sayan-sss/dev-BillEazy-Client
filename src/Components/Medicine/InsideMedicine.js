@@ -2,12 +2,14 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import API from "../../api/index";
-import { Button } from "@mui/base";
+// import { Button } from "@mui/base";
 import toast, { Toaster } from 'react-hot-toast';
+import { Button } from "@mui/material";
 
 
 
-export default function DataGridDemo() {
+export default function DataGridDemo(props) {
+  // const [medicines,setMedicines] =React.useState([]);
 
 const handleUpdate=async(e,cellValues)=>{
   try {
@@ -49,7 +51,7 @@ const handleDelete=async(e,cellValues)=>{
       const {data} = await API.delete(`api/medicine/deletemedicine/${Medicineid}`)
       if(data?.success){
         toast.success('Deleted successfully');
-        getAllMedicines();
+        props.getAllMedicines();
       }
       else{
         toast.error('Something went wrong')
@@ -98,9 +100,10 @@ const columns = [
     renderCell: (cellValues) => {
       return (
         <Button
-        style={{cursor:'pointer',backgroundColor:'yellow',color:'blue',fontFamily:'Roboto',width:'4rem',height:'2rem',letterSpacing:'1.5px',fontWeight:'bold',border:'none',fontSize:'1rem',borderRadius:'3px'}}
+        // style={{cursor:'pointer',backgroundColor:'yellow',color:'blue',fontFamily:'Roboto',width:'4rem',height:'2rem',letterSpacing:'1.5px',fontWeight:'bold',border:'none',fontSize:'1rem',borderRadius:'3px'}}
           variant="contained"
           color="primary"
+
           onClick={(event) => {
             handleUpdate(event, cellValues);
           }}
@@ -115,9 +118,9 @@ const columns = [
     renderCell: (cellValues) => {
       return (
         <Button
-        style={{cursor:'pointer',backgroundColor:'red',color:'white',fontFamily:'Roboto',width:'4rem',height:'2rem',letterSpacing:'2px',fontWeight:'bold',border:'none',fontSize:'1rem',borderRadius:'3px'}}
+        // style={{cursor:'pointer',backgroundColor:'red',color:'white',fontFamily:'Roboto',width:'4rem',height:'2rem',letterSpacing:'2px',fontWeight:'bold',border:'none',fontSize:'1rem',borderRadius:'3px'}}
         variant="contained"
-          color="primary"
+          color="error"
           onClick={(event) => {
             handleDelete(event, cellValues);
           }}
@@ -134,35 +137,34 @@ const columns = [
 
 
 
-const [medicines,setMedicines] =React.useState([]);
 
 
 
-  const getAllMedicines = async()=>{
-    try {
-      const {data} = await API.get('/api/medicine/getmedicine')
-    console.log("data");
-    console.log(data);
-    if(data?.success){
-      setMedicines(data?.allmedicines)
-    }
-    console.log(medicines)
-    } catch (error) {
-      console.log(error);
-      alert(error);
-    }
+  //  const getAllMedicines = async()=>{
+  //   try {
+  //     const {data} = await API.get('/api/medicine/getmedicine')
+  //   console.log("data");
+  //   console.log(data);
+  //   if(data?.success){
+  //     setMedicines(data?.allmedicines)
+  //   }
+  //   console.log(medicines)
+  //   } catch (error) {
+  //     console.log(error);
+  //     alert(error);
+  //   }
     
     
     
     
-    }
+  //   }
     
 
 
-  React.useEffect(()=>{
-    getAllMedicines();
-  // eslint-disable-next-line
-  },[])
+  // React.useEffect(()=>{
+  //   getAllMedicines();
+  // // eslint-disable-next-line
+  // },[])
  
     // { id: 1, Quantity: "Snow", Composition: "sodium", Medicine: "Jon", Rate: 35 },
     // {
@@ -179,7 +181,7 @@ const [medicines,setMedicines] =React.useState([]);
       
     // })
     const rows = React.useMemo(
-      () => medicines.map((m, i) => (
+      () => props.medicines.map((m, i) => (
        (
         { ...m,
            id: i+1 ,
@@ -196,7 +198,7 @@ const [medicines,setMedicines] =React.useState([]);
      )
       
       ),
-      [medicines]
+      [props.medicines]
     );
 // console.log(rows[0].name)
   return (
