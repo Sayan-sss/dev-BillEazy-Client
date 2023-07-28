@@ -1,10 +1,10 @@
 .navbar {
   flex: 1;
-  background-color: #202123;
+  background-color: #062541;
   width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 15rem;
   height: 100vh;
   position: absolute;
@@ -13,24 +13,17 @@
   flex-direction: column;
 }
 
-.navbar__title {
-  /* margin: 0.5rem; */
-  cursor: pointer;
-  font-family: sans-serif;
-  font-size: 15px;
-  color: #ffff;
-}
-
 .avatar {
   cursor: pointer;
 }
 
 .navbar__left {
-  flex: 0.2;
+  /* flex: 0.2; */
   display: flex;
+  margin-top: 3rem;
   align-items: center;
   justify-content: center;
-  background-color: #202123;
+  /* background-color: #202123; */
   color: #ffff;
 }
 
