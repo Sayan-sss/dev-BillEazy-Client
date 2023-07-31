@@ -1,46 +1,43 @@
-import React from 'react'
-import API from '../../api';
-import AddMedicine from './AddMedicine';
+import React from "react";
+import API from "../../api";
+import AddMedicine from "./AddMedicine";
 import InsideMedicine from "./InsideMedicine";
-import './InsideMedicineContainer.css'
+import "./InsideMedicineContainer.css";
 const InsideMedicineContainer = () => {
+  const [medicines, setMedicines] = React.useState([]);
 
-  const [medicines,setMedicines] =React.useState([]);
-
-  const getAllMedicines = async()=>{
+  const getAllMedicines = async () => {
     try {
-      const {data} = await API.get('/api/medicine/getmedicine')
-    console.log("data");
-    console.log(data);
-    if(data?.success){
-      setMedicines(data?.allmedicines)
-    }
-    console.log(medicines)
+      const { data } = await API.get("/api/medicine/getmedicine");
+      console.log("data");
+      console.log(data);
+      if (data?.success) {
+        setMedicines(data?.allmedicines);
+      }
+      console.log(medicines);
     } catch (error) {
       console.log(error);
       alert(error);
     }
+  };
 
-    
-    }
-  
-  React.useEffect(()=>{
+  React.useEffect(() => {
     getAllMedicines();
-  // eslint-disable-next-line
-  },[])
- 
- 
- 
- 
- 
+    // eslint-disable-next-line
+  }, []);
+
   return (
-    <div className='inside_medicine_container'>
-<InsideMedicine medicines={medicines} setMedicines={setMedicines} getAllMedicines={getAllMedicines} />
-<AddMedicine getAllMedicines={getAllMedicines}/>
-
-
+    <div className="inside_medicine_container">
+      <InsideMedicine
+        medicines={medicines}
+        setMedicines={setMedicines}
+        getAllMedicines={getAllMedicines}
+      />
+      <div className="addMedicine__button">
+        <AddMedicine getAllMedicines={getAllMedicines} />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default InsideMedicineContainer
+export default InsideMedicineContainer;
