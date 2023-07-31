@@ -40,6 +40,7 @@ const Navbar = () => {
           </div>
           <div className="navbar__middle">
             <Button onClick={() => navigate("/Contact")}>Contact</Button>
+            <Button onClick={() => navigate("/addinvoice")}>Invoice</Button>
           </div>
           <div className="navbar__right">
             <Avatar />
