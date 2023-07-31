@@ -1,21 +1,36 @@
-import { Box } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import React from "react";
+import Supplierdetails from "../Invoice.fields/Supplier.details";
 import InvoiceRadioGroup from "../MuuiComponents/InvoiceRadiogrp";
-import InvoiceTextField from "../MuuiComponents/TextField";
+import InvoiceTextField from "../MuuiComponents/Invoice.textField";
 // import TextField from "../MuuiComponents/TextField";
 import "./invoiceCreator.css";
+import BuyerDetails from "../Invoice.fields/Buyer.details";
+import Productdetails from "../Invoice.fields/Product.details";
 const Invoicecreator = () => {
   return (
     <>
       <Box className="mainfrom">
         <Box className="invoicefrom_container">
-          <Box className="up_left">
-            <InvoiceTextField />
+          <Box
+            className="up_container"
+            sx={{ display: "flex", paddingTop: "2rem" }}
+          >
+            <Box className="up_left">
+              <InvoiceTextField />
+            </Box>
+
+            <Box className="up_right" sx={{ width: "100%" }}>
+              <Supplierdetails />
+            </Box>
           </Box>
 
-          <Box className="up_right">upright</Box>
-          <Box className="buyer_details">middletop</Box>
-          <Box className="products_container">middletop</Box>
+          <Box className="buyer_details">
+            <BuyerDetails />
+          </Box>
+          <Box className="products_container">
+            <Productdetails />
+          </Box>
           <Box className="transportdetail_container">middletop</Box>
           <Box className="bankdetail_container">middletop</Box>
         </Box>

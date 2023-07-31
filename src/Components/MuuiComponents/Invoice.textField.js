@@ -9,7 +9,7 @@ export default function InvoiceTextField() {
       component="form"
       sx={{
         "& > :not(style)": { m: 1, width: "25ch" },
-        border: "1px solid black",
+        border: "1px solid #d9dbe9",
         width: "40vw",
       }}
       noValidate
