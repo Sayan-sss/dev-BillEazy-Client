@@ -3,6 +3,7 @@ import API from "../../api";
 import AddMedicine from "./AddMedicine";
 import InsideMedicine from "./InsideMedicine";
 import "./InsideMedicineContainer.css";
+import { Box } from "@mui/material";
 const InsideMedicineContainer = () => {
   const [medicines, setMedicines] = React.useState([]);
 
@@ -27,16 +28,34 @@ const InsideMedicineContainer = () => {
   }, []);
 
   return (
-    <div className="inside_medicine_container">
+    <Box
+      className="inside_medicine_container"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        // mt: "5vh",
+        // border: "1px solid red",
+      }}
+    >
+      <Box
+        className="addMedicine__button"
+        sx={{
+          display: "flex",
+          justifyContent: "end",
+          width: "85%",
+          pt: "5vh",
+          // border: "1px solid red",
+        }}
+      >
+        <AddMedicine getAllMedicines={getAllMedicines} />
+      </Box>
       <InsideMedicine
         medicines={medicines}
         setMedicines={setMedicines}
         getAllMedicines={getAllMedicines}
       />
-      <div className="addMedicine__button">
-        <AddMedicine getAllMedicines={getAllMedicines} />
-      </div>
-    </div>
+    </Box>
   );
 };
 

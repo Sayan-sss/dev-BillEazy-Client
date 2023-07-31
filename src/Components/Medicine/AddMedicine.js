@@ -5,9 +5,9 @@ import AddMedDialouge from "../MuuiComponents/AddMedDialouge";
 const AddMedicine = ({ getAllMedicines }) => {
   return (
     <>
-      <Button>
-        <AddMedDialouge getAllMedicines={getAllMedicines} />
-      </Button>
+      {/* <Button> */}
+      <AddMedDialouge getAllMedicines={getAllMedicines} />
+      {/* </Button> */}
     </>
   );
 };

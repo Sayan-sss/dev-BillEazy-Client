@@ -9,8 +9,9 @@ import DialogTitle from "@mui/material/DialogTitle";
 import AddIcon from "@mui/icons-material/Add";
 import { toast, Toaster } from "react-hot-toast";
 import API from "../../api";
+import { Box } from "@mui/material";
 
-export default function AddMedDialouge(props) {
+export default function UpdateMedDialouge(props) {
   const [open, setOpen] = React.useState(false);
   const [name, setName] = React.useState("");
   const [quantity, setQuantity] = React.useState("");
@@ -46,14 +47,14 @@ export default function AddMedDialouge(props) {
     handleClose();
   };
   return (
-    <div>
+    <Box>
       <Button
-        variant="outlined"
+        variant="contained"
         color="primary"
         onClick={handleClickOpen}
         startIcon={<AddIcon />}
       >
-        Add Medicine
+        Update
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add Medicine</DialogTitle>
@@ -123,6 +124,6 @@ export default function AddMedDialouge(props) {
         </DialogActions>
       </Dialog>
       <Toaster />
-    </div>
+    </Box>
   );
 }

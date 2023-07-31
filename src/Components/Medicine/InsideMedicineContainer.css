@@ -1,9 +1,9 @@
 .inside_medicine_container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   /* border: none; */
 
   /* background-color: black; */
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   /* align-items: center; */
