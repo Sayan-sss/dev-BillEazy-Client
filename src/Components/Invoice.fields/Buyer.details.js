@@ -9,15 +9,16 @@ const Buyerdetails = () => {
         className="header"
         sx={{
           width: "100%",
-          border: "1px solid #d9dbe9",
+          //   border: "1px solid black",
           backgroundColor: "#d9dbe9",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
           height: "3.5rem",
+          marginTop: "1.2rem",
         }}
       >
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="h5" gutterBottom sx={{ fontWeight: "" }}>
           Buyer Details
         </Typography>
         <InvoiceDialouge />

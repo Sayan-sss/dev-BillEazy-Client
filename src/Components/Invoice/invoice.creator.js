@@ -7,6 +7,7 @@ import InvoiceTextField from "../MuuiComponents/Invoice.textField";
 import "./invoiceCreator.css";
 import BuyerDetails from "../Invoice.fields/Buyer.details";
 import Productdetails from "../Invoice.fields/Product.details";
+import TransportDetails from "../Invoice.fields/Transport.details";
 const Invoicecreator = () => {
   return (
     <>
@@ -30,6 +31,19 @@ const Invoicecreator = () => {
           </Box>
           <Box className="products_container">
             <Productdetails />
+          </Box>
+          <Box
+            className="transport_container"
+            sx={{
+              border: "1px solid  #d9dbe9",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: "15px",
+              marginTop: "1.2rem",
+            }}
+          >
+            <TransportDetails />
           </Box>
           <Box className="transportdetail_container">middletop</Box>
           <Box className="bankdetail_container">middletop</Box>
