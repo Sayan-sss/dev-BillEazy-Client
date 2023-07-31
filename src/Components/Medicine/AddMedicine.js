@@ -1,16 +1,15 @@
-import { Button } from '@mui/base'
-import React from 'react'
-import AddMedDialouge from '../MuuiComponents/AddMedDialouge'
+import { Button } from "@mui/base";
+import React from "react";
+import AddMedDialouge from "../MuuiComponents/AddMedDialouge";
 
-const AddMedicine = ({getAllMedicines}) => {
+const AddMedicine = ({ getAllMedicines }) => {
   return (
     <>
-    <Button><AddMedDialouge getAllMedicines={getAllMedicines}/></Button>
-    
-  
-    
+      <Button>
+        <AddMedDialouge getAllMedicines={getAllMedicines} />
+      </Button>
     </>
-  )
-}
+  );
+};
 
-export default AddMedicine
+export default AddMedicine;
