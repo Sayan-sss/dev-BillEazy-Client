@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./Navbar.css";
+// import "./Navbar.css";
 import { Box, Button } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import { useNavigate } from "react-router-dom";
-import icon from "../Assets/icon.png";
+import logo from "../Assets/logo.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import InsideMedicineContainer from "../Medicine/InsideMedicineContainer";
@@ -22,20 +22,25 @@ const SideBar = () => {
         backgroundColor: "white",
       }}
     >
-      <img
-        onClick={() => navigate("/")}
-        src={icon}
-        style={{
-          marginLeft: "4.5rem",
-          height: "10rem",
-          width: "10rem",
-          cursor: "pointer",
-        }}
-        alt=""
-      />
       <Box
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
       >
+        <img
+          onClick={() => navigate("/")}
+          src={logo}
+          style={{
+            // marginLeft: "4.5rem",
+            height: "10rem",
+            width: "10rem",
+            cursor: "pointer",
+          }}
+          alt=""
+        />
         <Box>
           <Button
             onClick={() => navigate("/Invoicegenerator")}
