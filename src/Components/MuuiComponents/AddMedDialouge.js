@@ -48,8 +48,8 @@ export default function AddMedDialouge(props) {
   return (
     <div>
       <Button
-        variant="outlined"
-        color="primary"
+        variant="contained"
+        color="success"
         onClick={handleClickOpen}
         startIcon={<AddIcon />}
       >
