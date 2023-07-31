@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background-color: aquamarine;
+  background-color: #ffff;
 }
 
 .topSection {
@@ -37,6 +37,6 @@
 }
 
 .bottomSection {
-  height: 70vh;
-  background-color: aqua;
+  height: 100vh;
+  /* background-color: #5d1111; */
 }
