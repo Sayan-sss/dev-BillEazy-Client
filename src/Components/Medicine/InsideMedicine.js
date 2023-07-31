@@ -182,7 +182,7 @@ export default function DataGridDemo(props) {
         sx={{
           height: 400,
           color: "black",
-          width: "62vw",
+          width: "100%",
           // display: "flex",
           // flexDirection: "row",
           // justifyContent: "space-between",

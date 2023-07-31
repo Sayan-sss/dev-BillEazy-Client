@@ -18,23 +18,42 @@ function App() {
           flexDirection: "row",
         }}
       >
-        <SideBar />
-        <Routes>
-          <Route
-            path="/medicines"
-            element={<InsideMedicineContainer />}
-          ></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/home" element={<Home />}></Route>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/invoice" element={<InvoiceViewer />}></Route>
-          <Route
-            path="/InsideMedicine"
-            element={<InsideMedicineContainer />}
-          ></Route>
-          <Route path="/addinvoice" element={<Invoicegenerator />}></Route>
-          <Route path="/invoice/create" element={<Invoicecreator />}></Route>
-        </Routes>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            width: "20vw",
+          }}
+        >
+          <SideBar />
+        </Box>
+        <Box
+          sx={{
+            width: "80vw",
+            display: "flex",
+            // flexDirection: "column",
+            justifyContent: "center",
+            // alignItems: "center",
+            border: "1px solid green",
+          }}
+        >
+          <Routes>
+            <Route
+              path="/medicines"
+              element={<InsideMedicineContainer />}
+            ></Route>
+            <Route path="/contact" element={<Contact />}></Route>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/invoice" element={<InvoiceViewer />}></Route>
+            <Route
+              path="/InsideMedicine"
+              element={<InsideMedicineContainer />}
+            ></Route>
+            <Route path="/addinvoice" element={<Invoicegenerator />}></Route>
+            <Route path="/invoice/create" element={<Invoicecreator />}></Route>
+          </Routes>
+        </Box>
       </Box>
     </div>
   );

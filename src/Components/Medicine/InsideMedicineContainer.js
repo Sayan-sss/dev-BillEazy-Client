@@ -43,18 +43,20 @@ const InsideMedicineContainer = () => {
         sx={{
           display: "flex",
           justifyContent: "end",
-          width: "85%",
-          pt: "5vh",
+          width: "93%",
+          // pt: "5vh",
           // border: "1px solid red",
         }}
       >
         <AddMedicine getAllMedicines={getAllMedicines} />
       </Box>
-      <InsideMedicine
-        medicines={medicines}
-        setMedicines={setMedicines}
-        getAllMedicines={getAllMedicines}
-      />
+      <Box>
+        <InsideMedicine
+          medicines={medicines}
+          setMedicines={setMedicines}
+          getAllMedicines={getAllMedicines}
+        />
+      </Box>
     </Box>
   );
 };
