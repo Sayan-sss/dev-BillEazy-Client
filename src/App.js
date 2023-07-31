@@ -6,6 +6,8 @@ import InvoiceViewer from "./Components/Invoice/invoice.viewer";
 import SideBar from "./Components/Sidebar/sidebar.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import InsideMedicineContainer from "./Components/Medicine/InsideMedicineContainer";
+import Invoicegenerator from "./Components/Invoice/invoice.generator";
+import Invoicecreator from "./Components/Invoice/invoice.creator";
 
 function App() {
   return (
@@ -26,6 +28,12 @@ function App() {
           <Route path="/home" element={<Home />}></Route>
           <Route path="/" element={<Home />}></Route>
           <Route path="/invoice" element={<InvoiceViewer />}></Route>
+          <Route
+            path="/InsideMedicine"
+            element={<InsideMedicineContainer />}
+          ></Route>
+          <Route path="/addinvoice" element={<Invoicegenerator />}></Route>
+          <Route path="/invoice/create" element={<Invoicecreator />}></Route>
         </Routes>
       </Box>
     </div>
