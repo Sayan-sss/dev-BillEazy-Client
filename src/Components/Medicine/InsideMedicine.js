@@ -104,7 +104,7 @@ export default function DataGridDemo(props) {
     },
     {
       field: "BATCHNO",
-      headerName: "Batch No",
+      headerName: "BATCH NO.",
       type: "number",
       width: "100",
       editable: true,
@@ -117,7 +117,7 @@ export default function DataGridDemo(props) {
       editable: true,
     },
     {
-      field: "Update",
+      field: "UPDATE",
       renderCell: (cellValues) => {
         return (
           <Button

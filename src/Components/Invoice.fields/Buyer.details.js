@@ -24,7 +24,7 @@ const Buyerdetails = () => {
         }}
       >
         <Typography variant="h5" gutterBottom sx={{ fontWeight: "" }}>
-          Buyer Details
+          BUYER DETAILS
         </Typography>
         <InvoiceDialouge />
       </Box>

@@ -20,6 +20,8 @@ export default function UpdateMedDialouge(props) {
   const [rate, setRate] = React.useState("");
   const [mrp, setMrp] = React.useState("");
   const [expiry, setExpiry] = React.useState("");
+  const [mfg, setMfg] = React.useState("");
+  const [batch, setBatch] = React.useState("");
 
   // const handleClickOpen = () => {
   //   setOpen(props.open);
@@ -37,6 +39,8 @@ export default function UpdateMedDialouge(props) {
         mrp,
         hsn,
         expiry,
+        mfg,
+        batch,
       });
 
       if (data?.success) {
@@ -53,66 +57,118 @@ export default function UpdateMedDialouge(props) {
   return (
     <Box>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Add Medicine</DialogTitle>
+        <DialogTitle>Update Medicine</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Add new medicines to your inventory
+            Update existing medicines in your inventory
           </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="Medicine Name"
+            label="MEDICINE NAME"
             type="name"
             fullWidth
             variant="outlined"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value.toUpperCase())}
           />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="quantity"
-            label=" QUANTITY"
-            type="number"
-            fullWidth
-            variant="outlined"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="hsn"
-            label="HSN"
-            type="number"
-            fullWidth
-            variant="outlined"
-            value={hsn}
-            onChange={(e) => setHsn(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="rate"
-            label="RATE"
-            type="Number"
-            fullWidth
-            variant="outlined"
-            value={rate}
-            onChange={(e) => setRate(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="mrp"
-            label="MRP"
-            type="Number"
-            fullWidth
-            variant="outlined"
-            value={mrp}
-            onChange={(e) => setMrp(e.target.value)}
-          />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="quantity"
+              label=" QUANTITY"
+              type="number"
+              sx={{ width: "30%" }}
+              // fullWidth
+              variant="outlined"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="hsn"
+              label="HSN"
+              type="number"
+              sx={{ width: "68%" }}
+              // fullWidth
+              variant="outlined"
+              value={hsn}
+              onChange={(e) => setHsn(e.target.value)}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="rate"
+              label="RATE"
+              type="Number"
+              // fullWidth
+              sx={{ width: "30%" }}
+              variant="outlined"
+              value={rate}
+              onChange={(e) => setRate(e.target.value)}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="mfg"
+              label="MFG"
+              type="String"
+              // fullWidth
+              sx={{ width: "68%" }}
+              variant="outlined"
+              value={mfg}
+              onChange={(e) => setMfg(e.target.value.toUpperCase())}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="rate"
+              label="BATCH NO."
+              type="Number"
+              sx={{ width: "60%" }}
+              // fullWidth
+              variant="outlined"
+              value={batch}
+              onChange={(e) => setBatch(e.target.value)}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="mrp"
+              label="MRP"
+              type="Number"
+              sx={{ width: "38%" }}
+              // fullWidth
+              variant="outlined"
+              value={mrp}
+              onChange={(e) => setMrp(e.target.value)}
+            />
+          </Box>
           <TextField
             autoFocus
             margin="dense"

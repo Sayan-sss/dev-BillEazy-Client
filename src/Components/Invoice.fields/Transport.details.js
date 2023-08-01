@@ -29,7 +29,7 @@ const TransportDetails = () => {
           gutterBottom
           sx={{ display: "flex", justifyContent: "center", marginBottom: "0" }}
         >
-          Transport Details
+          TRANSPORT DETAILS
         </Typography>
         <InvoiceTransport />
       </Box>

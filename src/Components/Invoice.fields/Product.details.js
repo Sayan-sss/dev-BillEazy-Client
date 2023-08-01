@@ -28,7 +28,7 @@ const Productdetails = () => {
           gutterBottom
           sx={{ display: "flex", justifyContent: "center", marginBottom: "0" }}
         >
-          Products
+          PRODUCTS
         </Typography>
         <InvoiceDialouge />
       </Box>

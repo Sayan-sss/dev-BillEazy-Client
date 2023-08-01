@@ -108,7 +108,7 @@ export default function InvoiceDialouge(props) {
             autoFocus
             margin="dense"
             id="companyAddress"
-            label="Ccompany Address"
+            label="Company Address"
             type="text"
             fullWidth
             variant="outlined"

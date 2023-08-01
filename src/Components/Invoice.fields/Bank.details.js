@@ -24,7 +24,7 @@ const Bankdetails = () => {
         }}
       >
         <Typography variant="h5" gutterBottom sx={{ fontWeight: "" }}>
-          Bank Details (OPTIONAL FIELD)
+          BANK DETAILS (OPTIONAL FIELD)
         </Typography>
         <InvoiceDialouge />
       </Box>

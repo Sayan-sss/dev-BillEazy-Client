@@ -15,6 +15,7 @@ import InvoiceProductsRadioGroup from "./InvoiceProduct.Radiogroup";
 import ProductSelect from "./Invoice.Product.DiscountSelect";
 import ProductGSTselect from "./Invoice.Product.GstSelect";
 import Select from "./Invoice.Product.Select";
+import { Box } from "@mui/material";
 
 export default function InvoiceProduct(props) {
   const [open, setOpen] = React.useState(false);
@@ -70,7 +71,7 @@ export default function InvoiceProduct(props) {
             fontFamily: "Roboto",
           }}
         >
-          Add Product
+          ADD PRODUCT
         </DialogTitle>
         <DialogContent>
           <TextField
@@ -95,61 +96,92 @@ export default function InvoiceProduct(props) {
             value={itemDescription}
             onChange={(e) => setItemDescription(e.target.value.toUpperCase())}
           />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="hsn"
-            label="HSN"
-            type="name"
-            fullWidth
-            variant="outlined"
-            value={hsn}
-            onChange={(e) => setHsn(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="quantity"
-            label="Quantity"
-            type="name"
-            fullWidth
-            variant="outlined"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="unit"
-            label="Unit"
-            type="name"
-            fullWidth
-            variant="outlined"
-            value={unit}
-            onChange={(e) => setUnit(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="salePrice"
-            label="Sale Price"
-            type="name"
-            fullWidth
-            variant="outlined"
-            value={salePrice}
-            onChange={(e) => setSalePrice(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="discount"
-            label="Discount"
-            type="name"
-            fullWidth
-            variant="outlined"
-            value={discount}
-            onChange={(e) => setDiscount(e.target.value)}
-          />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="hsn"
+              label="HSN"
+              type="name"
+              sx={{
+                width: "60%",
+              }}
+              // fullWidth
+              variant="outlined"
+              value={hsn}
+              onChange={(e) => setHsn(e.target.value)}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="quantity"
+              label="Quantity"
+              type="name"
+              sx={{
+                width: "38%",
+              }}
+              // fullWidth
+              variant="outlined"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="unit"
+              label="Unit"
+              type="name"
+              sx={{
+                width: "32%",
+              }}
+              // fullWidth
+              variant="outlined"
+              value={unit}
+              onChange={(e) => setUnit(e.target.value)}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="salePrice"
+              label="Sale Price"
+              type="name"
+              sx={{
+                width: "32%",
+              }}
+              // fullWidth
+              variant="outlined"
+              value={salePrice}
+              onChange={(e) => setSalePrice(e.target.value)}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="discount"
+              label="Discount"
+              type="name"
+              sx={{
+                width: "32%",
+              }}
+              // fullWidth
+              variant="outlined"
+              value={discount}
+              onChange={(e) => setDiscount(e.target.value)}
+            />
+          </Box>
           <ProductSelect />
           <InvoiceProductsRadioGroup />
           <ProductGSTselect />
@@ -179,8 +211,10 @@ export default function InvoiceProduct(props) {
           <Select />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button>Save</Button>
+          <Button variant="outlined" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="outlined">Save</Button>
         </DialogActions>
       </Dialog>
       <Toaster />

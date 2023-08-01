@@ -12,6 +12,7 @@ import API from "../../api";
 import EditIcon from "@mui/icons-material/Edit";
 import InvoiceTextField from "./Invoice.textField";
 import InvoiceProductsRadioGroup from "./InvoiceProduct.Radiogroup";
+import { Box } from "@mui/material";
 
 export default function InvoiceProduct(props) {
   const [open, setOpen] = React.useState(false);
@@ -45,7 +46,7 @@ export default function InvoiceProduct(props) {
             fontFamily: "Roboto",
           }}
         >
-          Add New Buyer
+          BANK DETAILS
         </DialogTitle>
         <DialogContent sx={{ marginTop: "2rem" }}>
           <TextField
@@ -57,31 +58,40 @@ export default function InvoiceProduct(props) {
             fullWidth
             variant="outlined"
             value={accountholdername}
-            onChange={(e) => setAccountholdername(e.target.value)}
+            onChange={(e) => setAccountholdername(e.target.value.toUpperCase())}
           />
-
-          <TextField
-            autoFocus
-            margin="dense"
-            id="accountnumber"
-            label="Account Number"
-            type="text"
-            fullWidth
-            variant="outlined"
-            value={accountnumber}
-            onChange={(e) => setAccountnumber(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="ifsc"
-            label="Enter IFSC number"
-            type="number"
-            fullWidth
-            variant="outlined"
-            value={ifsc}
-            onChange={(e) => setIfsc(e.target.value)}
-          />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="accountnumber"
+              label="Account Number"
+              type="text"
+              // fullWidth
+              sx={{ width: "49%" }}
+              variant="outlined"
+              value={accountnumber}
+              onChange={(e) => setAccountnumber(e.target.value)}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="ifsc"
+              label="Enter IFSC number"
+              type="text"
+              // fullWidth
+              sx={{ width: "49%" }}
+              variant="outlined"
+              value={ifsc}
+              onChange={(e) => setIfsc(e.target.value.toUpperCase())}
+            />
+          </Box>
           <TextField
             autoFocus
             margin="dense"
@@ -91,7 +101,7 @@ export default function InvoiceProduct(props) {
             fullWidth
             variant="outlined"
             value={bankname}
-            onChange={(e) => setBankname(e.target.value)}
+            onChange={(e) => setBankname(e.target.value.toUpperCase())}
           />
           <TextField
             autoFocus
@@ -102,7 +112,7 @@ export default function InvoiceProduct(props) {
             fullWidth
             variant="outlined"
             value={branchname}
-            onChange={(e) => setBranchname(e.target.value)}
+            onChange={(e) => setBranchname(e.target.value.toUpperCase())}
           />
         </DialogContent>
         <DialogActions>

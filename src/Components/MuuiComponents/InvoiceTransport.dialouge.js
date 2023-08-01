@@ -15,6 +15,7 @@ import InvoiceProductsRadioGroup from "./InvoiceProduct.Radiogroup";
 import InvoiceTransportRadiogroup from "./InvoiceTransport.Radiogroup";
 import DatePicker from "./InvoiceTransport.Datepicker";
 import TransportSelect from "./InvoiceTransport.select";
+import { Box } from "@mui/material";
 
 export default function InvoiceTransport(props) {
   const [open, setOpen] = React.useState(false);
@@ -64,13 +65,13 @@ export default function InvoiceTransport(props) {
             fontFamily: "Roboto",
           }}
         >
-          Add New Buyer
+          TRANSPORT DETAILS
         </DialogTitle>
 
         <DialogContent>
           <InvoiceTransportRadiogroup />
-          <DatePicker name={"LR Date"} />
 
+          <DatePicker name={"LR Date"} />
           <TextField
             autoFocus
             margin="dense"
@@ -82,9 +83,7 @@ export default function InvoiceTransport(props) {
             value={lrnumber}
             onChange={(e) => setLrnumber(e.target.value)}
           />
-
           <DatePicker name={"Date of Supply"} />
-
           <TextField
             autoFocus
             margin="dense"
