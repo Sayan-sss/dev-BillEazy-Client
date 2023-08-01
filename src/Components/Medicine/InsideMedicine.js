@@ -95,6 +95,21 @@ export default function DataGridDemo(props) {
       width: "100",
       editable: true,
     },
+
+    {
+      field: "MFG",
+      headerName: "MFG",
+      type: "text",
+      width: "100",
+      editable: true,
+    },
+    {
+      field: "BATCHNO",
+      headerName: "Batch No",
+      type: "number",
+      width: "100",
+      editable: true,
+    },
     {
       field: "Expiry",
       headerName: "EXPIRY",
@@ -179,6 +194,8 @@ export default function DataGridDemo(props) {
         Rate: m.rate,
         MRP: m.mrp,
         HSN: m.hsn,
+        MFG: m?.mfg,
+        BATCHNO: m?.batchno,
       })),
     [props.medicines]
   );

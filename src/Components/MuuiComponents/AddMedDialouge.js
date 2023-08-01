@@ -23,6 +23,8 @@ export default function AddMedDialouge(props) {
   const [rate, setRate] = React.useState("");
   const [mrp, setMrp] = React.useState("");
   const [expiry, setExpiry] = React.useState("");
+  const [mfg, setMfg] = React.useState("");
+  const [batchno, setBatchno] = React.useState("");
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -38,7 +40,9 @@ export default function AddMedDialouge(props) {
         rate,
         mrp,
         hsn,
-        expiry,
+        // expiry,
+        batchno,
+        mfg,
       });
 
       if (data?.success) {
@@ -147,6 +151,39 @@ export default function AddMedDialouge(props) {
             <TextField
               autoFocus
               margin="dense"
+              id="mfg"
+              label="MFG"
+              type="String"
+              // fullWidth
+              sx={{
+                width: "52%",
+              }}
+              variant="outlined"
+              value={mfg}
+              onChange={(e) => setMfg(e.target.value.toUpperCase())}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="batchno"
+              label="Batch No"
+              type="Number"
+              // fullWidth
+              variant="outlined"
+              value={batchno}
+              onChange={(e) => setBatchno(e.target.value)}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
               id="mrp"
               label="MRP"
               type="Number"
@@ -169,7 +206,8 @@ export default function AddMedDialouge(props) {
             value={expiry}
             onChange={(e) => setExpiry(e.target.value)}
           /> */}
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
+
+            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer
                 components={["DatePicker"]}
                 sx={{
@@ -182,7 +220,7 @@ export default function AddMedDialouge(props) {
                   label="EXPIRY DATE"
                 />
               </DemoContainer>
-            </LocalizationProvider>
+            </LocalizationProvider> */}
           </Box>
         </DialogContent>
         <DialogActions>
