@@ -5,11 +5,13 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
+import { Box } from "@mui/material";
 import DialogTitle from "@mui/material/DialogTitle";
 import AddIcon from "@mui/icons-material/Add";
 import { toast, Toaster } from "react-hot-toast";
 import API from "../../api";
 import EditIcon from "@mui/icons-material/Edit";
+import BuyerSelect from "./Invoice.Buyer.Select";
 
 export default function InvoiceDialouge(props) {
   const [open, setOpen] = React.useState(false);
@@ -20,6 +22,7 @@ export default function InvoiceDialouge(props) {
   const [companyMobile, setCompanyMobile] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [state, setState] = React.useState("");
+  const [dl, setDl] = React.useState("");
   const [city, setCity] = React.useState("");
   const [gstTreatmentType, setGstTreatmentType] = React.useState("");
   //   const [companyPan, setCompanyPan] = React.useState("");
@@ -93,6 +96,17 @@ export default function InvoiceDialouge(props) {
           <TextField
             autoFocus
             margin="dense"
+            id="dl"
+            label="DL No."
+            type="text"
+            fullWidth
+            variant="outlined"
+            value={dl}
+            onChange={(e) => setDl(e.target.value)}
+          />
+          <TextField
+            autoFocus
+            margin="dense"
             id="companyAddress"
             label="Ccompany Address"
             type="text"
@@ -101,54 +115,79 @@ export default function InvoiceDialouge(props) {
             value={companyAddress}
             onChange={(e) => setCompanyAddress(e.target.value)}
           />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="companyMobile"
+              label="Company Mobile"
+              type="number"
+              // fullWidth
+              sx={{
+                width: "48%",
+              }}
+              variant="outlined"
+              value={companyMobile}
+              onChange={(e) => setCompanyMobile(e.target.value)}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="State"
+              label="State"
+              type="text"
+              // fullWidth
+              sx={{
+                width: "49%",
+              }}
+              variant="outlined"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="pincode"
+              label="Pincode"
+              type="text"
+              // fullWidth
+              sx={{
+                width: "30%",
+              }}
+              variant="outlined"
+              value={pincode}
+              onChange={(e) => setPincode(e.target.value)}
+            />
 
-          <TextField
-            autoFocus
-            margin="dense"
-            id="companyMobile"
-            label="Company Mobile"
-            type="number"
-            fullWidth
-            variant="outlined"
-            value={companyMobile}
-            onChange={(e) => setCompanyMobile(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="State"
-            label="State"
-            type="text"
-            fullWidth
-            variant="outlined"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-          />
-
-          <TextField
-            autoFocus
-            margin="dense"
-            id="pincode"
-            label="Pincode"
-            type="text"
-            fullWidth
-            variant="outlined"
-            value={pincode}
-            onChange={(e) => setPincode(e.target.value)}
-          />
-
-          <TextField
-            autoFocus
-            margin="dense"
-            id="email"
-            label="email"
-            type="email"
-            fullWidth
-            variant="outlined"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-
+            <TextField
+              autoFocus
+              margin="dense"
+              id="email"
+              label="email"
+              type="email"
+              sx={{
+                width: "67%",
+              }}
+              // fullWidth
+              variant="outlined"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Box>
           <TextField
             autoFocus
             margin="dense"
@@ -160,7 +199,7 @@ export default function InvoiceDialouge(props) {
             value={city}
             onChange={(e) => setCity(e.target.value)}
           />
-          <TextField
+          {/* <TextField
             autoFocus
             margin="dense"
             id="gstTreatmentType"
@@ -170,7 +209,8 @@ export default function InvoiceDialouge(props) {
             variant="outlined"
             value={gstTreatmentType}
             onChange={(e) => setGstTreatmentType(e.target.value)}
-          />
+          /> */}
+          <BuyerSelect sx={{ margin: "dense" }} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

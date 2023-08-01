@@ -177,8 +177,9 @@ export default function AddMedDialouge(props) {
                 }}
               >
                 <DatePicker
+                  dateFormat="dd/MM/yyyy"
+                  // value={expiry}
                   label="EXPIRY DATE"
-                  onChange={(e) => setExpiry(e.target.value)}
                 />
               </DemoContainer>
             </LocalizationProvider>

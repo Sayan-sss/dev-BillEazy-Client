@@ -10,6 +10,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { toast, Toaster } from "react-hot-toast";
 import API from "../../api";
 import EditIcon from "@mui/icons-material/Edit";
+import { Box } from "@mui/material";
 
 export default function InvoiceDialouge(props) {
   const [open, setOpen] = React.useState(false);
@@ -22,6 +23,7 @@ export default function InvoiceDialouge(props) {
   const [companyemail, setCompanyemail] = React.useState("");
   const [city, setCity] = React.useState("");
   const [companyPan, setCompanyPan] = React.useState("");
+  const [dl, setDl] = React.useState("");
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -49,28 +51,35 @@ export default function InvoiceDialouge(props) {
   //     handleClose();
   //   };
   return (
-    <div>
+    <Box>
       <EditIcon
         onClick={handleClickOpen}
         sx={{ marginRight: "2rem", cursor: "pointer" }}
       />
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Add Medicine</DialogTitle>
+        <DialogTitle
+          sx={{
+            height: "2rem",
+            backgroundColor: "#363740",
+            color: "#ffffff",
+            fontFamily: "Roboto",
+          }}
+        >
+          SUPPLIER DETAILS
+        </DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Add new medicines to your inventory
-          </DialogContentText>
+          {/* <DialogContentText>Add seller details</DialogContentText> */}
 
           <TextField
             autoFocus
             margin="dense"
             id="firmname"
-            label="Firmname"
+            label="Firm Name"
             type="name"
             fullWidth
             variant="outlined"
             value={firmname}
-            onChange={(e) => setFirmName(e.target.value)}
+            onChange={(e) => setFirmName(e.target.value.toUpperCase())}
           />
 
           <TextField
@@ -87,102 +96,145 @@ export default function InvoiceDialouge(props) {
           <TextField
             autoFocus
             margin="dense"
+            id="dl"
+            label="DL No."
+            type="text"
+            fullWidth
+            variant="outlined"
+            value={dl}
+            onChange={(e) => setDl(e.target.value)}
+          />
+
+          <TextField
+            autoFocus
+            margin="dense"
             id="companyAddress"
-            label="Ccompany Address"
+            label="Company Address"
             type="text"
             fullWidth
             variant="outlined"
             value={companyAddress}
-            onChange={(e) => setCompanyAddress(e.target.value)}
+            onChange={(e) => setCompanyAddress(e.target.value.toUpperCase())}
           />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="companyMobile"
+              label="Company Mobile"
+              type="number"
+              sx={{
+                width: "48%",
+              }}
+              // fullWidth
+              variant="outlined"
+              value={companyMobile}
+              onChange={(e) => setCompanyMobile(e.target.value)}
+            />
 
-          <TextField
-            autoFocus
-            margin="dense"
-            id="companyMobile"
-            label="Company Mobile"
-            type="number"
-            fullWidth
-            variant="outlined"
-            value={companyMobile}
-            onChange={(e) => setCompanyMobile(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="State"
-            label="State"
-            type="text"
-            fullWidth
-            variant="outlined"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-          />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="State"
+              label="State"
+              type="text"
+              sx={{
+                width: "49%",
+              }}
+              // fullWidth
+              variant="outlined"
+              value={state}
+              onChange={(e) => setState(e.target.value.toUpperCase())}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="pincode"
+              label="Pincode"
+              type="text"
+              sx={{
+                width: "30%",
+              }}
+              // fullWidth
+              variant="outlined"
+              value={pincode}
+              onChange={(e) => setPincode(e.target.value)}
+            />
 
-          <TextField
-            autoFocus
-            margin="dense"
-            id="pincode"
-            label="Pincode"
-            type="text"
-            fullWidth
-            variant="outlined"
-            value={pincode}
-            onChange={(e) => setPincode(e.target.value)}
-          />
-
-          <TextField
-            autoFocus
-            margin="dense"
-            id="companyemail"
-            label="Companyemail"
-            type="email"
-            fullWidth
-            variant="outlined"
-            value={companyemail}
-            onChange={(e) => setCompanyemail(e.target.value)}
-          />
-
-          <TextField
-            autoFocus
-            margin="dense"
-            id="companyemail"
-            label="Companyemail"
-            type="email"
-            fullWidth
-            variant="outlined"
-            value={companyemail}
-            onChange={(e) => setCompanyemail(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="city"
-            label="City"
-            type="email"
-            fullWidth
-            variant="outlined"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="companyPan"
-            label="CompanyPan"
-            type="email"
-            fullWidth
-            variant="outlined"
-            value={companyPan}
-            onChange={(e) => setCompanyPan(e.target.value)}
-          />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="companyemail"
+              label="Company Email"
+              type="email"
+              sx={{
+                width: "67%",
+              }}
+              // fullWidth
+              variant="outlined"
+              value={companyemail}
+              onChange={(e) => setCompanyemail(e.target.value)}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="city"
+              label="City"
+              type="string"
+              sx={{
+                width: "48%",
+              }}
+              // fullWidth
+              variant="outlined"
+              value={city}
+              onChange={(e) => setCity(e.target.value.toUpperCase())}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="companyPan"
+              label="Company Pan No."
+              type="email"
+              sx={{
+                width: "49%",
+              }}
+              // fullWidth
+              variant="outlined"
+              value={companyPan}
+              onChange={(e) => setCompanyPan(e.target.value)}
+            />
+          </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button>Save</Button>
+          <Button variant="outlined" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="outlined">Save</Button>
         </DialogActions>
       </Dialog>
       <Toaster />
-    </div>
+    </Box>
   );
 }

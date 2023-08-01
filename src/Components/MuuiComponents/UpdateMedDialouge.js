@@ -79,8 +79,8 @@ export default function UpdateMedDialouge(props) {
           <TextField
             autoFocus
             margin="dense"
-            id="name"
-            label="Medicine Quantity"
+            id="quantity"
+            label=" QUANTITY"
             type="number"
             fullWidth
             variant="outlined"
@@ -90,7 +90,7 @@ export default function UpdateMedDialouge(props) {
           <TextField
             autoFocus
             margin="dense"
-            id="name"
+            id="hsn"
             label="HSN"
             type="number"
             fullWidth
@@ -101,8 +101,8 @@ export default function UpdateMedDialouge(props) {
           <TextField
             autoFocus
             margin="dense"
-            id="name"
-            label="Rate"
+            id="rate"
+            label="RATE"
             type="Number"
             fullWidth
             variant="outlined"
@@ -112,7 +112,7 @@ export default function UpdateMedDialouge(props) {
           <TextField
             autoFocus
             margin="dense"
-            id="name"
+            id="mrp"
             label="MRP"
             type="Number"
             fullWidth

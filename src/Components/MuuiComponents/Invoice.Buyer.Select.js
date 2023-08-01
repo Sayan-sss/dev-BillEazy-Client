@@ -5,24 +5,24 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function TransportSelect() {
-  const [age, setAge] = React.useState("");
+export default function BuyerSelect() {
+  const [gstTreatmentType, setGstTreatmentType] = React.useState("");
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setGstTreatmentType(event.target.value);
   };
 
   return (
     <Box sx={{ minWidth: 120, marginTop: "0.5rem" }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">
-          Select Supply Type
+          GST Treatment Type
         </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
-          label="Select Supply Type"
+          value={gstTreatmentType}
+          label="GST Treatment Type"
           onChange={handleChange}
         >
           <MenuItem value={10}>NONE</MenuItem>
