@@ -1,9 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import InvoiceDialouge from "../MuuiComponents/InvoiceBankdetails.dialouge";
 
-import InvoiceTransport from "../MuuiComponents/InvoiceTransport.dialouge";
-
-const TransportDetails = () => {
+const Bankdetails = () => {
   return (
     <>
       <Box
@@ -24,17 +23,13 @@ const TransportDetails = () => {
           borderRadius: "3px",
         }}
       >
-        <Typography
-          variant="h5"
-          gutterBottom
-          sx={{ display: "flex", justifyContent: "center", marginBottom: "0" }}
-        >
-          Transport Details
+        <Typography variant="h5" gutterBottom sx={{ fontWeight: "" }}>
+          Bank Details (OPTIONAL FIELD)
         </Typography>
-        <InvoiceTransport />
+        <InvoiceDialouge />
       </Box>
     </>
   );
 };
 
-export default TransportDetails;
+export default Bankdetails;

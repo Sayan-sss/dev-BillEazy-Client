@@ -12,15 +12,14 @@ import API from "../../api";
 import EditIcon from "@mui/icons-material/Edit";
 import InvoiceTextField from "./Invoice.textField";
 import InvoiceProductsRadioGroup from "./InvoiceProduct.Radiogroup";
-import InvoiceTransportRadiogroup from "./InvoiceTransport.Radiogroup";
-import DatePicker from "./InvoiceTransport.Datepicker";
-import TransportSelect from "./InvoiceTransport.select";
 
-export default function InvoiceTransport(props) {
+export default function InvoiceProduct(props) {
   const [open, setOpen] = React.useState(false);
-  const [lrnumber, setLrnumber] = React.useState("");
-  const [placeofsupply, setPlaceofsupply] = React.useState("");
-  const [vehiclenumber, setVehiclenumber] = React.useState("");
+  const [accountholdername, setAccountholdername] = React.useState("");
+  const [accountnumber, setAccountnumber] = React.useState("");
+  const [ifsc, setIfsc] = React.useState("");
+  const [bankname, setBankname] = React.useState("");
+  const [branchname, setBranchname] = React.useState("");
 
   //   const [companyPan, setCompanyPan] = React.useState("");
   const handleClickOpen = () => {
@@ -30,25 +29,7 @@ export default function InvoiceTransport(props) {
   const handleClose = async () => {
     setOpen(false);
   };
-  //   const handleSubmit = async () => {
-  //     try {
-  //       const { data } = await API.post("/api/medicine/addmedicine", {
-  //         name,
-  //         quantity,
-  //         price,
-  //       });
 
-  //       if (data?.success) {
-  //         toast.success("Successfully product added");
-  //         props.getAllMedicines();
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //       toast.error("Something went Wrong");
-  //     }
-
-  //     handleClose();
-  //   };
   return (
     <div>
       <EditIcon
@@ -66,48 +47,63 @@ export default function InvoiceTransport(props) {
         >
           Add New Buyer
         </DialogTitle>
-
-        <DialogContent>
-          <InvoiceTransportRadiogroup />
-          <DatePicker name={"LR Date"} />
-
+        <DialogContent sx={{ marginTop: "2rem" }}>
           <TextField
             autoFocus
             margin="dense"
-            id="lrnumber"
-            label="LR Number"
-            type="number"
-            fullWidth
-            variant="outlined"
-            value={lrnumber}
-            onChange={(e) => setLrnumber(e.target.value)}
-          />
-
-          <DatePicker name={"Date of Supply"} />
-
-          <TextField
-            autoFocus
-            margin="dense"
-            id="placeofsupply"
-            label="Place Of Supply"
+            id="accountholdername"
+            label="Account Holder Name"
             type="text"
             fullWidth
             variant="outlined"
-            value={placeofsupply}
-            onChange={(e) => setPlaceofsupply(e.target.value)}
+            value={accountholdername}
+            onChange={(e) => setAccountholdername(e.target.value)}
+          />
+
+          <TextField
+            autoFocus
+            margin="dense"
+            id="accountnumber"
+            label="Account Number"
+            type="text"
+            fullWidth
+            variant="outlined"
+            value={accountnumber}
+            onChange={(e) => setAccountnumber(e.target.value)}
           />
           <TextField
             autoFocus
             margin="dense"
-            id="vehiclenumber"
-            label="Vehicle Number"
+            id="ifsc"
+            label="Enter IFSC number"
             type="number"
             fullWidth
             variant="outlined"
-            value={vehiclenumber}
-            onChange={(e) => setVehiclenumber(e.target.value)}
+            value={ifsc}
+            onChange={(e) => setIfsc(e.target.value)}
           />
-          <TransportSelect />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="bankname"
+            label="Enter Bank Name"
+            type="number"
+            fullWidth
+            variant="outlined"
+            value={bankname}
+            onChange={(e) => setBankname(e.target.value)}
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="branchname"
+            label="Enter Branch Name"
+            type="number"
+            fullWidth
+            variant="outlined"
+            value={branchname}
+            onChange={(e) => setBranchname(e.target.value)}
+          />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

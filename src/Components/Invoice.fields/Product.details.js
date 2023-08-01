@@ -8,15 +8,19 @@ const Productdetails = () => {
       <Box
         className="header"
         sx={{
-          width: "100%",
-          border: "1px solid #d9dbe9",
+          width: "98%",
+          //   border: "1px solid black",
           backgroundColor: "#d9dbe9",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginTop: "1.2rem",
           height: "3.5rem",
-          //   border: "1px solid black",
+          marginTop: "1.2rem",
+          //   marginLeft: ".7rem",
+          //   marginRight: ".7rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          borderRadius: "3px",
         }}
       >
         <Typography

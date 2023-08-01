@@ -12,6 +12,12 @@ export default function InvoiceTransportRadiogroup() {
         aria-labelledby="demo-radio-buttons-group-label"
         defaultValue="none"
         name="radio-buttons-group"
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          marginTop: "1.2rem",
+          marginBottom: ".7rem",
+        }}
       >
         <FormControlLabel value="none" control={<Radio />} label="none" />
         <FormControlLabel value="road" control={<Radio />} label="Road" />
