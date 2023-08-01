@@ -1,24 +1,57 @@
-import { Button } from "@mui/base";
+import Button from "@mui/material/Button";
+import { Box } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Invoicetable from "../MuuiComponents/invoiceTable";
 import "./invoicegenerator.css";
+import SearchAppBar from "../MuuiComponents/Searchbar";
 // import invoiceTable from "../MuuiComponents/invoiceTable";
 const Invoicegenerator = () => {
   const navigate = useNavigate();
   return (
-    <div className="invoice_container">
-      <div className="table_container">
+    <Box
+      className="invoice_container"
+      sx={{
+        // border: "10px solid red",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <Box
+        className="table_container"
+        sx={{
+          border: "none",
+          marginTop: "5rem",
+          // height: "80vh",
+          width: "90%",
+          boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Button
+            // variant="contained"
+            onClick={() => {
+              navigate("/invoice/create");
+            }}
+            sx={{
+              width: "5rem",
+              marginLeft: "auto",
+              display: "flex",
+              height: "2rem",
+              backgroundColor: "#363740",
+              color: "white",
+            }}
+          >
+            Create
+          </Button>
+          <SearchAppBar />
+        </Box>
         <Invoicetable />
-        <Button
-          onClick={() => {
-            navigate("/invoice/create");
-          }}
-        >
-          Create
-        </Button>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 
