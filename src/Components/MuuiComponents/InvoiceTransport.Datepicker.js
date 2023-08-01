@@ -7,7 +7,7 @@ import { DateField } from "@mui/x-date-pickers/DateField";
 export default function DatePicker(props) {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DemoContainer components={["DateField"]}>
+      <DemoContainer sx={{ marginBottom: "0.3rem" }} components={["DateField"]}>
         <DateField label={props.name} />
       </DemoContainer>
     </LocalizationProvider>
