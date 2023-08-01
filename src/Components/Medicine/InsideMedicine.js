@@ -61,7 +61,7 @@ export default function DataGridDemo(props) {
     { field: "id", headerName: "ID", width: 100 },
     {
       field: "Medicine",
-      headerName: "Medicine",
+      headerName: "MEDICINE",
       width: 180,
       display: "flex",
       justifyContent: "center",
@@ -69,7 +69,7 @@ export default function DataGridDemo(props) {
     },
     {
       field: "Quantity",
-      headerName: "Quantity",
+      headerName: "QUANTITY",
       width: "150",
       type: "number",
       editable: true,
@@ -90,8 +90,15 @@ export default function DataGridDemo(props) {
 
     {
       field: "Rate",
-      headerName: "Rate",
+      headerName: "RATE",
       type: "number",
+      width: "100",
+      editable: true,
+    },
+    {
+      field: "Expiry",
+      headerName: "EXPIRY",
+      type: "date",
       width: "100",
       editable: true,
     },
@@ -110,7 +117,7 @@ export default function DataGridDemo(props) {
     //   },
     // },
     {
-      field: "Delete",
+      field: "DELETE",
       renderCell: (cellValues) => {
         return (
           <Button

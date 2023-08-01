@@ -8,7 +8,12 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import AddIcon from "@mui/icons-material/Add";
 import { toast, Toaster } from "react-hot-toast";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import API from "../../api";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { Box, Container } from "@mui/material";
 
 export default function AddMedDialouge(props) {
   const [open, setOpen] = React.useState(false);
@@ -17,6 +22,7 @@ export default function AddMedDialouge(props) {
   const [hsn, setHsn] = React.useState("");
   const [rate, setRate] = React.useState("");
   const [mrp, setMrp] = React.useState("");
+  const [expiry, setExpiry] = React.useState("");
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -32,6 +38,7 @@ export default function AddMedDialouge(props) {
         rate,
         mrp,
         hsn,
+        expiry,
       });
 
       if (data?.success) {
@@ -53,7 +60,7 @@ export default function AddMedDialouge(props) {
         onClick={handleClickOpen}
         startIcon={<AddIcon />}
       >
-        Add Medicine
+        ADD MEDICINE
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add Medicine</DialogTitle>
@@ -61,65 +68,125 @@ export default function AddMedDialouge(props) {
           <DialogContentText>
             Add new medicines to your inventory
           </DialogContentText>
-          <TextField
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="MEDICINE NAME"
+              type="name"
+              sx={{
+                width: "70%",
+              }}
+              // fullWidth
+              variant="outlined"
+              value={name}
+              onChange={(e) => setName(e.target.value.toUpperCase())}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label=" QUANTITY"
+              type="number"
+              // fullWidth
+              sx={{
+                width: "28%",
+              }}
+              variant="outlined"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="HSN"
+              type="String"
+              // fullWidth
+              sx={{
+                width: "52%",
+              }}
+              variant="outlined"
+              value={hsn}
+              onChange={(e) => setHsn(e.target.value.toUpperCase())}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="RATE"
+              type="Number"
+              // fullWidth
+              variant="outlined"
+              value={rate}
+              onChange={(e) => setRate(e.target.value)}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="mrp"
+              label="MRP"
+              type="Number"
+              // width
+              sx={{
+                width: "52%",
+              }}
+              variant="outlined"
+              value={mrp}
+              onChange={(e) => setMrp(e.target.value)}
+            />
+            {/* <TextField
             autoFocus
             margin="dense"
-            id="name"
-            label="Medicine Name"
-            type="name"
+            id="expiry"
+            label="EXPIRY"
+            type=""
             fullWidth
             variant="outlined"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Medicine Quantity"
-            type="number"
-            fullWidth
-            variant="outlined"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="HSN"
-            type="number"
-            fullWidth
-            variant="outlined"
-            value={hsn}
-            onChange={(e) => setHsn(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Rate"
-            type="Number"
-            fullWidth
-            variant="outlined"
-            value={rate}
-            onChange={(e) => setRate(e.target.value)}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="MRP"
-            type="Number"
-            fullWidth
-            variant="outlined"
-            value={mrp}
-            onChange={(e) => setMrp(e.target.value)}
-          />
+            value={expiry}
+            onChange={(e) => setExpiry(e.target.value)}
+          /> */}
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer
+                components={["DatePicker"]}
+                sx={{
+                  width: "46%",
+                }}
+              >
+                <DatePicker
+                  label="EXPIRY DATE"
+                  onChange={(e) => setExpiry(e.target.value)}
+                />
+              </DemoContainer>
+            </LocalizationProvider>
+          </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleSubmit}>Save</Button>
+          <Button onClick={handleClose}>CANCEL</Button>
+          <Button onClick={handleSubmit}>SAVE</Button>
         </DialogActions>
       </Dialog>
       <Toaster />

@@ -18,6 +18,8 @@ export default function UpdateMedDialouge(props) {
   const [hsn, setHsn] = React.useState("");
   const [rate, setRate] = React.useState("");
   const [mrp, setMrp] = React.useState("");
+  const [expiry, setExpiry] = React.useState("");
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -33,6 +35,7 @@ export default function UpdateMedDialouge(props) {
         rate,
         mrp,
         hsn,
+        expiry,
       });
 
       if (data?.success) {
@@ -116,6 +119,17 @@ export default function UpdateMedDialouge(props) {
             variant="outlined"
             value={mrp}
             onChange={(e) => setMrp(e.target.value)}
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="expiry"
+            label="EXPIRY"
+            type="Date"
+            fullWidth
+            variant="outlined"
+            value={expiry}
+            onChange={(e) => setExpiry(e.target.value)}
           />
         </DialogContent>
         <DialogActions>
