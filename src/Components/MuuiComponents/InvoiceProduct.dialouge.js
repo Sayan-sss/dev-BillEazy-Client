@@ -12,6 +12,9 @@ import API from "../../api";
 import EditIcon from "@mui/icons-material/Edit";
 import InvoiceTextField from "./Invoice.textField";
 import InvoiceProductsRadioGroup from "./InvoiceProduct.Radiogroup";
+import ProductSelect from "./Invoice.Product.DiscountSelect";
+import ProductGSTselect from "./Invoice.Product.GstSelect";
+import Select from "./Invoice.Product.Select";
 
 export default function InvoiceProduct(props) {
   const [open, setOpen] = React.useState(false);
@@ -23,6 +26,7 @@ export default function InvoiceProduct(props) {
   const [salePrice, setSalePrice] = React.useState("");
   const [gst, setGst] = React.useState("");
   const [cess, setCess] = React.useState("");
+  const [discount, setDiscount] = React.useState("");
 
   //   const [companyPan, setCompanyPan] = React.useState("");
   const handleClickOpen = () => {
@@ -66,7 +70,7 @@ export default function InvoiceProduct(props) {
             fontFamily: "Roboto",
           }}
         >
-          Add New Buyer
+          Add Product
         </DialogTitle>
         <DialogContent>
           <TextField
@@ -78,7 +82,7 @@ export default function InvoiceProduct(props) {
             fullWidth
             variant="outlined"
             value={itemName}
-            onChange={(e) => setItemName(e.target.value)}
+            onChange={(e) => setItemName(e.target.value.toUpperCase())}
           />
           <TextField
             autoFocus
@@ -89,7 +93,7 @@ export default function InvoiceProduct(props) {
             fullWidth
             variant="outlined"
             value={itemDescription}
-            onChange={(e) => setItemDescription(e.target.value)}
+            onChange={(e) => setItemDescription(e.target.value.toUpperCase())}
           />
           <TextField
             autoFocus
@@ -135,8 +139,21 @@ export default function InvoiceProduct(props) {
             value={salePrice}
             onChange={(e) => setSalePrice(e.target.value)}
           />
-          <InvoiceProductsRadioGroup />
           <TextField
+            autoFocus
+            margin="dense"
+            id="discount"
+            label="Discount"
+            type="name"
+            fullWidth
+            variant="outlined"
+            value={discount}
+            onChange={(e) => setDiscount(e.target.value)}
+          />
+          <ProductSelect />
+          <InvoiceProductsRadioGroup />
+          <ProductGSTselect />
+          {/* <TextField
             autoFocus
             margin="dense"
             id="gst"
@@ -146,7 +163,7 @@ export default function InvoiceProduct(props) {
             variant="outlined"
             value={gst}
             onChange={(e) => setGst(e.target.value)}
-          />
+          /> */}
 
           <TextField
             autoFocus
@@ -159,6 +176,7 @@ export default function InvoiceProduct(props) {
             value={cess}
             onChange={(e) => setCess(e.target.value)}
           />
+          <Select />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

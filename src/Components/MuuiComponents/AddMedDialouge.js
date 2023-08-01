@@ -40,7 +40,7 @@ export default function AddMedDialouge(props) {
         rate,
         mrp,
         hsn,
-        // expiry,
+        expiry,
         batchno,
         mfg,
       });
@@ -207,7 +207,7 @@ export default function AddMedDialouge(props) {
             onChange={(e) => setExpiry(e.target.value)}
           /> */}
 
-            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer
                 components={["DatePicker"]}
                 sx={{
@@ -216,11 +216,15 @@ export default function AddMedDialouge(props) {
               >
                 <DatePicker
                   dateFormat="dd/MM/yyyy"
-                  // value={expiry}
+                  value={expiry}
                   label="EXPIRY DATE"
+                  onChange={(newValue) => {
+                    // setExpiry(moment(newValue).format('DD MMM, YYYY'));
+                    setExpiry(newValue);
+                  }}
                 />
               </DemoContainer>
-            </LocalizationProvider> */}
+            </LocalizationProvider>
           </Box>
         </DialogContent>
         <DialogActions>

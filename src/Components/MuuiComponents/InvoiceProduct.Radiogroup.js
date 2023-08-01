@@ -12,7 +12,9 @@ export default function InvoiceProductsRadioGroup() {
         aria-labelledby="demo-radio-buttons-group-label"
         defaultValue="taxinvoice"
         name="radio-buttons-group"
+        sx={{ display: "flex", flexDirection: "column" }}
       >
+        <h4>Select Tax Type</h4>
         <FormControlLabel
           value="taxinvoice"
           control={<Radio />}

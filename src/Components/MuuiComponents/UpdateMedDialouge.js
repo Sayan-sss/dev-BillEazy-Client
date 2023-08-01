@@ -12,7 +12,7 @@ import API from "../../api";
 import { Box } from "@mui/material";
 
 export default function UpdateMedDialouge(props) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(props);
   const [name, setName] = React.useState("");
   const [quantity, setQuantity] = React.useState("");
   const [hsn, setHsn] = React.useState("");
@@ -20,9 +20,9 @@ export default function UpdateMedDialouge(props) {
   const [mrp, setMrp] = React.useState("");
   const [expiry, setExpiry] = React.useState("");
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  // const handleClickOpen = () => {
+  //   setOpen(props.open);
+  // };
 
   const handleClose = async () => {
     setOpen(false);
@@ -51,14 +51,6 @@ export default function UpdateMedDialouge(props) {
   };
   return (
     <Box>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleClickOpen}
-        startIcon={<AddIcon />}
-      >
-        Update
-      </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add Medicine</DialogTitle>
         <DialogContent>

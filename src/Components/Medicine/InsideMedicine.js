@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import API from "../../api/index";
@@ -8,19 +8,18 @@ import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import UpdateMedDialouge from "../MuuiComponents/UpdateMedDialouge";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import moment from "moment";
+import EditIcon from "@mui/icons-material/Edit";
 export default function DataGridDemo(props) {
   // const [medicines,setMedicines] =React.useState([]);
 
+  const [open, setOpen] = useState(false);
+
   const handleUpdate = async (e, cellValues) => {
-    try {
-      console.log(cellValues);
-      console.log(cellValues.row._id);
-      const Medicineid = cellValues.row._id;
-    } catch (error) {
-      console.log(error);
-    }
+    return !open;
   };
+
+  console.log(open);
   const navigate = useNavigate();
 
   const handleDelete = async (e, cellValues) => {
@@ -62,7 +61,7 @@ export default function DataGridDemo(props) {
     {
       field: "Medicine",
       headerName: "MEDICINE",
-      width: 180,
+      width: 150,
       display: "flex",
       justifyContent: "center",
       editable: true,
@@ -113,24 +112,26 @@ export default function DataGridDemo(props) {
     {
       field: "Expiry",
       headerName: "EXPIRY",
-      type: "date",
-      width: "100",
+      // type: "date",
+      width: "120",
       editable: true,
     },
-    // {
-    //   field: "Update",
-    //   renderCell: (cellValues) => {
-    //     return (
-    //       <Box
-    //         variant="contained"
-    //         color="primary"
-    //         // onClick={() => navigate(<UpdateMedDialouge />)}
-    //       >
-    //         <UpdateMedDialouge />
-    //       </Box>
-    //     );
-    //   },
-    // },
+    {
+      field: "Update",
+      renderCell: (cellValues) => {
+        return (
+          <Button
+            // variant="contained"
+            color="primary"
+            onClick={(event) => {
+              handleUpdate(event, cellValues);
+            }}
+          >
+            <EditIcon />
+          </Button>
+        );
+      },
+    },
     {
       field: "DELETE",
       renderCell: (cellValues) => {
@@ -195,13 +196,16 @@ export default function DataGridDemo(props) {
         MRP: m.mrp,
         HSN: m.hsn,
         MFG: m?.mfg,
+        Expiry: moment(m?.expiry).format("DD MMM, YYYY"),
         BATCHNO: m?.batchno,
       })),
     [props.medicines]
   );
+  console.log(props.medicines);
   // console.log(rows[0].name)
   return (
     <>
+      <UpdateMedDialouge open={open} setOpen={setOpen} />;
       <Box
         sx={{
           height: 400,
