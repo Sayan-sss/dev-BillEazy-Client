@@ -12,7 +12,8 @@ import API from "../../api";
 import { Box } from "@mui/material";
 
 export default function UpdateMedDialouge(props) {
-  const [open, setOpen] = React.useState(props);
+  // const [open, setOpen] = React.useState(props);
+  const { open, setOpen } = props;
   const [name, setName] = React.useState("");
   const [quantity, setQuantity] = React.useState("");
   const [hsn, setHsn] = React.useState("");

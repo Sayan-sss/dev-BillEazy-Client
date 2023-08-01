@@ -124,7 +124,7 @@ export default function DataGridDemo(props) {
             // variant="contained"
             color="primary"
             onClick={(event) => {
-              handleUpdate(event, cellValues);
+              setOpen(true);
             }}
           >
             <EditIcon />
