@@ -205,7 +205,7 @@ export default function DataGridDemo(props) {
   // console.log(rows[0].name)
   return (
     <>
-      <UpdateMedDialouge open={open} setOpen={setOpen} />;
+      <UpdateMedDialouge open={open} setOpen={setOpen} />
       <Box
         sx={{
           height: 400,

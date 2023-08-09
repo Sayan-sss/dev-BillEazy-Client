@@ -28,6 +28,8 @@ const SideBar = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          // border: "1px solid red",
+          height: "100vh",
         }}
       >
         <img
@@ -41,13 +43,37 @@ const SideBar = () => {
           }}
           alt=""
         />
-        <Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-evenly",
+            // border: "1px solid black",
+            height: "90vh",
+            // margin: "2rem",
+            // alignItems: "center",
+          }}
+        >
           <Button
             onClick={() => navigate("/Invoicegenerator")}
             variant="contained"
             color="primary"
           >
             Invoice
+          </Button>
+          <Button
+            onClick={() => navigate("/Invoicegenerator")}
+            variant="contained"
+            color="primary"
+          >
+            Challan
+          </Button>
+          <Button
+            onClick={() => navigate("/Invoicegenerator")}
+            variant="contained"
+            color="primary"
+          >
+            Proforma
           </Button>
         </Box>
       </Box>
