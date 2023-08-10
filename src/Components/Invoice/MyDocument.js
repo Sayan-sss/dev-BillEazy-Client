@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#FFFFFF",
     minHeight: "100%",
+    // border: "10px solid black",
     // minWidth: "100vw",
   },
   section: {

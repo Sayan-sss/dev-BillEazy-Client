@@ -57,7 +57,7 @@ export default function DataGridDemo(props) {
   };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 100 },
+    // { field: "id", headerName: "ID", width: 100 },
     {
       field: "Medicine",
       headerName: "MEDICINE",
@@ -69,14 +69,14 @@ export default function DataGridDemo(props) {
     {
       field: "Quantity",
       headerName: "QUANTITY",
-      width: "150",
+      // width: "150",
       type: "number",
       editable: true,
     },
     {
       field: "HSN",
       headerName: "HSN",
-      width: "100",
+      // width: "100",
       editable: true,
     },
     {
@@ -99,21 +99,21 @@ export default function DataGridDemo(props) {
       field: "MFG",
       headerName: "MFG",
       type: "text",
-      width: "100",
+      // width: "100",
       editable: true,
     },
     {
       field: "BATCHNO",
       headerName: "BATCH NO.",
       type: "number",
-      width: "100",
+      // width: "100",
       editable: true,
     },
     {
       field: "Expiry",
       headerName: "EXPIRY",
       // type: "date",
-      width: "120",
+      // width: "120",
       editable: true,
     },
     {
@@ -204,8 +204,8 @@ export default function DataGridDemo(props) {
   console.log(props.medicines);
   // console.log(rows[0].name)
   return (
-    <>
-      <UpdateMedDialouge open={open} setOpen={setOpen} />;
+    <Box>
+      <UpdateMedDialouge open={open} setOpen={setOpen} />
       <Box
         sx={{
           height: 400,
@@ -237,6 +237,6 @@ export default function DataGridDemo(props) {
         />
       </Box>
       <Toaster />
-    </>
+    </Box>
   );
 }
