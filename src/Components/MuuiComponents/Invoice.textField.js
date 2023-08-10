@@ -10,12 +10,14 @@ export default function InvoiceTextField() {
       sx={{
         "& > :not(style)": { m: 1, width: "25ch" },
         border: "1px solid #d9dbe9",
-        height: "35vh",
-        // width: "35vw",
-        // maxWidth: "35vw",
-        // height: "30vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        marginLeft: "0.5rem",
+        width: "15vw",
+        height: "40vh",
         borderRadius: "15px",
-        width: "25vw",
+        flexDirection: "column",
       }}
       noValidate
       autoComplete="off"

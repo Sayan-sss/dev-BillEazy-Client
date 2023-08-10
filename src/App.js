@@ -1,5 +1,5 @@
 import "./App.css";
-import { Box } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import Contact from "./Components/Contact/Contact";
 import Home from "./Components/Home/Home";
 import InvoiceViewer from "./Components/Invoice/invoice.viewer";
@@ -16,17 +16,20 @@ function App() {
         sx={{
           display: "flex",
           flexDirection: "row",
+          height: "100vh",
+          overflow: "hidden",
         }}
       >
-        <Box
+        <Paper
           sx={{
             display: "flex",
             flexDirection: "row",
             width: "20vw",
+            // border: "1px solid green",
           }}
         >
           <SideBar />
-        </Box>
+        </Paper>
         <Box
           sx={{
             width: "80vw",
@@ -34,7 +37,9 @@ function App() {
             // flexDirection: "column",
             justifyContent: "center",
             // alignItems: "center",
-            border: "1px solid green",
+            // border: "1px solid green",
+            backgroundColor: "whitesmoke",
+            // backgroundColor: "rgb(214,214,214)",
           }}
         >
           <Routes>

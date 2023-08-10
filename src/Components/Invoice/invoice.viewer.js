@@ -8,6 +8,7 @@ export default function InvoiceViewer() {
       minWidth: "99%",
       minHeight: "93vh",
       overflowX: "hidden",
+      // border: "10px solid black",
     },
   });
   return (

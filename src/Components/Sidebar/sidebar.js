@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // import "./Navbar.css";
 import { Box, Button } from "@mui/material";
+import Paper from "@mui/material/Paper";
 import Avatar from "@mui/material/Avatar";
 import { useNavigate } from "react-router-dom";
 import logo from "../Assets/logo.png";
@@ -13,13 +14,17 @@ const SideBar = () => {
 
   const navigate = useNavigate();
   return (
-    <Box
+    <Paper
+      variant="outlined"
       sx={{
         display: "flex",
         flexDirection: "column",
         height: "100vh",
-        width: "20vw",
-        backgroundColor: "white",
+        width: "100%",
+        backgroundColor: "#FFFFFF",
+        border: "1px solid black",
+
+        // backgroundColor: "rgb(214,214,214)",
       }}
     >
       <Box
@@ -28,7 +33,7 @@ const SideBar = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          // border: "1px solid red",
+          // border: "1px solid black",
           height: "100vh",
         }}
       >
@@ -77,7 +82,7 @@ const SideBar = () => {
           </Button>
         </Box>
       </Box>
-    </Box>
+    </Paper>
   );
 };
 
