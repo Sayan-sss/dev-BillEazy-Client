@@ -8,7 +8,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import DescriptionIcon from "@mui/icons-material/Description";
+import Tooltip from "@mui/material/Tooltip";
 import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(0);
@@ -23,9 +26,10 @@ const Sidebar = () => {
             flexDirection: "column",
             alignItems: "center",
             // justifyContent: "center",
-            border: "1px solid blue",
+            // border: "1px solid blue",
             width: "5vw",
             height: "100vh",
+            background: "#161120",
           }}
         >
           <Button
@@ -34,56 +38,77 @@ const Sidebar = () => {
               alignItems: "center",
               justifyContent: "center",
               // position: "absolute",
+              color: "gray",
             }}
             className="menuOpenBtn btn"
             onClick={(e) => setSidebar(1)}
           >
-            <MenuIcon />
+            <DoubleArrowIcon fontSize="large" />
           </Button>
           <Box
             sx={{
               display: "flex",
               alignItems: "center",
               flexDirection: "column",
-              // paddingTop: ".2rem",
-              // justifyContent: "space-evenly",
+              // border: "1px solid red",
+              paddingTop: "2rem",
+              height: "50vh",
+              justifyContent: "space-evenly",
             }}
           >
-            <Button
-              onClick={() => navigate("/Invoicegenerator")}
-              variant="contained"
-            >
-              <ReceiptIcon />
-            </Button>
-            <Button
-              onClick={() => navigate("/Invoicegenerator")}
-              variant="contained"
-            >
-              <DescriptionIcon />
-            </Button>
-            <Button
-              onClick={() => navigate("/Invoicegenerator")}
-              variant="contained"
-            >
-              <EventNoteIcon />
-            </Button>
+            <Tooltip title="Invoice">
+              <IconButton
+                onClick={() => navigate("/Invoicegenerator")}
+                sx={{
+                  backgroundColor: "gray",
+                  color: "white",
+                }}
+              >
+                <ReceiptIcon />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Proforma Invoice">
+              <IconButton
+                onClick={() => navigate("/Invoicegenerator")}
+                variant="contained"
+                sx={{
+                  backgroundColor: "gray",
+                  color: "white",
+                }}
+              >
+                <DescriptionIcon />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Delivery Challan">
+              <IconButton
+                onClick={() => navigate("/Invoicegenerator")}
+                variant="contained"
+                sx={{
+                  backgroundColor: "gray",
+                  color: "white",
+                }}
+              >
+                <EventNoteIcon />
+              </IconButton>
+            </Tooltip>
           </Box>
         </Box>
       ) : (
-        <Button
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            position: "absolute",
-            // left: "7rem",
-            // top: "2rem",
-          }}
-          className="menuCloseBtn btn"
-          onClick={(e) => setSidebar(0)}
-        >
-          <MenuOpenIcon />
-        </Button>
+        <Box>
+          {/* <Button
+            variant="contained"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+              position: "absolute",
+            }}
+            className="menuCloseBtn btn"
+            onClick={(e) => setSidebar(0)}
+          >
+            <MenuOpenIcon />
+          </Button> */}
+        </Box>
       )}
       {sidebar ? (
         <Box
@@ -91,22 +116,41 @@ const Sidebar = () => {
             position: "absolute",
             // left: 2,
             // bottom: "2rem",
-            width: "20vw",
+            background: "#161120",
+            width: "15vw",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            border: "1px solid red",
+            height: "100vh",
+            // border: "1px solid blue",
           }}
         >
+          <Button
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              // border: "1px solid red",
+              width: "15vw",
+              // alignItems: "center",
+              // justifyContent: "center",
+              // position: "absolute",
+              marginTop: "-10rem",
+              color: "gray",
+            }}
+            className="menuCloseBtn btn"
+            onClick={(e) => setSidebar(0)}
+          >
+            <MenuOpenIcon fontSize="large" />
+          </Button>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
-              width: "20vw",
-              marginTop: "5rem",
-              border: "1px solid black",
-              // alignItems: "center",
+              width: "15vw",
+              marginTop: "2rem",
+              // border: "1px solid blue",
+              alignItems: "center",
               justifyContent: "center",
             }}
           >
@@ -116,7 +160,7 @@ const Sidebar = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 // border: "2px solid red",
-                width: "20vw",
+                width: "15vw",
               }}
             >
               <Button
@@ -124,7 +168,7 @@ const Sidebar = () => {
                 color="success"
                 onClick={() => navigate("/")}
               >
-                Sheerina Enterprise
+                Company Logo
               </Button>
             </Box>
             <Box>
@@ -132,33 +176,53 @@ const Sidebar = () => {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  width: "10vw",
-                  // border: "1px solid black",
-                  // justifyContent: "space-between",
-                  marginTop: "5rem",
+                  width: "12vw",
+                  // border: "1px solid white",
+                  justifyContent: "space-around",
+                  marginTop: "2rem",
                   height: "50vh",
                 }}
               >
                 <Button
                   onClick={() => navigate("/Invoicegenerator")}
-                  variant="contained"
-                  color="primary"
+                  sx={{
+                    backgroundColor: "#0d0424",
+                    border: "1px solid blue",
+                    color: "white",
+                    justifyContent: "space-evenly",
+                  }}
                 >
+                  <ReceiptIcon />
                   Invoice
                 </Button>
+
                 <Button
                   onClick={() => navigate("/Invoicegenerator")}
-                  variant="contained"
+                  // variant="contained"
                   color="primary"
+                  sx={{
+                    backgroundColor: "#0d0424",
+                    border: "1px solid blue",
+                    color: "white",
+                    justifyContent: "space-evenly",
+                  }}
                 >
-                  Challan
+                  <DescriptionIcon />
+                  Proforma
                 </Button>
                 <Button
                   onClick={() => navigate("/Invoicegenerator")}
-                  variant="contained"
+                  // variant="contained"
                   color="primary"
+                  sx={{
+                    backgroundColor: "#0d0424",
+                    border: "1px solid blue",
+                    color: "white",
+                    justifyContent: "space-evenly",
+                  }}
                 >
-                  Proforma
+                  <EventNoteIcon />
+                  Challan
                 </Button>
               </Box>
             </Box>
