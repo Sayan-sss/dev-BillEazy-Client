@@ -25,6 +25,10 @@ export default function AddMedDialouge(props) {
   const [expiry, setExpiry] = React.useState("");
   const [mfg, setMfg] = React.useState("");
   const [batchno, setBatchno] = React.useState("");
+  const User = JSON.parse(localStorage.getItem("user"));
+  const userId = User._id;
+  console.log(userId);
+  console.log(User);
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -43,6 +47,7 @@ export default function AddMedDialouge(props) {
         expiry,
         batchno,
         mfg,
+        userId,
       });
 
       if (data?.success) {

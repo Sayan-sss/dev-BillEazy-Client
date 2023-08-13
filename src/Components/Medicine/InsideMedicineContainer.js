@@ -6,10 +6,13 @@ import "./InsideMedicineContainer.css";
 import { Box } from "@mui/material";
 const InsideMedicineContainer = () => {
   const [medicines, setMedicines] = React.useState([]);
-
+  const User = JSON.parse(localStorage.getItem("user"));
+  const userId = User._id;
+  console.log("userId");
+  console.log(userId);
   const getAllMedicines = async () => {
     try {
-      const { data } = await API.get("/api/medicine/getmedicine");
+      const { data } = await API.post("/api/medicine/getmedicine", { userId });
       console.log("data");
       console.log(data);
       if (data?.success) {
