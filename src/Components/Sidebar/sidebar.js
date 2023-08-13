@@ -16,8 +16,13 @@ import LogoutIcon from "@mui/icons-material/Logout";
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(0);
-
+  const user = localStorage.getItem("user");
   const navigate = useNavigate();
+  const handlelogOut = () => {
+    localStorage.removeItem("user", "token");
+
+    navigate("/Login");
+  };
   return (
     <>
       {sidebar === 0 ? (
@@ -93,21 +98,25 @@ const Sidebar = () => {
               </IconButton>
             </Tooltip>
           </Box>
-          <Tooltip title="Log Out">
-            <IconButton
-              onClick={() => navigate("/")}
-              variant="contained"
-              sx={{
-                backgroundColor: "gray",
-                color: "white",
-                display: "flex",
-                // alignItems: "flex-end",
-                marginTop: "14rem",
-              }}
-            >
-              <LogoutIcon />
-            </IconButton>
-          </Tooltip>
+          {user ? (
+            <Tooltip title="Log Out">
+              <IconButton
+                onClick={handlelogOut}
+                variant="contained"
+                sx={{
+                  backgroundColor: "gray",
+                  color: "white",
+                  display: "flex",
+                  // alignItems: "flex-end",
+                  marginTop: "14rem",
+                }}
+              >
+                <LogoutIcon />
+              </IconButton>
+            </Tooltip>
+          ) : (
+            <></>
+          )}
         </Box>
       ) : (
         <Box>
@@ -244,22 +253,26 @@ const Sidebar = () => {
               </Box>
             </Box>
           </Box>
-
-          <Button
-            sx={{
-              backgroundColor: "#0d0424",
-              border: "1px solid blue",
-              display: "flex",
-              // width: "15vw",
-              // marginBottom: "-5rem",
-              color: "white",
-              justifyContent: "center",
-              alignItems: "flex-end",
-              border: "1px solid red",
-            }}
-          >
-            Log Out
-          </Button>
+          {user ? (
+            <Button
+              sx={{
+                backgroundColor: "#0d0424",
+                border: "1px solid blue",
+                display: "flex",
+                // width: "15vw",
+                // marginBottom: "-5rem",
+                color: "white",
+                justifyContent: "center",
+                alignItems: "flex-end",
+                border: "1px solid red",
+              }}
+              onClick={handlelogOut}
+            >
+              Log Out
+            </Button>
+          ) : (
+            <></>
+          )}
         </Box>
       ) : (
         <></>
