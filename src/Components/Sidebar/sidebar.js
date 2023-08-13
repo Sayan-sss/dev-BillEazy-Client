@@ -60,6 +60,13 @@ const SideBar = () => {
           }}
         >
           <Button
+            onClick={() => navigate("/Login")}
+            variant="contained"
+            color="primary"
+          >
+            Login
+          </Button>
+          <Button
             onClick={() => navigate("/Invoicegenerator")}
             variant="contained"
             color="primary"
