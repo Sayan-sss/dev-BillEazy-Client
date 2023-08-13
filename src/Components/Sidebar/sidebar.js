@@ -12,6 +12,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(0);
@@ -92,6 +93,21 @@ const Sidebar = () => {
               </IconButton>
             </Tooltip>
           </Box>
+          <Tooltip title="Log Out">
+            <IconButton
+              onClick={() => navigate("/")}
+              variant="contained"
+              sx={{
+                backgroundColor: "gray",
+                color: "white",
+                display: "flex",
+                // alignItems: "flex-end",
+                marginTop: "14rem",
+              }}
+            >
+              <LogoutIcon />
+            </IconButton>
+          </Tooltip>
         </Box>
       ) : (
         <Box>
@@ -135,7 +151,7 @@ const Sidebar = () => {
               // alignItems: "center",
               // justifyContent: "center",
               // position: "absolute",
-              marginTop: "-10rem",
+              marginTop: "-2rem",
               color: "gray",
             }}
             className="menuCloseBtn btn"
@@ -148,6 +164,7 @@ const Sidebar = () => {
               display: "flex",
               flexDirection: "column",
               width: "15vw",
+              height: "80vh",
               marginTop: "2rem",
               // border: "1px solid blue",
               alignItems: "center",
@@ -166,7 +183,7 @@ const Sidebar = () => {
               <Button
                 variant="contained"
                 color="success"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/medicines")}
               >
                 Company Logo
               </Button>
@@ -227,6 +244,22 @@ const Sidebar = () => {
               </Box>
             </Box>
           </Box>
+
+          <Button
+            sx={{
+              backgroundColor: "#0d0424",
+              border: "1px solid blue",
+              display: "flex",
+              // width: "15vw",
+              // marginBottom: "-5rem",
+              color: "white",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              border: "1px solid red",
+            }}
+          >
+            Log Out
+          </Button>
         </Box>
       ) : (
         <></>
