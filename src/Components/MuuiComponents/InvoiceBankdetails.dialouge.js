@@ -97,7 +97,7 @@ export default function InvoiceProduct(props) {
             margin="dense"
             id="bankname"
             label="Enter Bank Name"
-            type="number"
+            type="text"
             fullWidth
             variant="outlined"
             value={bankname}
@@ -108,7 +108,7 @@ export default function InvoiceProduct(props) {
             margin="dense"
             id="branchname"
             label="Enter Branch Name"
-            type="number"
+            type="text"
             fullWidth
             variant="outlined"
             value={branchname}
