@@ -4,8 +4,13 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { Button, Divider, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import InsideMedicineContainer from "../Medicine/InsideMedicineContainer";
 
 export default function Login() {
+  // const isLoginPage = true; // Change this to false if you're not on the login page
+  // const sidebar = document.querySelector(".sidebar");
+
+  // sidebar.style.display = isLoginPage ? "none" : "block";
   const navigate = useNavigate();
   return (
     <Box
@@ -91,7 +96,7 @@ export default function Login() {
               }}
             >
               <Button
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/medicines")}
                 variant="contained"
                 color="success"
                 sx={{ width: "6vw", height: "2rem", marginTop: "0.5rem" }}

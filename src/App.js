@@ -13,6 +13,8 @@ import MobileNavabr from "./Components/Navigation Bar/Mobile.Navbar";
 import Navbar from "./Components/Navbar/Navbar";
 import Login from "./Components/Auth/Login";
 import SignUp from "./Components/Auth/SignUp";
+import TemporaryDrawer from "./Components/MuuiComponents/Drawer";
+import MiniDrawer from "./Components/MuuiComponents/Drawer";
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
           }}
         >
           <SideBar />
+          {/* <MiniDrawer /> */}
         </Paper>
         <Box
           sx={{
@@ -52,13 +55,13 @@ function App() {
               path="/medicines"
               element={<InsideMedicineContainer />}
             ></Route>
-            <Route path="/contact" element={<Contact />}></Route>
+            {/* <Route path="/contact" element={<Contact />}></Route> */}
             <Route
               path="/Invoicegenerator"
               element={<Invoicegenerator />}
             ></Route>
             <Route path="/home" element={<Home />}></Route>
-            <Route path="/" element={<InsideMedicineContainer />}></Route>
+            <Route path="/" element={<Login />}></Route>
             <Route path="/invoice" element={<InvoiceViewer />}></Route>
             <Route path="/Login" element={<Login />}></Route>
             <Route path="/SignUp" element={<SignUp />}></Route>
@@ -69,7 +72,7 @@ function App() {
             <Route path="/addinvoice" element={<Invoicegenerator />}></Route>
             <Route path="/invoice/create" element={<Invoicecreator />}></Route>
           </Routes>
-          <Navbar />
+          {/* <Navbar /> */}
           {/* <MobileNavabr /> */}
         </Box>
       </Box>

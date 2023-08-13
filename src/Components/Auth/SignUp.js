@@ -103,7 +103,7 @@ export default function SignUp() {
               }}
             >
               <Button
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/medicines")}
                 variant="contained"
                 color="success"
                 sx={{ width: "6vw", height: "2rem", marginTop: "0.5rem" }}
