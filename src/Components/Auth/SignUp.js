@@ -11,6 +11,9 @@ export default function SignUp() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const user = localStorage.getItem("user");
+  // console.log("user");
+  // console.log(user);
   // console.log(name);
   // console.log(email);
   // console.log(password);
@@ -23,6 +26,7 @@ export default function SignUp() {
       });
       if (data?.success) {
         localStorage.setItem("user", JSON.stringify(data?.user));
+        localStorage.setItem("token", JSON.stringify(data?.token));
         console.log(data);
         navigate("/medicines");
       }

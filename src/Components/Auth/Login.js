@@ -5,13 +5,37 @@ import Typography from "@mui/material/Typography";
 import { Button, Divider, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import InsideMedicineContainer from "../Medicine/InsideMedicineContainer";
-
+import API from "../../api";
+// import { toast, ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 export default function Login() {
   // const isLoginPage = true; // Change this to false if you're not on the login page
   // const sidebar = document.querySelector(".sidebar");
 
   // sidebar.style.display = isLoginPage ? "none" : "block";
   const navigate = useNavigate();
+  const [password, setPassword] = React.useState("");
+  const [email, setEmail] = React.useState("");
+
+  const handlelogIn = async () => {
+    try {
+      const { data } = await API.post("api/auth/login", {
+        email,
+        password,
+      });
+      if (data?.success) {
+        localStorage.setItem("user", JSON.stringify(data?.existingUser));
+        localStorage.setItem("token", JSON.stringify(data?.token));
+        // toast.success(data?.message);
+        navigate("/medicines");
+      }
+      // toast.error(data?.message);
+    } catch (e) {
+      console.log(e);
+      // toast.error(e);
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -75,6 +99,8 @@ export default function Login() {
               type="email"
               color="primary"
               placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
               fullWidth
@@ -87,6 +113,8 @@ export default function Login() {
               placeholder="Enter your password"
               // sx={{ marginTop: "1rem" }}
               margin="normal"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <Box
               sx={{
@@ -96,7 +124,7 @@ export default function Login() {
               }}
             >
               <Button
-                onClick={() => navigate("/medicines")}
+                onClick={handlelogIn}
                 variant="contained"
                 color="success"
                 sx={{ width: "6vw", height: "2rem", marginTop: "0.5rem" }}
