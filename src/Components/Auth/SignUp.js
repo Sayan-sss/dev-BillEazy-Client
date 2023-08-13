@@ -4,9 +4,33 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { Button, Divider, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import API from "../../api";
 
 export default function SignUp() {
   const navigate = useNavigate();
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  // console.log(name);
+  // console.log(email);
+  // console.log(password);
+  const signUp = async () => {
+    try {
+      const { data } = await API.post("api/auth/signup", {
+        name,
+        email,
+        password,
+      });
+      if (data?.success) {
+        localStorage.setItem("user", JSON.stringify(data?.user));
+        console.log(data);
+        navigate("/medicines");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -70,6 +94,8 @@ export default function SignUp() {
               type="text"
               color="primary"
               placeholder="Enter your Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
             <TextField
               fullWidth
@@ -81,6 +107,8 @@ export default function SignUp() {
               type="email"
               color="primary"
               placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
               fullWidth
@@ -93,6 +121,8 @@ export default function SignUp() {
               placeholder="Enter your password"
               // sx={{ marginTop: "1rem" }}
               margin="normal"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <Box
               sx={{
@@ -103,7 +133,7 @@ export default function SignUp() {
               }}
             >
               <Button
-                onClick={() => navigate("/medicines")}
+                onClick={signUp}
                 variant="contained"
                 color="success"
                 sx={{ width: "6vw", height: "2rem", marginTop: "0.5rem" }}
