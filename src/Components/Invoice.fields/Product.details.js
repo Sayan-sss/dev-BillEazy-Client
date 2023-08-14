@@ -8,7 +8,7 @@ const Productdetails = () => {
       <Box
         className="header"
         sx={{
-          width: "98%",
+          width: "97%",
           //   border: "1px solid black",
           backgroundColor: "#d9dbe9",
           display: "flex",
@@ -16,11 +16,12 @@ const Productdetails = () => {
           alignItems: "center",
           height: "3.5rem",
           marginTop: "1.2rem",
+          paddingLeft: ".7rem",
           //   marginLeft: ".7rem",
           //   marginRight: ".7rem",
           marginLeft: "auto",
           marginRight: "auto",
-          borderRadius: "3px",
+          borderRadius: "10px",
         }}
       >
         <Typography

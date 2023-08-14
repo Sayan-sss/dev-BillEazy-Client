@@ -16,14 +16,16 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import HomeIcon from "@mui/icons-material/Home";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import InfoIcon from "@mui/icons-material/Info";
+import { useDispatch } from "react-redux";
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(0);
   const user = localStorage.getItem("user");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handlelogOut = () => {
     localStorage.removeItem("user", "token");
-
+    dispatch({ type: "RemoveAuth" });
     navigate("/Login");
   };
   return (
@@ -78,7 +80,7 @@ const Sidebar = () => {
             </Tooltip>
             <Tooltip title="Invoice">
               <IconButton
-                onClick={() => navigate("/Invoicegenerator")}
+                onClick={() => navigate("/invoiceList")}
                 sx={{
                   backgroundColor: "#073259",
                   color: "white",
@@ -89,7 +91,7 @@ const Sidebar = () => {
             </Tooltip>
             <Tooltip title="Proforma Invoice">
               <IconButton
-                onClick={() => navigate("/Invoicegenerator")}
+                onClick={() => navigate("/invoiceList")}
                 variant="contained"
                 sx={{
                   backgroundColor: "#073259",
@@ -101,7 +103,7 @@ const Sidebar = () => {
             </Tooltip>
             <Tooltip title="Delivery Challan">
               <IconButton
-                onClick={() => navigate("/Invoicegenerator")}
+                onClick={() => navigate("/invoiceList")}
                 variant="contained"
                 sx={{
                   backgroundColor: "#073259",
@@ -113,7 +115,7 @@ const Sidebar = () => {
             </Tooltip>
             <Tooltip title="Account">
               <IconButton
-                onClick={() => navigate("/Invoicegenerator")}
+                onClick={() => navigate("/invoiceList")}
                 variant="contained"
                 sx={{
                   backgroundColor: "#073259",
@@ -244,7 +246,7 @@ const Sidebar = () => {
             </Button>
 
             <Button
-              onClick={() => navigate("/Invoicegenerator")}
+              onClick={() => navigate("/invoiceList")}
               sx={{
                 display: "flex",
                 flexDirection: "row",
@@ -260,7 +262,7 @@ const Sidebar = () => {
             </Button>
 
             <Button
-              onClick={() => navigate("/Invoicegenerator")}
+              onClick={() => navigate("/invoiceList")}
               // variant="contained"
               sx={{
                 display: "flex",
@@ -279,7 +281,7 @@ const Sidebar = () => {
             </Button>
 
             <Button
-              onClick={() => navigate("/Invoicegenerator")}
+              onClick={() => navigate("/invoiceList")}
               // variant="contained"
               sx={{
                 display: "flex",
@@ -296,7 +298,7 @@ const Sidebar = () => {
             </Button>
 
             <Button
-              onClick={() => navigate("/Invoicegenerator")}
+              onClick={() => navigate("/invoiceList")}
               // variant="contained"
               sx={{
                 display: "flex",

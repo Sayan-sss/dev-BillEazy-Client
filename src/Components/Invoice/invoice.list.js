@@ -3,10 +3,10 @@ import { Box } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Invoicetable from "../MuuiComponents/invoiceTable";
-import "./invoicegenerator.css";
+// import "./InvoiceList.css";
 import SearchAppBar from "../MuuiComponents/Searchbar";
 // import invoiceTable from "../MuuiComponents/invoiceTable";
-const Invoicegenerator = () => {
+const InvoiceList = () => {
   const navigate = useNavigate();
   return (
     <Box
@@ -14,6 +14,7 @@ const Invoicegenerator = () => {
       sx={{
         // border: "10px solid red",
         height: "100vh",
+        width: "100%",
         display: "flex",
         justifyContent: "center",
       }}
@@ -55,4 +56,4 @@ const Invoicegenerator = () => {
   );
 };
 
-export default Invoicegenerator;
+export default InvoiceList;

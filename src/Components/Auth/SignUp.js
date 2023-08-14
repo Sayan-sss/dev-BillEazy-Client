@@ -5,15 +5,17 @@ import Typography from "@mui/material/Typography";
 import { Button, Divider, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import API from "../../api";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function SignUp() {
   const navigate = useNavigate();
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const user = localStorage.getItem("user");
-  // console.log("user");
-  // console.log(user);
+  const user = useSelector((state) => state.authReducer);
+  const dispatch = useDispatch();
+  console.log("Reducer user");
+  console.log(user);
   // console.log(name);
   // console.log(email);
   // console.log(password);
@@ -27,6 +29,7 @@ export default function SignUp() {
       if (data?.success) {
         localStorage.setItem("user", JSON.stringify(data?.user));
         localStorage.setItem("token", JSON.stringify(data?.token));
+        dispatch({ type: "AddAuth", payload: data?.user });
         console.log(data);
         navigate("/medicines");
       }

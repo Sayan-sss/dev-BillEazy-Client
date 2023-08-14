@@ -7,7 +7,7 @@ import InvoiceViewer from "./Components/Invoice/invoice.viewer";
 import SideBar from "./Components/Sidebar/sidebar.js";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import InsideMedicineContainer from "./Components/Medicine/InsideMedicineContainer";
-import Invoicegenerator from "./Components/Invoice/invoice.generator";
+import InvoiceList from "./Components/Invoice/invoice.list";
 import Invoicecreator from "./Components/Invoice/invoice.creator";
 import MobileNavabr from "./Components/Navigation Bar/Mobile.Navbar";
 import Navbar from "./Components/Navbar/Navbar";
@@ -57,21 +57,18 @@ function App() {
               element={<InsideMedicineContainer />}
             ></Route>
             {/* <Route path="/contact" element={<Contact />}></Route> */}
-            <Route
-              path="/Invoicegenerator"
-              element={<Invoicegenerator />}
-            ></Route>
+            <Route path="/InvoiceList" element={<InvoiceList />}></Route>
             <Route path="/home" element={<Home />}></Route>
             <Route path="/" element={<Login />}></Route>
             <Route path="/invoice" element={<InvoiceViewer />}></Route>
             <Route path="/Login" element={<Login />}></Route>
             <Route path="/SignUp" element={<SignUp />}></Route>
             <Route path="/About" element={<About />}></Route>
-            <Route
+            {/* <Route
               path="/InsideMedicine"
               element={<InsideMedicineContainer />}
-            ></Route>
-            <Route path="/addinvoice" element={<Invoicegenerator />}></Route>
+            ></Route> */}
+            <Route path="/invoicelist" element={<InvoiceList />}></Route>
             <Route path="/invoice/create" element={<Invoicecreator />}></Route>
           </Routes>
           {/* <Navbar /> */}

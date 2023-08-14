@@ -77,21 +77,21 @@ const Navbar = () => {
                 }}
               >
                 <Button
-                  onClick={() => navigate("/Invoicegenerator")}
+                  onClick={() => navigate("/invoiceList")}
                   variant="contained"
                   color="primary"
                 >
                   Invoice
                 </Button>
                 <Button
-                  onClick={() => navigate("/Invoicegenerator")}
+                  onClick={() => navigate("/invoiceList")}
                   variant="contained"
                   color="primary"
                 >
                   Challan
                 </Button>
                 <Button
-                  onClick={() => navigate("/Invoicegenerator")}
+                  onClick={() => navigate("/invoiceList")}
                   variant="contained"
                   color="primary"
                 >
