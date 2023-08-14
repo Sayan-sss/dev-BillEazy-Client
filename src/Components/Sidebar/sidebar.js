@@ -80,7 +80,7 @@ const Sidebar = () => {
             </Tooltip>
             <Tooltip title="Invoice">
               <IconButton
-                onClick={() => navigate("/Invoicegenerator")}
+                onClick={() => navigate("/invoiceList")}
                 sx={{
                   backgroundColor: "#073259",
                   color: "white",
@@ -91,7 +91,7 @@ const Sidebar = () => {
             </Tooltip>
             <Tooltip title="Proforma Invoice">
               <IconButton
-                onClick={() => navigate("/Invoicegenerator")}
+                onClick={() => navigate("/invoiceList")}
                 variant="contained"
                 sx={{
                   backgroundColor: "#073259",
@@ -103,7 +103,7 @@ const Sidebar = () => {
             </Tooltip>
             <Tooltip title="Delivery Challan">
               <IconButton
-                onClick={() => navigate("/Invoicegenerator")}
+                onClick={() => navigate("/invoiceList")}
                 variant="contained"
                 sx={{
                   backgroundColor: "#073259",
@@ -115,7 +115,7 @@ const Sidebar = () => {
             </Tooltip>
             <Tooltip title="Account">
               <IconButton
-                onClick={() => navigate("/Invoicegenerator")}
+                onClick={() => navigate("/invoiceList")}
                 variant="contained"
                 sx={{
                   backgroundColor: "#073259",
@@ -137,7 +137,7 @@ const Sidebar = () => {
           >
             <Tooltip title="About Us">
               <IconButton
-                onClick={() => navigate("/Invoicegenerator")}
+                onClick={() => navigate("/invoiceList")}
                 variant="contained"
                 sx={{
                   display: "flex",
@@ -246,7 +246,7 @@ const Sidebar = () => {
             </Button>
 
             <Button
-              onClick={() => navigate("/Invoicegenerator")}
+              onClick={() => navigate("/invoiceList")}
               sx={{
                 display: "flex",
                 flexDirection: "row",
@@ -262,7 +262,7 @@ const Sidebar = () => {
             </Button>
 
             <Button
-              onClick={() => navigate("/Invoicegenerator")}
+              onClick={() => navigate("/invoiceList")}
               // variant="contained"
               sx={{
                 display: "flex",
@@ -281,7 +281,7 @@ const Sidebar = () => {
             </Button>
 
             <Button
-              onClick={() => navigate("/Invoicegenerator")}
+              onClick={() => navigate("/invoiceList")}
               // variant="contained"
               sx={{
                 display: "flex",
@@ -298,7 +298,7 @@ const Sidebar = () => {
             </Button>
 
             <Button
-              onClick={() => navigate("/Invoicegenerator")}
+              onClick={() => navigate("/invoiceList")}
               // variant="contained"
               sx={{
                 display: "flex",
@@ -327,7 +327,7 @@ const Sidebar = () => {
           >
             <Tooltip title="About Us">
               <Button
-                onClick={() => navigate("/Invoicegenerator")}
+                onClick={() => navigate("/invoiceList")}
                 // variant="contained"
                 sx={{
                   display: "flex",

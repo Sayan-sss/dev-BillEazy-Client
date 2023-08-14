@@ -8,7 +8,7 @@ const Supplierdetails = () => {
       <Box
         className="header"
         sx={{
-          width: "97%",
+          width: "96%",
           //   border: "1px solid black",
           backgroundColor: "#d9dbe9",
           display: "flex",

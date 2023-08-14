@@ -36,7 +36,7 @@ export default function MediaCard(props) {
       </CardContent>
       <CardActions>
         <Button
-          onClick={() => navigate("/InsideMedicine")}
+          onClick={() => navigate("/medicines")}
           size="small"
           variant="contained"
           color="secondary"
