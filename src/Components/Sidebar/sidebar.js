@@ -13,6 +13,9 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import LogoutIcon from "@mui/icons-material/Logout";
+import HomeIcon from "@mui/icons-material/Home";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import InfoIcon from "@mui/icons-material/Info";
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(0);
@@ -35,7 +38,7 @@ const Sidebar = () => {
             // border: "1px solid blue",
             width: "5vw",
             height: "100vh",
-            background: "#161120",
+            background: "#062541",
           }}
         >
           <Button
@@ -44,7 +47,7 @@ const Sidebar = () => {
               alignItems: "center",
               justifyContent: "center",
               // position: "absolute",
-              color: "gray",
+              color: "white",
             }}
             className="menuOpenBtn btn"
             onClick={(e) => setSidebar(1)}
@@ -62,11 +65,22 @@ const Sidebar = () => {
               justifyContent: "space-evenly",
             }}
           >
+            <Tooltip title="Home">
+              <IconButton
+                onClick={() => navigate("/medicines")}
+                sx={{
+                  backgroundColor: "#073259",
+                  color: "white",
+                }}
+              >
+                <HomeIcon />
+              </IconButton>
+            </Tooltip>
             <Tooltip title="Invoice">
               <IconButton
                 onClick={() => navigate("/Invoicegenerator")}
                 sx={{
-                  backgroundColor: "gray",
+                  backgroundColor: "#073259",
                   color: "white",
                 }}
               >
@@ -78,7 +92,7 @@ const Sidebar = () => {
                 onClick={() => navigate("/Invoicegenerator")}
                 variant="contained"
                 sx={{
-                  backgroundColor: "gray",
+                  backgroundColor: "#073259",
                   color: "white",
                 }}
               >
@@ -90,33 +104,70 @@ const Sidebar = () => {
                 onClick={() => navigate("/Invoicegenerator")}
                 variant="contained"
                 sx={{
-                  backgroundColor: "gray",
+                  backgroundColor: "#073259",
                   color: "white",
                 }}
               >
                 <EventNoteIcon />
               </IconButton>
             </Tooltip>
-          </Box>
-          {user ? (
-            <Tooltip title="Log Out">
+            <Tooltip title="Account">
               <IconButton
-                onClick={handlelogOut}
+                onClick={() => navigate("/Invoicegenerator")}
                 variant="contained"
                 sx={{
-                  backgroundColor: "gray",
+                  backgroundColor: "#073259",
                   color: "white",
-                  display: "flex",
-                  // alignItems: "flex-end",
-                  marginTop: "14rem",
                 }}
               >
-                <LogoutIcon />
+                <AccountCircleIcon />
               </IconButton>
             </Tooltip>
-          ) : (
-            <></>
-          )}
+          </Box>
+          <Box
+            sx={{
+              height: "35vh",
+              // border: "2px solid red",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-around",
+            }}
+          >
+            <Tooltip title="About Us">
+              <IconButton
+                onClick={() => navigate("/Invoicegenerator")}
+                variant="contained"
+                sx={{
+                  display: "flex",
+                  marginTop: "5rem",
+                  backgroundColor: "#073259",
+                  color: "white",
+                }}
+              >
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
+
+            {user ? (
+              <Tooltip title="Log Out">
+                <IconButton
+                  onClick={handlelogOut}
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#073259",
+                    color: "white",
+                    display: "flex",
+                    // alignItems: "flex-end",
+                    marginTop: "1rem",
+                  }}
+                >
+                  <LogoutIcon />
+                </IconButton>
+              </Tooltip>
+            ) : (
+              <></>
+            )}
+          </Box>
         </Box>
       ) : (
         <Box>
@@ -141,7 +192,7 @@ const Sidebar = () => {
             position: "absolute",
             // left: 2,
             // bottom: "2rem",
-            background: "#161120",
+            background: "#062541",
             width: "15vw",
             display: "flex",
             flexDirection: "column",
@@ -155,13 +206,9 @@ const Sidebar = () => {
             sx={{
               display: "flex",
               justifyContent: "flex-end",
-              // border: "1px solid red",
               width: "15vw",
-              // alignItems: "center",
-              // justifyContent: "center",
-              // position: "absolute",
               marginTop: "-2rem",
-              color: "gray",
+              color: "white",
             }}
             className="menuCloseBtn btn"
             onClick={(e) => setSidebar(0)}
@@ -171,108 +218,155 @@ const Sidebar = () => {
           <Box
             sx={{
               display: "flex",
+              alignItems: "center",
               flexDirection: "column",
               width: "15vw",
-              height: "80vh",
-              marginTop: "2rem",
-              // border: "1px solid blue",
-              alignItems: "center",
-              justifyContent: "center",
+              // border: "1px solid red",
+              paddingTop: "2rem",
+              height: "50vh",
+              justifyContent: "space-evenly",
             }}
           >
-            <Box
+            <Button
+              onClick={() => navigate("/medicines")}
               sx={{
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                // border: "2px solid red",
+                flexDirection: "row",
                 width: "15vw",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                backgroundColor: "#073259",
+                color: "white",
               }}
             >
+              <HomeIcon sx={{ marginLeft: "1rem", marginRight: "1rem" }} />
+              Home
+            </Button>
+
+            <Button
+              onClick={() => navigate("/Invoicegenerator")}
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                width: "15vw",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                backgroundColor: "#073259",
+                color: "white",
+              }}
+            >
+              <ReceiptIcon sx={{ marginLeft: "1rem", marginRight: "1rem" }} />
+              Invoice
+            </Button>
+
+            <Button
+              onClick={() => navigate("/Invoicegenerator")}
+              // variant="contained"
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                width: "15vw",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                backgroundColor: "#073259",
+                color: "white",
+              }}
+            >
+              <DescriptionIcon
+                sx={{ marginLeft: "1rem", marginRight: "1rem" }}
+              />
+              Proforma Invoice
+            </Button>
+
+            <Button
+              onClick={() => navigate("/Invoicegenerator")}
+              // variant="contained"
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                width: "15vw",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                backgroundColor: "#073259",
+                color: "white",
+              }}
+            >
+              <EventNoteIcon sx={{ marginLeft: "1rem", marginRight: "1rem" }} />
+              Delivery Challan
+            </Button>
+
+            <Button
+              onClick={() => navigate("/Invoicegenerator")}
+              // variant="contained"
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                width: "15vw",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                backgroundColor: "#073259",
+                color: "white",
+              }}
+            >
+              <AccountCircleIcon
+                sx={{ marginLeft: "1rem", marginRight: "1rem" }}
+              />
+              Account
+            </Button>
+          </Box>
+          <Box
+            sx={{
+              height: "35vh",
+              // border: "2px solid red",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-around",
+            }}
+          >
+            <Tooltip title="About Us">
               <Button
-                variant="contained"
-                color="success"
-                onClick={() => navigate("/medicines")}
-              >
-                Company Logo
-              </Button>
-            </Box>
-            <Box>
-              <Box
+                onClick={() => navigate("/Invoicegenerator")}
+                // variant="contained"
                 sx={{
                   display: "flex",
-                  flexDirection: "column",
-                  width: "12vw",
-                  // border: "1px solid white",
-                  justifyContent: "space-around",
-                  marginTop: "2rem",
-                  height: "50vh",
+                  flexDirection: "row",
+                  width: "15vw",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  backgroundColor: "#073259",
+                  color: "white",
                 }}
               >
-                <Button
-                  onClick={() => navigate("/Invoicegenerator")}
-                  sx={{
-                    backgroundColor: "#0d0424",
-                    border: "1px solid blue",
-                    color: "white",
-                    justifyContent: "space-evenly",
-                  }}
-                >
-                  <ReceiptIcon />
-                  Invoice
-                </Button>
+                <InfoIcon sx={{ marginLeft: "1rem", marginRight: "1rem" }} />
+                About Us
+              </Button>
+            </Tooltip>
 
+            {user ? (
+              <Tooltip title="Log Out">
                 <Button
-                  onClick={() => navigate("/Invoicegenerator")}
+                  onClick={handlelogOut}
                   // variant="contained"
-                  color="primary"
                   sx={{
-                    backgroundColor: "#0d0424",
-                    border: "1px solid blue",
+                    display: "flex",
+                    flexDirection: "row",
+                    width: "15vw",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    backgroundColor: "#073259",
                     color: "white",
-                    justifyContent: "space-evenly",
                   }}
                 >
-                  <DescriptionIcon />
-                  Proforma
+                  <LogoutIcon
+                    sx={{ marginLeft: "1rem", marginRight: "1rem" }}
+                  />
+                  Log Out
                 </Button>
-                <Button
-                  onClick={() => navigate("/Invoicegenerator")}
-                  // variant="contained"
-                  color="primary"
-                  sx={{
-                    backgroundColor: "#0d0424",
-                    border: "1px solid blue",
-                    color: "white",
-                    justifyContent: "space-evenly",
-                  }}
-                >
-                  <EventNoteIcon />
-                  Challan
-                </Button>
-              </Box>
-            </Box>
+              </Tooltip>
+            ) : (
+              <></>
+            )}
           </Box>
-          {user ? (
-            <Button
-              sx={{
-                backgroundColor: "#0d0424",
-                border: "1px solid blue",
-                display: "flex",
-                // width: "15vw",
-                // marginBottom: "-5rem",
-                color: "white",
-                justifyContent: "center",
-                alignItems: "flex-end",
-                border: "1px solid red",
-              }}
-              onClick={handlelogOut}
-            >
-              Log Out
-            </Button>
-          ) : (
-            <></>
-          )}
         </Box>
       ) : (
         <></>
