@@ -21,9 +21,7 @@ export const authReducer = (state = initialState, action) => {
         loggedIn: true,
       };
     case "RemoveAuth":
-      return {
-        initialState,
-      };
+      return initialState;
     default:
       return state;
   }
