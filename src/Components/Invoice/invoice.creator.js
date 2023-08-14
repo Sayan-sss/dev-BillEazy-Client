@@ -35,8 +35,9 @@ const Invoicecreator = () => {
             overflowY: "scroll",
             display: "flex",
             flexDirection: "column",
-            marginTop: "5rem",
-            marginBottom: "3rem",
+            alignItems: "center",
+            marginTop: "3rem",
+            marginBottom: "1rem",
             backgroundColor: "white",
             borderRadius: "15px",
             boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px",
@@ -47,8 +48,9 @@ const Invoicecreator = () => {
             sx={{
               display: "flex",
               flexDirection: "row",
-              justifyContent: "space-between",
+              justifyContent: "space-around",
               paddingTop: "2rem",
+              width: "100%"
             }}
           >
             <Box className="up_left">
@@ -59,7 +61,7 @@ const Invoicecreator = () => {
               className="up_right"
               sx={{
                 marginRight: "0.5rem",
-                width: "55vw",
+                width: "53vw",
                 borderRadius: "10px",
                 border: "1px solid #d9dbe9",
               }}
@@ -68,20 +70,20 @@ const Invoicecreator = () => {
             </Box>
           </Box>
 
-          <Box className="buyer_details">
+          <Box className="buyer_details" sx={{ width: "99%" }}>
             <BuyerDetails />
           </Box>
-          <Box className="products_container">
+          <Box className="products_container" sx={{ width: "99%" }}>
             <Productdetails />
           </Box>
-          <Box className="transport_container">
+          <Box className="transport_container" sx={{ width: "99%" }}>
             <TransportDetails />
           </Box>
 
-          <Box className="bankdetail_container">
+          <Box className="bankdetail_container" sx={{ width: "99%" }}>
             <Bankdetails />
           </Box>
-          <Box>
+          <Box sx={{ width: "99%" }}>
             <TermsAndCondition />
           </Box>
         </Box>

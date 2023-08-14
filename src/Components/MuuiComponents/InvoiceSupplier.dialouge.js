@@ -63,6 +63,7 @@ export default function InvoiceDialouge(props) {
             backgroundColor: "#363740",
             color: "#ffffff",
             fontFamily: "Roboto",
+            mb: "1.5rem"
           }}
         >
           SUPPLIER DETAILS

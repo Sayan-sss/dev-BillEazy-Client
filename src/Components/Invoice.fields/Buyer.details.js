@@ -8,7 +8,7 @@ const Buyerdetails = () => {
       <Box
         className="header"
         sx={{
-          width: "98%",
+          width: "97%",
           //   border: "1px solid black",
           backgroundColor: "#d9dbe9",
           display: "flex",
@@ -16,11 +16,11 @@ const Buyerdetails = () => {
           alignItems: "center",
           height: "3.5rem",
           marginTop: "1.2rem",
-          //   marginLeft: ".7rem",
+          paddingLeft: ".7rem",
           //   marginRight: ".7rem",
           marginLeft: "auto",
           marginRight: "auto",
-          borderRadius: "3px",
+          borderRadius: "10px",
         }}
       >
         <Typography variant="h5" gutterBottom sx={{ fontWeight: "" }}>
