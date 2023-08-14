@@ -6,6 +6,7 @@ import { Button, Divider, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import InsideMedicineContainer from "../Medicine/InsideMedicineContainer";
 import API from "../../api";
+import { useDispatch, useSelector } from "react-redux";
 // import { toast, ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 export default function Login() {
@@ -16,7 +17,10 @@ export default function Login() {
   const navigate = useNavigate();
   const [password, setPassword] = React.useState("");
   const [email, setEmail] = React.useState("");
-
+  const user = useSelector((state) => state.authReducer);
+  console.log("Reducer user");
+  console.log(user);
+  const dispatch = useDispatch();
   const handlelogIn = async () => {
     try {
       const { data } = await API.post("api/auth/login", {
@@ -26,6 +30,8 @@ export default function Login() {
       if (data?.success) {
         localStorage.setItem("user", JSON.stringify(data?.existingUser));
         localStorage.setItem("token", JSON.stringify(data?.token));
+        dispatch({ type: "SET_AUTH_USER", user: data?.existingUser });
+
         // toast.success(data?.message);
         navigate("/medicines");
       }

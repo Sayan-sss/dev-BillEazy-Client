@@ -1,5 +1,5 @@
 import React from "react";
 
-export const useInvoiceApis = () => {
+const useInvoiceApis = () => {
   return <div>invoice.hooks</div>;
 };
