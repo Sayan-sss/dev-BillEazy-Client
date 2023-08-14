@@ -15,6 +15,7 @@ import Login from "./Components/Auth/Login";
 import SignUp from "./Components/Auth/SignUp";
 import TemporaryDrawer from "./Components/MuuiComponents/Drawer";
 import MiniDrawer from "./Components/MuuiComponents/Drawer";
+import About from "./Components/About/About";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
           sx={{
             display: "flex",
             flexDirection: "row",
-            width: "20vw",
+            width: "15vw",
             // border: "1px solid green",
           }}
         >
@@ -40,7 +41,7 @@ function App() {
         </Paper>
         <Box
           sx={{
-            width: "80vw",
+            width: "85vw",
             display: "flex",
             // flexDirection: "column",
             justifyContent: "center",
@@ -65,6 +66,7 @@ function App() {
             <Route path="/invoice" element={<InvoiceViewer />}></Route>
             <Route path="/Login" element={<Login />}></Route>
             <Route path="/SignUp" element={<SignUp />}></Route>
+            <Route path="/About" element={<About />}></Route>
             <Route
               path="/InsideMedicine"
               element={<InsideMedicineContainer />}

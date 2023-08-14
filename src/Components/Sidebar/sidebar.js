@@ -135,7 +135,7 @@ const Sidebar = () => {
           >
             <Tooltip title="About Us">
               <IconButton
-                onClick={() => navigate("/Invoicegenerator")}
+                onClick={() => navigate("/About")}
                 variant="contained"
                 sx={{
                   display: "flex",
@@ -323,9 +323,26 @@ const Sidebar = () => {
               justifyContent: "space-around",
             }}
           >
-            <Tooltip title="About Us">
+            <Button
+              onClick={() => navigate("/About")}
+              // variant="contained"
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                width: "15vw",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                backgroundColor: "#073259",
+                color: "white",
+              }}
+            >
+              <InfoIcon sx={{ marginLeft: "1rem", marginRight: "1rem" }} />
+              About Us
+            </Button>
+
+            {user ? (
               <Button
-                onClick={() => navigate("/Invoicegenerator")}
+                onClick={handlelogOut}
                 // variant="contained"
                 sx={{
                   display: "flex",
@@ -337,32 +354,9 @@ const Sidebar = () => {
                   color: "white",
                 }}
               >
-                <InfoIcon sx={{ marginLeft: "1rem", marginRight: "1rem" }} />
-                About Us
+                <LogoutIcon sx={{ marginLeft: "1rem", marginRight: "1rem" }} />
+                Log Out
               </Button>
-            </Tooltip>
-
-            {user ? (
-              <Tooltip title="Log Out">
-                <Button
-                  onClick={handlelogOut}
-                  // variant="contained"
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    width: "15vw",
-                    alignItems: "center",
-                    justifyContent: "flex-start",
-                    backgroundColor: "#073259",
-                    color: "white",
-                  }}
-                >
-                  <LogoutIcon
-                    sx={{ marginLeft: "1rem", marginRight: "1rem" }}
-                  />
-                  Log Out
-                </Button>
-              </Tooltip>
             ) : (
               <></>
             )}
