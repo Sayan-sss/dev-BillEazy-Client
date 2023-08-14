@@ -1,4 +1,4 @@
-import { Box, Button, Paper } from "@mui/material";
+import { Box, Button, Paper, Typography } from "@mui/material";
 import React from "react";
 import Supplierdetails from "../Invoice.fields/Supplier.details";
 import InvoiceRadioGroup from "../MuuiComponents/InvoiceRadiogrp";
@@ -10,7 +10,22 @@ import Productdetails from "../Invoice.fields/Product.details";
 import TransportDetails from "../Invoice.fields/Transport.details";
 import Bankdetails from "../Invoice.fields/Bank.details";
 import TermsAndCondition from "../MuuiComponents/TermsAndCondition";
+import { useSelector } from "react-redux";
 const Invoicecreator = () => {
+  const { data } = useSelector((state) => state.supplierReducer)
+  const {
+    firmName,
+    companyAddress,
+    companyGstin,
+    companyEmail,
+    companyPan,
+    companyMobile,
+    dlNo,
+    city,
+    state,
+    pincode
+  } = data;
+  console.log(data)
   return (
     <>
       <Box
@@ -67,6 +82,47 @@ const Invoicecreator = () => {
               }}
             >
               <Supplierdetails />
+              <Box sx={{
+                // border: "1px solid red",
+                height: "fit-content",
+                display: 'flex',
+                ml: "1rem",
+                my: "1rem",
+                flexDirection: 'column',
+
+              }}>
+                {firmName && <Typography variant="h6">
+                  {firmName}
+                </Typography>}
+                {companyEmail && <Typography variant="subtitle1">
+                  Email: {companyEmail}
+                </Typography>}
+                {dlNo && <Typography variant="subtitle1">
+                  DL No.: {dlNo}
+                </Typography>}
+                {companyPan && <Typography variant="subtitle1">
+                  PAN: {companyPan}
+                </Typography>}
+                {companyAddress && <Typography variant="subtitle1">
+                  Company Address: {companyAddress}
+                </Typography>}
+                {city && <Typography variant="subtitle1">
+                  City: {city}
+                </Typography>}
+                {state && <Typography variant="subtitle1">
+                  State: {state}
+                </Typography>}
+                {pincode && <Typography variant="subtitle1">
+                  Pincode: {pincode}
+                </Typography>}
+                {companyGstin && <Typography variant="subtitle1">
+                  GSTIN: {companyGstin}
+                </Typography>}
+                {companyMobile && <Typography variant="subtitle1">
+                  Mobile: {companyMobile}
+                </Typography>}
+
+              </Box>
             </Box>
           </Box>
 

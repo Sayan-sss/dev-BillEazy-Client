@@ -11,8 +11,10 @@ import { toast, Toaster } from "react-hot-toast";
 import API from "../../api";
 import EditIcon from "@mui/icons-material/Edit";
 import { Box } from "@mui/material";
+import useInvoiceApis from "../hooks/invoice.hooks";
 
 export default function InvoiceDialouge(props) {
+  const { addSupplierDetails } = useInvoiceApis()
   const [open, setOpen] = React.useState(false);
   const [firmname, setFirmName] = React.useState("");
   const [companyGSTIN, setCompanyGSTIN] = React.useState("");
@@ -31,6 +33,21 @@ export default function InvoiceDialouge(props) {
   const handleClose = async () => {
     setOpen(false);
   };
+  const handleSubmit = async () => {
+    addSupplierDetails({
+      firmName: firmname,
+      companyGstin: companyGSTIN,
+      companyAddress,
+      companyEmail: companyemail,
+      dlNo: dl,
+      city,
+      state,
+      pincode,
+      mobileNumber: companyMobile,
+      companyPan,
+    })
+    setOpen(false);
+  }
   //   const handleSubmit = async () => {
   //     try {
   //       const { data } = await API.post("/api/medicine/addmedicine", {
@@ -232,7 +249,12 @@ export default function InvoiceDialouge(props) {
           <Button variant="outlined" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="outlined">Save</Button>
+          <Button
+            onClick={handleSubmit}
+            variant="outlined"
+          >
+            Save
+          </Button>
         </DialogActions>
       </Dialog>
       <Toaster />

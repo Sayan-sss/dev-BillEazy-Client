@@ -1,9 +1,15 @@
-const SupplierReducer = (state = { data: null }, action) => {
+const initialState = {
+  data: {}
+}
+export const SupplierReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "post_Supplier_details":
-      return { state };
+    case "POST_SUPPLIER_DETAILS":
+      return {
+        ...state,
+        ...action.payload
+      };
 
-    case "fetch_Supplier_details":
+    case "FETCH_SUPPLIER_DETAILS":
       return { state, data: action.payload };
 
     default:
