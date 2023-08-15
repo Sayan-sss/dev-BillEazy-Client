@@ -5,15 +5,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import reducers from "./reducers";
-import { configureStore } from "@reduxjs/toolkit";
-import { applyMiddleware, compose } from "@reduxjs/toolkit";
-import thunk from "redux-thunk";
 import { store } from "./store/configureStore";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
+    {/* <Provider> */}
     <React.StrictMode>
       <BrowserRouter>
         <App />
