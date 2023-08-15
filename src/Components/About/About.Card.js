@@ -15,27 +15,38 @@ const bull = (
   </Box>
 );
 
-export default function AboutCard() {
+export default function AboutCard(props) {
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card
+      sx={{
+        height: "35vh",
+        width: "20vw",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-around",
+      }}
+    >
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
+        {/* <Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
+          {props.title}
+        </Typography> */}
+        <Typography variant="h4" component="div">
+          {props.title}
         </Typography>
-        <Typography variant="h5" component="div">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        {/* <Typography sx={{ mb: 1.5 }} color="text.secondary">
           adjective
-        </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
+        </Typography> */}
+        <Typography variant="body2" sx={{ marginTop: "1rem" }}>
+          {props.body}
           <br />
-          {'"a benevolent smile"'}
+          {props.secondBody}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button variant="contained" size="small" sx={{ background: "#073259" }}>
+          {props.demo}
+        </Button>
       </CardActions>
     </Card>
   );

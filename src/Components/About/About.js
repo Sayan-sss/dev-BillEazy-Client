@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Typography } from "@mui/material";
+import { Box, Button, IconButton, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
@@ -11,8 +11,10 @@ import { useNavigate } from "react-router-dom";
 import AboutCard from "./About.Card";
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
+import TextField from "@mui/material/TextField";
+import SendIcon from "@mui/icons-material/Send";
 
-const About = () => {
+const About = ({ title, body, demo }) => {
   const navigate = useNavigate();
   return (
     <Box
@@ -50,12 +52,28 @@ const About = () => {
             flexDirection: "row",
             flexWrap: "wrap",
             alignItems: "center",
+            // border: "1px solid red",
             justifyContent: "space-around",
           }}
         >
-          <AboutCard />
-          <AboutCard />
-          <AboutCard />
+          <AboutCard
+            title="Invoice"
+            body="Our web application can help you in creating detailed Invoice."
+            demo="Demo"
+            secondBody="Click on the button below to see a demo invoice."
+          />
+          <AboutCard
+            title="Proforma Invoice"
+            body="Our web application can help you in creating detailed Proforma Invoice."
+            demo="Demo"
+            secondBody="Click on the button below to see a demo Proforma Invoice."
+          />
+          <AboutCard
+            title="Delivery Challan"
+            body="Our web application can help you in creating detailed Delivery Challan."
+            demo="Demo"
+            secondBody="Click on the button below to see a demo Delivery Challan."
+          />
         </Box>
       </Box>
       <Box>
@@ -112,7 +130,7 @@ const About = () => {
                   <LocationOnIcon
                     sx={{ color: "#073259", marginRight: "1rem" }}
                   />
-                  Berhampore, Murshidabad
+                  BERHAMPORE, MURSHIDABAD
                 </Typography>
 
                 <Typography
@@ -154,58 +172,142 @@ const About = () => {
                   justifyContent: "space-around",
                 }}
               >
-                <IconButton
-                  onClick={() => navigate("/Invoicegenerator")}
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#073259",
-                    color: "gray",
-                  }}
-                >
-                  <FacebookIcon fontSize="large"></FacebookIcon>
-                </IconButton>
+                <Tooltip title="Facebook">
+                  <IconButton
+                    onClick={() => navigate("/Invoicegenerator")}
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "#073259",
+                      color: "gray",
+                    }}
+                  >
+                    <FacebookIcon fontSize="large"></FacebookIcon>
+                  </IconButton>
+                </Tooltip>
 
-                <IconButton
-                  onClick={() => navigate("/Invoicegenerator")}
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#073259",
-                    color: "gray",
-                  }}
-                >
-                  <LinkedInIcon fontSize="large"></LinkedInIcon>
-                </IconButton>
+                <Tooltip title="LinkedIn">
+                  <IconButton
+                    onClick={() => navigate("/Invoicegenerator")}
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "#073259",
+                      color: "gray",
+                    }}
+                  >
+                    <LinkedInIcon fontSize="large"></LinkedInIcon>
+                  </IconButton>
+                </Tooltip>
 
-                <IconButton
-                  onClick={() => navigate("/Invoicegenerator")}
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#073259",
-                    color: "gray",
-                  }}
-                >
-                  <GitHubIcon fontSize="large"></GitHubIcon>
-                </IconButton>
+                <Tooltip title="Github">
+                  <IconButton
+                    onClick={() => navigate("/Invoicegenerator")}
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "#073259",
+                      color: "gray",
+                    }}
+                  >
+                    <GitHubIcon fontSize="large"></GitHubIcon>
+                  </IconButton>
+                </Tooltip>
 
-                <IconButton
-                  onClick={() => navigate("/Invoicegenerator")}
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#073259",
-                    color: "gray",
-                  }}
-                >
-                  <InstagramIcon fontSize="large"></InstagramIcon>
-                </IconButton>
+                <Tooltip title="Instagram">
+                  <IconButton
+                    onClick={() => navigate("/Invoicegenerator")}
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "#073259",
+                      color: "gray",
+                    }}
+                  >
+                    <InstagramIcon fontSize="large"></InstagramIcon>
+                  </IconButton>
+                </Tooltip>
               </Box>
             </Box>
           </Box>
 
-          <Box
-            classname="footer_right"
-            sx={{ height: "100vh", width: "45vw", border: "1px solid red" }}
-          >
-            <Divider textAlign="right">RIGHT</Divider>
+          <Box classname="footer_right" sx={{ height: "100vh", width: "45vw" }}>
+            <Divider textAlign="right" sx={{ color: "#073259" }}>
+              GET IN TOUCH
+            </Divider>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                // border: "1px solid blue",
+                height: "36vh",
+                alignItems: "center",
+                // justifyContent: "space-evenly",
+              }}
+            >
+              <Box
+                sx={{
+                  height: "16vh",
+                  width: "40vw",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  // border: "1px solid red",
+                  justifyContent: "space-between",
+                  marginTop: "0.5rem",
+                }}
+              >
+                <TextField
+                  required
+                  id="name"
+                  type="text"
+                  label="Your Name"
+                  placeholder="Your Name"
+                  fullWidth
+                  // color="#073259"
+                />
+                <TextField
+                  required
+                  id="email"
+                  type="email"
+                  label="Your Email"
+                  placeholder="Your Email"
+                  fullWidth
+                  // color="#073259"
+                />
+              </Box>
+              <Box
+                sx={{
+                  height: "",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  // border: "1px solid blue",
+                  flexDirection: "row",
+                  height: "18vh",
+                  marginTop: "0.5rem",
+                  width: "40vw",
+                }}
+              >
+                <TextField
+                  required
+                  id="message"
+                  type="text"
+                  label="Your Message"
+                  multiline
+                  placeholder="Your Message"
+                  rows={4}
+                  sx={{ width: "32vw", height: "8rem" }}
+                />
+
+                <Button
+                  variant="contained"
+                  sx={{
+                    background: "#073259",
+                    height: "2rem",
+                  }}
+                >
+                  <SendIcon sx={{ marginRight: "1rem" }} />
+                  Send
+                </Button>
+              </Box>
+            </Box>
           </Box>
         </Box>
       </Box>
