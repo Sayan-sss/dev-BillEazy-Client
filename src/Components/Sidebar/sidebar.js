@@ -16,15 +16,18 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import HomeIcon from "@mui/icons-material/Home";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import InfoIcon from "@mui/icons-material/Info";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(0);
-  const user = localStorage.getItem("user");
+  const User = useSelector((state) => state.authReducer);
+  const { token, user } = User;
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handlelogOut = () => {
-    localStorage.removeItem("user", "token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
     dispatch({ type: "RemoveAuth" });
     navigate("/Login");
   };

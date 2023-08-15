@@ -12,16 +12,16 @@ export default function SignUp() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const user = useSelector((state) => state.authReducer);
-  console.log("Reducer user");
-  console.log(user);
+  // const user = useSelector((state) => state.authReducer);
+  // console.log("Reducer user");
+  // console.log(user);
   const dispatch = useDispatch();
   // console.log(name);
   // console.log(email);
   // console.log(password);
   const signUp = async () => {
     try {
-      const { data } = await API.post("api/auth/signup", {
+      const { data } = await API.post("/v1/api/auth/signup", {
         name,
         email,
         password,

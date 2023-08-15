@@ -5,11 +5,11 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function TransportSelect() {
-  const [age, setAge] = React.useState("");
+export default function TransportSelect(props) {
+  const { supplyType, setSupplyType } = props;
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setSupplyType(event.target.value);
   };
 
   return (
@@ -21,17 +21,17 @@ export default function TransportSelect() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={supplyType}
           label="Select Supply Type"
           onChange={handleChange}
         >
-          <MenuItem value={10}>NONE</MenuItem>
-          <MenuItem value={10}>B2B</MenuItem>
-          <MenuItem value={20}>SEZWP</MenuItem>
-          <MenuItem value={30}>SEZWOP</MenuItem>
-          <MenuItem value={30}>EXPWP</MenuItem>
-          <MenuItem value={30}>EXPWOP</MenuItem>
-          <MenuItem value={30}>DEXP</MenuItem>
+          <MenuItem value={"NONE"}>NONE</MenuItem>
+          <MenuItem value={"B2B"}>B2B</MenuItem>
+          <MenuItem value={"SEZWP"}>SEZWP</MenuItem>
+          <MenuItem value={"SEZWOP"}>SEZWOP</MenuItem>
+          <MenuItem value={"EXPWP"}>EXPWP</MenuItem>
+          <MenuItem value={"EXPWOP"}>EXPWOP</MenuItem>
+          <MenuItem value={"DEXP"}>DEXP</MenuItem>
         </Select>
       </FormControl>
     </Box>

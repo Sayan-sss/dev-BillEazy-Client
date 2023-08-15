@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function SelectProduct() {
+export default function Select_Percent_Wise_Product() {
   const [selectProduct, setSelectProduct] = React.useState(10);
 
   const handleChange = (event) => {

@@ -1,5 +1,5 @@
 const initialState = {
-  user: null,
+  user: JSON.parse(localStorage.getItem("user")),
   token: localStorage.getItem("token"),
   loggedIn: localStorage.getItem("token") ? true : false,
 };
@@ -16,7 +16,7 @@ const authReducer = (state = initialState, action) => {
       // console.log("Ruser");
       // console.log(action.user);
       return {
-        // ...state,
+        ...state,
         user: action.user,
         loggedIn: true,
       };

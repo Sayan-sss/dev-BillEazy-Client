@@ -42,7 +42,7 @@ export default function DataGridDemo(props) {
       const Medicineid = cellValues.row._id;
 
       const { data } = await API.delete(
-        `api/medicine/deletemedicine/${Medicineid}`
+        `/v1/api/medicine/deletemedicine/${Medicineid}`
       );
       if (data?.success) {
         toast.success("Deleted successfully");
