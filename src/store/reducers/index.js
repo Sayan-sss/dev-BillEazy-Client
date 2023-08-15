@@ -1,12 +1,11 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { authReducer } from "./auth";
-import { SupplierReducer } from "./invoice.supplier.details.reducer"
+import authReducer from "./auth";
+import { SupplierReducer } from "./invoice.supplier.details.reducer";
 
 export default combineReducers({
-  auth: authReducer,
-  supplierReducer: SupplierReducer
+  authReducer,
+  SupplierReducer,
 });
-
 
 // const reducers = () => {
 //   combineReducers({

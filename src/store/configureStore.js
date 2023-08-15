@@ -1,10 +1,11 @@
-import reducers from "../reducers";
+import reducers from "./reducers";
 import { configureStore } from "@reduxjs/toolkit";
 import { applyMiddleware, compose } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
 export const store = configureStore(
   {
     reducer: reducers,
-    // compose(applyMiddleware(thunk))
   },
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  compose(applyMiddleware(thunk))
 );

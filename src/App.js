@@ -16,8 +16,12 @@ import SignUp from "./Components/Auth/SignUp";
 import TemporaryDrawer from "./Components/MuuiComponents/Drawer";
 import MiniDrawer from "./Components/MuuiComponents/Drawer";
 import About from "./Components/About/About";
+import { useSelector } from "react-redux";
 
 function App() {
+  const user = useSelector((state) => state.authReducer);
+  console.log("Reducer user");
+  console.log(JSON.stringify(user));
   return (
     <div className="App">
       <Box
@@ -59,7 +63,10 @@ function App() {
             {/* <Route path="/contact" element={<Contact />}></Route> */}
             <Route path="/InvoiceList" element={<InvoiceList />}></Route>
             <Route path="/home" element={<Home />}></Route>
-            <Route path="/" element={<Login />}></Route>
+            <Route
+              path="/"
+              element={user ? <InsideMedicineContainer /> : <Login />}
+            ></Route>
             <Route path="/invoice" element={<InvoiceViewer />}></Route>
             <Route path="/Login" element={<Login />}></Route>
             <Route path="/SignUp" element={<SignUp />}></Route>

@@ -17,9 +17,9 @@ export default function Login() {
   const navigate = useNavigate();
   const [password, setPassword] = React.useState("");
   const [email, setEmail] = React.useState("");
-  const user = useSelector((state) => state.authReducer);
+  const User = useSelector((state) => state.authReducer);
   console.log("Reducer user");
-  console.log(user);
+  console.log(User);
   const dispatch = useDispatch();
   const handlelogIn = async () => {
     try {
