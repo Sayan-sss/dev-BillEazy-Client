@@ -62,14 +62,14 @@ function App() {
           <Routes>
             <Route
               path="/medicines"
-              element={user ? <InsideMedicineContainer /> : <Login />}
+              element={token ? <InsideMedicineContainer /> : <Login />}
             ></Route>
             {/* <Route path="/contact" element={<Contact />}></Route> */}
             <Route path="/InvoiceList" element={<InvoiceList />}></Route>
             <Route path="/home" element={<Home />}></Route>
             <Route
               path="/"
-              element={user ? <InsideMedicineContainer /> : <Login />}
+              element={token ? <InsideMedicineContainer /> : <Login />}
             ></Route>
             <Route path="/invoice" element={<InvoiceViewer />}></Route>
             <Route path="/Login" element={<Login />}></Route>
