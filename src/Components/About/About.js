@@ -13,6 +13,7 @@ import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
 import TextField from "@mui/material/TextField";
 import SendIcon from "@mui/icons-material/Send";
+import NewReleasesIcon from "@mui/icons-material/NewReleases";
 
 const About = ({ title, body, demo }) => {
   const navigate = useNavigate();
@@ -165,64 +166,94 @@ const About = ({ title, body, demo }) => {
               <Box
                 sx={{
                   // border: "1px solid black",
-                  height: "10vh",
+                  height: "15vh",
                   display: "flex",
                   alignItems: "center",
-                  flexDirection: "row",
-                  justifyContent: "space-around",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
                 }}
               >
-                <Tooltip title="Facebook">
-                  <IconButton
-                    onClick={() => navigate("/Invoicegenerator")}
-                    variant="contained"
-                    sx={{
-                      backgroundColor: "#073259",
-                      color: "gray",
-                    }}
-                  >
-                    <FacebookIcon fontSize="large"></FacebookIcon>
-                  </IconButton>
-                </Tooltip>
+                <Box
+                  sx={{
+                    display: "flex",
+                    // border: "1px solid red",
+                    height: "11vh",
+                    width: "30vw",
+                    alignItems: "center",
+                    flexDirection: "row",
+                    justifyContent: "space-around",
+                  }}
+                >
+                  <Tooltip title="Facebook">
+                    <IconButton
+                      onClick={() => navigate("/Invoicegenerator")}
+                      variant="contained"
+                      sx={{
+                        backgroundColor: "#073259",
+                        color: "gray",
+                      }}
+                    >
+                      <FacebookIcon fontSize="large"></FacebookIcon>
+                    </IconButton>
+                  </Tooltip>
 
-                <Tooltip title="LinkedIn">
-                  <IconButton
-                    onClick={() => navigate("/Invoicegenerator")}
-                    variant="contained"
-                    sx={{
-                      backgroundColor: "#073259",
-                      color: "gray",
-                    }}
-                  >
-                    <LinkedInIcon fontSize="large"></LinkedInIcon>
-                  </IconButton>
-                </Tooltip>
+                  <Tooltip title="LinkedIn">
+                    <IconButton
+                      onClick={() => navigate("/Invoicegenerator")}
+                      variant="contained"
+                      sx={{
+                        backgroundColor: "#073259",
+                        color: "gray",
+                      }}
+                    >
+                      <LinkedInIcon fontSize="large"></LinkedInIcon>
+                    </IconButton>
+                  </Tooltip>
 
-                <Tooltip title="Github">
-                  <IconButton
-                    onClick={() => navigate("/Invoicegenerator")}
-                    variant="contained"
-                    sx={{
-                      backgroundColor: "#073259",
-                      color: "gray",
-                    }}
-                  >
-                    <GitHubIcon fontSize="large"></GitHubIcon>
-                  </IconButton>
-                </Tooltip>
+                  <Tooltip title="Github">
+                    <IconButton
+                      onClick={() => navigate("/Invoicegenerator")}
+                      variant="contained"
+                      sx={{
+                        backgroundColor: "#073259",
+                        color: "gray",
+                      }}
+                    >
+                      <GitHubIcon fontSize="large"></GitHubIcon>
+                    </IconButton>
+                  </Tooltip>
 
-                <Tooltip title="Instagram">
-                  <IconButton
-                    onClick={() => navigate("/Invoicegenerator")}
-                    variant="contained"
-                    sx={{
-                      backgroundColor: "#073259",
-                      color: "gray",
-                    }}
-                  >
-                    <InstagramIcon fontSize="large"></InstagramIcon>
-                  </IconButton>
-                </Tooltip>
+                  <Tooltip title="Instagram">
+                    <IconButton
+                      onClick={() => navigate("/Invoicegenerator")}
+                      variant="contained"
+                      sx={{
+                        backgroundColor: "#073259",
+                        color: "gray",
+                      }}
+                    >
+                      <InstagramIcon fontSize="large"></InstagramIcon>
+                    </IconButton>
+                  </Tooltip>
+                </Box>
+                <Box>
+                  <Divider sx={{ width: "35vw" }}>
+                    <Chip
+                      onClick={() => navigate("/OurConditions")}
+                      sx={{
+                        background: "#073259",
+                        // border: "1px solid red",
+                        color: "white",
+                        height: "4vh",
+                        width: "18vw",
+                        fontSize: "1rem",
+                        color: "red",
+                        // marginBottom: "1rem",
+                      }}
+                      label="Terms And Conditions"
+                    />
+                  </Divider>
+                </Box>
               </Box>
             </Box>
           </Box>
@@ -272,13 +303,14 @@ const About = ({ title, body, demo }) => {
                   // color="#073259"
                 />
               </Box>
+
               <Box
                 sx={{
                   height: "",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  // border: "1px solid blue",
+                  // border: "2px solid blue",
                   flexDirection: "row",
                   height: "18vh",
                   marginTop: "0.5rem",
