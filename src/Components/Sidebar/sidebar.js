@@ -115,7 +115,7 @@ const Sidebar = () => {
             </Tooltip>
             <Tooltip title="Account">
               <IconButton
-                onClick={() => navigate("/invoiceList")}
+                onClick={() => navigate("/Account")}
                 variant="contained"
                 sx={{
                   backgroundColor: "#073259",
