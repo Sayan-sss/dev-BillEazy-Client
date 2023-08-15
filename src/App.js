@@ -19,9 +19,12 @@ import About from "./Components/About/About";
 import { useSelector } from "react-redux";
 
 function App() {
-  const user = useSelector((state) => state.authReducer);
-  console.log("Reducer user");
-  console.log(JSON.stringify(user));
+  const User = useSelector((state) => state.authReducer);
+  // console.log("Reducer user");
+  const { token, user } = User;
+  // console.log(token, user);
+  // console.log("User");
+  // console.log(User);
   return (
     <div className="App">
       <Box
@@ -58,7 +61,7 @@ function App() {
           <Routes>
             <Route
               path="/medicines"
-              element={<InsideMedicineContainer />}
+              element={user ? <InsideMedicineContainer /> : <Login />}
             ></Route>
             {/* <Route path="/contact" element={<Contact />}></Route> */}
             <Route path="/InvoiceList" element={<InvoiceList />}></Route>
