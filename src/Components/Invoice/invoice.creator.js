@@ -12,7 +12,7 @@ import Bankdetails from "../Invoice.fields/Bank.details";
 import TermsAndCondition from "../MuuiComponents/TermsAndCondition";
 import { useSelector } from "react-redux";
 const Invoicecreator = () => {
-  const { data } = useSelector((state) => state.supplierReducer)
+  const { data } = useSelector((state) => state.SupplierReducer);
   const {
     firmName,
     companyAddress,
@@ -23,9 +23,9 @@ const Invoicecreator = () => {
     dlNo,
     city,
     state,
-    pincode
+    pincode,
   } = data;
-  console.log(data)
+  console.log(data);
   return (
     <>
       <Box
@@ -65,7 +65,7 @@ const Invoicecreator = () => {
               flexDirection: "row",
               justifyContent: "space-around",
               paddingTop: "2rem",
-              width: "100%"
+              width: "100%",
             }}
           >
             <Box className="up_left">
@@ -82,46 +82,54 @@ const Invoicecreator = () => {
               }}
             >
               <Supplierdetails />
-              <Box sx={{
-                // border: "1px solid red",
-                height: "fit-content",
-                display: 'flex',
-                ml: "1rem",
-                my: "1rem",
-                flexDirection: 'column',
-
-              }}>
-                {firmName && <Typography variant="h6">
-                  {firmName}
-                </Typography>}
-                {companyEmail && <Typography variant="subtitle1">
-                  Email: {companyEmail}
-                </Typography>}
-                {dlNo && <Typography variant="subtitle1">
-                  DL No.: {dlNo}
-                </Typography>}
-                {companyPan && <Typography variant="subtitle1">
-                  PAN: {companyPan}
-                </Typography>}
-                {companyAddress && <Typography variant="subtitle1">
-                  Company Address: {companyAddress}
-                </Typography>}
-                {city && <Typography variant="subtitle1">
-                  City: {city}
-                </Typography>}
-                {state && <Typography variant="subtitle1">
-                  State: {state}
-                </Typography>}
-                {pincode && <Typography variant="subtitle1">
-                  Pincode: {pincode}
-                </Typography>}
-                {companyGstin && <Typography variant="subtitle1">
-                  GSTIN: {companyGstin}
-                </Typography>}
-                {companyMobile && <Typography variant="subtitle1">
-                  Mobile: {companyMobile}
-                </Typography>}
-
+              <Box
+                sx={{
+                  // border: "1px solid red",
+                  height: "fit-content",
+                  display: "flex",
+                  ml: "1rem",
+                  my: "1rem",
+                  flexDirection: "column",
+                }}
+              >
+                {firmName && <Typography variant="h6">{firmName}</Typography>}
+                {companyEmail && (
+                  <Typography variant="subtitle1">
+                    Email: {companyEmail}
+                  </Typography>
+                )}
+                {dlNo && (
+                  <Typography variant="subtitle1">DL No.: {dlNo}</Typography>
+                )}
+                {companyPan && (
+                  <Typography variant="subtitle1">PAN: {companyPan}</Typography>
+                )}
+                {companyAddress && (
+                  <Typography variant="subtitle1">
+                    Company Address: {companyAddress}
+                  </Typography>
+                )}
+                {city && (
+                  <Typography variant="subtitle1">City: {city}</Typography>
+                )}
+                {state && (
+                  <Typography variant="subtitle1">State: {state}</Typography>
+                )}
+                {pincode && (
+                  <Typography variant="subtitle1">
+                    Pincode: {pincode}
+                  </Typography>
+                )}
+                {companyGstin && (
+                  <Typography variant="subtitle1">
+                    GSTIN: {companyGstin}
+                  </Typography>
+                )}
+                {companyMobile && (
+                  <Typography variant="subtitle1">
+                    Mobile: {companyMobile}
+                  </Typography>
+                )}
               </Box>
             </Box>
           </Box>

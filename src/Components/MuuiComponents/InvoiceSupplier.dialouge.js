@@ -14,7 +14,7 @@ import { Box } from "@mui/material";
 import useInvoiceApis from "../hooks/invoice.hooks";
 
 export default function InvoiceDialouge(props) {
-  const { addSupplierDetails } = useInvoiceApis()
+  const { addSupplierDetails } = useInvoiceApis();
   const [open, setOpen] = React.useState(false);
   const [firmname, setFirmName] = React.useState("");
   const [companyGSTIN, setCompanyGSTIN] = React.useState("");
@@ -45,9 +45,9 @@ export default function InvoiceDialouge(props) {
       pincode,
       mobileNumber: companyMobile,
       companyPan,
-    })
+    });
     setOpen(false);
-  }
+  };
   //   const handleSubmit = async () => {
   //     try {
   //       const { data } = await API.post("/api/medicine/addmedicine", {
@@ -80,7 +80,7 @@ export default function InvoiceDialouge(props) {
             backgroundColor: "#363740",
             color: "#ffffff",
             fontFamily: "Roboto",
-            mb: "1.5rem"
+            mb: "1.5rem",
           }}
         >
           SUPPLIER DETAILS
@@ -249,10 +249,7 @@ export default function InvoiceDialouge(props) {
           <Button variant="outlined" onClick={handleClose}>
             Cancel
           </Button>
-          <Button
-            onClick={handleSubmit}
-            variant="outlined"
-          >
+          <Button onClick={handleSubmit} variant="outlined">
             Save
           </Button>
         </DialogActions>

@@ -1,12 +1,12 @@
 const initialState = {
-  data: {}
-}
+  data: {},
+};
 export const SupplierReducer = (state = initialState, action) => {
   switch (action.type) {
     case "POST_SUPPLIER_DETAILS":
       return {
         ...state,
-        ...action.payload
+        ...action.payload,
       };
 
     case "FETCH_SUPPLIER_DETAILS":
