@@ -17,6 +17,7 @@ import TemporaryDrawer from "./Components/MuuiComponents/Drawer";
 import MiniDrawer from "./Components/MuuiComponents/Drawer";
 import About from "./Components/About/About";
 import { useSelector } from "react-redux";
+import Account from "./Components/Account/Account";
 
 function App() {
   const User = useSelector((state) => state.authReducer);
@@ -74,6 +75,7 @@ function App() {
             <Route path="/Login" element={<Login />}></Route>
             <Route path="/SignUp" element={<SignUp />}></Route>
             <Route path="/About" element={<About />}></Route>
+            <Route path="/Account" element={<Account />}></Route>
             {/* <Route
               path="/InsideMedicine"
               element={<InsideMedicineContainer />}
