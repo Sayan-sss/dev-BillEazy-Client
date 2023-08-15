@@ -24,7 +24,7 @@ const About = ({ title, body, demo }) => {
         width: "85vw",
         display: "flex",
         flexDirection: "column",
-        border: "1px solid red",
+        // border: "1px solid red",
       }}
     >
       <Box classname="header" sx={{ height: "10vh", width: "85vw" }}></Box>
