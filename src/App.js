@@ -19,7 +19,7 @@ import About from "./Components/About/About";
 import { useSelector } from "react-redux";
 import Account from "./Components/Account/Account";
 import Pricing from "./Components/Pricing/Pricing";
-
+import toast, { Toaster } from "react-hot-toast";
 function App() {
   const User = useSelector((state) => state.authReducer);
   // console.log("Reducer user");
@@ -89,6 +89,7 @@ function App() {
           {/* <MobileNavabr /> */}
         </Box>
       </Box>
+      <Toaster />
     </div>
   );
 }

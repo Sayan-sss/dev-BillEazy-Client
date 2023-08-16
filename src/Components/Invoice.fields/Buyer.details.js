@@ -1,8 +1,10 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import InvoiceDialouge from "../MuuiComponents/InvoiceBuyer.dialouge";
-
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import ShowAllBuyer from "../MuuiComponents/invoice.Buyer.details.showAllBuyer";
 const Buyerdetails = () => {
+  const [open, setOpen] = useState(false);
   return (
     <>
       <Box
@@ -26,6 +28,7 @@ const Buyerdetails = () => {
         <Typography variant="h5" gutterBottom sx={{ fontWeight: "" }}>
           BUYER DETAILS
         </Typography>
+        <ShowAllBuyer open={open} setOpen={setOpen} />
         <InvoiceDialouge />
       </Box>
     </>
