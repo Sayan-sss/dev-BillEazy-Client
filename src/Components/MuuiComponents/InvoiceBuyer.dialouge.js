@@ -12,19 +12,23 @@ import { toast, Toaster } from "react-hot-toast";
 import API from "../../api";
 import EditIcon from "@mui/icons-material/Edit";
 import BuyerSelect from "./Invoice.Buyer.Select";
+import useInvoiceApis from "../hooks/invoice.hooks";
+import { useSelector } from "react-redux";
 
 export default function InvoiceDialouge(props) {
+  const { addBuyerDetails } = useInvoiceApis();
   const [open, setOpen] = React.useState(false);
   const [companyname, setCompanyName] = React.useState("");
   const [GSTINno, setGSTINno] = React.useState("");
   const [companyAddress, setCompanyAddress] = React.useState("");
-  const [pincode, setPincode] = React.useState("");
-  const [companyMobile, setCompanyMobile] = React.useState("");
+  const [pincode, setPincode] = React.useState();
+  const [companyMobile, setCompanyMobile] = React.useState();
   const [email, setEmail] = React.useState("");
   const [state, setState] = React.useState("");
-  const [dl, setDl] = React.useState("");
+  const [dl, setDl] = React.useState();
   const [city, setCity] = React.useState("");
-  const [gstTreatmentType, setGstTreatmentType] = React.useState("");
+  const [gstTreatmentType, setGstTreatmentType] = React.useState();
+  console.log(gstTreatmentType);
   //   const [companyPan, setCompanyPan] = React.useState("");
   const handleClickOpen = () => {
     setOpen(true);
@@ -33,25 +37,26 @@ export default function InvoiceDialouge(props) {
   const handleClose = async () => {
     setOpen(false);
   };
-  //   const handleSubmit = async () => {
-  //     try {
-  //       const { data } = await API.post("/api/medicine/addmedicine", {
-  //         name,
-  //         quantity,
-  //         price,
-  //       });
+  const User = useSelector((state) => state.authReducer);
+  // console.log("Reducer user");
+  const { token, user } = User;
 
-  //       if (data?.success) {
-  //         toast.success("Successfully product added");
-  //         props.getAllMedicines();
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //       toast.error("Something went Wrong");
-  //     }
-
-  //     handleClose();
-  //   };
+  const handleSubmit = async () => {
+    addBuyerDetails({
+      companyName: companyname,
+      companyGstin: GSTINno,
+      companyAddress,
+      pincode,
+      companyMobile,
+      companyEmail: email,
+      state,
+      dlNo: dl,
+      city,
+      gstTreatmentType,
+      userId: user._id,
+    });
+    setOpen(false);
+  };
   return (
     <div>
       <EditIcon
@@ -98,7 +103,7 @@ export default function InvoiceDialouge(props) {
             margin="dense"
             id="dl"
             label="DL No."
-            type="text"
+            type="number"
             fullWidth
             variant="outlined"
             value={dl}
@@ -163,7 +168,7 @@ export default function InvoiceDialouge(props) {
               margin="dense"
               id="pincode"
               label="Pincode"
-              type="text"
+              type="number"
               // fullWidth
               sx={{
                 width: "30%",
@@ -210,11 +215,15 @@ export default function InvoiceDialouge(props) {
             value={gstTreatmentType}
             onChange={(e) => setGstTreatmentType(e.target.value)}
           /> */}
-          <BuyerSelect sx={{ margin: "dense" }} />
+          <BuyerSelect
+            sx={{ margin: "dense" }}
+            gstTreatmentType={gstTreatmentType}
+            setGstTreatmentType={setGstTreatmentType}
+          />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button>Save</Button>
+          <Button onClick={handleSubmit}>Save</Button>
         </DialogActions>
       </Dialog>
       <Toaster />

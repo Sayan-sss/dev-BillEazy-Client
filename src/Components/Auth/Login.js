@@ -17,13 +17,13 @@ export default function Login() {
   const navigate = useNavigate();
   const [password, setPassword] = React.useState("");
   const [email, setEmail] = React.useState("");
-  const User = useSelector((state) => state.authReducer);
-  console.log("Reducer user");
-  console.log(User);
+  // const User = useSelector((state) => state.authReducer);
+  // console.log("Reducer user");
+  // console.log(User);
   const dispatch = useDispatch();
   const handlelogIn = async () => {
     try {
-      const { data } = await API.post("api/auth/login", {
+      const { data } = await API.post("/v1/api/auth/login", {
         email,
         password,
       });

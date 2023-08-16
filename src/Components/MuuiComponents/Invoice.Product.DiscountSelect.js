@@ -5,8 +5,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function ProductSelect() {
-  const [discountType, setDiscountType] = React.useState("");
+export default function Product_discount_type_Select(props) {
+  const { discountType, setDiscountType } = props;
 
   const handleChange = (event) => {
     setDiscountType(event.target.value);
@@ -21,10 +21,11 @@ export default function ProductSelect() {
           id="demo-simple-select"
           value={discountType}
           label="Discount Type"
+          defaultValue={"Value Wise"}
           onChange={handleChange}
         >
-          <MenuItem value={10}>Percent Wise</MenuItem>
-          <MenuItem value={20}>Value Wise</MenuItem>
+          <MenuItem value={"Percent Wise"}>Percent Wise</MenuItem>
+          <MenuItem value={"Value Wise"}>Value Wise</MenuItem>
         </Select>
       </FormControl>
     </Box>

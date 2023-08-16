@@ -5,11 +5,11 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function ProductGSTselect() {
-  const [gstType, setGstType] = React.useState("");
+export default function ProductGSTselect(props) {
+  const { gst, setGst } = props;
 
   const handleChange = (event) => {
-    setGstType(event.target.value);
+    setGst(event.target.value);
   };
 
   return (
@@ -19,23 +19,24 @@ export default function ProductGSTselect() {
         <Select
           labelId="demo-simple-select-label"
           id="gst"
-          value={gstType}
+          value={gst}
           label="GST(%)"
+          defaultValue={0}
           onChange={handleChange}
         >
-          <MenuItem value={10}>No GST</MenuItem>
-          <MenuItem value={20}>GST @ 0%</MenuItem>
-          <MenuItem value={30}>Exempted</MenuItem>
-          <MenuItem value={40}>GST @ 0.1%</MenuItem>
-          <MenuItem value={50}>GST @ 0.25%</MenuItem>
-          <MenuItem value={60}>GST @ 1.5%</MenuItem>
-          <MenuItem value={70}>GST @ 3%</MenuItem>
-          <MenuItem value={100}>GST @ 5%</MenuItem>
-          <MenuItem value={110}>GST @ 6%</MenuItem>
-          <MenuItem value={120}>GST @ 12%</MenuItem>
-          <MenuItem value={130}>GST @ 14%</MenuItem>
-          <MenuItem value={140}>GST @ 18%</MenuItem>
-          <MenuItem value={150}>GST @ 28%</MenuItem>
+          <MenuItem value={0.01}>No GST</MenuItem>
+          <MenuItem value={0}>GST @ 0%</MenuItem>
+          <MenuItem value={0.02}>Exempted</MenuItem>
+          <MenuItem value={0.1}>GST @ 0.1%</MenuItem>
+          <MenuItem value={0.25}>GST @ 0.25%</MenuItem>
+          <MenuItem value={1.5}>GST @ 1.5%</MenuItem>
+          <MenuItem value={3}>GST @ 3%</MenuItem>
+          <MenuItem value={5}>GST @ 5%</MenuItem>
+          <MenuItem value={6}>GST @ 6%</MenuItem>
+          <MenuItem value={12}>GST @ 12%</MenuItem>
+          <MenuItem value={14}>GST @ 14%</MenuItem>
+          <MenuItem value={18}>GST @ 18%</MenuItem>
+          <MenuItem value={28}>GST @ 28%</MenuItem>
         </Select>
       </FormControl>
     </Box>

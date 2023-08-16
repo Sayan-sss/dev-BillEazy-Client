@@ -11,24 +11,38 @@ import { toast, Toaster } from "react-hot-toast";
 import API from "../../api";
 import EditIcon from "@mui/icons-material/Edit";
 import InvoiceTextField from "./Invoice.textField";
-import InvoiceProductsRadioGroup from "./InvoiceProduct.Radiogroup";
-import ProductSelect from "./Invoice.Product.DiscountSelect";
+// import InvoiceProductsRadioGroup from "./InvoiceProduct.Radiogroup";
+// import ProductSelect from "./Invoice.Product.DiscountSelect";
 import ProductGSTselect from "./Invoice.Product.GstSelect";
 import Select from "./Invoice.Product.Select";
 import { Box } from "@mui/material";
+import useInvoiceApis from "../hooks/invoice.hooks";
+import { useSelector } from "react-redux";
+// import ProductSelect_discount_type from "./Invoice.Product.DiscountSelect";
+import Invoice_Products_Tax_RadioGroup from "./InvoiceProduct.Radiogroup";
+import Product_discount_type_Select from "./Invoice.Product.DiscountSelect";
+import Select_Percent_Wise_Product from "./Invoice.Product.Select";
 
 export default function InvoiceProduct(props) {
+  const { addProductDetails } = useInvoiceApis();
   const [open, setOpen] = React.useState(false);
   const [itemName, setItemName] = React.useState("");
   const [itemDescription, setItemDescription] = React.useState("");
   const [hsn, setHsn] = React.useState("");
-  const [quantity, setQuantity] = React.useState("");
-  const [unit, setUnit] = React.useState("");
-  const [salePrice, setSalePrice] = React.useState("");
-  const [gst, setGst] = React.useState("");
-  const [cess, setCess] = React.useState("");
-  const [discount, setDiscount] = React.useState("");
-
+  const [quantity, setQuantity] = React.useState();
+  const [unit, setUnit] = React.useState();
+  const [salePrice, setSalePrice] = React.useState();
+  const [gst, setGst] = React.useState(0);
+  const [cess, setCess] = React.useState();
+  const [discount, setDiscount] = React.useState();
+  const [discountType, setDiscountType] = React.useState("Percent Wise");
+  const [taxType, setTaxType] = React.useState("Inclusive");
+  const User = useSelector((state) => state.authReducer);
+  // console.log("Reducer user");
+  const { user } = User;
+  // console.log(gst);
+  // console.log(discount);
+  // console.log(taxType);
   //   const [companyPan, setCompanyPan] = React.useState("");
   const handleClickOpen = () => {
     setOpen(true);
@@ -56,6 +70,23 @@ export default function InvoiceProduct(props) {
 
   //     handleClose();
   //   };
+  const handleSubmit = async () => {
+    addProductDetails({
+      itemName,
+      itemDescription,
+      hsn,
+      quantity,
+      unit,
+      salePrice,
+      discount,
+      discountType,
+      cess,
+      gst,
+      taxType,
+      userId: user._id,
+    });
+    handleClose();
+  };
   return (
     <div>
       <EditIcon
@@ -122,7 +153,7 @@ export default function InvoiceProduct(props) {
               margin="dense"
               id="quantity"
               label="Quantity"
-              type="name"
+              type="number"
               sx={{
                 width: "38%",
               }}
@@ -144,7 +175,7 @@ export default function InvoiceProduct(props) {
               margin="dense"
               id="unit"
               label="Unit"
-              type="name"
+              type="number"
               sx={{
                 width: "32%",
               }}
@@ -158,7 +189,7 @@ export default function InvoiceProduct(props) {
               margin="dense"
               id="salePrice"
               label="Sale Price"
-              type="name"
+              type="number"
               sx={{
                 width: "32%",
               }}
@@ -172,7 +203,7 @@ export default function InvoiceProduct(props) {
               margin="dense"
               id="discount"
               label="Discount"
-              type="name"
+              type="number"
               sx={{
                 width: "32%",
               }}
@@ -182,9 +213,16 @@ export default function InvoiceProduct(props) {
               onChange={(e) => setDiscount(e.target.value)}
             />
           </Box>
-          <ProductSelect />
-          <InvoiceProductsRadioGroup />
-          <ProductGSTselect />
+          <Product_discount_type_Select
+            discountType={discountType}
+            setDiscountType={setDiscountType}
+          />
+
+          <Invoice_Products_Tax_RadioGroup
+            taxType={taxType}
+            setTaxType={setTaxType}
+          />
+          <ProductGSTselect gst={gst} setGst={setGst} />
           {/* <TextField
             autoFocus
             margin="dense"
@@ -196,25 +234,26 @@ export default function InvoiceProduct(props) {
             value={gst}
             onChange={(e) => setGst(e.target.value)}
           /> */}
-
           <TextField
             autoFocus
             margin="dense"
             id="cess"
             label="CESS (Applied on Tax Value)"
-            type="name"
+            type="number"
             fullWidth
             variant="outlined"
             value={cess}
             onChange={(e) => setCess(e.target.value)}
           />
-          <Select />
+          <Select_Percent_Wise_Product />
         </DialogContent>
         <DialogActions>
           <Button variant="outlined" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="outlined">Save</Button>
+          <Button variant="outlined" onClick={handleSubmit}>
+            Save
+          </Button>
         </DialogActions>
       </Dialog>
       <Toaster />

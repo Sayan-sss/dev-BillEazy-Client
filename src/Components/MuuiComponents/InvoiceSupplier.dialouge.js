@@ -12,6 +12,7 @@ import API from "../../api";
 import EditIcon from "@mui/icons-material/Edit";
 import { Box } from "@mui/material";
 import useInvoiceApis from "../hooks/invoice.hooks";
+import { useSelector } from "react-redux";
 
 export default function InvoiceDialouge(props) {
   const { addSupplierDetails } = useInvoiceApis();
@@ -26,6 +27,9 @@ export default function InvoiceDialouge(props) {
   const [city, setCity] = React.useState("");
   const [companyPan, setCompanyPan] = React.useState("");
   const [dl, setDl] = React.useState("");
+  const User = useSelector((state) => state.authReducer);
+  // console.log("Reducer user");
+  const { token, user } = User;
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -45,6 +49,7 @@ export default function InvoiceDialouge(props) {
       pincode,
       mobileNumber: companyMobile,
       companyPan,
+      userId: user._id,
     });
     setOpen(false);
   };

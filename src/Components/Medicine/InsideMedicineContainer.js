@@ -12,7 +12,9 @@ const InsideMedicineContainer = () => {
   // console.log(userId);
   const getAllMedicines = async () => {
     try {
-      const { data } = await API.post("/api/medicine/getmedicine", { userId });
+      const { data } = await API.post("/v1/api/medicine/getmedicine", {
+        userId,
+      });
       console.log("data");
       console.log(data);
       if (data?.success) {

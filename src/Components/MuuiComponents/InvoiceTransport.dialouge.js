@@ -16,12 +16,20 @@ import InvoiceTransportRadiogroup from "./InvoiceTransport.Radiogroup";
 import DatePicker from "./InvoiceTransport.Datepicker";
 import TransportSelect from "./InvoiceTransport.select";
 import { Box } from "@mui/material";
+import useInvoiceApis from "../hooks/invoice.hooks";
+import dayjs from "dayjs";
+import TransportSupplyDatePicker from "./invoiceTransport.supplydate.datepicker";
 
 export default function InvoiceTransport(props) {
+  const { addTransportDetails } = useInvoiceApis();
   const [open, setOpen] = React.useState(false);
   const [lrnumber, setLrnumber] = React.useState("");
+  const [lrDate, setLrDate] = React.useState(dayjs("2022-04-17"));
+  const [supplyDate, setSupplyDate] = React.useState(dayjs("2022-04-17"));
   const [placeofsupply, setPlaceofsupply] = React.useState("");
   const [vehiclenumber, setVehiclenumber] = React.useState("");
+  const [transportType, setTransportType] = React.useState();
+  const [supplyType, setSupplyType] = React.useState("NONE");
 
   //   const [companyPan, setCompanyPan] = React.useState("");
   const handleClickOpen = () => {
@@ -50,6 +58,20 @@ export default function InvoiceTransport(props) {
 
   //     handleClose();
   //   };
+  console.log(lrDate.$d);
+  console.log(supplyDate.$d);
+  const handleSubmit = async () => {
+    addTransportDetails({
+      lrNumber: lrnumber,
+      placeOfSupply: placeofsupply,
+      vehicleNumber: vehiclenumber,
+      lrDate,
+      dateOfSupply: supplyDate,
+      supplyType,
+      type: transportType,
+    });
+    handleClose();
+  };
   return (
     <div>
       <EditIcon
@@ -69,9 +91,12 @@ export default function InvoiceTransport(props) {
         </DialogTitle>
 
         <DialogContent>
-          <InvoiceTransportRadiogroup />
+          <InvoiceTransportRadiogroup
+            transportType={transportType}
+            setTransportType={setTransportType}
+          />
 
-          <DatePicker name={"LR Date"} />
+          <DatePicker name={"LR Date"} lrDate={lrDate} setLrDate={setLrDate} />
           <TextField
             autoFocus
             margin="dense"
@@ -83,7 +108,11 @@ export default function InvoiceTransport(props) {
             value={lrnumber}
             onChange={(e) => setLrnumber(e.target.value)}
           />
-          <DatePicker name={"Date of Supply"} />
+          <TransportSupplyDatePicker
+            name={"Date of Supply"}
+            supplyDate={supplyDate}
+            setSupplyDate={setSupplyDate}
+          />
           <TextField
             autoFocus
             margin="dense"
@@ -106,11 +135,14 @@ export default function InvoiceTransport(props) {
             value={vehiclenumber}
             onChange={(e) => setVehiclenumber(e.target.value)}
           />
-          <TransportSelect />
+          <TransportSelect
+            supplyType={supplyType}
+            setSupplyType={setSupplyType}
+          />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button>Save</Button>
+          <Button onClick={handleSubmit}>Save</Button>
         </DialogActions>
       </Dialog>
       <Toaster />

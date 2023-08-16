@@ -32,7 +32,7 @@ export default function UpdateMedDialouge(props) {
   };
   const handleSubmit = async () => {
     try {
-      const { data } = await API.post("/api/medicine/addmedicine", {
+      const { data } = await API.post("/v1/api/medicine/addmedicine", {
         name,
         quantity,
         rate,
