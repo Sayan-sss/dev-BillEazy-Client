@@ -20,13 +20,13 @@ export default function InvoiceDialouge(props) {
   const [firmname, setFirmName] = React.useState("");
   const [companyGSTIN, setCompanyGSTIN] = React.useState("");
   const [companyAddress, setCompanyAddress] = React.useState("");
-  const [companyMobile, setCompanyMobile] = React.useState("");
+  const [companyMobile, setCompanyMobile] = React.useState();
   const [state, setState] = React.useState("");
-  const [pincode, setPincode] = React.useState("");
+  const [pincode, setPincode] = React.useState();
   const [companyemail, setCompanyemail] = React.useState("");
   const [city, setCity] = React.useState("");
   const [companyPan, setCompanyPan] = React.useState("");
-  const [dl, setDl] = React.useState("");
+  const [dl, setDl] = React.useState();
   const User = useSelector((state) => state.authReducer);
   // console.log("Reducer user");
   const { token, user } = User;
@@ -121,7 +121,7 @@ export default function InvoiceDialouge(props) {
             margin="dense"
             id="dl"
             label="DL No."
-            type="text"
+            type="number"
             fullWidth
             variant="outlined"
             value={dl}
@@ -188,7 +188,7 @@ export default function InvoiceDialouge(props) {
               margin="dense"
               id="pincode"
               label="Pincode"
-              type="text"
+              type="number"
               sx={{
                 width: "30%",
               }}

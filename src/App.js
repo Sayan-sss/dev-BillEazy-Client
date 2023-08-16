@@ -19,7 +19,6 @@ import About from "./Components/About/About";
 import { useSelector } from "react-redux";
 import Account from "./Components/Account/Account";
 import Pricing from "./Components/Pricing/Pricing";
-import OurConditions from "./Components/About/OurConditions";
 
 function App() {
   const User = useSelector((state) => state.authReducer);
@@ -91,6 +90,7 @@ function App() {
           {/* <MobileNavabr /> */}
         </Box>
       </Box>
+      <Toaster />
     </div>
   );
 }
