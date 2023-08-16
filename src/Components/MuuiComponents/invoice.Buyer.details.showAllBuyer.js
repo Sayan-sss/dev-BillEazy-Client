@@ -43,9 +43,9 @@ export default function ShowAllBuyer(props) {
   }, [buyerData]);
   return (
     <div>
-      {/* <Button variant="outlined" onClick={getBuyerData}>
+      <Button variant="outlined" onClick={getBuyerData}>
         Open alert dialog
-      </Button> */}
+      </Button>
       <Dialog
         open={open}
         onClose={handleClose}
