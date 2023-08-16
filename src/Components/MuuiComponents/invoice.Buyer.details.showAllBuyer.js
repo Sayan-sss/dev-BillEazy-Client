@@ -9,6 +9,7 @@ import BuyerCardViewer from "./viewCart/buyer.details.view.cart";
 import { toast } from "react-hot-toast";
 import API from "../../api";
 import { useSelector } from "react-redux";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 export default function ShowAllBuyer(props) {
   const { open, setOpen } = props;
@@ -41,11 +42,12 @@ export default function ShowAllBuyer(props) {
       toast.error(error);
     }
   }, [buyerData]);
+
   return (
     <div>
-      <Button variant="outlined" onClick={getBuyerData}>
-        Open alert dialog
-      </Button>
+      {/* <Button variant="outlined"> */}
+      <MoreVertIcon onClick={getBuyerData} />
+      {/* </Button> */}
       <Dialog
         open={open}
         onClose={handleClose}
@@ -66,7 +68,11 @@ export default function ShowAllBuyer(props) {
         </DialogTitle>
         <DialogContent>
           {buyerData?.map((buyer) => (
-            <BuyerCardViewer key={buyer._id} props={buyer} />
+            <BuyerCardViewer
+              key={buyer._id}
+              props={buyer}
+              getBuyerData={getBuyerData}
+            />
           ))}
         </DialogContent>
         <DialogActions>
