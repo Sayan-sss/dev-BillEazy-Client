@@ -94,7 +94,7 @@ const Sidebar = () => {
             </Tooltip>
             <Tooltip title="Proforma Invoice">
               <IconButton
-                onClick={() => navigate("/invoiceList")}
+                onClick={() => navigate("/proformaList")}
                 variant="contained"
                 sx={{
                   backgroundColor: "#073259",
@@ -106,7 +106,7 @@ const Sidebar = () => {
             </Tooltip>
             <Tooltip title="Delivery Challan">
               <IconButton
-                onClick={() => navigate("/invoiceList")}
+                onClick={() => navigate("/ChallanList")}
                 variant="contained"
                 sx={{
                   backgroundColor: "#073259",

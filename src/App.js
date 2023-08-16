@@ -21,6 +21,9 @@ import Account from "./Components/Account/Account";
 import Pricing from "./Components/Pricing/Pricing";
 import OurConditions from "./Components/About/OurConditions";
 import { Toaster } from "react-hot-toast";
+import DeliveryChallanViewer from "./Components/Delivery Challan/Delivery.Challan.Viewer";
+import ChallanList from "./Components/Delivery Challan/Delivery.Challan.List";
+import DeliveryChallanCreater from "./Components/Delivery Challan/Delivery.Challan.creater";
 
 function App() {
   const User = useSelector((state) => state.authReducer);
@@ -69,12 +72,18 @@ function App() {
             ></Route>
             {/* <Route path="/contact" element={<Contact />}></Route> */}
             <Route path="/InvoiceList" element={<InvoiceList />}></Route>
+            <Route path="/ChallanList" element={<ChallanList />}></Route>
+            <Route path="/ProformaList" element={<ChallanList />}></Route>
             <Route path="/home" element={<Home />}></Route>
             <Route
               path="/"
               element={token ? <InsideMedicineContainer /> : <Login />}
             ></Route>
             <Route path="/invoice" element={<InvoiceViewer />}></Route>
+            <Route
+              path="/DeliveryChallan"
+              element={<DeliveryChallanViewer />}
+            ></Route>
             <Route path="/Login" element={<Login />}></Route>
             <Route path="/SignUp" element={<SignUp />}></Route>
             <Route path="/About" element={<About />}></Route>
@@ -87,6 +96,14 @@ function App() {
             ></Route> */}
             <Route path="/invoicelist" element={<InvoiceList />}></Route>
             <Route path="/invoice/create" element={<Invoicecreator />}></Route>
+            <Route
+              path="/DeliveryChallan/create"
+              element={<DeliveryChallanCreater />}
+            ></Route>
+            <Route
+              path="/Proforma/create"
+              element={<DeliveryChallanCreater />}
+            ></Route>
           </Routes>
           {/* <Navbar /> */}
           {/* <MobileNavabr /> */}
