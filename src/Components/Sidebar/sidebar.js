@@ -301,7 +301,7 @@ const Sidebar = () => {
             </Button>
 
             <Button
-              onClick={() => navigate("/invoiceList")}
+              onClick={() => navigate("/Account")}
               // variant="contained"
               sx={{
                 display: "flex",
