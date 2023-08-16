@@ -38,14 +38,6 @@ const Pricing = () => {
         }}
       >
         <PricingBox
-          title="Free"
-          price="Rs 0/mo"
-          about="body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos  blanditiis tenetur unde suscipit, quam beatae rerum inventore
-          consectetur "
-          button="Sign Up For Free"
-        />
-
-        <PricingBox
           title="Monthly"
           price="Rs 250/mo"
           about="body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos  blanditiis tenetur unde suscipit, quam beatae rerum inventore
@@ -58,6 +50,14 @@ const Pricing = () => {
           price="Rs 2500/year"
           about="body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos  blanditiis tenetur unde suscipit, quam beatae rerum inventore
          consectetur "
+          button="Get Started"
+        />
+
+        <PricingBox
+          title="Lifetime"
+          price="Rs 10000"
+          about="body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos  blanditiis tenetur unde suscipit, quam beatae rerum inventore
+          consectetur "
           button="Get Started"
         />
       </Box>
