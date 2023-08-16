@@ -28,7 +28,7 @@ const Account = () => {
       >
         <Box
           sx={{
-            border: "1px solid #073259",
+            // border: "1px solid #073259",
             height: "60vh",
             width: "80vw",
             display: "flex",
@@ -66,7 +66,7 @@ const Account = () => {
         </Box>
         <Box
           sx={{
-            border: "1px solid #073259",
+            border: "2px solid #073259",
             height: "35vh",
             width: "80vw",
             display: "flex",

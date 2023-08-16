@@ -19,6 +19,7 @@ import About from "./Components/About/About";
 import { useSelector } from "react-redux";
 import Account from "./Components/Account/Account";
 import Pricing from "./Components/Pricing/Pricing";
+import OurConditions from "./Components/About/OurConditions";
 
 function App() {
   const User = useSelector((state) => state.authReducer);
@@ -78,6 +79,7 @@ function App() {
             <Route path="/About" element={<About />}></Route>
             <Route path="/Account" element={<Account />}></Route>
             <Route path="/Pricing" element={<Pricing />}></Route>
+            <Route path="/OurConditions" element={<OurConditions />}></Route>
             {/* <Route
               path="/InsideMedicine"
               element={<InsideMedicineContainer />}
