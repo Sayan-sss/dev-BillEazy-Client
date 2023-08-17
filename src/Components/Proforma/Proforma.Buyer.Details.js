@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import React from "react";
 import { useSelector } from "react-redux";
 
-const DeliveryChallanBuyerDetails = () => {
+const ProformaBuyerDetails = () => {
   const buyerData = useSelector((state) => state.BuyerReducer);
 
   return (
@@ -71,4 +71,4 @@ const DeliveryChallanBuyerDetails = () => {
   );
 };
 
-export default DeliveryChallanBuyerDetails;
+export default ProformaBuyerDetails;

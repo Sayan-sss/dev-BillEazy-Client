@@ -6,7 +6,7 @@ import Invoicetable from "../MuuiComponents/invoiceTable";
 // import "./InvoiceList.css";
 import SearchAppBar from "../MuuiComponents/Searchbar";
 // import invoiceTable from "../MuuiComponents/invoiceTable";
-const ChallanList = () => {
+const ProformaList = () => {
   const navigate = useNavigate();
   return (
     <Box
@@ -56,4 +56,4 @@ const ChallanList = () => {
   );
 };
 
-export default ChallanList;
+export default ProformaList;
