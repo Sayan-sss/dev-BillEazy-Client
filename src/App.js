@@ -24,6 +24,7 @@ import { Toaster } from "react-hot-toast";
 import DeliveryChallanViewer from "./Components/Delivery Challan/Delivery.Challan.Viewer";
 import ChallanList from "./Components/Delivery Challan/Delivery.Challan.List";
 import DeliveryChallanCreater from "./Components/Delivery Challan/Delivery.Challan.creater";
+import NotFound from "./Components/Helper/404page";
 
 function App() {
   const User = useSelector((state) => state.authReducer);
@@ -91,6 +92,7 @@ function App() {
             <Route path="/Account" element={<Account />}></Route>
             <Route path="/Pricing" element={<Pricing />}></Route>
             <Route path="/OurConditions" element={<OurConditions />}></Route>
+            <Route path="/NotFound" element={<NotFound />}></Route>
             {/* <Route
               path="/InsideMedicine"
               element={<InsideMedicineContainer />}
