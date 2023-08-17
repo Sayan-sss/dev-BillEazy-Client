@@ -25,6 +25,7 @@ import DeliveryChallanViewer from "./Components/Delivery Challan/Delivery.Challa
 import ChallanList from "./Components/Delivery Challan/Delivery.Challan.List";
 import DeliveryChallanCreater from "./Components/Delivery Challan/Delivery.Challan.creater";
 import NotFound from "./Components/Helper/404page";
+import LoadingPage from "./Components/Helper/Loading.Page";
 
 function App() {
   const User = useSelector((state) => state.authReducer);
@@ -93,6 +94,7 @@ function App() {
             <Route path="/Pricing" element={<Pricing />}></Route>
             <Route path="/OurConditions" element={<OurConditions />}></Route>
             <Route path="/NotFound" element={<NotFound />}></Route>
+            <Route path="/LoadingPage" element={<LoadingPage />}></Route>
             {/* <Route
               path="/InsideMedicine"
               element={<InsideMedicineContainer />}
