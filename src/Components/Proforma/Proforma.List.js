@@ -6,7 +6,7 @@ import Invoicetable from "../MuuiComponents/invoiceTable";
 // import "./InvoiceList.css";
 import SearchAppBar from "../MuuiComponents/Searchbar";
 // import invoiceTable from "../MuuiComponents/invoiceTable";
-const InvoiceList = () => {
+const ChallanList = () => {
   const navigate = useNavigate();
   return (
     <Box
@@ -35,7 +35,7 @@ const InvoiceList = () => {
           <Button
             // variant="contained"
             onClick={() => {
-              navigate("/invoice/create");
+              navigate("/proforma/create");
             }}
             sx={{
               width: "5rem",
@@ -50,10 +50,10 @@ const InvoiceList = () => {
           </Button>
           <SearchAppBar />
         </Box>
-        <Invoicetable field="Invoice" />
+        <Invoicetable field="Proforma" />
       </Box>
     </Box>
   );
 };
 
-export default InvoiceList;
+export default ChallanList;

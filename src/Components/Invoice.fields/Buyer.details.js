@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
 import InvoiceDialouge from "../MuuiComponents/InvoiceBuyer.dialouge";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ShowAllBuyer from "../MuuiComponents/invoice.Buyer.details.showAllBuyer";
 const Buyerdetails = () => {
   const [open, setOpen] = useState(false);

@@ -5,6 +5,8 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import API from "../../../api";
+import { toast } from "react-hot-toast";
 
 const bull = (
   <Box
@@ -13,7 +15,19 @@ const bull = (
   ></Box>
 );
 
-export default function BuyerCardViewer({ props }) {
+export default function BuyerCardViewer({ props, getBuyerData }) {
+  const deleteBuyerData = React.useCallback(async () => {
+    try {
+      await API.post(`/v1/api/invoice/buyerdetails/delete/${props._id}`);
+      getBuyerData();
+      // console.log("Hii");
+      toast.success("Deleted successfully");
+    } catch (error) {
+      console.log(error);
+      toast.error(error);
+    }
+  });
+
   const {
     city,
     companyAddress,
@@ -46,7 +60,7 @@ export default function BuyerCardViewer({ props }) {
               {props?.companyName}
             </Typography>
           )}
-          <Button>Delete</Button>
+          <Button onClick={deleteBuyerData}>Delete</Button>
         </Box>
         {props?.companyEmail && (
           <Typography variant="h6">Email : {props?.companyEmail}</Typography>

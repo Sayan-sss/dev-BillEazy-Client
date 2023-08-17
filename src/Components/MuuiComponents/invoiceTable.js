@@ -19,15 +19,15 @@ import Paper from "@mui/material/Paper";
 //   createData("Gingerbread", 356, 16.0, 49, 3.9),
 // ];
 
-export default function Invoicetable() {
+export default function Invoicetable(props) {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead sx={{ backgroundColor: "#d9dbe9" }}>
           <TableRow sx={{ borderRight: "1px solid black" }}>
             {/* <TableCell>Dessert (100g serving)</TableCell> */}
-            <TableCell align="right">Invoice No.</TableCell>
-            <TableCell align="right">Invoice Date</TableCell>
+            <TableCell align="right">{props.field} No.</TableCell>
+            <TableCell align="right">{props.field} Date</TableCell>
             <TableCell align="right">BuyerName</TableCell>
             <TableCell align="right">Status</TableCell>
             <TableCell align="right">Actions</TableCell>
