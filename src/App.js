@@ -74,7 +74,7 @@ function App() {
               path="/"
               element={token ? <InsideMedicineContainer /> : <Login />}
             ></Route>
-            <Route path="/invoice" element={<InvoiceViewer />}></Route>
+            <Route path="/invoice/view" element={<InvoiceViewer />}></Route>
             <Route path="/Login" element={<Login />}></Route>
             <Route path="/SignUp" element={<SignUp />}></Route>
             <Route path="/About" element={<About />}></Route>

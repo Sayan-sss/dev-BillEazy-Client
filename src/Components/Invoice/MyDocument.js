@@ -7,6 +7,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#FFFFFF",
     minHeight: "100%",
+    display: "flex",
+    flexDirection: "row",
+    // justifyContent: 'center',
+    // alignItems: 'center',
     // border: "10px solid black",
     // minWidth: "100vw",
   },
@@ -15,6 +19,8 @@ const styles = StyleSheet.create({
     padding: 10,
     flexGrow: 1,
     minWidth: 100,
+    // height: "25%",
+    border: "1px solid black"
   },
 });
 
@@ -24,9 +30,6 @@ export const MyDocument = () => (
     <Page size="A4" style={styles.page}>
       <View style={styles.section}>
         <Text>Section #1</Text>
-      </View>
-      <View style={styles.section}>
-        <Text>Section #2</Text>
       </View>
     </Page>
   </Document>
