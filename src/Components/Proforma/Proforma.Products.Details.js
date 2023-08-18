@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import React from "react";
 import { useSelector } from "react-redux";
 
-const DeliveryChallanProductsDetails = () => {
+const ProformaProductsDetails = () => {
   const productData = useSelector((state) => state.ProductReducer);
 
   return (
@@ -72,4 +72,4 @@ const DeliveryChallanProductsDetails = () => {
   );
 };
 
-export default DeliveryChallanProductsDetails;
+export default ProformaProductsDetails;

@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 
-const DeliveryChallanTransportDetails = () => {
+const ProformaTransportDetails = () => {
   const transportData = useSelector((state) => state.TransportReducer);
 
   return (
@@ -56,4 +56,4 @@ const DeliveryChallanTransportDetails = () => {
   );
 };
 
-export default DeliveryChallanTransportDetails;
+export default ProformaTransportDetails;

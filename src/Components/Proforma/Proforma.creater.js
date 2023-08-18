@@ -2,25 +2,26 @@ import { Box, Button, Paper, Typography } from "@mui/material";
 import React from "react";
 import Supplierdetails from "../Invoice.fields/Supplier.details";
 // import InvoiceRadioGroup from "../MuuiComponents/InvoiceRadiogrp";
-import InvoiceTextField from "../MuuiComponents/Invoice.textField";
+// import InvoiceTextField from "../MuuiComponents/Invoice.textField";
 // import TextField from "../MuuiComponents/TextField";
 // import "./invoiceCreator.css";
 import BuyerDetails from "../Invoice.fields/Buyer.details";
 import Productdetails from "../Invoice.fields/Product.details";
 import TransportDetails from "../Invoice.fields/Transport.details";
-// import Bankdetails from "../Invoice.fields/Bank.details";
+import Bankdetails from "../Invoice.fields/Bank.details";
 import TermsAndCondition from "../MuuiComponents/TermsAndCondition";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 // import ViewSupplierDetails from "./InvoiceAllFieldsView/view.supplier.details";
 // import ViewBuyerDetails from "./InvoiceAllFieldsView/view.buyer.details";
 // import ViewProductsDetails from "./InvoiceAllFieldsView/view.products.details";
 // import ViewTransportDetails from "./InvoiceAllFieldsView/view.transport.details";
-// import DeliveryChallanViewer from "./Delivery.Challan.Viewer";
-import DeliveryChallanBuyerDetails from "./Proforma.Buyer.Details";
-import DeliveryChallanProductsDetails from "./Proforma.Products.Details";
-import DeliveryChallanTransportDetails from "./Proforma.Transport.Details";
+import ProformaTransportDetails from "./Proforma.Transport.Details";
+import ProformaBuyerDetails from "./Proforma.Buyer.Details";
+import ProformaProductsDetails from "./Proforma.Products.Details";
+import ViewSupplierDetails from "../Invoice/InvoiceAllFieldsView/view.supplier.details";
+import InvoiceTextField from "../MuuiComponents/Invoice.textField";
 
-const DeliveryChallanCreater = () => {
+const ProformaCreater = () => {
   // const User = useSelector((state) => state.authReducer);
   // const { token, user } = User;
 
@@ -85,28 +86,28 @@ const DeliveryChallanCreater = () => {
               }}
             >
               <Supplierdetails />
-              {/* <ViewSupplierDetails /> */}
+              <ViewSupplierDetails />
             </Box>
           </Box>
 
           <Box className="buyer_details" sx={{ width: "99%" }}>
             <BuyerDetails />
-            <DeliveryChallanBuyerDetails />
+            <ProformaBuyerDetails />
           </Box>
           <Box className="products_container" sx={{ width: "99%" }}>
             <Productdetails />
 
-            <DeliveryChallanProductsDetails />
+            <ProformaProductsDetails />
           </Box>
           <Box className="transport_container" sx={{ width: "99%" }}>
             <TransportDetails />
 
-            <DeliveryChallanTransportDetails />
+            <ProformaTransportDetails />
           </Box>
 
-          {/* <Box className="bankdetail_container" sx={{ width: "99%" }}>
+          <Box className="bankdetail_container" sx={{ width: "99%" }}>
             <Bankdetails />
-          </Box> */}
+          </Box>
           <Box sx={{ width: "99%" }}>
             <TermsAndCondition />
           </Box>
@@ -116,4 +117,4 @@ const DeliveryChallanCreater = () => {
   );
 };
 
-export default DeliveryChallanCreater;
+export default ProformaCreater;
