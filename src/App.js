@@ -80,7 +80,7 @@ function App() {
               element={token ? <InsideMedicineContainer /> : <Login />}
             ></Route>
             <Route path="/invoice/view" element={<InvoiceViewer />}></Route>
-            <Route path="/invoice" element={<InvoiceViewer />}></Route>
+            {/* <Route path="/invoice" element={<InvoiceViewer />}></Route> */}
             <Route
               path="/DeliveryChallan"
               element={<DeliveryChallanViewer />}
