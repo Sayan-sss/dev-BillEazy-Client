@@ -80,6 +80,18 @@ export default function DataGridDemo(props) {
       editable: true,
     },
     {
+      field: "Pack",
+      headerName: "Pack",
+      // width: "100",
+      editable: true,
+    },
+    {
+      field: "Type",
+      headerName: "Type",
+      // width: "100",
+      editable: true,
+    },
+    {
       field: "MRP",
       headerName: "MRP",
       width: "100",

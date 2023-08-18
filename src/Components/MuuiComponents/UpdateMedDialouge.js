@@ -22,6 +22,8 @@ export default function UpdateMedDialouge(props) {
   const [expiry, setExpiry] = React.useState("");
   const [mfg, setMfg] = React.useState("");
   const [batch, setBatch] = React.useState("");
+  const [type, setType] = React.useState("");
+  const [pack, setPack] = React.useState("");
 
   // const handleClickOpen = () => {
   //   setOpen(props.open);
@@ -41,6 +43,8 @@ export default function UpdateMedDialouge(props) {
         expiry,
         mfg,
         batch,
+        type,
+        pack,
       });
 
       if (data?.success) {
@@ -135,6 +139,38 @@ export default function UpdateMedDialouge(props) {
               variant="outlined"
               value={mfg}
               onChange={(e) => setMfg(e.target.value.toUpperCase())}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="type"
+              label="MEDICINE TYPE"
+              type="Number"
+              // fullWidth
+              sx={{ width: "50%" }}
+              variant="outlined"
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="pack"
+              label="PACK OF"
+              type="String"
+              // fullWidth
+              sx={{ width: "48%" }}
+              variant="outlined"
+              value={pack}
+              onChange={(e) => setPack(e.target.value.toUpperCase())}
             />
           </Box>
           <Box

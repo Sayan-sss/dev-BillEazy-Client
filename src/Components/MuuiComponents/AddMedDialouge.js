@@ -25,6 +25,8 @@ export default function AddMedDialouge(props) {
   const [expiry, setExpiry] = React.useState("");
   const [mfg, setMfg] = React.useState("");
   const [batchno, setBatchno] = React.useState("");
+  const [type, setType] = React.useState("");
+  const [pack, setPack] = React.useState("");
   const User = JSON.parse(localStorage.getItem("user"));
   const userId = User._id;
   console.log(userId);
@@ -48,6 +50,8 @@ export default function AddMedDialouge(props) {
         batchno,
         mfg,
         userId,
+        pack,
+        type,
       });
 
       if (data?.success) {
@@ -101,7 +105,7 @@ export default function AddMedDialouge(props) {
             <TextField
               autoFocus
               margin="dense"
-              id="name"
+              id="quantity"
               label=" QUANTITY"
               type="number"
               // fullWidth
@@ -123,7 +127,7 @@ export default function AddMedDialouge(props) {
             <TextField
               autoFocus
               margin="dense"
-              id="name"
+              id="hsn"
               label="HSN"
               type="String"
               // fullWidth
@@ -137,13 +141,46 @@ export default function AddMedDialouge(props) {
             <TextField
               autoFocus
               margin="dense"
-              id="name"
+              id="rate"
               label="RATE"
               type="Number"
               // fullWidth
               variant="outlined"
               value={rate}
               onChange={(e) => setRate(e.target.value)}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              autoFocus
+              margin="dense"
+              id="type"
+              label="MEDICINE TYPE"
+              type="String"
+              // fullWidth
+              sx={{
+                width: "52%",
+              }}
+              variant="outlined"
+              value={type}
+              onChange={(e) => setType(e.target.value.toUpperCase())}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="pack"
+              label="PACK OF"
+              type="Number"
+              // fullWidth
+              variant="outlined"
+              value={pack}
+              onChange={(e) => setPack(e.target.value)}
             />
           </Box>
           <Box
