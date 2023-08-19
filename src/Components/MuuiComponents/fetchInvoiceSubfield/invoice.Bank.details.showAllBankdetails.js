@@ -30,8 +30,8 @@ export default function ShowAllBankDetails(props) {
     <div>
       {/* <Button variant="outlined"> */}
       <MoreVertIcon
-        onClick={() => {
-          getBankDetails(user._id);
+        onClick={async () => {
+          await getBankDetails(user._id);
           handleClickOpen();
         }}
       />

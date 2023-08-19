@@ -32,8 +32,8 @@ export default function ShowAllBuyer(props) {
     <div>
       {/* <Button variant="outlined"> */}
       <MoreVertIcon
-        onClick={() => {
-          getBuyerDetails(user._id);
+        onClick={async () => {
+          await getBuyerDetails(user._id);
           handleClickOpen();
         }}
       />

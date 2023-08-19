@@ -36,8 +36,8 @@ export default function ShowAllTransport(props) {
     <div>
       {/* <Button variant="outlined"> */}
       <MoreVertIcon
-        onClick={() => {
-          getTransportDetails(user._id);
+        onClick={async () => {
+          await getTransportDetails(user._id);
           handleClickOpen();
         }}
       />
