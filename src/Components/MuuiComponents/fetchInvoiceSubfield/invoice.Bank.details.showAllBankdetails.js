@@ -63,7 +63,7 @@ export default function ShowAllBankDetails(props) {
           ))}
         </DialogContent>
         <DialogActions>
-          <Button>Save</Button>
+          <Button onClick={handleClose}>Save</Button>
           {/* <Button onClick={handleClose} autoFocus>
             Agree
           </Button> */}
