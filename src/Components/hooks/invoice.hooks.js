@@ -12,9 +12,10 @@ const useInvoiceApis = () => {
   const [buyerData, setBuyerData] = useState([]);
   const [productData, setProductData] = useState([]);
   const [transportData, setTransportData] = useState([]);
+  const [bankData, setBankData] = useState([]);
   const User = useSelector((state) => state.authReducer);
   // console.log("Reducer user");
-  const { token, user } = User;
+  const { user } = User;
 
   //****Supplier Details*/
   const addSupplierDetails = async ({
@@ -295,6 +296,23 @@ const useInvoiceApis = () => {
       toast.error(e);
     }
   };
+
+  const getBankDetails = React.useCallback(async (id) => {
+    console.log("called");
+    try {
+      const { data } = await API.post(`/v1/api/invoice/bankdetails/get/${id}`);
+      // console.log("called");
+      if (data?.success) {
+        setBankData(data?.allBankData);
+        // console.log(data?.allTransportData);
+        toast.success("Success");
+      }
+    } catch (e) {
+      console.log(e);
+      toast.error("Faield");
+    }
+  });
+
   return {
     addSupplierDetails,
 
@@ -316,6 +334,8 @@ const useInvoiceApis = () => {
     setTransportData,
 
     addBankDetails,
+    getBankDetails,
+    bankData,
   };
 };
 

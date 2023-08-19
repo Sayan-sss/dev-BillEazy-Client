@@ -1,8 +1,10 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import ShowAllBankDetails from "../MuuiComponents/fetchInvoiceSubfield/invoice.Bank.details.showAllBankdetails";
 import InvoiceDialouge from "../MuuiComponents/InvoiceBankdetails.dialouge";
 
 const Bankdetails = () => {
+  const [open, setOpen] = useState(false);
   return (
     <>
       <Box
@@ -27,6 +29,7 @@ const Bankdetails = () => {
         <Typography variant="h5" gutterBottom sx={{ fontWeight: "" }}>
           BANK DETAILS (OPTIONAL FIELD)
         </Typography>
+        <ShowAllBankDetails open={open} setOpen={setOpen} />
         <InvoiceDialouge />
       </Box>
     </>
