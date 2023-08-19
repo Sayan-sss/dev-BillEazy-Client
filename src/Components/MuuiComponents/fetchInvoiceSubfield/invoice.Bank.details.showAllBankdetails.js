@@ -19,7 +19,6 @@ export default function ShowAllBankDetails(props) {
 
   const handleClickOpen = () => {
     setOpen(true);
-    console.log(open);
   };
 
   const handleClose = () => {
@@ -56,14 +55,18 @@ export default function ShowAllBankDetails(props) {
         </DialogTitle>
         <DialogContent>
           {bankData?.map((bank) => (
-            <BankCardViewer key={bank._id} props={bank} />
+            <BankCardViewer
+              key={bank._id}
+              bank={bank}
+              handleClose={handleClose}
+            />
           ))}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
+          {/* <Button onClick={handleClose}>Disagree</Button>
           <Button onClick={handleClose} autoFocus>
             Agree
-          </Button>
+          </Button> */}
         </DialogActions>
       </Dialog>
     </div>

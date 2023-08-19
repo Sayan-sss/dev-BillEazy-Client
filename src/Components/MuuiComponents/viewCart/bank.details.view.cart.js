@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import API from "../../../api";
 import { toast } from "react-hot-toast";
 import useInvoiceApis from "../../hooks/invoice.hooks";
+import { useDispatch } from "react-redux";
 const bull = (
   <Box
     component="span"
@@ -15,11 +16,15 @@ const bull = (
   ></Box>
 );
 
-export default function BankCardViewer({ props }) {
+export default function BankCardViewer({ bank, handleClose }) {
   const { accountHolderName, accountNumber, ifscNumber, bankName, branchName } =
-    props;
-  console.log(props);
-
+    bank;
+  // console.log(bank);
+  const dispatch = useDispatch();
+  const handleSubmitReducer = () => {
+    dispatch({ type: "POST_BANK_DETAILS", payload: { data: bank } });
+    handleClose();
+  };
   return (
     <Card
       sx={{ minWidth: "50vw", marginTop: "2rem", border: "1px solid black" }}
@@ -61,7 +66,14 @@ export default function BankCardViewer({ props }) {
         )}
       </CardContent>
       <CardActions>
-        {/* <Button size="small">Learn More</Button> */}
+        <Button
+          variant="contained"
+          // color="red"
+          mt={3}
+          onClick={handleSubmitReducer}
+        >
+          Select
+        </Button>
       </CardActions>
     </Card>
   );
