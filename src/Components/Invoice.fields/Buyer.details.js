@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
 import InvoiceDialouge from "../MuuiComponents/InvoiceBuyer.dialouge";
-import ShowAllBuyer from "../MuuiComponents/invoice.Buyer.details.showAllBuyer";
+import ShowAllBuyer from "../MuuiComponents/fetchInvoiceSubfield/invoice.Buyer.details.showAllBuyer";
 const Buyerdetails = () => {
   const [open, setOpen] = useState(false);
   return (

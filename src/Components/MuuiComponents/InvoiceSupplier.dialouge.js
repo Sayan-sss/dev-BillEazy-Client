@@ -28,7 +28,6 @@ export default function InvoiceDialouge(props) {
   const [companyPan, setCompanyPan] = React.useState("");
   const [dl, setDl] = React.useState();
   const User = useSelector((state) => state.authReducer);
-  // console.log("Reducer user");
   const { token, user } = User;
   const handleClickOpen = () => {
     setOpen(true);

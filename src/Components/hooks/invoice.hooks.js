@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { toast } from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
 import API from "../../api";
 const useInvoiceApis = () => {
   const dispatch = useDispatch();
@@ -7,6 +8,14 @@ const useInvoiceApis = () => {
   const [buyerDetailsId, setBuyerDetailsId] = useState(null);
   const [productDetailsId, setProductDetailsId] = useState(null);
   const [transportDetailsId, setTransportDetailsId] = useState(null);
+  const [bankDetailsId, setBankDetailsId] = useState(null);
+  const [buyerData, setBuyerData] = useState([]);
+  const [productData, setProductData] = useState([]);
+  const [transportData, setTransportData] = useState([]);
+  const User = useSelector((state) => state.authReducer);
+  // console.log("Reducer user");
+  const { token, user } = User;
+
   //****Supplier Details*/
   const addSupplierDetails = async ({
     firmName,
@@ -84,7 +93,39 @@ const useInvoiceApis = () => {
       },
     });
   };
-  //****Buyer details */
+  const getBuyerDetails = React.useCallback(
+    async (userId, handleClickOpen) => {
+      handleClickOpen();
+      try {
+        const { data } = await API.post(
+          `/v1/api/invoice/buyerdetails/get/${userId}`
+        );
+        if (data?.success) {
+          // console.log(data.Allbuyer);
+          setBuyerData(data.Allbuyer);
+          // console.log("buyerData");
+          toast.success("Success");
+        }
+      } catch (error) {
+        console.log(error);
+        toast.error(error);
+      }
+    },
+    [buyerData]
+  );
+
+  const deleteBuyerDetails = async (id) => {
+    try {
+      await API.post(`/v1/api/invoice/buyerdetails/delete/${id}`);
+      // getBuyerData();
+      // console.log("Buyer Deleted");
+      toast.success("Deleted successfully");
+    } catch (error) {
+      console.log(error);
+      toast.error(error);
+    }
+  };
+  //**** END Buyer details *****/
 
   ///// ***** Product Details *****//////
   const addProductDetails = async ({
@@ -129,6 +170,47 @@ const useInvoiceApis = () => {
       setProductDetailsId(data?._id);
     };
 
+  const getProductDetails = React.useCallback(
+    async (userId) => {
+      console.log("Hii");
+      console.log(userId);
+      try {
+        const { data } = await API.post(
+          `/v1/api/invoice/productdetails/get/${userId}`
+        );
+        if (data?.success) {
+          // const newData = data.AllProducts;
+          setProductData(data.AllProducts);
+          // console.log(data.AllProducts);
+          // console.log(productData);
+          toast.success("Success");
+        }
+      } catch (error) {
+        console.log(error);
+        toast.error(error);
+      }
+    },
+    [productData]
+  );
+
+  const deleteProductDetails = async (e, id) => {
+    // e.preventDefault;
+    try {
+      const { data } = await API.post(
+        `/v1/api/invoice/productdetails/delete/${id}`
+      );
+      if (data?.success) {
+        await getProductDetails(user._id);
+        toast.success("Deleted successfully");
+      }
+      // console.log("Buyer Deleted");
+    } catch (error) {
+      console.log(error);
+      toast.error(error);
+    }
+  };
+  // **** END Product details **** //
+
   //  **** TransPort Details **** //
   const addTransportDetails = async ({
     type,
@@ -138,6 +220,7 @@ const useInvoiceApis = () => {
     placeOfSupply,
     vehicleNumber,
     supplyType,
+    userId,
   }) => {
     const { data } = await API.post("/v1/api/invoice/transportdetails/create", {
       type,
@@ -147,6 +230,7 @@ const useInvoiceApis = () => {
       placeOfSupply,
       vehicleNumber,
       supplyType,
+      userId,
     });
     console.log("data");
     console.log(data);
@@ -158,11 +242,80 @@ const useInvoiceApis = () => {
     });
     setTransportDetailsId(data?._id);
   };
+
+  const getTransportDetails = React.useCallback(async (id) => {
+    console.log("called");
+    try {
+      const { data } = await API.post(
+        `/v1/api/invoice/transportdetails/get/${id}`
+      );
+      // console.log("called");
+      if (data?.success) {
+        setTransportData(data?.allTransportData);
+        // console.log(data?.allTransportData);
+        toast.success("Success");
+      }
+    } catch (e) {
+      console.log(e);
+      toast.error("Faield");
+    }
+  });
+  //  **** TransPort Details **** //
+
+  //  **** Bank Details **** //
+
+  const addBankDetails = async ({
+    accountHolderName,
+    accountNumber,
+    ifscNumber,
+    bankName,
+    branchName,
+    userId,
+  }) => {
+    try {
+      const { data } = await API.post(`/v1/api/invoice/bankdetails/create`, {
+        accountHolderName,
+        accountNumber,
+        ifscNumber,
+        bankName,
+        branchName,
+        userId,
+      });
+      console.log(data);
+      dispatch({
+        type: "POST_BANK_DETAILS",
+        payload: {
+          data,
+        },
+      });
+      toast.success("Bank details successfully added");
+      setBankDetailsId(data?._id);
+    } catch (e) {
+      console.log(e);
+      toast.error(e);
+    }
+  };
   return {
     addSupplierDetails,
+
     addBuyerDetails,
+    getBuyerDetails,
+    deleteBuyerDetails,
+    buyerData,
+    setBuyerData,
+
     addProductDetails,
+    getProductDetails,
+    deleteProductDetails,
+    productData,
+    setProductData,
+
     addTransportDetails,
+    getTransportDetails,
+    transportData,
+    setTransportData,
+
+    addBankDetails,
   };
 };
 

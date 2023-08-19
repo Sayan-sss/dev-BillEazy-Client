@@ -4,6 +4,7 @@ const initialState = {
 export const TransportReducer = (state = initialState, action) => {
   switch (action.type) {
     case "POST_TRANSPORT_DETAILS":
+      // console.log(action.payload);
       return {
         ...state,
         ...action.payload,

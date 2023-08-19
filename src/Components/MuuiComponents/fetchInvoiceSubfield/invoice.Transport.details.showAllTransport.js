@@ -5,48 +5,41 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import BuyerCardViewer from "./viewCart/buyer.details.view.cart";
+import BuyerCardViewer from ".././viewCart/buyer.details.view.cart";
 import { toast } from "react-hot-toast";
-import API from "../../api";
+import API from "../../../api";
 import { useSelector } from "react-redux";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import useInvoiceApis from "../../hooks/invoice.hooks";
+import TransportCardViewer from "../viewCart/transport.details.view.cart";
 
-export default function ShowAllBuyer(props) {
+export default function ShowAllTransport(props) {
   const { open, setOpen } = props;
-  const [buyerData, setBuyerData] = React.useState();
+  const { getTransportDetails, transportData } = useInvoiceApis();
   const User = useSelector((state) => state.authReducer);
   const { user } = User;
-  console.log(user._id);
+  const totalTransports = transportData?.length;
+  // console.log(user._id);
+  // console.log(buyerData);
+  console.log(transportData);
+  console.log(transportData.length);
   const handleClickOpen = () => {
     setOpen(true);
+    console.log(open);
   };
 
   const handleClose = () => {
     setOpen(false);
   };
 
-  const getBuyerData = React.useCallback(async () => {
-    handleClickOpen();
-    try {
-      const { data } = await API.post(
-        `/v1/api/invoice/buyerdetails/get/${user._id}`
-      );
-      if (data?.success) {
-        // console.log(data.Allbuyer);
-        setBuyerData(data.Allbuyer);
-        console.log(buyerData);
-        toast.success("Success");
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error(error);
-    }
-  }, [buyerData]);
-
   return (
     <div>
       {/* <Button variant="outlined"> */}
-      <MoreVertIcon onClick={getBuyerData} />
+      <MoreVertIcon
+        onClick={() => {
+          getTransportDetails(user._id), handleClickOpen();
+        }}
+      />
       {/* </Button> */}
       <Dialog
         open={open}
@@ -64,22 +57,20 @@ export default function ShowAllBuyer(props) {
             fontSize: "bold",
           }}
         >
-          {"Select User"}
+          {` ${totalTransports} - Previous  Transports `}
         </DialogTitle>
         <DialogContent>
-          {buyerData?.map((buyer) => (
-            <BuyerCardViewer
-              key={buyer._id}
-              props={buyer}
-              getBuyerData={getBuyerData}
+          {transportData?.map((transport) => (
+            <TransportCardViewer
+              key={transport._id}
+              transport={transport}
+              // getBuyerDetails={getBuyerDetails}
             />
           ))}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose} autoFocus>
-            Agree
-          </Button>
+          <Button onClick={handleClose}>Agree</Button>
         </DialogActions>
       </Dialog>
     </div>

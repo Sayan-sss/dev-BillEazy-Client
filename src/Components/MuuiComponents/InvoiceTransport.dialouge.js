@@ -19,6 +19,7 @@ import { Box } from "@mui/material";
 import useInvoiceApis from "../hooks/invoice.hooks";
 import dayjs from "dayjs";
 import TransportSupplyDatePicker from "./invoiceTransport.supplydate.datepicker";
+import { useSelector } from "react-redux";
 
 export default function InvoiceTransport(props) {
   const { addTransportDetails } = useInvoiceApis();
@@ -30,7 +31,8 @@ export default function InvoiceTransport(props) {
   const [vehiclenumber, setVehiclenumber] = React.useState("");
   const [transportType, setTransportType] = React.useState();
   const [supplyType, setSupplyType] = React.useState("NONE");
-
+  const User = useSelector((state) => state.authReducer);
+  const { user } = User;
   //   const [companyPan, setCompanyPan] = React.useState("");
   const handleClickOpen = () => {
     setOpen(true);
@@ -69,6 +71,7 @@ export default function InvoiceTransport(props) {
       dateOfSupply: supplyDate,
       supplyType,
       type: transportType,
+      userId: user._id,
     });
     handleClose();
   };

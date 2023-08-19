@@ -1,8 +1,10 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import ShowAllProducts from "../MuuiComponents/fetchInvoiceSubfield/invoice.Products.details.showAllProducts";
 import InvoiceDialouge from "../MuuiComponents/InvoiceProduct.dialouge";
 
 const Productdetails = () => {
+  const [open, setOpen] = useState(false);
   return (
     <>
       <Box
@@ -31,6 +33,8 @@ const Productdetails = () => {
         >
           PRODUCTS
         </Typography>
+        {/* <ShowAllBuyer open={open} setOpen={setOpen} /> */}
+        <ShowAllProducts open={open} setOpen={setOpen} />
         <InvoiceDialouge />
       </Box>
     </>

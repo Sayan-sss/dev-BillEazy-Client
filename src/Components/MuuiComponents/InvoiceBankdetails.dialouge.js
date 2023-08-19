@@ -13,24 +13,38 @@ import EditIcon from "@mui/icons-material/Edit";
 import InvoiceTextField from "./Invoice.textField";
 import InvoiceProductsRadioGroup from "./InvoiceProduct.Radiogroup";
 import { Box } from "@mui/material";
-
+import useInvoiceApis from "../hooks/invoice.hooks";
+import { useSelector } from "react-redux";
 export default function InvoiceProduct(props) {
+  const { addBankDetails } = useInvoiceApis();
   const [open, setOpen] = React.useState(false);
   const [accountholdername, setAccountholdername] = React.useState("");
   const [accountnumber, setAccountnumber] = React.useState("");
   const [ifsc, setIfsc] = React.useState("");
   const [bankname, setBankname] = React.useState("");
   const [branchname, setBranchname] = React.useState("");
-
+  const User = useSelector((state) => state.authReducer);
+  const { user } = User;
   //   const [companyPan, setCompanyPan] = React.useState("");
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = async () => {
+  const handleClose = () => {
     setOpen(false);
   };
 
+  const handleSubmit = async () => {
+    addBankDetails({
+      accountHolderName: accountholdername,
+      accountNumber: accountnumber,
+      ifscNumber: ifsc,
+      bankName: bankname,
+      branchName: branchname,
+      userId: user._id,
+    });
+    handleClose();
+  };
   return (
     <div>
       <EditIcon
@@ -117,7 +131,7 @@ export default function InvoiceProduct(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button>Save</Button>
+          <Button onClick={handleSubmit}>Save</Button>
         </DialogActions>
       </Dialog>
       <Toaster />

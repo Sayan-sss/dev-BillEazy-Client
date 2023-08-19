@@ -15,6 +15,7 @@ import ViewSupplierDetails from "./InvoiceAllFieldsView/view.supplier.details";
 import ViewBuyerDetails from "./InvoiceAllFieldsView/view.buyer.details";
 import ViewProductsDetails from "./InvoiceAllFieldsView/view.products.details";
 import ViewTransportDetails from "./InvoiceAllFieldsView/view.transport.details";
+import ViewBankDetails from "./InvoiceAllFieldsView/view.bank.details";
 const Invoicecreator = () => {
   // const User = useSelector((state) => state.authReducer);
   // const { token, user } = User;
@@ -101,6 +102,7 @@ const Invoicecreator = () => {
 
           <Box className="bankdetail_container" sx={{ width: "99%" }}>
             <Bankdetails />
+            <ViewBankDetails />
           </Box>
           <Box sx={{ width: "99%" }}>
             <TermsAndCondition />

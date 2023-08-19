@@ -15,7 +15,7 @@ const bull = (
   ></Box>
 );
 
-export default function BuyerCardViewer({ props, getBuyerDetails }) {
+export default function TransportCardViewer({ transport }) {
   // const deleteBuyerData = React.useCallback(async () => {
   //   try {
   //     await API.post(`/v1/api/invoice/buyerdetails/delete/${props._id}`);
@@ -27,20 +27,17 @@ export default function BuyerCardViewer({ props, getBuyerDetails }) {
   //     toast.error(error);
   //   }
   // });
-  // const {
-  //   city,
-  //   companyAddress,
-  //   companyEmail,
-  //   companyGstin,
-  //   companyMobile,
-  //   companyName,
-  //   dlNo,
-  //   gstTreatmentType,
-  //   pincode,
-  //   state,
-  // } = props;
-  console.log(props);
-  const { deleteBuyerDetails } = useInvoiceApis();
+  const {
+    type,
+    lrDate,
+    lrNumber,
+    dateOfSupply,
+    placeOfSupply,
+    vehicleNumber,
+    supplyType,
+  } = transport;
+  console.log(transport);
+  //   const { deleteBuyerDetails } = useInvoiceApis();
   return (
     <Card
       sx={{ minWidth: "50vw", marginTop: "2rem", border: "1px solid black" }}
@@ -55,9 +52,9 @@ export default function BuyerCardViewer({ props, getBuyerDetails }) {
             // border: "1px solid black",
           }}
         >
-          {props?.companyName && (
+          {type && (
             <Typography variant="h5" ml={2}>
-              {props?.companyName}
+              {type}
             </Typography>
           )}
           {/* <Button
@@ -68,34 +65,21 @@ export default function BuyerCardViewer({ props, getBuyerDetails }) {
             Delete
           </Button> */}
         </Box>
-        {props?.companyEmail && (
-          <Typography variant="h6">Email : {props?.companyEmail}</Typography>
+        {lrDate && <Typography variant="h6">LRDate : {lrDate}</Typography>}
+        {lrNumber && (
+          <Typography variant="h6">LR Number.: {lrNumber}</Typography>
         )}
-        {props?.dlNo && (
-          <Typography variant="h6">DL No.: {props?.dlNo}</Typography>
+        {dateOfSupply && (
+          <Typography variant="h6">Date Of Supply: {dateOfSupply}</Typography>
         )}
-        {props?.gstTreatmentType && (
-          <Typography variant="h6">PAN: {props?.gstTreatmentType}</Typography>
+        {placeOfSupply && (
+          <Typography variant="h6">Place Of Supply: {placeOfSupply}</Typography>
         )}
-        {props?.companyAddress && (
-          <Typography variant="h6">
-            Company Address: {props?.companyAddress}
-          </Typography>
+        {vehicleNumber && (
+          <Typography variant="h6">Vehicle Number: {vehicleNumber}</Typography>
         )}
-        {props?.city && (
-          <Typography variant="h6">City: {props?.city}</Typography>
-        )}
-        {props?.state && (
-          <Typography variant="h6">State: {props?.state}</Typography>
-        )}
-        {props?.pincode && (
-          <Typography variant="h6">Pincode: {props?.pincode}</Typography>
-        )}
-        {props?.companyGstin && (
-          <Typography variant="h6">GSTIN: {props?.companyGstin}</Typography>
-        )}
-        {props?.companyMobile && (
-          <Typography variant="h6">Mobile: {props?.companyMobile}</Typography>
+        {supplyType && (
+          <Typography variant="h6">Supply Type: {supplyType}</Typography>
         )}
       </CardContent>
       <CardActions>

@@ -1,9 +1,11 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
+import { React, useState } from "react";
+import ShowAllTransport from "../MuuiComponents/fetchInvoiceSubfield/invoice.Transport.details.showAllTransport";
 
 import InvoiceTransport from "../MuuiComponents/InvoiceTransport.dialouge";
 
 const TransportDetails = () => {
+  const [open, setOpen] = useState(false);
   return (
     <>
       <Box
@@ -32,6 +34,7 @@ const TransportDetails = () => {
         >
           TRANSPORT DETAILS
         </Typography>
+        <ShowAllTransport open={open} setOpen={setOpen} />
         <InvoiceTransport />
       </Box>
     </>
