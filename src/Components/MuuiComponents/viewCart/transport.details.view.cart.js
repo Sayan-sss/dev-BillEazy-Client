@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import API from "../../../api";
 import { toast } from "react-hot-toast";
 import useInvoiceApis from "../../hooks/invoice.hooks";
+import { useDispatch } from "react-redux";
 const bull = (
   <Box
     component="span"
@@ -16,17 +17,7 @@ const bull = (
 );
 
 export default function TransportCardViewer({ transport }) {
-  // const deleteBuyerData = React.useCallback(async () => {
-  //   try {
-  //     await API.post(`/v1/api/invoice/buyerdetails/delete/${props._id}`);
-  //     getBuyerData();
-  //     // console.log("Hii");
-  //     toast.success("Deleted successfully");
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error(error);
-  //   }
-  // });
+  const dispatch = useDispatch();
   const {
     type,
     lrDate,
@@ -36,8 +27,11 @@ export default function TransportCardViewer({ transport }) {
     vehicleNumber,
     supplyType,
   } = transport;
-  console.log(transport);
+  // console.log(transport);
   //   const { deleteBuyerDetails } = useInvoiceApis();
+  const handleSubmitReducer = () => {
+    dispatch({ type: "POST_TRANSPORT_DETAILS", payload: { data: transport } });
+  };
   return (
     <Card
       sx={{ minWidth: "50vw", marginTop: "2rem", border: "1px solid black" }}
@@ -83,7 +77,14 @@ export default function TransportCardViewer({ transport }) {
         )}
       </CardContent>
       <CardActions>
-        {/* <Button size="small">Learn More</Button> */}
+        <Button
+          variant="contained"
+          // color="red"
+          mt={3}
+          onClick={handleSubmitReducer}
+        >
+          Select
+        </Button>
       </CardActions>
     </Card>
   );

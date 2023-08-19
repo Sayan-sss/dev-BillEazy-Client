@@ -21,11 +21,11 @@ export default function ShowAllTransport(props) {
   const totalTransports = transportData?.length;
   // console.log(user._id);
   // console.log(buyerData);
-  console.log(transportData);
-  console.log(transportData.length);
+  // console.log(transportData);
+  // console.log(transportData.length);
   const handleClickOpen = () => {
     setOpen(true);
-    console.log(open);
+    // console.log(open);
   };
 
   const handleClose = () => {
@@ -70,8 +70,8 @@ export default function ShowAllTransport(props) {
           ))}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose}>Agree</Button>
+          {/* <Button onClick={handleClose}>Disagree</Button> */}
+          <Button onClick={handleClose}>Save</Button>
         </DialogActions>
       </Dialog>
     </div>
