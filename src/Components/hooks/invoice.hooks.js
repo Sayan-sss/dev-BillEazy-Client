@@ -95,8 +95,8 @@ const useInvoiceApis = () => {
     });
   };
   const getBuyerDetails = React.useCallback(
-    async (userId, handleClickOpen) => {
-      handleClickOpen();
+    async (userId) => {
+      // handleClickOpen();
       try {
         const { data } = await API.post(
           `/v1/api/invoice/buyerdetails/get/${userId}`

@@ -27,10 +27,20 @@ export default function BuyerCardViewer({ props }) {
   //     toast.error(error);
   //   }
   // });
-  const { accountHolderName, accountNumber, ifscNumber, bankName, branchName } =
-    props;
+  // const {
+  //   city,
+  //   companyAddress,
+  //   companyEmail,
+  //   companyGstin,
+  //   companyMobile,
+  //   companyName,
+  //   dlNo,
+  //   gstTreatmentType,
+  //   pincode,
+  //   state,
+  // } = props;
   console.log(props);
-
+  //   const { deleteBuyerDetails } = useInvoiceApis();
   return (
     <Card
       sx={{ minWidth: "50vw", marginTop: "2rem", border: "1px solid black" }}
@@ -45,9 +55,9 @@ export default function BuyerCardViewer({ props }) {
             // border: "1px solid black",
           }}
         >
-          {accountHolderName && (
+          {props?.companyName && (
             <Typography variant="h5" ml={2}>
-              {accountHolderName}
+              {props?.companyName}
             </Typography>
           )}
           {/* <Button
@@ -58,17 +68,34 @@ export default function BuyerCardViewer({ props }) {
             Delete
           </Button> */}
         </Box>
-        {accountNumber && (
-          <Typography variant="h6">Account Number : {accountNumber}</Typography>
+        {props?.companyEmail && (
+          <Typography variant="h6">Email : {props?.companyEmail}</Typography>
         )}
-        {ifscNumber && (
-          <Typography variant="h6">Ifsc Number.: {ifscNumber}</Typography>
+        {props?.dlNo && (
+          <Typography variant="h6">DL No.: {props?.dlNo}</Typography>
         )}
-        {bankName && (
-          <Typography variant="h6">Bank Name: {bankName}</Typography>
+        {props?.gstTreatmentType && (
+          <Typography variant="h6">PAN: {props?.gstTreatmentType}</Typography>
         )}
-        {branchName && (
-          <Typography variant="h6">Branch Name: {branchName}</Typography>
+        {props?.companyAddress && (
+          <Typography variant="h6">
+            Company Address: {props?.companyAddress}
+          </Typography>
+        )}
+        {props?.city && (
+          <Typography variant="h6">City: {props?.city}</Typography>
+        )}
+        {props?.state && (
+          <Typography variant="h6">State: {props?.state}</Typography>
+        )}
+        {props?.pincode && (
+          <Typography variant="h6">Pincode: {props?.pincode}</Typography>
+        )}
+        {props?.companyGstin && (
+          <Typography variant="h6">GSTIN: {props?.companyGstin}</Typography>
+        )}
+        {props?.companyMobile && (
+          <Typography variant="h6">Mobile: {props?.companyMobile}</Typography>
         )}
       </CardContent>
       <CardActions>

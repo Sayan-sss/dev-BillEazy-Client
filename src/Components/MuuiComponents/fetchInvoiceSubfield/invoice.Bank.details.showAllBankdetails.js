@@ -3,14 +3,12 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-// import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import BuyerCardViewer from "../viewCart/buyer.details.view.cart";
 
-import API from "../../../api";
+import DialogTitle from "@mui/material/DialogTitle";
 import { useSelector } from "react-redux";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import useInvoiceApis from "../../hooks/invoice.hooks";
+import BankCardViewer from "../viewCart/bank.details.view.cart";
 
 export default function ShowAllBankDetails(props) {
   const { open, setOpen } = props;
@@ -18,8 +16,7 @@ export default function ShowAllBankDetails(props) {
   const User = useSelector((state) => state.authReducer);
   const { user } = User;
   const totalBanks = bankData?.length;
-  // console.log(user._id);
-  // console.log(buyerData);
+
   const handleClickOpen = () => {
     setOpen(true);
     console.log(open);
@@ -28,24 +25,6 @@ export default function ShowAllBankDetails(props) {
   const handleClose = () => {
     setOpen(false);
   };
-
-  // const getBuyerData = React.useCallback(async () => {
-  //   handleClickOpen();
-  //   try {
-  //     const { data } = await API.post(
-  //       `/v1/api/invoice/buyerdetails/get/${user._id}`
-  //     );
-  //     if (data?.success) {
-  //       // console.log(data.Allbuyer);
-  //       setBuyerData(data.Allbuyer);
-  //       console.log(buyerData);
-  //       toast.success("Success");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error(error);
-  //   }
-  // }, [buyerData]);
 
   return (
     <div>
@@ -73,15 +52,11 @@ export default function ShowAllBankDetails(props) {
             fontSize: "bold",
           }}
         >
-          {`${totalBanks} - previous buyers`}
+          {`${totalBanks} - previous banks`}
         </DialogTitle>
         <DialogContent>
           {bankData?.map((bank) => (
-            <BuyerCardViewer
-              key={bank._id}
-              props={bank}
-              //   getBuyerDetails={getBuyerDetails}
-            />
+            <BankCardViewer key={bank._id} props={bank} />
           ))}
         </DialogContent>
         <DialogActions>

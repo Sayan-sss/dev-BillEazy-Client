@@ -13,7 +13,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import useInvoiceApis from "../../hooks/invoice.hooks";
 export default function ShowAllBuyer(props) {
   const { open, setOpen } = props;
-  const { getBuyerDetails, buyerData, setBuyerData } = useInvoiceApis();
+  const { getBuyerDetails, buyerData } = useInvoiceApis();
   const User = useSelector((state) => state.authReducer);
   const { user } = User;
   const totalBuyers = buyerData?.length;
@@ -28,30 +28,13 @@ export default function ShowAllBuyer(props) {
     setOpen(false);
   };
 
-  // const getBuyerData = React.useCallback(async () => {
-  //   handleClickOpen();
-  //   try {
-  //     const { data } = await API.post(
-  //       `/v1/api/invoice/buyerdetails/get/${user._id}`
-  //     );
-  //     if (data?.success) {
-  //       // console.log(data.Allbuyer);
-  //       setBuyerData(data.Allbuyer);
-  //       console.log(buyerData);
-  //       toast.success("Success");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error(error);
-  //   }
-  // }, [buyerData]);
-
   return (
     <div>
       {/* <Button variant="outlined"> */}
       <MoreVertIcon
         onClick={() => {
-          getBuyerDetails(user._id, handleClickOpen);
+          getBuyerDetails(user._id);
+          handleClickOpen();
         }}
       />
       {/* </Button> */}
