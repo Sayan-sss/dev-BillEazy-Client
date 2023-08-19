@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import API from "../../../api";
 import { toast } from "react-hot-toast";
 import useInvoiceApis from "../../hooks/invoice.hooks";
+import { useDispatch } from "react-redux";
 const bull = (
   <Box
     component="span"
@@ -16,31 +17,15 @@ const bull = (
 );
 
 export default function BuyerCardViewer({ props }) {
-  // const deleteBuyerData = React.useCallback(async () => {
-  //   try {
-  //     await API.post(`/v1/api/invoice/buyerdetails/delete/${props._id}`);
-  //     getBuyerData();
-  //     // console.log("Hii");
-  //     toast.success("Deleted successfully");
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error(error);
-  //   }
-  // });
-  // const {
-  //   city,
-  //   companyAddress,
-  //   companyEmail,
-  //   companyGstin,
-  //   companyMobile,
-  //   companyName,
-  //   dlNo,
-  //   gstTreatmentType,
-  //   pincode,
-  //   state,
-  // } = props;
-  console.log(props);
-  //   const { deleteBuyerDetails } = useInvoiceApis();
+  const dispatch = useDispatch();
+  const handleSubmitReducer = () => {
+    dispatch({
+      type: "POST_BUYER_DETAILS",
+      payload: {
+        data: props,
+      },
+    });
+  };
   return (
     <Card
       sx={{ minWidth: "50vw", marginTop: "2rem", border: "1px solid black" }}
@@ -99,7 +84,14 @@ export default function BuyerCardViewer({ props }) {
         )}
       </CardContent>
       <CardActions>
-        {/* <Button size="small">Learn More</Button> */}
+        <Button
+          variant="contained"
+          // color="red"
+          mt={3}
+          onClick={handleSubmitReducer}
+        >
+          Select
+        </Button>
       </CardActions>
     </Card>
   );

@@ -66,8 +66,8 @@ export default function ShowAllProducts(props) {
           ))}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose}>Agree</Button>
+          <Button onClick={handleClose}>Save</Button>
+          {/* <Button onClick={handleClose}>Agree</Button> */}
         </DialogActions>
       </Dialog>
     </div>

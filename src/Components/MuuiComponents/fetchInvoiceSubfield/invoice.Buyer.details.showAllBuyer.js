@@ -66,10 +66,10 @@ export default function ShowAllBuyer(props) {
           ))}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose} autoFocus>
+          <Button onClick={handleClose}>Save</Button>
+          {/* <Button onClick={handleClose} autoFocus>
             Agree
-          </Button>
+          </Button> */}
         </DialogActions>
       </Dialog>
     </div>

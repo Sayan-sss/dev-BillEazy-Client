@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import API from "../../../api";
 import { toast } from "react-hot-toast";
 import useInvoiceApis from "../../hooks/invoice.hooks";
+import { useDispatch } from "react-redux";
 const bull = (
   <Box
     component="span"
@@ -16,6 +17,10 @@ const bull = (
 );
 
 export default function ProductCardViewer({ product }) {
+  const dispatch = useDispatch();
+  const handleSubmitReducer = () => {
+    dispatch({ type: "POST_PRODUCT_DETAILS", payload: { data: product } });
+  };
   const {
     itemName,
     itemDescription,
@@ -79,7 +84,9 @@ export default function ProductCardViewer({ product }) {
         {_ && <Typography variant="h6">_: {_}</Typography>}
       </CardContent>
       <CardActions>
-        {/* <Button size="small">Learn More</Button> */}
+        <Button variant="contained" onClick={handleSubmitReducer}>
+          Select
+        </Button>
       </CardActions>
     </Card>
   );

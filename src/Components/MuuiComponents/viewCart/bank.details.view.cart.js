@@ -16,14 +16,14 @@ const bull = (
   ></Box>
 );
 
-export default function BankCardViewer({ bank, handleClose }) {
+export default function BankCardViewer({ bank }) {
   const { accountHolderName, accountNumber, ifscNumber, bankName, branchName } =
     bank;
   // console.log(bank);
   const dispatch = useDispatch();
   const handleSubmitReducer = () => {
     dispatch({ type: "POST_BANK_DETAILS", payload: { data: bank } });
-    handleClose();
+    // handleClose();
   };
   return (
     <Card
