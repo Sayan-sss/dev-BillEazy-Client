@@ -145,7 +145,7 @@ function App() {
               <Route path="/Account" element={<Account />}></Route>
               <Route path="/Pricing" element={<Pricing />}></Route>
               <Route path="/OurConditions" element={<OurConditions />}></Route>
-              <Route path="/NotFound" element={<NotFound />}></Route>
+              <Route path="/*" element={<NotFound />}></Route>
               <Route path="/LoadingPage" element={<LoadingPage />}></Route>
               {/* <Route
               path="/InsideMedicine"
