@@ -1,34 +1,50 @@
+import { lazy, Suspense } from "react";
 import "./App.css";
 import { Box, Paper } from "@mui/material";
-import Contact from "./Components/Contact/Contact";
-import Home from "./Components/Home/Home";
-import InvoiceViewer from "./Components/Invoice/invoice.viewer";
+// import Contact from "./Components/Contact/Contact";
 // import { useNavigate } from "react-router-dom";
-import SideBar from "./Components/Sidebar/sidebar.js";
+// import MobileNavabr from "./Components/Navigation Bar/Mobile.Navbar";
+// import Navbar from "./Components/Navbar/Navbar";
+// import TemporaryDrawer from "./Components/MuuiComponents/Drawer";
+// import MiniDrawer from "./Components/MuuiComponents/Drawer";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
-import InsideMedicineContainer from "./Components/Medicine/InsideMedicineContainer";
-import InvoiceList from "./Components/Invoice/invoice.list";
-import Invoicecreator from "./Components/Invoice/invoice.creator";
-import MobileNavabr from "./Components/Navigation Bar/Mobile.Navbar";
-import Navbar from "./Components/Navbar/Navbar";
-import Login from "./Components/Auth/Login";
-import SignUp from "./Components/Auth/SignUp";
-import TemporaryDrawer from "./Components/MuuiComponents/Drawer";
-import MiniDrawer from "./Components/MuuiComponents/Drawer";
-import About from "./Components/About/About";
 import { useSelector } from "react-redux";
-import Account from "./Components/Account/Account";
-import Pricing from "./Components/Pricing/Pricing";
-import OurConditions from "./Components/About/OurConditions";
 import { Toaster } from "react-hot-toast";
-import DeliveryChallanViewer from "./Components/Delivery Challan/Delivery.Challan.Viewer";
-import ChallanList from "./Components/Delivery Challan/Delivery.Challan.List";
-import DeliveryChallanCreater from "./Components/Delivery Challan/Delivery.Challan.creater";
-import NotFound from "./Components/Helper/404page";
-import LoadingPage from "./Components/Helper/Loading.Page";
-import ProformaList from "./Components/Proforma/Proforma.List";
-import ProformaCreater from "./Components/Proforma/Proforma.creater";
-import ProformaViewer from "./Components/Proforma/Proforma.Viewer";
+
+const Home = lazy(() => import("./Components/Home/Home"));
+const InvoiceViewer = lazy(() => import("./Components/Invoice/invoice.viewer"));
+const SideBar = lazy(() => import("./Components/Sidebar/sidebar.js"));
+const InsideMedicineContainer = lazy(() =>
+  import("./Components/Medicine/InsideMedicineContainer")
+);
+const InvoiceList = lazy(() => import("./Components/Invoice/invoice.list"));
+const Invoicecreator = lazy(() =>
+  import("./Components/Invoice/invoice.creator")
+);
+const Login = lazy(() => import("./Components/Auth/Login"));
+const SignUp = lazy(() => import("./Components/Auth/SignUp"));
+const About = lazy(() => import("./Components/About/About"));
+const Account = lazy(() => import("./Components/Account/Account"));
+const Pricing = lazy(() => import("./Components/Pricing/Pricing"));
+const OurConditions = lazy(() => import("./Components/About/OurConditions"));
+const DeliveryChallanViewer = lazy(() =>
+  import("./Components/Delivery Challan/Delivery.Challan.Viewer")
+);
+const ChallanList = lazy(() =>
+  import("./Components/Delivery Challan/Delivery.Challan.List")
+);
+const DeliveryChallanCreater = lazy(() =>
+  import("./Components/Delivery Challan/Delivery.Challan.creater")
+);
+const NotFound = lazy(() => import("./Components/Helper/404page"));
+const LoadingPage = lazy(() => import("./Components/Helper/Loading.Page"));
+const ProformaList = lazy(() => import("./Components/Proforma/Proforma.List"));
+const ProformaCreater = lazy(() =>
+  import("./Components/Proforma/Proforma.creater")
+);
+const ProformaViewer = lazy(() =>
+  import("./Components/Proforma/Proforma.Viewer")
+);
 
 function App() {
   const User = useSelector((state) => state.authReducer);
@@ -70,65 +86,73 @@ function App() {
             // backgroundColor: "rgb(214,214,214)",
           }}
         >
-          <Routes>
-            {/* <Route path="/contact" element={<Contact />}></Route> */}
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              {/* <Route path="/contact" element={<Contact />}></Route> */}
 
-            {/* invoice routes */}
-            <Route path="/InvoiceList" element={<InvoiceList />}></Route>
-            <Route path="/invoicelist" element={<InvoiceList />}></Route>
-            <Route path="/invoice/create" element={<Invoicecreator />}></Route>
-            <Route path="/invoice/view" element={<InvoiceViewer />}></Route>
-            <Route path="/invoice" element={<InvoiceViewer />}></Route>
+              {/* invoice routes */}
+              <Route path="/InvoiceList" element={<InvoiceList />}></Route>
+              <Route path="/invoicelist" element={<InvoiceList />}></Route>
+              <Route
+                path="/invoice/create"
+                element={<Invoicecreator />}
+              ></Route>
+              <Route path="/invoice/view" element={<InvoiceViewer />}></Route>
+              <Route path="/invoice" element={<InvoiceViewer />}></Route>
 
-            {/* Delivery Challan routes */}
-            <Route
-              path="/DeliveryChallan/create"
-              element={<DeliveryChallanCreater />}
-            ></Route>
-            <Route
-              path="/Proforma/create"
-              element={<DeliveryChallanCreater />}
-            ></Route>
-            <Route
-              path="/DeliveryChallan/View"
-              element={<DeliveryChallanViewer />}
-            ></Route>
-            <Route path="/ChallanList" element={<ChallanList />}></Route>
+              {/* Delivery Challan routes */}
+              <Route
+                path="/DeliveryChallan/create"
+                element={<DeliveryChallanCreater />}
+              ></Route>
+              <Route
+                path="/Proforma/create"
+                element={<DeliveryChallanCreater />}
+              ></Route>
+              <Route
+                path="/DeliveryChallan/View"
+                element={<DeliveryChallanViewer />}
+              ></Route>
+              <Route path="/ChallanList" element={<ChallanList />}></Route>
 
-            {/* Proforma Routes */}
-            <Route
-              path="/DeliveryChallan/create"
-              element={<DeliveryChallanCreater />}
-            ></Route>
-            <Route path="ProformaCreater" element={<ProformaCreater />}></Route>
-            <Route path="/Proforma/View" element={<ProformaViewer />}></Route>
-            <Route path="/ProformaList" element={<ProformaList />}></Route>
+              {/* Proforma Routes */}
+              <Route
+                path="/DeliveryChallan/create"
+                element={<DeliveryChallanCreater />}
+              ></Route>
+              <Route
+                path="ProformaCreater"
+                element={<ProformaCreater />}
+              ></Route>
+              <Route path="/Proforma/View" element={<ProformaViewer />}></Route>
+              <Route path="/ProformaList" element={<ProformaList />}></Route>
 
-            {/* Auth Routes  */}
-            <Route path="/Login" element={<Login />}></Route>
-            <Route path="/SignUp" element={<SignUp />}></Route>
+              {/* Auth Routes  */}
+              <Route path="/Login" element={<Login />}></Route>
+              <Route path="/SignUp" element={<SignUp />}></Route>
 
-            {/* Other Routes  */}
-            <Route
-              path="/"
-              element={token ? <InsideMedicineContainer /> : <Login />}
-            ></Route>
-            <Route
-              path="/medicines"
-              element={token ? <InsideMedicineContainer /> : <Login />}
-            ></Route>
-            <Route path="/home" element={<Home />}></Route>
-            <Route path="/About" element={<About />}></Route>
-            <Route path="/Account" element={<Account />}></Route>
-            <Route path="/Pricing" element={<Pricing />}></Route>
-            <Route path="/OurConditions" element={<OurConditions />}></Route>
-            <Route path="/NotFound" element={<NotFound />}></Route>
-            <Route path="/LoadingPage" element={<LoadingPage />}></Route>
-            {/* <Route
+              {/* Other Routes  */}
+              <Route
+                path="/"
+                element={token ? <InsideMedicineContainer /> : <Login />}
+              ></Route>
+              <Route
+                path="/medicines"
+                element={token ? <InsideMedicineContainer /> : <Login />}
+              ></Route>
+              <Route path="/home" element={<Home />}></Route>
+              <Route path="/About" element={<About />}></Route>
+              <Route path="/Account" element={<Account />}></Route>
+              <Route path="/Pricing" element={<Pricing />}></Route>
+              <Route path="/OurConditions" element={<OurConditions />}></Route>
+              <Route path="/NotFound" element={<NotFound />}></Route>
+              <Route path="/LoadingPage" element={<LoadingPage />}></Route>
+              {/* <Route
               path="/InsideMedicine"
               element={<InsideMedicineContainer />}
             ></Route> */}
-          </Routes>
+            </Routes>
+          </Suspense>
           {/* <Navbar /> */}
           {/* <MobileNavabr /> */}
         </Box>
