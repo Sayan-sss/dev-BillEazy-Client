@@ -70,7 +70,7 @@ const Sidebar = () => {
               justifyContent: "space-evenly",
             }}
           >
-            <Tooltip title="Home">
+            <Tooltip title="Inventory">
               <IconButton
                 onClick={() => navigate("/medicines")}
                 sx={{
@@ -233,6 +233,7 @@ const Sidebar = () => {
             }}
           >
             <Button
+              variant="contained"
               onClick={() => navigate("/medicines")}
               sx={{
                 display: "flex",
@@ -245,10 +246,11 @@ const Sidebar = () => {
               }}
             >
               <HomeIcon sx={{ marginLeft: "1rem", marginRight: "1rem" }} />
-              Home
+              Inventory
             </Button>
 
             <Button
+              variant="contained"
               onClick={() => navigate("/invoiceList")}
               sx={{
                 display: "flex",
@@ -265,6 +267,7 @@ const Sidebar = () => {
             </Button>
 
             <Button
+              variant="contained"
               onClick={() => navigate("/invoiceList")}
               // variant="contained"
               sx={{
@@ -284,6 +287,7 @@ const Sidebar = () => {
             </Button>
 
             <Button
+              variant="contained"
               onClick={() => navigate("/invoiceList")}
               // variant="contained"
               sx={{
@@ -301,6 +305,7 @@ const Sidebar = () => {
             </Button>
 
             <Button
+              variant="contained"
               onClick={() => navigate("/Account")}
               // variant="contained"
               sx={{
@@ -329,6 +334,7 @@ const Sidebar = () => {
             }}
           >
             <Button
+              variant="contained"
               onClick={() => navigate("/About")}
               // variant="contained"
               sx={{
@@ -347,6 +353,7 @@ const Sidebar = () => {
 
             {user ? (
               <Button
+                variant="contained"
                 onClick={handlelogOut}
                 // variant="contained"
                 sx={{

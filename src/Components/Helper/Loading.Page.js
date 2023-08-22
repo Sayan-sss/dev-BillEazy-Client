@@ -15,7 +15,7 @@ export default function LoadingPage() {
         color: "#073259",
       }}
     >
-      <CircularProgress size="20rem" sx={{ color: "#073259" }} />
+      <CircularProgress size="3rem" sx={{ color: "#073259" }} />
     </Box>
   );
 }
