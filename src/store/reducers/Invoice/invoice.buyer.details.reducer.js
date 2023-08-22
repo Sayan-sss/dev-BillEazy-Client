@@ -10,7 +10,8 @@ export const BuyerReducer = (state = initialState, action) => {
       };
 
     case "FETCH_BUYER_DETAILS":
-      return { state, data: action.payload };
+      console.log("state");
+      return { ...state };
 
     default:
       return state;

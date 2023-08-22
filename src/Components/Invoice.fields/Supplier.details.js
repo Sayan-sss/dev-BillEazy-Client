@@ -1,8 +1,10 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import ShowAllSupplier from "../MuuiComponents/fetchInvoiceSubfield/invoice.Supplier.details.showAllSupplier";
 import InvoiceDialouge from "../MuuiComponents/InvoiceSupplier.dialouge";
 
 const Supplierdetails = () => {
+  const [open, setOpen] = useState(false);
   return (
     <>
       <Box
@@ -27,6 +29,7 @@ const Supplierdetails = () => {
         <Typography variant="h5" gutterBottom>
           SUPPLIER DETAILS
         </Typography>
+        <ShowAllSupplier open={open} setOpen={setOpen} />
         <InvoiceDialouge />
       </Box>
     </>

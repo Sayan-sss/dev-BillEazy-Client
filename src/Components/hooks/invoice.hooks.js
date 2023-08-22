@@ -5,6 +5,7 @@ import API from "../../api";
 const useInvoiceApis = () => {
   const dispatch = useDispatch();
   const [supplierDetailsId, setSupplierDetailsId] = useState(null);
+  const [supplierData, setSupplierData] = useState([]);
   const [buyerDetailsId, setBuyerDetailsId] = useState(null);
   const [productDetailsId, setProductDetailsId] = useState(null);
   const [transportDetailsId, setTransportDetailsId] = useState(null);
@@ -14,8 +15,43 @@ const useInvoiceApis = () => {
   const [transportData, setTransportData] = useState([]);
   const [bankData, setBankData] = useState([]);
   const User = useSelector((state) => state.authReducer);
+  const Supplier = useSelector((state) => state.SupplierReducer);
+  const Buyer = useSelector((state) => state.BuyerReducer);
+  const Bank = useSelector((state) => state.BuyerReducer);
+  const Products = useSelector((state) => state.ProductReducer);
+  const Transport = useSelector((state) => state.TransportReducer);
   // console.log("Reducer user");
   const { user } = User;
+
+  // ***** Invoice ******///////
+  const addInvoiceDetails = async () => {
+    try {
+      // const data = Buyer;
+      console.log(Buyer?.data._id);
+      const Buyer_id = Buyer?.data._id;
+      console.log(Bank?.data._id);
+      const Bank_id = Bank?.data._id;
+      console.log(Products?.data._id);
+      const Products_id = Products?.data._id;
+      console.log(Transport?.data._id);
+      const Transport_id = Transport?.data._id;
+      console.log(Supplier?.data._id);
+      const Supplier_id = Supplier?.data._id;
+
+      const { data } = await API.post("/v1/api/invoice/create", {
+        Buyer_id,
+        Bank_id,
+        Products_id,
+        Transport_id,
+        Supplier_id,
+      });
+      toast.success("Successfully added");
+    } catch (error) {
+      toast.error(error);
+    }
+  };
+
+  // ***** Invoice ******///////
 
   //****Supplier Details*/
   const addSupplierDetails = async ({
@@ -54,6 +90,24 @@ const useInvoiceApis = () => {
         data,
       },
     });
+  };
+
+  const getSupplierDetails = async (userId) => {
+    try {
+      // console.log(userId);
+      const { data } = await API.post(
+        `/v1/api/invoice/supplierdetails/get/${userId}`
+      );
+      if (data?.success) {
+        // console.log(data.Allbuyer);
+        setSupplierData(data.AllSupplier);
+        // console.log("buyerData");
+        toast.success("Success");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error);
+    }
   };
   //****Supplier Details*/
 
@@ -161,7 +215,7 @@ const useInvoiceApis = () => {
         _,
         userId,
       });
-
+      console.log("Product details");
       dispatch({
         type: "POST_PRODUCT_DETAILS",
         payload: {
@@ -314,7 +368,12 @@ const useInvoiceApis = () => {
   });
 
   return {
+    addInvoiceDetails,
+
     addSupplierDetails,
+    getSupplierDetails,
+    supplierData,
+    setSupplierData,
 
     addBuyerDetails,
     getBuyerDetails,

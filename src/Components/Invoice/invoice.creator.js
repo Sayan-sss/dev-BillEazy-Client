@@ -16,7 +16,10 @@ import ViewBuyerDetails from "./InvoiceAllFieldsView/view.buyer.details";
 import ViewProductsDetails from "./InvoiceAllFieldsView/view.products.details";
 import ViewTransportDetails from "./InvoiceAllFieldsView/view.transport.details";
 import ViewBankDetails from "./InvoiceAllFieldsView/view.bank.details";
+import useInvoiceApis from "../hooks/invoice.hooks";
+
 const Invoicecreator = () => {
+  const { addInvoiceDetails } = useInvoiceApis();
   // const User = useSelector((state) => state.authReducer);
   // const { token, user } = User;
 
@@ -25,6 +28,9 @@ const Invoicecreator = () => {
 
   // console.log("productData");
   // console.log(productData);
+  const handleCreateInvoice = async () => {
+    addInvoiceDetails();
+  };
   return (
     <>
       <Box
@@ -57,6 +63,13 @@ const Invoicecreator = () => {
             boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px",
           }}
         >
+          <Button
+            variant="contained"
+            sx={{ marginLeft: "auto", marginRight: "5px", marginTop: "5px" }}
+            onClick={handleCreateInvoice}
+          >
+            Create
+          </Button>
           <Box
             className="up_container"
             sx={{
