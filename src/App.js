@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import "./App.css";
 import { Box, Paper } from "@mui/material";
 // import Contact from "./Components/Contact/Contact";
@@ -47,6 +47,7 @@ const ProformaViewer = lazy(() =>
 );
 
 function App() {
+  const [sidebar, setSidebar] = useState(false);
   const User = useSelector((state) => state.authReducer);
   // console.log("Reducer user");
   const { token, user } = User;
@@ -67,17 +68,19 @@ function App() {
           sx={{
             display: "flex",
             flexDirection: "row",
-            width: "15vw",
-            // border: "1px solid green",
+            // width: "15vw",
+            width: `${sidebar ? "5vw" : "15vw"}`,
+            border: "1px solid green",
           }}
         >
-          <SideBar />
+          <SideBar sidebar={sidebar} setSidebar={setSidebar} />
           {/* <MiniDrawer /> */}
         </Paper>
         <Box
           sx={{
-            width: "85vw",
+            width: `${sidebar ? "95vw" : "85vw"}`,
             display: "flex",
+            // pl: `${sidebar ? "15vw" : ""}`,
             // flexDirection: "column",
             justifyContent: "center",
             // alignItems: "center",

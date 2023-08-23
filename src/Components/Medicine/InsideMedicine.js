@@ -5,6 +5,7 @@ import API from "../../api/index";
 // import { Button } from "@mui/base";
 import toast, { Toaster } from "react-hot-toast";
 import { Button } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import UpdateMedDialouge from "../MuuiComponents/UpdateMedDialouge";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -12,7 +13,7 @@ import moment from "moment";
 import EditIcon from "@mui/icons-material/Edit";
 export default function DataGridDemo(props) {
   // const [medicines,setMedicines] =React.useState([]);
-
+  const theme = useTheme();
   const [open, setOpen] = useState(false);
 
   const handleUpdate = async (e, cellValues) => {
@@ -225,6 +226,10 @@ export default function DataGridDemo(props) {
           height: 400,
           color: "black",
           width: "100%",
+          border: "10px solid green",
+          [theme.breakpoints.down("md")]: {
+            width: "50%",
+          },
           // display: "flex",
           // flexDirection: "row",
           // justifyContent: "space-between",
@@ -235,6 +240,7 @@ export default function DataGridDemo(props) {
             color: "black",
             margin: "2rem",
             boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+            width: "80vw",
           }}
           rows={rows}
           columns={columns}

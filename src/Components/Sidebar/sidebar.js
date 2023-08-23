@@ -18,8 +18,8 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import InfoIcon from "@mui/icons-material/Info";
 import { useDispatch, useSelector } from "react-redux";
 
-const Sidebar = () => {
-  const [sidebar, setSidebar] = useState(0);
+const Sidebar = (props) => {
+  const { sidebar, setSidebar } = props;
   const User = useSelector((state) => state.authReducer);
   const { token, user } = User;
 
@@ -33,7 +33,7 @@ const Sidebar = () => {
   };
   return (
     <>
-      {sidebar === 0 ? (
+      {sidebar ? (
         <Box
           sx={{
             display: "flex",
@@ -55,7 +55,7 @@ const Sidebar = () => {
               color: "white",
             }}
             className="menuOpenBtn btn"
-            onClick={(e) => setSidebar(1)}
+            onClick={(e) => setSidebar(false)}
           >
             <DoubleArrowIcon fontSize="large" />
           </Button>
@@ -191,7 +191,7 @@ const Sidebar = () => {
           </Button> */}
         </Box>
       )}
-      {sidebar ? (
+      {!sidebar ? (
         <Box
           sx={{
             position: "absolute",
@@ -216,7 +216,7 @@ const Sidebar = () => {
               color: "white",
             }}
             className="menuCloseBtn btn"
-            onClick={(e) => setSidebar(0)}
+            onClick={(e) => setSidebar(true)}
           >
             <MenuOpenIcon fontSize="large" />
           </Button>
@@ -267,9 +267,9 @@ const Sidebar = () => {
             </Button>
 
             <Button
-              variant="contained"
-              onClick={() => navigate("/invoiceList")}
               // variant="contained"
+              onClick={() => navigate("/invoiceList")}
+              variant="contained"
               sx={{
                 display: "flex",
                 flexDirection: "row",

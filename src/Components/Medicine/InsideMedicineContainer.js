@@ -39,8 +39,9 @@ const InsideMedicineContainer = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        width: "95vw",
         // mt: "5vh",
-        // border: "1px solid red",
+        border: "1px solid red",
       }}
     >
       <Box
