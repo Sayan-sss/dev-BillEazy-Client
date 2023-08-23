@@ -52,6 +52,13 @@ const useInvoiceApis = () => {
     }
   };
 
+  const fetchInvoiceDetails = async (id) => {
+    try {
+      const { data } = await API.post();
+    } catch (error) {
+      toast.error(error);
+    }
+  };
   // ***** Invoice ******///////
 
   //****Supplier Details*/
