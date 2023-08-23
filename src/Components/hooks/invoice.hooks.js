@@ -45,6 +45,7 @@ const useInvoiceApis = () => {
         Transport_id,
         Supplier_id,
       });
+      console.log(data);
       toast.success("Successfully added");
     } catch (error) {
       toast.error(error);
