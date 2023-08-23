@@ -17,9 +17,11 @@ import ViewProductsDetails from "./InvoiceAllFieldsView/view.products.details";
 import ViewTransportDetails from "./InvoiceAllFieldsView/view.transport.details";
 import ViewBankDetails from "./InvoiceAllFieldsView/view.bank.details";
 import useInvoiceApis from "../hooks/invoice.hooks";
+import { useNavigate } from "react-router-dom";
 
 const Invoicecreator = () => {
   const { addInvoiceDetails } = useInvoiceApis();
+  const navigate = useNavigate();
   // const User = useSelector((state) => state.authReducer);
   // const { token, user } = User;
 
@@ -30,6 +32,7 @@ const Invoicecreator = () => {
   // console.log(productData);
   const handleCreateInvoice = async () => {
     addInvoiceDetails();
+    navigate("/invoiceList");
   };
   return (
     <>
