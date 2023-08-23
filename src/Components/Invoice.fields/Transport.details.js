@@ -34,8 +34,19 @@ const TransportDetails = () => {
         >
           TRANSPORT DETAILS
         </Typography>
-        <ShowAllTransport open={open} setOpen={setOpen} />
-        <InvoiceTransport />
+        <Box
+          sx={{
+            // border: "1px solid red",
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "row",
+            width: "10vw",
+            justifyContent: "space-around",
+          }}
+        >
+          <ShowAllTransport open={open} setOpen={setOpen} />
+          <InvoiceTransport />
+        </Box>
       </Box>
     </>
   );

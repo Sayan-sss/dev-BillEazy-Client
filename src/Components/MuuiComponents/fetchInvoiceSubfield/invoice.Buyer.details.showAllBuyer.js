@@ -11,6 +11,8 @@ import API from "../../../api";
 import { useSelector } from "react-redux";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import useInvoiceApis from "../../hooks/invoice.hooks";
+import ListIcon from "@mui/icons-material/List";
+
 export default function ShowAllBuyer(props) {
   const { open, setOpen } = props;
   const { getBuyerDetails, buyerData } = useInvoiceApis();
@@ -31,7 +33,7 @@ export default function ShowAllBuyer(props) {
   return (
     <div>
       {/* <Button variant="outlined"> */}
-      <MoreVertIcon
+      <ListIcon
         onClick={async () => {
           await getBuyerDetails(user._id);
           handleClickOpen();

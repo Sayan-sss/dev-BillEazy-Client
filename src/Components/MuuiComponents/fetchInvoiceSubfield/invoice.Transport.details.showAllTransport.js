@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import useInvoiceApis from "../../hooks/invoice.hooks";
 import TransportCardViewer from "../viewCart/transport.details.view.cart";
+import ListIcon from "@mui/icons-material/List";
 
 export default function ShowAllTransport(props) {
   const { open, setOpen } = props;
@@ -35,7 +36,7 @@ export default function ShowAllTransport(props) {
   return (
     <div>
       {/* <Button variant="outlined"> */}
-      <MoreVertIcon
+      <ListIcon
         onClick={async () => {
           await getTransportDetails(user._id);
           handleClickOpen();

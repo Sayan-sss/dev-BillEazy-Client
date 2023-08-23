@@ -29,8 +29,19 @@ const Bankdetails = () => {
         <Typography variant="h5" gutterBottom sx={{ fontWeight: "" }}>
           BANK DETAILS (OPTIONAL FIELD)
         </Typography>
-        <ShowAllBankDetails open={open} setOpen={setOpen} />
-        <InvoiceDialouge />
+        <Box
+          sx={{
+            // border: "1px solid red",
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "row",
+            width: "10vw",
+            justifyContent: "space-around",
+          }}
+        >
+          <ShowAllBankDetails open={open} setOpen={setOpen} />
+          <InvoiceDialouge />
+        </Box>
       </Box>
     </>
   );

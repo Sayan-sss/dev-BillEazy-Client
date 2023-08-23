@@ -29,7 +29,16 @@ const Supplierdetails = () => {
         <Typography variant="h5" gutterBottom>
           SUPPLIER DETAILS
         </Typography>
-        <Box sx={{}}> 
+        <Box
+          sx={{
+            // border: "1px solid red",
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "row",
+            width: "10vw",
+            justifyContent: "space-around",
+          }}
+        >
           <ShowAllSupplier open={open} setOpen={setOpen} />
           <InvoiceDialouge />
         </Box>

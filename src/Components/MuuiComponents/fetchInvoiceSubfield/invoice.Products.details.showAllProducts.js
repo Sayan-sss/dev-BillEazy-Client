@@ -9,7 +9,10 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useSelector } from "react-redux";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import useInvoiceApis from "../../hooks/invoice.hooks";
+import ListIcon from "@mui/icons-material/List";
+
 import ProductCardViewer from ".././viewCart/products.details.view.cart";
+import { ListItemIcon } from "@mui/material";
 export default function ShowAllProducts(props) {
   const { open, setOpen } = props;
   const { getProductDetails, productData } = useInvoiceApis();
@@ -30,7 +33,7 @@ export default function ShowAllProducts(props) {
   return (
     <div>
       {/* <Button variant="outlined"> */}
-      <MoreVertIcon
+      <ListIcon
         onClick={async () => {
           await getProductDetails(user._id);
           handleClickOpen();

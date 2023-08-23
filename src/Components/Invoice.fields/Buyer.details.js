@@ -27,8 +27,19 @@ const Buyerdetails = () => {
         <Typography variant="h5" gutterBottom sx={{ fontWeight: "" }}>
           BUYER DETAILS
         </Typography>
-        <ShowAllBuyer open={open} setOpen={setOpen} />
-        <InvoiceDialouge />
+        <Box
+          sx={{
+            // border: "1px solid red",
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "row",
+            width: "10vw",
+            justifyContent: "space-around",
+          }}
+        >
+          <ShowAllBuyer open={open} setOpen={setOpen} />
+          <InvoiceDialouge />
+        </Box>
       </Box>
     </>
   );
