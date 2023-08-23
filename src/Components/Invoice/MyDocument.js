@@ -8,14 +8,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     minHeight: "100%",
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
     // justifyContent: 'center',
     // alignItems: 'center',
     // border: "10px solid black",
     // minWidth: "100vw",
   },
   parentContainer: {
-    margin: 10,
+    marginHorizontal: 10,
+    marginTop: 10,
     // padding: 10,
     flexGrow: 1,
     minWidth: 100,
@@ -96,6 +97,7 @@ const styles = StyleSheet.create({
     borderBottom: "1px solid black",
     fontSize: 10,
     paddingVertical: 2,
+    paddingLeft: 2,
     // textOverflow: "clipped",
     borderRight: "1px solid black",
     maxWidth: 350,
@@ -604,10 +606,18 @@ export const MyDocument = () => (
               >
                 <Text style={styles.items_text}>Authorized Signatory</Text>
               </View>
-              s
             </View>
           </View>
         </View>
+      </View>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-end",
+        }}
+      >
+        <Text style={styles.items_text}>(E & OE)</Text>
       </View>
     </Page>
   </Document>
