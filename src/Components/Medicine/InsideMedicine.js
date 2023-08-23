@@ -205,6 +205,8 @@ export default function DataGridDemo(props) {
         Quantity: m.quantity,
         Medicine: m.name,
         Rate: m.rate,
+        Type: m.type,
+        Pack: m.pack,
         MRP: m.mrp,
         HSN: m.hsn,
         MFG: m?.mfg,

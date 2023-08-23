@@ -11,6 +11,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import useInvoiceApis from "../../hooks/invoice.hooks";
 import ProductCardViewer from ".././viewCart/products.details.view.cart";
 import SupplierCardViewer from "../viewCart/supplier.details.view.cart";
+import ListIcon from "@mui/icons-material/List";
 export default function ShowAllSupplier(props) {
   const { open, setOpen } = props;
   const { getSupplierDetails, supplierData } = useInvoiceApis();
@@ -31,7 +32,8 @@ export default function ShowAllSupplier(props) {
   return (
     <div>
       {/* <Button variant="outlined"> */}
-      <MoreVertIcon
+      <ListIcon
+        sx={{ cursor: "pointer" }}
         onClick={async () => {
           await getSupplierDetails(user._id);
           handleClickOpen();

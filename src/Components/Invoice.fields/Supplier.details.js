@@ -29,8 +29,10 @@ const Supplierdetails = () => {
         <Typography variant="h5" gutterBottom>
           SUPPLIER DETAILS
         </Typography>
-        <ShowAllSupplier open={open} setOpen={setOpen} />
-        <InvoiceDialouge />
+        <Box sx={{}}> 
+          <ShowAllSupplier open={open} setOpen={setOpen} />
+          <InvoiceDialouge />
+        </Box>
       </Box>
     </>
   );
