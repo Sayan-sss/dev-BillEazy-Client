@@ -14,7 +14,9 @@ import InvoiceTextField from "./Invoice.textField";
 import InvoiceProductsRadioGroup from "./InvoiceProduct.Radiogroup";
 import { Box } from "@mui/material";
 import useInvoiceApis from "../hooks/invoice.hooks";
+import Tooltip from "@mui/material/Tooltip";
 import { useSelector } from "react-redux";
+
 export default function InvoiceProduct(props) {
   const { addBankDetails } = useInvoiceApis();
   const [open, setOpen] = React.useState(false);
@@ -47,15 +49,17 @@ export default function InvoiceProduct(props) {
   };
   return (
     <div>
-      <EditIcon
-        onClick={handleClickOpen}
-        sx={{ marginRight: "2rem", cursor: "pointer" }}
-      />
+      <Tooltip title="Add New">
+        <EditIcon
+          onClick={handleClickOpen}
+          sx={{ marginRight: "2rem", cursor: "pointer" }}
+        />
+      </Tooltip>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle
           sx={{
             height: "2rem",
-            backgroundColor: "#363740",
+            backgroundColor: "#073259",
             color: "#ffffff",
             fontFamily: "Roboto",
           }}

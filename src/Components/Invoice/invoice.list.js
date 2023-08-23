@@ -33,7 +33,7 @@ const InvoiceList = () => {
       >
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Button
-            // variant="contained"
+            variant="contained"
             onClick={() => {
               navigate("/invoice/create");
             }}
@@ -42,7 +42,7 @@ const InvoiceList = () => {
               marginLeft: "auto",
               display: "flex",
               height: "2rem",
-              backgroundColor: "#363740",
+              backgroundColor: "#073259",
               color: "white",
             }}
           >

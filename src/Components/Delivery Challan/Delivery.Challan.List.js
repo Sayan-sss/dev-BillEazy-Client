@@ -33,7 +33,7 @@ const ChallanList = () => {
       >
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Button
-            // variant="contained"
+            variant="contained"
             onClick={() => {
               navigate("/DeliveryChallan/create");
             }}
@@ -42,7 +42,7 @@ const ChallanList = () => {
               marginLeft: "auto",
               display: "flex",
               height: "2rem",
-              backgroundColor: "#363740",
+              backgroundColor: "#073259",
               color: "white",
             }}
           >

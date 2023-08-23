@@ -23,14 +23,29 @@ export default function Invoicetable(props) {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead sx={{ backgroundColor: "#d9dbe9" }}>
-          <TableRow sx={{ borderRight: "1px solid black" }}>
+        <TableHead sx={{ color: "white" }}>
+          <TableRow
+            sx={{
+              // borderRight: "10px solid black",
+              background: "#073259",
+            }}
+          >
             {/* <TableCell>Dessert (100g serving)</TableCell> */}
-            <TableCell align="right">{props.field} No.</TableCell>
-            <TableCell align="right">{props.field} Date</TableCell>
-            <TableCell align="right">BuyerName</TableCell>
-            <TableCell align="right">Status</TableCell>
-            <TableCell align="right">Actions</TableCell>
+            <TableCell sx={{ color: "white" }} align="right">
+              {props.field} No.
+            </TableCell>
+            <TableCell sx={{ color: "white" }} align="right">
+              {props.field} Date
+            </TableCell>
+            <TableCell sx={{ color: "white" }} align="right">
+              BuyerName
+            </TableCell>
+            <TableCell sx={{ color: "white" }} align="right">
+              Status
+            </TableCell>
+            <TableCell sx={{ color: "white" }} align="right">
+              Actions
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

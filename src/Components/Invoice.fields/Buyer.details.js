@@ -22,6 +22,8 @@ const Buyerdetails = () => {
           marginLeft: "auto",
           marginRight: "auto",
           borderRadius: "10px",
+          background: "#073259",
+          color: "white",
         }}
       >
         <Typography variant="h5" gutterBottom sx={{ fontWeight: "" }}>

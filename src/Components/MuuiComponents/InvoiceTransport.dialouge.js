@@ -20,6 +20,7 @@ import useInvoiceApis from "../hooks/invoice.hooks";
 import dayjs from "dayjs";
 import TransportSupplyDatePicker from "./invoiceTransport.supplydate.datepicker";
 import { useSelector } from "react-redux";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function InvoiceTransport(props) {
   const { addTransportDetails } = useInvoiceApis();
@@ -77,15 +78,17 @@ export default function InvoiceTransport(props) {
   };
   return (
     <div>
-      <EditIcon
-        onClick={handleClickOpen}
-        sx={{ marginRight: "2rem", cursor: "pointer" }}
-      />
+      <Tooltip title="Add New">
+        <EditIcon
+          onClick={handleClickOpen}
+          sx={{ marginRight: "2rem", cursor: "pointer" }}
+        />
+      </Tooltip>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle
           sx={{
             height: "2rem",
-            backgroundColor: "#363740",
+            backgroundColor: "#073259",
             color: "#ffffff",
             fontFamily: "Roboto",
           }}

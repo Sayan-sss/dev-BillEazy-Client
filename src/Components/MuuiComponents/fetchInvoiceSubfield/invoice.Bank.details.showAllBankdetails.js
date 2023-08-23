@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import useInvoiceApis from "../../hooks/invoice.hooks";
 import BankCardViewer from "../viewCart/bank.details.view.cart";
+import Tooltip from "@mui/material/Tooltip";
 import ListIcon from "@mui/icons-material/List";
 
 export default function ShowAllBankDetails(props) {
@@ -29,12 +30,14 @@ export default function ShowAllBankDetails(props) {
   return (
     <div>
       {/* <Button variant="outlined"> */}
-      <ListIcon
-        onClick={async () => {
-          await getBankDetails(user._id);
-          handleClickOpen();
-        }}
-      />
+      <Tooltip title="Menu">
+        <ListIcon
+          onClick={async () => {
+            await getBankDetails(user._id);
+            handleClickOpen();
+          }}
+        />
+      </Tooltip>
       {/* </Button> */}
       <Dialog
         open={open}

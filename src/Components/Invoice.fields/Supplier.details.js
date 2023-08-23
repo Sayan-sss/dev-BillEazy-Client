@@ -24,6 +24,8 @@ const Supplierdetails = () => {
           marginLeft: "auto",
           marginRight: "auto",
           borderRadius: "10px",
+          background: "#073259",
+          color: "white",
         }}
       >
         <Typography variant="h5" gutterBottom>
@@ -37,6 +39,7 @@ const Supplierdetails = () => {
             flexDirection: "row",
             width: "10vw",
             justifyContent: "space-around",
+            color: "white",
           }}
         >
           <ShowAllSupplier open={open} setOpen={setOpen} />

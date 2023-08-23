@@ -14,6 +14,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import BuyerSelect from "./Invoice.Buyer.Select";
 import useInvoiceApis from "../hooks/invoice.hooks";
 import { useSelector } from "react-redux";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function InvoiceDialouge(props) {
   const { addBuyerDetails } = useInvoiceApis();
@@ -59,17 +60,21 @@ export default function InvoiceDialouge(props) {
   };
   return (
     <div>
-      <EditIcon
-        onClick={handleClickOpen}
-        sx={{ marginRight: "2rem", cursor: "pointer" }}
-      />
+      <Tooltip title="Add New">
+        <EditIcon
+          onClick={handleClickOpen}
+          sx={{ marginRight: "2rem", cursor: "pointer" }}
+        />
+      </Tooltip>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle
+          // margin="dense"
           sx={{
             height: "2rem",
-            backgroundColor: "#363740",
+            backgroundColor: "#073259",
             color: "#ffffff",
             fontFamily: "Roboto",
+            mb: "1.5rem",
           }}
         >
           Add New Buyer

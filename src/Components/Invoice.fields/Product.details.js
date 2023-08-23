@@ -24,6 +24,8 @@ const Productdetails = () => {
           marginLeft: "auto",
           marginRight: "auto",
           borderRadius: "10px",
+          background: "#073259",
+          color: "white",
         }}
       >
         <Typography

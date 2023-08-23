@@ -7,6 +7,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 
 import { useSelector } from "react-redux";
+import Tooltip from "@mui/material/Tooltip";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import useInvoiceApis from "../../hooks/invoice.hooks";
 import ListIcon from "@mui/icons-material/List";
@@ -33,12 +34,14 @@ export default function ShowAllProducts(props) {
   return (
     <div>
       {/* <Button variant="outlined"> */}
-      <ListIcon
-        onClick={async () => {
-          await getProductDetails(user._id);
-          handleClickOpen();
-        }}
-      />
+      <Tooltip title="Menu">
+        <ListIcon
+          onClick={async () => {
+            await getProductDetails(user._id);
+            handleClickOpen();
+          }}
+        />
+      </Tooltip>
       {/* </Button> */}
       <Dialog
         open={open}

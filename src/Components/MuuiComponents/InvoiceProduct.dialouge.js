@@ -22,6 +22,7 @@ import { useSelector } from "react-redux";
 import Invoice_Products_Tax_RadioGroup from "./InvoiceProduct.Radiogroup";
 import Product_discount_type_Select from "./Invoice.Product.DiscountSelect";
 import Select_Percent_Wise_Product from "./Invoice.Product.Select";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function InvoiceProduct(props) {
   const { addProductDetails } = useInvoiceApis();
@@ -89,17 +90,20 @@ export default function InvoiceProduct(props) {
   };
   return (
     <div>
-      <EditIcon
-        onClick={handleClickOpen}
-        sx={{ marginRight: "2rem", cursor: "pointer" }}
-      />
+      <Tooltip title="Add New">
+        <EditIcon
+          onClick={handleClickOpen}
+          sx={{ marginRight: "2rem", cursor: "pointer" }}
+        />
+      </Tooltip>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle
           sx={{
             height: "2rem",
-            backgroundColor: "#363740",
+            backgroundColor: "#073259",
             color: "#ffffff",
             fontFamily: "Roboto",
+            mb: "1.5rem",
           }}
         >
           ADD PRODUCT
