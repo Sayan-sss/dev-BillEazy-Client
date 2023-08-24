@@ -226,7 +226,7 @@ export default function DataGridDemo(props) {
           height: 400,
           color: "black",
           width: "100%",
-          border: "10px solid green",
+          // border: "10px solid green",
           [theme.breakpoints.down("md")]: {
             width: "50%",
           },

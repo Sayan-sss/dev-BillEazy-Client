@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import { Button, Divider, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import API from "../../api";
+import GoogleIcon from "@mui/icons-material/Google";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function SignUp() {
@@ -151,8 +152,18 @@ export default function SignUp() {
             <Button
               variant="contained"
               color="primary"
-              sx={{ width: "25vw", height: "2rem", marginTop: "1rem" }}
+              sx={{
+                width: "25vw",
+                height: "2rem",
+                marginTop: "1rem",
+                background: "#073259",
+
+                display: "flex",
+                flexDirection: " row",
+                justifyContent: "space-evenly",
+              }}
             >
+              <GoogleIcon />
               Sign Up With Google
             </Button>
             <Divider textAlign="right" sx={{ marginTop: "2rem" }}>
