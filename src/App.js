@@ -10,6 +10,7 @@ import { Box, Paper } from "@mui/material";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Toaster } from "react-hot-toast";
+import LandingPage from "./Components/Landing Page/Landing.Page";
 
 const Home = lazy(() => import("./Components/Home/Home"));
 const InvoiceViewer = lazy(() => import("./Components/Invoice/invoice.viewer"));
@@ -150,6 +151,7 @@ function App() {
               <Route path="/OurConditions" element={<OurConditions />}></Route>
               <Route path="/*" element={<NotFound />}></Route>
               <Route path="/LoadingPage" element={<LoadingPage />}></Route>
+              <Route path="/LandingPage" element={<LandingPage />}></Route>
               {/* <Route
               path="/InsideMedicine"
               element={<InsideMedicineContainer />}
