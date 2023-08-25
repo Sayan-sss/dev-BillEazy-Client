@@ -11,9 +11,9 @@ const LandingPage = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        border: "1px solid red",
+        // border: "1px solid red",
         height: "100vh",
-        width: "100vw",
+        width: "100vw ",
         color: "#073259",
       }}
     >
@@ -21,7 +21,7 @@ const LandingPage = () => {
         sx={{
           borderRadius: "10px",
           background: "#D7E8EA",
-          //   border: "1px solid black",
+          border: "1px solid #073259",
           height: "95%",
           width: "95%",
         }}
@@ -184,7 +184,7 @@ const LandingPage = () => {
           </Box>
           <Box
             sx={{
-              //   border: "1px solid blue",
+              // border: "1px solid blue",
               height: "60%",
               width: "100%",
               display: "flex",

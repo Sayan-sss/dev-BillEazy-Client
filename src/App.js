@@ -65,18 +65,22 @@ function App() {
           overflow: "hidden",
         }}
       >
-        <Paper
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            // width: "15vw",
-            width: `${sidebar ? "5vw" : "15vw"}`,
-            border: "1px solid green",
-          }}
-        >
-          <SideBar sidebar={sidebar} setSidebar={setSidebar} />
-          {/* <MiniDrawer /> */}
-        </Paper>
+        {token ? (
+          <Paper
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              // width: "15vw",
+              width: `${sidebar ? "5vw" : "15vw"}`,
+              border: "1px solid green",
+            }}
+          >
+            <SideBar sidebar={sidebar} setSidebar={setSidebar} />
+            {/* <MiniDrawer /> */}
+          </Paper>
+        ) : (
+          <></>
+        )}
         <Box
           sx={{
             width: `${sidebar ? "95vw" : "85vw"}`,
@@ -90,7 +94,7 @@ function App() {
             // backgroundColor: "rgb(214,214,214)",
           }}
         >
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingPage />}>
             <Routes>
               {/* <Route path="/contact" element={<Contact />}></Route> */}
 
@@ -138,7 +142,7 @@ function App() {
               {/* Other Routes  */}
               <Route
                 path="/"
-                element={token ? <InsideMedicineContainer /> : <Login />}
+                element={token ? <InsideMedicineContainer /> : <LandingPage />}
               ></Route>
               <Route
                 path="/medicines"
@@ -151,7 +155,7 @@ function App() {
               <Route path="/OurConditions" element={<OurConditions />}></Route>
               <Route path="/*" element={<NotFound />}></Route>
               <Route path="/LoadingPage" element={<LoadingPage />}></Route>
-              <Route path="/LandingPage" element={<LandingPage />}></Route>
+              {/* <Route path="/" element={<LandingPage />}></Route> */}
               {/* <Route
               path="/InsideMedicine"
               element={<InsideMedicineContainer />}

@@ -84,7 +84,7 @@ const About = ({ title, body, demo }) => {
               background: "#073259",
               color: "white",
               height: "5vh",
-              width: "40vw",
+              width: "30vw",
               fontSize: "1rem",
               // marginBottom: "1rem",
             }}

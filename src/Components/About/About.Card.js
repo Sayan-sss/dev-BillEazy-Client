@@ -20,6 +20,8 @@ export default function AboutCard(props) {
     <Card
       sx={{
         height: "35vh",
+        background: "#D7E8EA",
+        border: "1px solid #073259",
         width: "20vw",
         display: "flex",
         flexDirection: "column",
