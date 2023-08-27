@@ -6,6 +6,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { useSelector } from "react-redux";
+import { Button } from "@mui/material";
 
 // function createData(name, calories, fat, carbs, protein) {
 //   return { name, calories, fat, carbs, protein };
@@ -20,6 +22,9 @@ import Paper from "@mui/material/Paper";
 // ];
 
 export default function Invoicetable(props) {
+  const { data } = useSelector((state) => state.InvoicesReducer);
+  console.log(data);
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -31,38 +36,50 @@ export default function Invoicetable(props) {
             }}
           >
             {/* <TableCell>Dessert (100g serving)</TableCell> */}
-            <TableCell sx={{ color: "white" }} align="right">
+            <TableCell sx={{ color: "white" }} align="center">
               {props.field} No.
             </TableCell>
-            <TableCell sx={{ color: "white" }} align="right">
+            <TableCell sx={{ color: "white" }} align="center">
               {props.field} Date
             </TableCell>
-            <TableCell sx={{ color: "white" }} align="right">
+            <TableCell sx={{ color: "white" }} align="center">
               BuyerName
             </TableCell>
-            <TableCell sx={{ color: "white" }} align="right">
+            <TableCell sx={{ color: "white" }} align="center">
               Status
             </TableCell>
-            <TableCell sx={{ color: "white" }} align="right">
+            <TableCell sx={{ color: "white" }} align="center">
               Actions
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* {rows.map((row) => (
+          {data?.AllInvoice?.map((invoice) => (
             <TableRow
-              key={row.name}
+              key={invoice?._id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
-                {row.name}
+              <TableCell component="th" scope="row" align="center">
+                {invoice?.invoiceNo}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
+              <TableCell component="th" scope="row" align="center">
+                {invoice?.invoiceDate}
+              </TableCell>
+              <TableCell component="th" scope="row" align="center">
+                {invoice?.buyerDetails?.companyName}
+              </TableCell>
+              <TableCell component="th" scope="row" align="center">
+                UnPaid
+              </TableCell>
+              <TableCell component="th" scope="row" align="center">
+                <Button>Accept Payment</Button>
+              </TableCell>
+              {/* <TableCell align="right">{row.calories}</TableCell>
               <TableCell align="right">{row.fat}</TableCell>
               <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.protein}</TableCell> */}
             </TableRow>
-          ))} */}
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

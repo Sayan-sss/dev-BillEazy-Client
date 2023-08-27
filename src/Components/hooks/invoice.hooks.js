@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import API from "../../api";
@@ -44,6 +44,7 @@ const useInvoiceApis = () => {
         Products_id,
         Transport_id,
         Supplier_id,
+        User_id: user._id,
       });
       console.log(data);
       toast.success("Successfully added");
@@ -52,13 +53,18 @@ const useInvoiceApis = () => {
     }
   };
 
-  const fetchInvoiceDetails = async (id) => {
+  const getInvoiceDetails = useCallback(async (id) => {
     try {
-      const { data } = await API.post();
+      // console.log(id);
+      // console.log("Fetch Invoice");
+      const { data } = await API.post(`/v1/api/invoice/get/${id}`);
+      // console.log(data);
+      dispatch({ type: "POST_INVOICE_DETAILS", payload: { data } });
+      toast.success("Invoice fetched successfully");
     } catch (error) {
       toast.error(error);
     }
-  };
+  }, []);
   // ***** Invoice ******///////
 
   //****Supplier Details*/
@@ -377,6 +383,7 @@ const useInvoiceApis = () => {
 
   return {
     addInvoiceDetails,
+    getInvoiceDetails,
 
     addSupplierDetails,
     getSupplierDetails,

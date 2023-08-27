@@ -1,13 +1,31 @@
 import Button from "@mui/material/Button";
 import { Box } from "@mui/material";
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Invoicetable from "../MuuiComponents/invoiceTable";
 // import "./InvoiceList.css";
 import SearchAppBar from "../MuuiComponents/Searchbar";
+import useInvoiceApis from "../hooks/invoice.hooks";
+import { useSelector } from "react-redux";
 // import invoiceTable from "../MuuiComponents/invoiceTable";
 const InvoiceList = () => {
+  const User = useSelector((state) => state.authReducer);
+  const { user } = User;
+  console.log(user);
   const navigate = useNavigate();
+  const { getInvoiceDetails } = useInvoiceApis();
+  // const handleSubmit = useCallback(() => {
+  //   getInvoiceDetails(user._id);
+  // }, []);
+
+  useEffect(() => {
+    window.addEventListener("load", getInvoiceDetails(user._id));
+
+    // return () => {
+    //   window.removeEventListener("load", getInvoiceDetails(user._id));
+    // };
+  }, [getInvoiceDetails]);
+
   return (
     <Box
       className="invoice_container"
