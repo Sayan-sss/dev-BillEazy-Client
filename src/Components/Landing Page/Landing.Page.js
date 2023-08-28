@@ -1,26 +1,37 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Invoice from "../Assets/Invoice.png";
 import logo from "../Assets/newlogo.png";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import AboutCard from "../About/About.Card";
+import About from "../About/About";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
         display: "flex",
-        alignItems: "center",
+        alignItems: "flex-end",
         justifyContent: "center",
+        flexDirection: "column",
+        // overflow: "scroll",
+        // overflow: "hidden",
         // border: "1px solid red",
         height: "100vh",
         width: "100vw ",
         color: "#073259",
       }}
     >
+      {/* <Container
+        sx={{ height: "100%", width: "100%", border: "1px solid red" }}
+      > */}
       <Box
         sx={{
-          borderRadius: "10px",
+          borderRadius: "10px ",
           background: "#D7E8EA",
+          border: "10px solid red",
           border: "1px solid #073259",
           height: "95%",
           width: "95%",
@@ -43,6 +54,7 @@ const LandingPage = () => {
               width: "15%",
               display: "flex",
               alignItems: "center",
+              // cursor: "pointer",
               //   justifyContent: "center",
             }}
           >
@@ -54,24 +66,36 @@ const LandingPage = () => {
               justifyContent: "space-evenly",
               alignItems: "center",
               flexDirection: "row",
-              //   border: "1px solid blue",
+              // border: "1px solid blue",
               height: "100%",
               width: "50%",
             }}
           >
-            <Typography gutterBottom sx={{ fontWeight: "bold" }}>
+            <Typography
+              gutterBottom
+              sx={{ fontWeight: "bold", cursor: "pointer" }}
+              onClick={() => navigate("/Pricing")}
+            >
               SUBSCRIPTION
             </Typography>
-            <Typography gutterBottom sx={{ fontWeight: "bold" }}>
+            <Typography
+              gutterBottom
+              sx={{ fontWeight: "bold", cursor: "pointer" }}
+              onClick={() => navigate("/About")}
+            >
               ABOUT US
             </Typography>
-            <Typography gutterBottom sx={{ fontWeight: "bold" }}>
+            <Typography
+              gutterBottom
+              sx={{ fontWeight: "bold", cursor: "pointer" }}
+              onClick={() => navigate("/About")}
+            >
               CONTACT US
             </Typography>
           </Box>
           <Box
             sx={{
-              //   border: "1px solid blue",
+              // border: "1px solid blue",
               height: "100%",
               width: "35%",
               display: "flex",
@@ -80,7 +104,11 @@ const LandingPage = () => {
               flexDirection: "row",
             }}
           >
-            <Button sx={{ background: "#073259" }} variant="contained">
+            <Button
+              sx={{ background: "#073259" }}
+              variant="contained"
+              onClick={() => navigate("/Login")}
+            >
               Sign In
             </Button>
             <Button
@@ -90,6 +118,7 @@ const LandingPage = () => {
                 marginRight: "1rem",
               }}
               variant="outlined"
+              onClick={() => navigate("/SignUp")}
             >
               Try It Free
             </Button>
@@ -196,6 +225,12 @@ const LandingPage = () => {
           </Box>
         </Box>
       </Box>
+      {/* next page */}
+      {/* <Box sx={{ border: "1px solid red", height: "100%", width: "100%" }}>
+        <Box>
+          <About />
+        </Box>
+      </Box> */}
     </Box>
   );
 };
