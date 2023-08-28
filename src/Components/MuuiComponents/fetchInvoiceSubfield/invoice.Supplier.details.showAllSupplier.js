@@ -48,7 +48,13 @@ export default function ShowAllSupplier(props) {
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
-        sx={{ height: "700px" }}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "700px",
+          // width: "0vw",
+        }}
       >
         <DialogTitle
           id="alert-dialog-title"
@@ -72,7 +78,9 @@ export default function ShowAllSupplier(props) {
           ))}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Save</Button>
+          <Button variant="outlined" onClick={handleClose}>
+            Save
+          </Button>
           {/* <Button onClick={handleClose}>Agree</Button> */}
         </DialogActions>
       </Dialog>
