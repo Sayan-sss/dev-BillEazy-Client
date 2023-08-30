@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { Toaster } from "react-hot-toast";
 import LandingPage from "./Components/Landing Page/Landing.Page";
 import HorizontalStepper from "./Components/Stepper/Stepper";
+import Contact from "./Components/Contact/Contact";
 
 const Home = lazy(() => import("./Components/Home/Home"));
 const InvoiceViewer = lazy(() => import("./Components/Invoice/invoice.viewer"));
@@ -97,7 +98,7 @@ function App() {
         >
           <Suspense fallback={<LoadingPage />}>
             <Routes>
-              {/* <Route path="/contact" element={<Contact />}></Route> */}
+              <Route path="/contact" element={<Contact />}></Route>
 
               {/* invoice routes */}
               <Route path="/InvoiceList" element={<InvoiceList />}></Route>

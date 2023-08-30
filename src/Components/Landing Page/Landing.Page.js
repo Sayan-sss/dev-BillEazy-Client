@@ -6,6 +6,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import AboutCard from "../About/About.Card";
 import About from "../About/About";
+import Contact from "../Contact/Contact";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const LandingPage = () => {
         alignItems: "flex-end",
         justifyContent: "center",
         flexDirection: "column",
-        // overflow: "scroll",
+        overflow: "scroll",
         // overflow: "hidden",
         // border: "1px solid red",
         height: "100vh",
@@ -224,6 +225,7 @@ const LandingPage = () => {
             <img src={Invoice} alt="" height={"95%"} width={"50%"} />
           </Box>
         </Box>
+        {/* <Contact /> */}
       </Box>
       {/* next page */}
       {/* <Box sx={{ border: "1px solid red", height: "100%", width: "100%" }}>
