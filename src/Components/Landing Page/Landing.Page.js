@@ -2,6 +2,7 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Invoice from "../Assets/Invoice.png";
 import logo from "../Assets/newlogo.png";
+import BILL from "../Assets/BILL.png";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import AboutCard from "../About/About.Card";
@@ -23,6 +24,7 @@ const LandingPage = () => {
         height: "100vh",
         width: "100vw ",
         color: "#073259",
+        // color: "orange",
       }}
     >
       {/* <Container
@@ -32,6 +34,7 @@ const LandingPage = () => {
         sx={{
           borderRadius: "10px ",
           background: "#D7E8EA",
+          // background: "#191D2B",
           border: "10px solid red",
           border: "1px solid #073259",
           height: "95%",
@@ -55,11 +58,19 @@ const LandingPage = () => {
               width: "15%",
               display: "flex",
               alignItems: "center",
+              // background: "red",
               // cursor: "pointer",
               //   justifyContent: "center",
             }}
           >
-            <img src={logo} alt="" height={"60%"} />
+            {/* <img src={logo} alt="" height={"60%"} /> */}
+            <img
+              src={BILL}
+              alt="logo"
+              height={"200px"}
+              width={"200px"}
+              // background={"red"}
+            />
           </Box>
           <Box
             sx={{
@@ -227,12 +238,6 @@ const LandingPage = () => {
         </Box>
         {/* <Contact /> */}
       </Box>
-      {/* next page */}
-      {/* <Box sx={{ border: "1px solid red", height: "100%", width: "100%" }}>
-        <Box>
-          <About />
-        </Box>
-      </Box> */}
     </Box>
   );
 };
