@@ -74,7 +74,7 @@ function App() {
               flexDirection: "row",
               // width: "15vw",
               width: `${sidebar ? "5vw" : "15vw"}`,
-              border: "1px solid green",
+              // border: "1px solid green",
             }}
           >
             <SideBar sidebar={sidebar} setSidebar={setSidebar} />
@@ -92,7 +92,9 @@ function App() {
             justifyContent: "center",
             // alignItems: "center",
             // border: "1px solid green",
-            backgroundColor: "whitesmoke",
+            // backgroundColor: "whitesmoke",
+            background: "#D7E8EA",
+
             // backgroundColor: "rgb(214,214,214)",
           }}
         >

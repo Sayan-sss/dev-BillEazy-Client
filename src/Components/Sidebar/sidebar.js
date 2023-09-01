@@ -17,6 +17,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import InfoIcon from "@mui/icons-material/Info";
 import { useDispatch, useSelector } from "react-redux";
+// import logo from "../Assets/bill logo.png";
+import BILL from "../Assets/Bill Eazy 3.png";
 
 const Sidebar = (props) => {
   const { sidebar, setSidebar } = props;
@@ -197,6 +199,7 @@ const Sidebar = (props) => {
             position: "absolute",
             // left: 2,
             // bottom: "2rem",
+            // background: "#191D2B",
             background: "#062541",
             width: "15vw",
             display: "flex",
@@ -207,19 +210,27 @@ const Sidebar = (props) => {
             // border: "1px solid blue",
           }}
         >
-          <Button
+          {/* <img src="" alt="" /> */}
+          <Box
             sx={{
+              // border: "1px solid red",
               display: "flex",
-              justifyContent: "flex-end",
+              alignItems: "center",
+              flexDirection: "row",
               width: "15vw",
-              marginTop: "-2rem",
+              height: "15vh",
               color: "white",
             }}
-            className="menuCloseBtn btn"
-            onClick={(e) => setSidebar(true)}
           >
-            <MenuOpenIcon fontSize="large" />
-          </Button>
+            <img src={BILL} height={"150%"} width={"100%"} alt="" />
+            <Button
+              sx={{ color: "white" }}
+              className="menuCloseBtn btn"
+              onClick={(e) => setSidebar(true)}
+            >
+              <MenuOpenIcon fontSize="large" />
+            </Button>
+          </Box>
           <Box
             sx={{
               display: "flex",

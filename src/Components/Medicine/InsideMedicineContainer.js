@@ -40,8 +40,9 @@ const InsideMedicineContainer = () => {
         flexDirection: "column",
         alignItems: "center",
         width: "95vw",
+        background: "#D7E8EA",
         // mt: "5vh",
-        border: "1px solid red",
+        // border: "1px solid red",
       }}
     >
       <Box
