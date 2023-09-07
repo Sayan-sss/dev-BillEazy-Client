@@ -1,6 +1,6 @@
 import { lazy, Suspense, useState } from "react";
 import "./App.css";
-import { Box, Paper } from "@mui/material";
+import { Box, Paper, Stepper } from "@mui/material";
 // import Contact from "./Components/Contact/Contact";
 // import { useNavigate } from "react-router-dom";
 // import MobileNavabr from "./Components/Navigation Bar/Mobile.Navbar";
@@ -11,6 +11,8 @@ import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Toaster } from "react-hot-toast";
 import LandingPage from "./Components/Landing Page/Landing.Page";
+import HorizontalStepper from "./Components/Stepper/Stepper";
+import Contact from "./Components/Contact/Contact";
 
 const Home = lazy(() => import("./Components/Home/Home"));
 const InvoiceViewer = lazy(() => import("./Components/Invoice/invoice.viewer"));
@@ -92,13 +94,15 @@ function App() {
             justifyContent: "center",
             // alignItems: "center",
             // border: "1px solid green",
-            backgroundColor: "whitesmoke",
+            // backgroundColor: "whitesmoke",
+            background: "#D7E8EA",
+
             // backgroundColor: "rgb(214,214,214)",
           }}
         >
           <Suspense fallback={<LoadingPage />}>
             <Routes>
-              {/* <Route path="/contact" element={<Contact />}></Route> */}
+              <Route path="/contact" element={<Contact />}></Route>
 
               {/* invoice routes */}
               <Route path="/InvoiceList" element={<InvoiceList />}></Route>
@@ -157,6 +161,10 @@ function App() {
               <Route path="/OurConditions" element={<OurConditions />}></Route>
               <Route path="/*" element={<NotFound />}></Route>
               <Route path="/LoadingPage" element={<LoadingPage />}></Route>
+              {/* <Route
+                path="/HorizontalStepper"
+                element={<HorizontalStepper />}
+              ></Route> */}
               {/* <Route path="/" element={<LandingPage />}></Route> */}
               {/* <Route
               path="/InsideMedicine"

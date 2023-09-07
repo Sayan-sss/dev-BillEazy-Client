@@ -237,9 +237,11 @@ export default function DataGridDemo(props) {
       >
         <DataGrid
           sx={{
-            border: "1px solid red",
-            color: "black",
+            // border: "1px solid red",
+            // color: "black",
             margin: "2rem",
+            background: "whitesmoke",
+            color: "black",
             boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
             width: "80vw",
           }}

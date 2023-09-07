@@ -52,7 +52,7 @@ const Invoicecreator = () => {
         <Box
           className="invoicefrom_container"
           sx={{
-            border: "1px solid black",
+            border: "2px solid #073259",
             width: "90%",
             // height: "100%",
             overflowY: "scroll",
@@ -66,13 +66,13 @@ const Invoicecreator = () => {
             boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px",
           }}
         >
-          <Button
+          {/* <Button
             variant="contained"
             sx={{ marginLeft: "auto", marginRight: "5px", marginTop: "5px" }}
             onClick={handleCreateInvoice}
           >
             Create
-          </Button>
+          </Button> */}
           <Box
             className="up_container"
             sx={{
@@ -123,6 +123,19 @@ const Invoicecreator = () => {
           <Box sx={{ width: "99%" }}>
             <TermsAndCondition />
           </Box>
+          <Button
+            variant="contained"
+            sx={{
+              background: "#073259",
+              marginLeft: "auto",
+              marginRight: "1.5rem",
+              marginTop: "1rem",
+              marginBottom: "1rem",
+            }}
+            onClick={handleCreateInvoice}
+          >
+            Create
+          </Button>
         </Box>
       </Box>
     </>

@@ -68,8 +68,9 @@ export default function AddMedDialouge(props) {
   return (
     <div>
       <Button
+        sx={{ background: "#073259" }}
         variant="contained"
-        color="success"
+        // color="success"
         onClick={handleClickOpen}
         startIcon={<AddIcon />}
       >
