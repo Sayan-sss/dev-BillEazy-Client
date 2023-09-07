@@ -13,7 +13,7 @@ const LandingPage = () => {
         justifyContent: "center",
         // border: "1px solid red",
         height: "100vh",
-        width: "100vw ",
+        width: "100vw",
         color: "#073259",
       }}
     >

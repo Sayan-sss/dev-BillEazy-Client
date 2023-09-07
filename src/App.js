@@ -49,6 +49,7 @@ const ProformaViewer = lazy(() =>
 
 function App() {
   const [sidebar, setSidebar] = useState(false);
+  console.log(sidebar);
   const User = useSelector((state) => state.authReducer);
   // console.log("Reducer user");
   const { token, user } = User;
@@ -71,7 +72,7 @@ function App() {
               display: "flex",
               flexDirection: "row",
               // width: "15vw",
-              width: `${sidebar ? "5vw" : "15vw"}`,
+              width: `${sidebar ? "5vw" : "18vw"}`,
               border: "1px solid green",
             }}
           >
@@ -83,7 +84,8 @@ function App() {
         )}
         <Box
           sx={{
-            width: `${sidebar ? "95vw" : "85vw"}`,
+            // width: `${sidebar ? "95vw" : "85vw"}`,
+            width: "100vw",
             display: "flex",
             // pl: `${sidebar ? "15vw" : ""}`,
             // flexDirection: "column",

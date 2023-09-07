@@ -20,7 +20,7 @@ export default function DataGridDemo(props) {
     return !open;
   };
 
-  console.log(open);
+  // console.log(open);
   const navigate = useNavigate();
 
   const handleDelete = async (e, cellValues) => {
