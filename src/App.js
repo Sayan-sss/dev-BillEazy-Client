@@ -75,7 +75,7 @@ function App() {
               flexDirection: "row",
               // width: "15vw",
               width: `${sidebar ? "5vw" : "18vw"}`,
-              border: "1px solid green",
+              // border: "1px solid green",
             }}
           >
             <SideBar sidebar={sidebar} setSidebar={setSidebar} />

@@ -243,7 +243,7 @@ export default function DataGridDemo(props) {
             background: "whitesmoke",
             color: "black",
             boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
-            width: "80vw",
+            width: "82vw",
           }}
           rows={rows}
           columns={columns}
