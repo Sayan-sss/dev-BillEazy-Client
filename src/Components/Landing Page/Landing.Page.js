@@ -1,4 +1,11 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Chip,
+  Container,
+  Divider,
+  Typography,
+} from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Invoice from "../Assets/Invoice.png";
 import logo from "../Assets/newlogo.png";
@@ -15,15 +22,17 @@ const LandingPage = () => {
     <Box
       sx={{
         display: "flex",
-        alignItems: "flex-end",
+        alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
         overflow: "scroll",
         // overflow: "hidden",
         // border: "1px solid red",
-        height: "100vh",
+        height: "auto",
         width: "100vw",
-        color: "#073259",
+        background: "whitesmoke",
+        // background: "#D7E8EA",
+        // color: "#073259",
         // color: "orange",
       }}
     >
@@ -32,13 +41,13 @@ const LandingPage = () => {
       > */}
       <Box
         sx={{
-          borderRadius: "10px ",
-          background: "#D7E8EA",
+          // borderRadius: "10px ",
+          // background: "#D7E8EA",
           // background: "#191D2B",
-          border: "10px solid red",
-          border: "1px solid #073259",
-          height: "95%",
-          width: "95%",
+          // border: "10px solid red",
+          // border: "1px solid #073259",
+          height: "95vh",
+          width: "95vw",
         }}
       >
         <Box
@@ -236,7 +245,72 @@ const LandingPage = () => {
             <img src={Invoice} alt="" height={"95%"} width={"50%"} />
           </Box>
         </Box>
-        {/* <Contact /> */}
+        <Box
+          sx={{
+            height: "auto",
+            width: "100%",
+            // background: "D7E8EA",
+            // border: "1px solid #073259",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+            flexDirection: "column",
+          }}
+        >
+          <Box sx={{ marginTop: "4rem", marginBottom: "2rem", width: "100%" }}>
+            <Divider sx={{}}>
+              <Chip
+                sx={{
+                  background: "#073259",
+                  color: "white",
+                  height: "5vh",
+                  width: "20vw",
+                  fontSize: "1rem",
+                }}
+                label="OUR SERVICES"
+              />
+            </Divider>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-evenly",
+              width: "100%",
+            }}
+          >
+            <AboutCard
+              title="Invoice"
+              body="Our web application can help you in creating detailed Invoice."
+              demo="Demo"
+              secondBody="Click on the button below to see a demo invoice."
+            />
+            <AboutCard
+              title="Proforma Invoice"
+              body="Our web application can help you in creating detailed Proforma Invoice."
+              demo="Demo"
+              secondBody="Click on the button below to see a demo Proforma Invoice."
+            />
+            <AboutCard
+              title="Delivery Challan"
+              body="Our web application can help you in creating detailed Delivery Challan."
+              demo="Demo"
+              secondBody="Click on the button below to see a demo Delivery Challan."
+            />
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            // background: "#D7E8EA",
+            // background: "#191D2B",
+            // border: "10px solid red",
+            // border: "1px solid #073259",
+            height: "95vh",
+            width: "95vw",
+          }}
+        >
+          <Contact />
+        </Box>
       </Box>
     </Box>
   );
