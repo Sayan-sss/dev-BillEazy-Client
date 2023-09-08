@@ -13,6 +13,7 @@ import { Toaster } from "react-hot-toast";
 import LandingPage from "./Components/Landing Page/Landing.Page";
 import HorizontalStepper from "./Components/Stepper/Stepper";
 import Contact from "./Components/Contact/Contact";
+import PricingPayment from "./Components/Pricing/Pricing.Payment";
 
 const Home = lazy(() => import("./Components/Home/Home"));
 const InvoiceViewer = lazy(() => import("./Components/Invoice/invoice.viewer"));
@@ -161,6 +162,10 @@ function App() {
               <Route path="/OurConditions" element={<OurConditions />}></Route>
               <Route path="/*" element={<NotFound />}></Route>
               <Route path="/LoadingPage" element={<LoadingPage />}></Route>
+              <Route
+                path="/PricingPayment"
+                element={<PricingPayment />}
+              ></Route>
               {/* <Route
                 path="/HorizontalStepper"
                 element={<HorizontalStepper />}

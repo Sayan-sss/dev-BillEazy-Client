@@ -107,7 +107,7 @@ const Contact = () => {
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "space-between",
         }}
       >
         <Box
@@ -118,7 +118,7 @@ const Contact = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "space-around",
             borderRadius: "10px",
           }}
         >
@@ -136,7 +136,7 @@ const Contact = () => {
         <Box
           sx={{
             height: "80%",
-            width: "45%",
+            width: "46%",
             background: "none",
             "&:hover": { boxShadow: "1px 1px 5px 0px #073259" },
             display: "flex",

@@ -1,7 +1,10 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const PricingBox = (props) => {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -82,6 +85,7 @@ const PricingBox = (props) => {
               width: "15vw",
               background: "#073259",
             }}
+            onClick={() => navigate("/PricingPayment")}
           >
             {props.button}
           </Button>
