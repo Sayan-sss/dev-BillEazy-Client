@@ -62,40 +62,40 @@ export default function DataGridDemo(props) {
     {
       field: "Medicine",
       headerName: "MEDICINE",
-      // width: 150,
+      width: 190,
       display: "flex",
       justifyContent: "center",
       editable: true,
     },
     {
       field: "Quantity",
-      headerName: "QUANTITY",
-      // width: "150",
+      headerName: "QTY",
+      width: "70",
       type: "number",
       editable: true,
     },
     {
       field: "HSN",
       headerName: "HSN",
-      // width: "100",
+      width: "90",
       editable: true,
     },
     {
       field: "Pack",
       headerName: "Pack",
-      // width: "100",
+      width: "95",
       editable: true,
     },
     {
       field: "Type",
       headerName: "Type",
-      // width: "100",
+      width: "95",
       editable: true,
     },
     {
       field: "MRP",
       headerName: "MRP",
-      // width: "100",
+      width: "63",
       type: "number",
       editable: true,
     },
@@ -104,7 +104,7 @@ export default function DataGridDemo(props) {
       field: "Rate",
       headerName: "RATE",
       type: "number",
-      // width: "100",
+      width: "63",
       editable: true,
     },
 
@@ -112,7 +112,7 @@ export default function DataGridDemo(props) {
       field: "MFG",
       headerName: "MFG",
       type: "text",
-      // width: "100",
+      width: "120",
       editable: true,
     },
     {
@@ -126,7 +126,7 @@ export default function DataGridDemo(props) {
       field: "Expiry",
       headerName: "EXPIRY",
       // type: "date",
-      // width: "120",
+      width: "120",
       editable: true,
     },
     {
@@ -243,7 +243,7 @@ export default function DataGridDemo(props) {
             background: "whitesmoke",
             color: "black",
             boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
-            width: "80vw",
+            width: "82vw",
           }}
           rows={rows}
           columns={columns}

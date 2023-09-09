@@ -28,7 +28,7 @@ const About = ({ title, body, demo }) => {
         // border: "1px solid red",
       }}
     >
-      <Box classname="header" sx={{ height: "10vh", width: "85vw" }}></Box>
+      <Box classname="header" sx={{ height: "5vh", width: "85vw" }}></Box>
 
       <Box sx={{ height: "50vh", width: "85vw" }}>
         <Divider sx={{}}>
@@ -146,7 +146,7 @@ const About = ({ title, body, demo }) => {
                   }}
                 >
                   <EmailIcon sx={{ color: "#073259", marginRight: "1rem" }} />
-                  virus@gmail.com
+                  billeazy28@gmail.com
                 </Typography>
 
                 <Typography

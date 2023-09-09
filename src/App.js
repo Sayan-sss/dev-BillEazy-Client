@@ -13,6 +13,7 @@ import { Toaster } from "react-hot-toast";
 import LandingPage from "./Components/Landing Page/Landing.Page";
 import HorizontalStepper from "./Components/Stepper/Stepper";
 import Contact from "./Components/Contact/Contact";
+import PricingPayment from "./Components/Pricing/Pricing.Payment";
 import PrivateRoute from "./PrivateRoute";
 
 const Home = lazy(() => import("./Components/Home/Home"));
@@ -78,7 +79,7 @@ function App() {
               flexDirection: "row",
               // width: "15vw",
               width: `${sidebar ? "5vw" : "18vw"}`,
-              border: "1px solid green",
+              // border: "1px solid green",
             }}
           >
             <SideBar sidebar={sidebar} setSidebar={setSidebar} />
@@ -166,8 +167,13 @@ function App() {
                 path="/medicines"
                 element={token ? <InsideMedicineContainer /> : <Login />}
               ></Route>
-
-              {/* <Route path="/LoadingPage" element={<LoadingPage />}></Route> */}
+              <Route path="/home" element={<Home />}></Route>
+              <Route path="/About" element={<About />}></Route>
+              <Route path="/Account" element={<Account />}></Route>
+              <Route path="/Pricing" element={<Pricing />}></Route>
+              <Route path="/OurConditions" element={<OurConditions />}></Route>
+              <Route path="/*" element={<NotFound />}></Route>
+              <Route path="/LoadingPage" element={<LoadingPage />}></Route>
               {/* <Route
                 path="/HorizontalStepper"
                 element={<HorizontalStepper />}
