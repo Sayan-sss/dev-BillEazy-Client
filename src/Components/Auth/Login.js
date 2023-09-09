@@ -34,7 +34,7 @@ export default function Login() {
         dispatch({ type: "SET_AUTH_USER", user: data?.existingUser });
 
         // toast.success(data?.message);
-        navigate("/medicines");
+        navigate("/invoiceList");
       }
       // toast.error(data?.message);
     } catch (e) {

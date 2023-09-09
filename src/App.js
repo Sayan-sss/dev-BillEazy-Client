@@ -13,6 +13,7 @@ import { Toaster } from "react-hot-toast";
 import LandingPage from "./Components/Landing Page/Landing.Page";
 import HorizontalStepper from "./Components/Stepper/Stepper";
 import Contact from "./Components/Contact/Contact";
+import PrivateRoute from "./PrivateRoute";
 
 const Home = lazy(() => import("./Components/Home/Home"));
 const InvoiceViewer = lazy(() => import("./Components/Invoice/invoice.viewer"));
@@ -51,10 +52,12 @@ const ProformaViewer = lazy(() =>
 
 function App() {
   const [sidebar, setSidebar] = useState(false);
-  console.log(sidebar);
-  const User = useSelector((state) => state.authReducer);
-  // console.log("Reducer user");
-  const { token, user } = User;
+  // console.log(sidebar);
+  // const User = useSelector((state) => state.authReducer);
+  // // console.log("Reducer user");
+  // const { token, user } = User;
+  const [token] = useState(localStorage.getItem("token"));
+  console.log(token);
   // console.log(token, user);
   // console.log("User");
   // console.log(User);
@@ -102,10 +105,23 @@ function App() {
         >
           <Suspense fallback={<LoadingPage />}>
             <Routes>
-              <Route path="/contact" element={<Contact />}></Route>
+              {/* Other Routes  */}
+              {/* <Route
+                path="/"
+                element={token ? <InsideMedicineContainer /> : <LandingPage />}
+              ></Route> */}
+              {/* <Route path="/home" element={<Home />}></Route> */}
 
+              <Route path="/" element={<LandingPage />}></Route>
+              <Route path="/Login" element={<Login />}></Route>
+              <Route path="/SignUp" element={<SignUp />}></Route>
+              <Route path="/*" element={<NotFound />}></Route>
+              {/* Private Routes */}
+
+              {/* <Route path="/p" element={<PrivateRoute />}> */}
+              <Route path="/contact" element={<Contact />}></Route>
               {/* invoice routes */}
-              <Route path="/InvoiceList" element={<InvoiceList />}></Route>
+              {/* <Route path="/InvoiceList" element={<InvoiceList />}></Route> */}
               <Route path="/invoicelist" element={<InvoiceList />}></Route>
               <Route
                 path="/invoice/create"
@@ -113,7 +129,10 @@ function App() {
               ></Route>
               <Route path="/invoice/view" element={<InvoiceViewer />}></Route>
               <Route path="/invoice" element={<InvoiceViewer />}></Route>
-
+              <Route path="/About" element={<About />}></Route>
+              <Route path="/Account" element={<Account />}></Route>
+              <Route path="/Pricing" element={<Pricing />}></Route>
+              <Route path="/OurConditions" element={<OurConditions />}></Route>
               {/* Delivery Challan routes */}
               <Route
                 path="/DeliveryChallan/create"
@@ -135,41 +154,30 @@ function App() {
                 element={<DeliveryChallanCreater />}
               ></Route>
               <Route
-                path="ProformaCreater"
+                path="/ProformaCreater"
                 element={<ProformaCreater />}
               ></Route>
               <Route path="/Proforma/View" element={<ProformaViewer />}></Route>
               <Route path="/ProformaList" element={<ProformaList />}></Route>
 
               {/* Auth Routes  */}
-              <Route path="/Login" element={<Login />}></Route>
-              <Route path="/SignUp" element={<SignUp />}></Route>
 
-              {/* Other Routes  */}
-              <Route
-                path="/"
-                element={token ? <InsideMedicineContainer /> : <LandingPage />}
-              ></Route>
               <Route
                 path="/medicines"
                 element={token ? <InsideMedicineContainer /> : <Login />}
               ></Route>
-              <Route path="/home" element={<Home />}></Route>
-              <Route path="/About" element={<About />}></Route>
-              <Route path="/Account" element={<Account />}></Route>
-              <Route path="/Pricing" element={<Pricing />}></Route>
-              <Route path="/OurConditions" element={<OurConditions />}></Route>
-              <Route path="/*" element={<NotFound />}></Route>
-              <Route path="/LoadingPage" element={<LoadingPage />}></Route>
+
+              {/* <Route path="/LoadingPage" element={<LoadingPage />}></Route> */}
               {/* <Route
                 path="/HorizontalStepper"
                 element={<HorizontalStepper />}
               ></Route> */}
-              {/* <Route path="/" element={<LandingPage />}></Route> */}
+
               {/* <Route
               path="/InsideMedicine"
               element={<InsideMedicineContainer />}
             ></Route> */}
+              {/* </Route> */}
             </Routes>
           </Suspense>
           {/* <Navbar /> */}
