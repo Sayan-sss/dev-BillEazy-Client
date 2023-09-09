@@ -58,7 +58,7 @@ function App() {
   // // console.log("Reducer user");
   // const { token, user } = User;
   const [token] = useState(localStorage.getItem("token"));
-  console.log(token);
+  // console.log(token);
   // console.log(token, user);
   // console.log("User");
   // console.log(User);
@@ -117,73 +117,76 @@ function App() {
               <Route path="/Login" element={<Login />}></Route>
               <Route path="/SignUp" element={<SignUp />}></Route>
               <Route path="/*" element={<NotFound />}></Route>
+              <Route path="/Pricing" element={<Pricing />}></Route>
+              <Route path="/About" element={<About />}></Route>
+
               {/* Private Routes */}
 
-              {/* <Route path="/p" element={<PrivateRoute />}> */}
-              <Route path="/contact" element={<Contact />}></Route>
-              {/* invoice routes */}
-              {/* <Route path="/InvoiceList" element={<InvoiceList />}></Route> */}
-              <Route path="/invoicelist" element={<InvoiceList />}></Route>
-              <Route
-                path="/invoice/create"
-                element={<Invoicecreator />}
-              ></Route>
-              <Route path="/invoice/view" element={<InvoiceViewer />}></Route>
-              <Route path="/invoice" element={<InvoiceViewer />}></Route>
-              <Route path="/About" element={<About />}></Route>
-              <Route path="/Account" element={<Account />}></Route>
-              <Route path="/Pricing" element={<Pricing />}></Route>
-              <Route path="/OurConditions" element={<OurConditions />}></Route>
-              {/* Delivery Challan routes */}
-              <Route
-                path="/DeliveryChallan/create"
-                element={<DeliveryChallanCreater />}
-              ></Route>
-              <Route
-                path="/Proforma/create"
-                element={<DeliveryChallanCreater />}
-              ></Route>
-              <Route
-                path="/DeliveryChallan/View"
-                element={<DeliveryChallanViewer />}
-              ></Route>
-              <Route path="/ChallanList" element={<ChallanList />}></Route>
+              <Route path="/" element={<PrivateRoute />}>
+                <Route path="contact" element={<Contact />}></Route>
+                {/* invoice routes */}
+                {/* <Route path="/InvoiceList" element={<InvoiceList />}></Route> */}
+                <Route path="invoicelist" element={<InvoiceList />}></Route>
+                <Route
+                  path="invoice/create"
+                  element={<Invoicecreator />}
+                ></Route>
+                <Route path="invoice/view" element={<InvoiceViewer />}></Route>
+                <Route path="invoice" element={<InvoiceViewer />}></Route>
+                <Route path="About" element={<About />}></Route>
+                <Route path="Account" element={<Account />}></Route>
+                <Route path="Pricing" element={<Pricing />}></Route>
+                <Route path="OurConditions" element={<OurConditions />}></Route>
+                {/* Delivery Challan routes */}
+                <Route
+                  path="DeliveryChallan/create"
+                  element={<DeliveryChallanCreater />}
+                ></Route>
+                <Route
+                  path="Proforma/create"
+                  element={<DeliveryChallanCreater />}
+                ></Route>
+                <Route
+                  path="DeliveryChallan/View"
+                  element={<DeliveryChallanViewer />}
+                ></Route>
+                <Route path="ChallanList" element={<ChallanList />}></Route>
 
-              {/* Proforma Routes */}
-              <Route
-                path="/DeliveryChallan/create"
-                element={<DeliveryChallanCreater />}
-              ></Route>
-              <Route
-                path="/ProformaCreater"
-                element={<ProformaCreater />}
-              ></Route>
-              <Route path="/Proforma/View" element={<ProformaViewer />}></Route>
-              <Route path="/ProformaList" element={<ProformaList />}></Route>
+                {/* Proforma Routes */}
+                <Route
+                  path="DeliveryChallan/create"
+                  element={<DeliveryChallanCreater />}
+                ></Route>
+                <Route
+                  path="ProformaCreater"
+                  element={<ProformaCreater />}
+                ></Route>
+                <Route
+                  path="Proforma/View"
+                  element={<ProformaViewer />}
+                ></Route>
+                <Route path="ProformaList" element={<ProformaList />}></Route>
 
-              {/* Auth Routes  */}
+                {/* Auth Routes  */}
 
-              <Route
-                path="/medicines"
-                element={token ? <InsideMedicineContainer /> : <Login />}
-              ></Route>
-              <Route path="/home" element={<Home />}></Route>
-              <Route path="/About" element={<About />}></Route>
-              <Route path="/Account" element={<Account />}></Route>
-              <Route path="/Pricing" element={<Pricing />}></Route>
-              <Route path="/OurConditions" element={<OurConditions />}></Route>
-              <Route path="/*" element={<NotFound />}></Route>
-              <Route path="/LoadingPage" element={<LoadingPage />}></Route>
-              {/* <Route
+                <Route
+                  path="medicines"
+                  element={<InsideMedicineContainer />}
+                ></Route>
+                {/* <Route path="/home" element={<Home />}></Route> */}
+                {/* <Route path="/Account" element={<Account />}></Route> */}
+                <Route path="OurConditions" element={<OurConditions />}></Route>
+                <Route path="*" element={<NotFound />}></Route>
+                {/* <Route
                 path="/HorizontalStepper"
                 element={<HorizontalStepper />}
               ></Route> */}
 
-              {/* <Route
+                {/* <Route
               path="/InsideMedicine"
               element={<InsideMedicineContainer />}
             ></Route> */}
-              {/* </Route> */}
+              </Route>
             </Routes>
           </Suspense>
           {/* <Navbar /> */}
