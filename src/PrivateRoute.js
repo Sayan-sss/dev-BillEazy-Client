@@ -7,16 +7,14 @@ import LoadingPage from "./Components/Helper/Loading.Page";
 export default function PrivateRoute() {
   const [ok, setOk] = useState(false);
   const User = useSelector((state) => state.authReducer);
-
-  // const token = localStorage.getItem("token");
   const { token, user } = User;
-  console.log(token);
+  console.log(user);
   useEffect(() => {
-    if (token) {
+    if (user) {
       setOk(true);
     } else {
       setOk(false);
     }
-  }, [token]);
+  }, [user]);
   return ok ? <Outlet /> : <LoadingPage />;
 }

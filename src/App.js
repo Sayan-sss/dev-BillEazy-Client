@@ -57,11 +57,14 @@ function App() {
   // const User = useSelector((state) => state.authReducer);
   // // console.log("Reducer user");
   // const { token, user } = User;
-  const [token] = useState(localStorage.getItem("token"));
+  // const [token] = useState(localStorage.getItem("token"));
   // console.log(token);
   // console.log(token, user);
   // console.log("User");
   // console.log(User);
+  const User = useSelector((state) => state.authReducer);
+  const { token, user } = User;
+  // console.log(token);
   return (
     <div className="App">
       <Box
@@ -72,7 +75,7 @@ function App() {
           overflow: "hidden",
         }}
       >
-        {token ? (
+        {user ? (
           <Paper
             sx={{
               display: "flex",

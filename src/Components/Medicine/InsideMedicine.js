@@ -218,6 +218,11 @@ export default function DataGridDemo(props) {
   );
   console.log(props.medicines);
   // console.log(rows[0].name)
+
+  // useEffect(() => {
+  //   window.addEventListener("load", console.log("H5"));
+  // }, []);
+
   return (
     <Box>
       <UpdateMedDialouge open={open} setOpen={setOpen} />

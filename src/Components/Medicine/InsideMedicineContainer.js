@@ -29,6 +29,8 @@ const InsideMedicineContainer = () => {
 
   React.useEffect(() => {
     getAllMedicines();
+    // window.addEventListener("load", console.log("Hi5i"));
+
     // eslint-disable-next-line
   }, []);
 

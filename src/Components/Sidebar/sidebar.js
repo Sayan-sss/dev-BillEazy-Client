@@ -32,6 +32,7 @@ const Sidebar = (props) => {
     localStorage.removeItem("token");
     dispatch({ type: "RemoveAuth" });
     navigate("/");
+    // window.addEventListener("load");
   };
   return (
     <>
