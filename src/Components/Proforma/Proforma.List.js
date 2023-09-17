@@ -1,16 +1,30 @@
 import Button from "@mui/material/Button";
 import { Box } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Invoicetable from "../MuuiComponents/invoiceTable";
 // import "./InvoiceList.css";
 import SearchAppBar from "../MuuiComponents/Searchbar";
 // import invoiceTable from "../MuuiComponents/invoiceTable";
+import useInvoiceApis from "../hooks/invoice.hooks";
+import { useSelector } from "react-redux";
+
 const ProformaList = () => {
   const navigate = useNavigate();
+  const { getProformaDetails } = useInvoiceApis();
+  const User = useSelector((state) => state.authReducer);
+  const { user } = User;
+
+  useEffect(() => {
+    window.addEventListener("load", getProformaDetails(user._id));
+    // return () => {
+    //   window.removeEventListener("load", getInvoiceDetails(user._id));
+    // };
+  }, [getProformaDetails]);
+
   return (
     <Box
-      className="invoice_container"
+      className="proforma_container"
       sx={{
         // border: "10px solid red",
         height: "100vh",

@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
 //   createData("Gingerbread", 356, 16.0, 49, 3.9),
 // ];
 
-export default function Invoicetable(props) {
+export default function Invoice_Payment_Table(props) {
   const { data } = useSelector((state) => state.InvoicesReducer);
   console.log(data);
   const navigate = useNavigate();
@@ -51,10 +51,13 @@ export default function Invoicetable(props) {
               BuyerName
             </TableCell>
             <TableCell sx={{ color: "white" }} align="center">
-              Status
+              Total Amount
             </TableCell>
             <TableCell sx={{ color: "white" }} align="center">
-              Actions
+              Pending Amount
+            </TableCell>
+            <TableCell sx={{ color: "white" }} align="center">
+              Payment Amount
             </TableCell>
           </TableRow>
         </TableHead>
