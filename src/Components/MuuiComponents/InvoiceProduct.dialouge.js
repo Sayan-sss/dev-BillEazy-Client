@@ -23,6 +23,7 @@ import Invoice_Products_Tax_RadioGroup from "./InvoiceProduct.Radiogroup";
 import Product_discount_type_Select from "./Invoice.Product.DiscountSelect";
 import Select_Percent_Wise_Product from "./Invoice.Product.Select";
 import Tooltip from "@mui/material/Tooltip";
+import { useMemo } from "react";
 
 export default function InvoiceProduct(props) {
   const { addProductDetails } = useInvoiceApis();
@@ -30,16 +31,27 @@ export default function InvoiceProduct(props) {
   const [itemName, setItemName] = React.useState("");
   const [itemDescription, setItemDescription] = React.useState("");
   const [hsn, setHsn] = React.useState("");
-  const [quantity, setQuantity] = React.useState();
+  const [quantity, setQuantity] = React.useState(0);
   const [unit, setUnit] = React.useState();
-  const [salePrice, setSalePrice] = React.useState();
+  const [salePrice, setSalePrice] = React.useState(0);
   const [gst, setGst] = React.useState(0);
-  const [cess, setCess] = React.useState();
-  const [discount, setDiscount] = React.useState();
+  const [cess, setCess] = React.useState(0);
+  const [discount, setDiscount] = React.useState(0);
   const [discountType, setDiscountType] = React.useState("Percent Wise");
   const [taxType, setTaxType] = React.useState("Inclusive");
-  const User = useSelector((state) => state.authReducer);
+
+  const [CalculatePrice, setCalculatePrice] = React.useState(0);
+  const [CalculateDiscountAmount, setCalculateDiscountAmount] =
+    React.useState(0);
+  const [CalculateDiscountedPrice, setCalculateDiscountedPrice] =
+    React.useState(0);
+  const [CalculateGstTax, setCalculateGstTax] = React.useState(0);
+  const [CalculateCessTax, setCalculateCessTax] = React.useState(0);
+  const [CalculateTotalTax, setCalculateTotalTax] = React.useState(0);
+  const [CalculateFinalPrice, setCalculateFinalPrice] = React.useState(0);
+
   // console.log("Reducer user");
+  const User = useSelector((state) => state.authReducer);
   const { user } = User;
   // console.log(gst);
   // console.log(discount);
@@ -85,9 +97,63 @@ export default function InvoiceProduct(props) {
       gst,
       taxType,
       userId: user._id,
+      final_price: FinalPrice,
+      paid_amount: 0,
+      pending_amount: FinalPrice,
     });
+    // handleCostCalculation();
     handleClose();
   };
+  // React.useEffect(() => {
+  // const handleCostCalculation = () => {
+  //   setCalculatePrice(salePrice * quantity);
+  //   console.log(CalculatePrice);
+  //   setCalculateDiscountAmount(CalculatePrice * (discount / 100));
+  //   setCalculateDiscountedPrice(CalculatePrice - CalculateDiscountAmount);
+  //   setCalculateGstTax((CalculateDiscountedPrice * gst) / 100);
+  //   setCalculateCessTax((CalculateDiscountedPrice * cess) / 100);
+  //   setCalculateTotalTax(CalculateGstTax + CalculateCessTax);
+  //   setCalculateFinalPrice(CalculateDiscountedPrice + CalculateTotalTax);
+  //   console.log(
+  //     CalculateDiscountedPrice,
+  //     CalculateTotalTax,
+  //     CalculateFinalPrice
+  //   );
+  // };
+  // }, [salePrice, quantity, gst, cess]);
+
+  var Price = 0;
+  var DiscountAmount = 0;
+  var FinalPrice = 0;
+  var TotalTax = 0;
+  var DiscountedPrice = 0;
+  var GstTax = 0;
+  var CessTax = 0;
+  // React.useEffect(() => {
+  // const handleCostCalculation = () => {
+  Price = salePrice * quantity;
+  // console.log(CalculatePrice);
+  console.log(Price);
+  DiscountAmount = Price * (discount / 100);
+  console.log(DiscountAmount);
+  DiscountedPrice = Price - DiscountAmount;
+  GstTax = (DiscountedPrice * gst) / 100;
+  CessTax = (DiscountedPrice * cess) / 100;
+  TotalTax = GstTax + CessTax;
+  FinalPrice = DiscountedPrice + TotalTax;
+  // console.log(
+  //   CalculateDiscountedPrice,
+  //   CalculateTotalTax,
+  //   CalculateFinalPrice
+  // );
+  // return FinalPrice, TotalTax, DiscountedPrice;
+  // };
+  // }, [salePrice, quantity, gst, cess]);
+  // const calculation = useMemo(
+  //   () => handleCostCalculation(),
+  //   [salePrice, quantity, gst, cess]
+  // );
+
   return (
     <div>
       <Tooltip title="Add New">
@@ -250,6 +316,59 @@ export default function InvoiceProduct(props) {
             onChange={(e) => setCess(e.target.value)}
           />
           <Select_Percent_Wise_Product />
+          {/* <TextField
+            autoFocus
+            margin="dense"
+            // id="unit"
+            label="Total Amount"
+            type="number"
+            sx={{
+              width: "32%",
+            }}
+            // fullWidth
+            variant="outlined"
+            value={DiscountedPrice}
+            // onChange={(e) => setUnit(e.target.value)}
+          /> */}
+          {/* <TextField
+            autoFocus
+            margin="dense"
+            // id="unit"
+            label="Tax Amount"
+            type="number"
+            sx={{
+              width: "32%",
+            }}
+            // fullWidth
+            variant="outlined"
+            value={TotalTax}
+            // onChange={(e) => setUnit(e.target.value)}
+          /> */}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginTop: "20px",
+              backgroundColor: "#073259",
+              color: "white",
+              padding: "5px",
+              fontFamily: "Roboto",
+              // mb: "1.5rem",
+              fontSize: "1rem",
+              borderRadius: "3px",
+              height: "2rem",
+              alignItems: "center",
+            }}
+          >
+            {/* <Button onClick={handleCostCalculation}>Calculate</Button> */}
+            {/* <p> Price &#8377; {CalculateDiscountedPrice}</p>
+            <p> Total Tax &#8377; {CalculateTotalTax}</p>
+            <p> Final Amount &#8377; {CalculateFinalPrice}</p> */}
+            <p> Price &#8377; {DiscountedPrice}</p>
+            <p> Total Tax &#8377; {TotalTax}</p>
+            <p> Final Amount &#8377; {FinalPrice}</p>
+          </Box>
         </DialogContent>
         <DialogActions>
           <Button variant="outlined" onClick={handleClose}>

@@ -16,6 +16,8 @@ import Contact from "./Components/Contact/Contact";
 import PricingPayment from "./Components/Pricing/Pricing.Payment";
 import PrivateRoute from "./PrivateRoute";
 // require("dotenv").config();
+import Invoice_Payment from "./Components/Invoice/payment/invoice.payment";
+
 const Home = lazy(() => import("./Components/Home/Home"));
 const InvoiceViewer = lazy(() => import("./Components/Invoice/invoice.viewer"));
 const SideBar = lazy(() => import("./Components/Sidebar/sidebar.js"));
@@ -130,16 +132,21 @@ function App() {
                 <Route path="contact" element={<Contact />}></Route>
                 {/* invoice routes */}
                 {/* <Route path="/InvoiceList" element={<InvoiceList />}></Route> */}
+                <Route path="invoice" element={<InvoiceViewer />}></Route>
                 <Route path="invoicelist" element={<InvoiceList />}></Route>
                 <Route
                   path="invoice/create"
                   element={<Invoicecreator />}
                 ></Route>
                 <Route path="invoice/view" element={<InvoiceViewer />}></Route>
-                <Route path="invoice" element={<InvoiceViewer />}></Route>
-                <Route path="About" element={<About />}></Route>
+                <Route
+                  path="invoice/payment/:id"
+                  element={<Invoice_Payment />}
+                ></Route>
+
+                {/* <Route path="About" element={<About />}></Route> */}
                 <Route path="Account" element={<Account />}></Route>
-                <Route path="Pricing" element={<Pricing />}></Route>
+                {/* <Route path="Pricing" element={<Pricing />}></Route> */}
                 <Route path="OurConditions" element={<OurConditions />}></Route>
                 {/* Delivery Challan routes */}
                 <Route
