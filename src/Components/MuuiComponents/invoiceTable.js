@@ -7,26 +7,18 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useSelector } from "react-redux";
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
-// function createData(name, calories, fat, carbs, protein) {
-//   return { name, calories, fat, carbs, protein };
-// }
-
-// const rows = [
-//   createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-//   createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-//   createData("Eclair", 262, 16.0, 24, 6.0),
-//   createData("Cupcake", 305, 3.7, 67, 4.3),
-//   createData("Gingerbread", 356, 16.0, 49, 3.9),
-// ];
 
 export default function Invoicetable(props) {
   const { data } = useSelector((state) => state.InvoicesReducer);
-  console.log(data);
+  const Product_data = useSelector((state) => state.Invoice_Product_Reducer);
+  // const pendingAmount =
+  //   Product_data?.data?.Invoice_Product?.product?.final_price -
+  //   Product_data?.data?.Invoice_Product?.product?.paid_amount;
+  // console.log(pendingAmount);
   const navigate = useNavigate();
-
+  const [status, setStatus] = React.useState("Unpaid");
   // const handlePayment = () => {
   //   console.log("handle");
   // };
@@ -74,7 +66,10 @@ export default function Invoicetable(props) {
                 {invoice?.buyerDetails?.companyName}
               </TableCell>
               <TableCell component="th" scope="row" align="center">
-                UnPaid
+                <TextField
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                ></TextField>
               </TableCell>
               <TableCell component="th" scope="row" align="center">
                 <Button

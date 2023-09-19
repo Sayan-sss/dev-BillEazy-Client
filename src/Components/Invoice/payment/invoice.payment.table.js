@@ -21,6 +21,7 @@ export default function Invoice_Payment_Table({
   // console.log(data);
   const { Invoice_Product } = data;
   console.log(Invoice_Product);
+
   const navigate = useNavigate();
 
   return (
