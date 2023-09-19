@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import API from "../../api";
 import GoogleIcon from "@mui/icons-material/Google";
 import { useDispatch, useSelector } from "react-redux";
+import GoogleBtn from "../Helper/GoogleBtn";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -149,23 +150,7 @@ export default function SignUp() {
                 Sign Up
               </Button>
             </Box>
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{
-                width: "25vw",
-                height: "2rem",
-                marginTop: "1rem",
-                background: "#073259",
-
-                display: "flex",
-                flexDirection: " row",
-                justifyContent: "space-evenly",
-              }}
-            >
-              <GoogleIcon />
-              Sign Up With Google
-            </Button>
+            <GoogleBtn />
             <Divider textAlign="right" sx={{ marginTop: "2rem" }}>
               Already Have An Account
             </Divider>

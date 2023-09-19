@@ -15,7 +15,7 @@ import HorizontalStepper from "./Components/Stepper/Stepper";
 import Contact from "./Components/Contact/Contact";
 import PricingPayment from "./Components/Pricing/Pricing.Payment";
 import PrivateRoute from "./PrivateRoute";
-
+// require("dotenv").config();
 const Home = lazy(() => import("./Components/Home/Home"));
 const InvoiceViewer = lazy(() => import("./Components/Invoice/invoice.viewer"));
 const SideBar = lazy(() => import("./Components/Sidebar/sidebar.js"));
@@ -53,6 +53,7 @@ const ProformaViewer = lazy(() =>
 
 function App() {
   const [sidebar, setSidebar] = useState(false);
+  console.log(process.env.dev);
   // console.log(sidebar);
   // const User = useSelector((state) => state.authReducer);
   // // console.log("Reducer user");
