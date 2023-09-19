@@ -58,9 +58,28 @@ const useInvoiceApis = () => {
       // console.log(id);
       // console.log("Fetch Invoice");
       const { data } = await API.post(`/v1/api/invoice/get/${id}`);
-      // console.log(data);
+      console.log(data);
       dispatch({ type: "POST_INVOICE_DETAILS", payload: { data } });
       toast.success("Invoice fetched successfully");
+    } catch (error) {
+      toast.error(error);
+    }
+  }, []);
+  const getInvoice_Product_Details = useCallback(async (id) => {
+    try {
+      // console.log(id);
+      // console.log("Fetch Invoice");
+      const { data } = await API.post(
+        `/v1/api/invoice/get/fetchProduct_InvoiceDetails/${id}`
+      );
+      console.log(data);
+      if (data?.success) {
+        dispatch({
+          type: "POST_INVOICE_PRODUCT_DETAILS",
+          payload: { data },
+        });
+        toast.success("Invoice & product fetched successfully");
+      }
     } catch (error) {
       toast.error(error);
     }
@@ -211,6 +230,9 @@ const useInvoiceApis = () => {
     cess,
     _,
     userId,
+    final_price,
+    paid_amount,
+    pending_amount,
   }) =>
     // { productdetails }
     {
@@ -228,6 +250,9 @@ const useInvoiceApis = () => {
         cess,
         _,
         userId,
+        final_price,
+        paid_amount,
+        pending_amount,
       });
       console.log("Product details");
       dispatch({
@@ -250,6 +275,32 @@ const useInvoiceApis = () => {
         if (data?.success) {
           // const newData = data.AllProducts;
           setProductData(data.AllProducts);
+          // console.log(data.AllProducts);
+          // console.log(productData);
+          toast.success("Success");
+        }
+      } catch (error) {
+        console.log(error);
+        toast.error(error);
+      }
+    },
+    [productData]
+  );
+  const updateProductDetails = React.useCallback(
+    async ({ Product_Id, paidAmount, pendingAmount }) => {
+      console.log("Hii");
+      console.log(Product_Id);
+      console.log(paidAmount);
+      console.log(pendingAmount);
+
+      try {
+        const { data } = await API.post(
+          `/v1/api/invoice/productdetails/update/${Product_Id}`,
+          { paidAmount, pendingAmount }
+        );
+        if (data?.success) {
+          // const newData = data.AllProducts;
+          // setProductData(data.AllProducts);
           // console.log(data.AllProducts);
           // console.log(productData);
           toast.success("Success");
@@ -384,6 +435,7 @@ const useInvoiceApis = () => {
   return {
     addInvoiceDetails,
     getInvoiceDetails,
+    getInvoice_Product_Details,
 
     addSupplierDetails,
     getSupplierDetails,
@@ -399,6 +451,7 @@ const useInvoiceApis = () => {
     addProductDetails,
     getProductDetails,
     deleteProductDetails,
+    updateProductDetails,
     productData,
     setProductData,
 

@@ -97,6 +97,9 @@ export default function InvoiceProduct(props) {
       gst,
       taxType,
       userId: user._id,
+      final_price: FinalPrice,
+      paid_amount: 0,
+      pending_amount: FinalPrice,
     });
     // handleCostCalculation();
     handleClose();

@@ -29,7 +29,7 @@ const Invoicecreator = () => {
   // const transportData = useSelector((state) => state.TransportReducer);
 
   // console.log("productData");
-  // console.log(productData);
+  // console.log(pr oductData);
   const handleCreateInvoice = async () => {
     addInvoiceDetails();
     navigate("/invoiceList");
