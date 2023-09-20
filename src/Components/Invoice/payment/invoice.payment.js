@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -36,12 +36,42 @@ const Invoice_Payment = () => {
 
   return (
     <>
-      <Invoice_Payment_Table
-        data={data}
-        paidAmount={paidAmount}
-        setPaidAmount={setPaidAmount}
-      />
-      <Button onClick={handleSubmit}>Submit</Button>
+      <Box
+        sx={{
+          // border: "1px solid red",
+          height: "98%",
+          width: "98%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <Invoice_Payment_Table
+          data={data}
+          paidAmount={paidAmount}
+          setPaidAmount={setPaidAmount}
+        />
+        <Box
+          sx={{
+            mt: "1rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            width: "100%",
+          }}
+        >
+          <Button
+            variant="contained"
+            onClick={handleSubmit}
+            sx={{
+              mr: "1rem",
+            }}
+          >
+            Submit
+          </Button>
+        </Box>
+      </Box>
     </>
   );
 };

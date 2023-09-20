@@ -23,13 +23,18 @@ export default function Invoicetable(props) {
   //   console.log("handle");
   // };
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} sx={{ height: 800 }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead sx={{ color: "white" }}>
+        <TableHead
+          sx={{
+            color: "white",
+          }}
+        >
           <TableRow
             sx={{
-              // borderRight: "10px solid black",
               background: "#073259",
+              // position: "fixed",
+              width: "full",
             }}
           >
             {/* <TableCell>Dessert (100g serving)</TableCell> */}
@@ -50,11 +55,15 @@ export default function Invoicetable(props) {
             </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody sx={{ overflow: "scroll" }}>
           {data?.AllInvoice?.map((invoice) => (
             <TableRow
               key={invoice?._id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              sx={{
+                "&:last-child td, &:last-child th": {
+                  border: 0,
+                },
+              }}
             >
               <TableCell component="th" scope="row" align="center">
                 {invoice?.invoiceNo}
