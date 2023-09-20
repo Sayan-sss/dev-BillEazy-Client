@@ -97,7 +97,6 @@ export default function Invoice_Payment_Table({
                 ></TextField>
               </TableCell>
             </TableRow>
-            ;{/* })} */}
           </TableBody>
         </Table>
       </TableContainer>

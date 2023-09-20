@@ -40,9 +40,11 @@ const InvoiceList = () => {
       <Box
         className="table_container"
         sx={{
-          border: "none",
+          // border: "none",
+          // border: "10px solid red",
+
           marginTop: "5rem",
-          // height: "80vh",
+          height: "90%",
           width: "90%",
           boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
           flexDirection: "column",

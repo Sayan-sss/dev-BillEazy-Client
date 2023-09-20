@@ -19,7 +19,9 @@ const ViewBuyerDetails = () => {
         }}
       >
         {buyerData?.data?.companyName && (
-          <Typography variant="h6">{buyerData.data?.companyName}</Typography>
+          <Typography variant="subtitle1">
+            Company Name: {buyerData.data?.companyName}
+          </Typography>
         )}
         {buyerData?.data?.companyEmail && (
           <Typography variant="subtitle1">
@@ -33,7 +35,7 @@ const ViewBuyerDetails = () => {
         )}
         {buyerData?.data?.gstTreatmentType && (
           <Typography variant="subtitle1">
-            PAN: {buyerData?.data?.gstTreatmentType}
+            GST Treatment Type: {buyerData?.data?.gstTreatmentType}
           </Typography>
         )}
         {buyerData?.data?.companyAddress && (

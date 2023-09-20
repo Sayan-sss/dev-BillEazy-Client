@@ -53,7 +53,16 @@ const Invoice_Payment = () => {
   return (
     <>
       {/* { Invoice_Product?.map((product)=>{ */}
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Box
+        sx={{
+          height: "98%",
+          width: "98%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
         <Box sx={{ marginBottom: "10rem" }}>
           <Buyed_Products Invoice_Product={Invoice_Product} />
         </Box>
@@ -68,7 +77,17 @@ const Invoice_Payment = () => {
 
         {/* })
     } */}
-        <Button onClick={handleSubmit}>Submit</Button>
+        <Box
+          sx={{
+            mt: "1rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            width: "100%",
+          }}
+        >
+          <Button onClick={handleSubmit}>Submit</Button>
+        </Box>
       </Box>
     </>
   );
