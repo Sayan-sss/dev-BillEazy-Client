@@ -17,6 +17,7 @@ const ChallanList = () => {
         width: "100%",
         display: "flex",
         justifyContent: "center",
+        // overflowY: "scroll",
       }}
     >
       <Box
@@ -29,6 +30,7 @@ const ChallanList = () => {
           boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
           flexDirection: "column",
           justifyContent: "flex-start",
+          overflowY: "scroll",
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center" }}>

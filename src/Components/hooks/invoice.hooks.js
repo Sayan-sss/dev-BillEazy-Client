@@ -19,14 +19,23 @@ const useInvoiceApis = () => {
   const Buyer = useSelector((state) => state.BuyerReducer);
   const Bank = useSelector((state) => state.BuyerReducer);
   const Products = useSelector((state) => state.ProductReducer);
+  console.log(Products);
   const Transport = useSelector((state) => state.TransportReducer);
   // console.log("Reducer user");
   const { user } = User;
-
   // ***** Invoice ******///////
-  const addInvoiceDetails = async () => {
+  const addInvoiceDetails = async ({
+    termsAndConditions,
+    productId,
+    totalProductPrice,
+    totalTaxAmount,
+  }) => {
     try {
       // const data = Buyer;
+      console.log(totalProductPrice);
+      console.log(totalTaxAmount);
+      console.log(productId);
+      console.log(termsAndConditions);
       console.log(Buyer?.data._id);
       const Buyer_id = Buyer?.data._id;
       console.log(Bank?.data._id);
@@ -41,12 +50,20 @@ const useInvoiceApis = () => {
       const { data } = await API.post("/v1/api/invoice/create", {
         Buyer_id,
         Bank_id,
-        Products_id,
+        // Products_id,
+        productId,
         Transport_id,
         Supplier_id,
         User_id: user._id,
+        termsAndConditions,
+        totalProductPrice,
+        totalTaxAmount,
+        paidAmount: 0,
+        pendingAmount: totalProductPrice,
       });
       console.log(data);
+      dispatch({ type: "POST_ONE_INVOICE_DETAIL", payload: { data } });
+
       toast.success("Successfully added");
     } catch (error) {
       toast.error(error);
@@ -84,6 +101,35 @@ const useInvoiceApis = () => {
       toast.error(error);
     }
   }, []);
+
+  const updateInvoiceDetails = async ({
+    Invoice_Id,
+    paidAmount,
+    pendingAmount,
+  }) => {
+    console.log("Hii");
+    console.log(Invoice_Id);
+    console.log(paidAmount);
+    console.log(pendingAmount);
+
+    try {
+      const { data } = await API.post(
+        `/v1/api/invoice/invoicedetails/update/${Invoice_Id}`,
+        { paidAmount, pendingAmount }
+      );
+      if (data?.success) {
+        // const newData = data.AllProducts;
+        // setProductData(data.AllProducts);
+        // console.log(data.AllProducts);
+        // console.log(productData);
+        toast.success("Success");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error);
+    }
+  };
+
   // ***** Invoice ******///////
 
   //****Supplier Details*/
@@ -286,32 +332,6 @@ const useInvoiceApis = () => {
     },
     [productData]
   );
-  const updateProductDetails = React.useCallback(
-    async ({ Product_Id, paidAmount, pendingAmount }) => {
-      console.log("Hii");
-      console.log(Product_Id);
-      console.log(paidAmount);
-      console.log(pendingAmount);
-
-      try {
-        const { data } = await API.post(
-          `/v1/api/invoice/productdetails/update/${Product_Id}`,
-          { paidAmount, pendingAmount }
-        );
-        if (data?.success) {
-          // const newData = data.AllProducts;
-          // setProductData(data.AllProducts);
-          // console.log(data.AllProducts);
-          // console.log(productData);
-          toast.success("Success");
-        }
-      } catch (error) {
-        console.log(error);
-        toast.error(error);
-      }
-    },
-    [productData]
-  );
 
   const deleteProductDetails = async (e, id) => {
     // e.preventDefault;
@@ -436,6 +456,7 @@ const useInvoiceApis = () => {
     addInvoiceDetails,
     getInvoiceDetails,
     getInvoice_Product_Details,
+    updateInvoiceDetails,
 
     addSupplierDetails,
     getSupplierDetails,
@@ -451,7 +472,7 @@ const useInvoiceApis = () => {
     addProductDetails,
     getProductDetails,
     deleteProductDetails,
-    updateProductDetails,
+    // updateProductDetails,
     productData,
     setProductData,
 

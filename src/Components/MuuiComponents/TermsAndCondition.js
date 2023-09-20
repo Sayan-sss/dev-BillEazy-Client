@@ -3,7 +3,10 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Typography } from "@mui/material";
 
-export default function TermsAndCondition() {
+export default function TermsAndCondition({
+  termsAndConditions,
+  setTermsAndConditions,
+}) {
   return (
     <Box
       //   component="form"
@@ -38,6 +41,8 @@ export default function TermsAndCondition() {
           id="outlined-basic"
           variant="standard"
           multiline
+          value={termsAndConditions}
+          onChange={(e) => setTermsAndConditions(e.target.value)}
           sx={{ width: "85vh" }}
         />
       </Box>

@@ -7,6 +7,7 @@ import { TransportReducer } from "./Invoice/invoice.transport.details.reducer";
 import { BankReducer } from "./Invoice/invoice.bank.details.reducer";
 import { InvoicesReducer } from "./Invoice/invoices.reducer";
 import { Invoice_Product_Reducer } from "./Invoice/invoice_product.reducer";
+import { Single_Invoice_Reducer } from "./Invoice/single.invoice.reducer";
 export default combineReducers({
   authReducer,
   SupplierReducer,
@@ -16,4 +17,5 @@ export default combineReducers({
   BankReducer,
   InvoicesReducer,
   Invoice_Product_Reducer,
+  Single_Invoice_Reducer,
 });

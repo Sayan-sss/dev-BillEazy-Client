@@ -1,21 +1,34 @@
-import { Button } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { Box, Button } from "@mui/material";
+import React, { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import useInvoiceApis from "../../hooks/invoice.hooks";
 import Invoice_Payment_Table from "./invoice.payment.table";
+import Buyed_Products from "./buyed.products";
 
 const Invoice_Payment = () => {
   const { data } = useSelector((state) => state.Invoice_Product_Reducer);
   const [paidAmount, setPaidAmount] = useState(0);
-  const pendingAmount =
-    data?.Invoice_Product?.product?.final_price - paidAmount;
-  console.log(pendingAmount);
-  console.log(paidAmount);
-  console.log(data);
+  const [pendingAmount, setPendingAmount] = useState(0);
 
-  const { getInvoice_Product_Details, updateProductDetails } = useInvoiceApis();
+  // useMemo(() => {
+  //   setPendingAmount((pendingAmount) => {
+  //     const pending = data?.Invoice_Product?.totalProductPrice - paidAmount;
+  //   });
+  // }, [paidAmount]);
+
+  useMemo(() => {
+    setPendingAmount(data?.Invoice_Product?.pendingAmount - paidAmount);
+    // console.log(pendingAmount);
+  }, [paidAmount]);
+
+  console.log(pendingAmount);
+  console.log(data);
+  const { Invoice_Product } = data;
+  console.log(Invoice_Product);
+
+  const { getInvoice_Product_Details, updateInvoiceDetails } = useInvoiceApis();
 
   let { id } = useParams();
 
@@ -24,24 +37,39 @@ const Invoice_Payment = () => {
   useEffect(() => {
     getInvoice_Product_Details(id);
   }, []);
-  const Product_Id = data?.Invoice_Product?.product?._id;
+  // const Invoice_Id = data?.Invoice_Product?._id;
   const handleSubmit = async () => {
     try {
-      updateProductDetails({ Product_Id, paidAmount, pendingAmount });
+      // updateInvoiceDetails({ Invoice_Id: id, paidAmount, pendingAmount });
+      console.log("called1");
+      updateInvoiceDetails({ Invoice_Id: id, paidAmount, pendingAmount });
+      console.log("called2");
       getInvoice_Product_Details(id);
     } catch (error) {
-      toast.error("while submitting");
+      toast.error("Error while submitting");
     }
   };
 
   return (
     <>
-      <Invoice_Payment_Table
-        data={data}
-        paidAmount={paidAmount}
-        setPaidAmount={setPaidAmount}
-      />
-      <Button onClick={handleSubmit}>Submit</Button>
+      {/* { Invoice_Product?.map((product)=>{ */}
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
+        <Box sx={{ marginBottom: "10rem" }}>
+          <Buyed_Products Invoice_Product={Invoice_Product} />
+        </Box>
+
+        <Box>
+          <Invoice_Payment_Table
+            data={data}
+            paidAmount={paidAmount}
+            setPaidAmount={setPaidAmount}
+          />
+        </Box>
+
+        {/* })
+    } */}
+        <Button onClick={handleSubmit}>Submit</Button>
+      </Box>
     </>
   );
 };

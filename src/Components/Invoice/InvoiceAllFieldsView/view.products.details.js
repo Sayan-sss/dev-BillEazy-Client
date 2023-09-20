@@ -1,11 +1,11 @@
-import { Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { useSelector } from "react-redux";
 
-const ViewProductsDetails = () => {
-  const productData = useSelector((state) => state.ProductReducer);
-
+const ViewProductsDetails = ({ productData }) => {
+  // const productData = useSelector((state) => state.ProductReducer);
+  console.log({ productData });
   return (
     <>
       {" "}
@@ -67,7 +67,23 @@ const ViewProductsDetails = () => {
             Gst: {productData?.data?.gst}
           </Typography>
         )}
+        {productData?.data?.cess && (
+          <Typography variant="subtitle1">
+            Cess: {productData?.data?.cess}
+          </Typography>
+        )}
+        {productData?.data?.final_price && (
+          <Typography variant="subtitle1">
+            Total Amount: {productData?.data?.final_price}
+          </Typography>
+        )}
+        {/* {productData?.data?.paid_amount && (
+          <Typography variant="subtitle1">
+            PaidAmount: {productData?.data?.paid_amount}
+          </Typography>
+        )} */}
       </Box>
+      <Divider sx={{ color: "red", borderWidth: "1px" }} />
     </>
   );
 };

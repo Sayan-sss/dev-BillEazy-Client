@@ -1,4 +1,5 @@
 import React from "react";
+// import { useSelector } from "react-redux";
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
 
 // Create styles
@@ -154,10 +155,22 @@ const styles = StyleSheet.create({
     textOverflow: "clipped",
   },
 });
-
+// const { token, user } = data;
+// const { data } = useSelector((state) => state.Single_Invoice_Reducer);
+// console.log(data);
 // Create Document Component
-export const MyDocument = () => (
+export const MyDocument = ({
+  supplierDetails,
+  buyerDetails,
+  bankDetails,
+  product,
+  transportDetails,
+  termsAndConditions,
+  totalProductPrice,
+  totalTaxAmount,
+}) => (
   <Document>
+    {/* console.log(product) */}
     <Page size="A4" style={styles.page}>
       <View style={styles.parentContainer}>
         <View style={styles.companyDetails}>
@@ -168,9 +181,11 @@ export const MyDocument = () => (
               Enterprise{" "}
             </Text>
           </View>
+          {/* data?.supplierDetails?.companyAddress */}
           <View style={styles.companyNameAndAddress}>
-            <Text>{`Company Name`}</Text>
+            <Text>{supplierDetails?.firmName}</Text>
             <Text>Company Address</Text>
+            <Text>{supplierDetails?.companyAddress}</Text>
           </View>
         </View>
         <View style={styles.documentType}>
@@ -182,24 +197,33 @@ export const MyDocument = () => (
             <Text style={[{ fontWeight: "bold" }, styles.text]}>
               BUYER DETAILS(DETAILS FOR RECIEVER):
             </Text>
-            <Text style={styles.text}>Name : MAGBRO HEALTHCARE PVT.LTD </Text>
+            <Text style={styles.text}>{buyerDetails?.companyName}</Text>
             <Text style={styles.text}>
-              Address : 218,OM SANTI COMPLEX, INDUSTRIAL AREA COMPLEX , LUDHIANA
-              , 141003{" "}
+              Address :{buyerDetails?.companyAddress}
             </Text>
-            <Text style={styles.text}>Mobile : 0161-2223063</Text>
-            <Text style={styles.text}>GSTIN : </Text>
-            <Text style={styles.text}>State : Punjab </Text>
-            <Text style={styles.text}>State Code : 03</Text>
+            <Text style={styles.text}>
+              Mobile :{buyerDetails?.companyMobile}
+            </Text>
+            <Text style={styles.text}>
+              GSTIN :{buyerDetails?.companyGstin}{" "}
+            </Text>
+            <Text style={styles.text}>State : {buyerDetails?.state} </Text>
+            <Text style={styles.text}>
+              State Code : {buyerDetails?.pincode}
+            </Text>
           </View>
           <View style={styles.buyerDetails_col_2}>
-            <Text style={styles.text}>Challan No : 20234</Text>
-            <Text style={styles.text}>Challan Date : 16-Jul-2023</Text>
-            <Text style={styles.text}>Place Of Supply: </Text>
-            <Text style={styles.text}>State : West Bengal State Code : NA</Text>
+            <Text style={styles.text}>Challan No : </Text>
+            <Text style={styles.text}>Challan Date :</Text>
+            <Text style={styles.text}>
+              Place Of Supply:{transportDetails?.placeOfSupply}{" "}
+            </Text>
+            <Text style={styles.text}>State : {buyerDetails?.state} </Text>
             <Text style={styles.text}>Transportation Mode : None</Text>
             <Text style={styles.text}>Transporter Name :</Text>
-            <Text style={styles.text}>Vehicle No :</Text>
+            <Text style={styles.text}>
+              Vehicle No :{transportDetails?.vehicleNumber}
+            </Text>
           </View>
         </View>
         <View style={styles.buyerDetails}>
@@ -212,15 +236,28 @@ export const MyDocument = () => (
               Address : 218,OM SANTI COMPLEX, INDUSTRIAL AREA COMPLEX , LUDHIANA
               , 141003{" "}
             </Text>
-            <Text style={styles.text}>Mobile : 0161-2223063</Text>
-            <Text style={styles.text}>GSTIN : </Text>
-            <Text style={styles.text}>State : Punjab </Text>
-            <Text style={styles.text}>State Code : 03</Text>
+            <Text style={styles.text}>
+              Mobile : {buyerDetails?.companyMobile}
+            </Text>
+            <Text style={styles.text}>
+              GSTIN :{buyerDetails?.companyGstin}{" "}
+            </Text>
+            <Text style={styles.text}>State : {buyerDetails?.state} </Text>
+            <Text style={styles.text}>
+              State Code : {buyerDetails?.pincode}
+            </Text>
           </View>
+          {/* lrDate: '2022-04-16T18:30:00.000Z',
+      lrNumber: 1233, */}
+
           <View style={styles.buyerDetails_col_2}>
             <Text style={styles.text}>Transporter ID :</Text>
-            <Text style={styles.text}>LR Number :</Text>
-            <Text style={styles.text}>LR Date : 16-07-2023 </Text>
+            <Text style={styles.text}>
+              LR Number :{transportDetails?.lrNumber}
+            </Text>
+            <Text style={styles.text}>
+              LR Date : {transportDetails?.lrDate}{" "}
+            </Text>
             {/* <Text style={styles.text}></Text>
             <Text style={styles.text}></Text>
             <Text style={styles.text}></Text>
@@ -318,9 +355,10 @@ export const MyDocument = () => (
           >
             <Text style={styles.items_text}>SR No.</Text>
             <Text style={styles.items_text}>1</Text>
-            <Text style={styles.items_text}>2</Text>
-            <Text style={styles.items_text}>3</Text>
+            {/* <Text style={styles.items_text}>2</Text>
+            <Text style={styles.items_text}>3</Text> */}
           </View>
+
           <View
             style={{
               display: "flex",
@@ -329,11 +367,11 @@ export const MyDocument = () => (
             }}
           >
             <Text style={styles.items_text}>Description Of Product </Text>
-            <Text style={styles.items_text}>
-              ULSOL-O GEL SYRUPdddddddddddddddddddddddddd{" "}
-            </Text>
-            <Text style={styles.items_text}>ULSOL-O GEL SYRUP </Text>
-            <Text style={styles.items_text}>ULSOL-O GEL SYRUP </Text>
+            {product?.map((product) => (
+              <Text style={styles.items_text}>{product?.itemDescription} </Text>
+            ))}
+            {/* <Text style={styles.items_text}>ULSOL-O GEL SYRUP </Text>
+            <Text style={styles.items_text}>ULSOL-O GEL SYRUP </Text> */}
           </View>
           <View
             style={{
@@ -342,9 +380,11 @@ export const MyDocument = () => (
             }}
           >
             <Text style={styles.items_text}>HSN Code</Text>
-            <Text style={styles.items_text}>3004</Text>
-            <Text style={styles.items_text}>3004</Text>
-            <Text style={styles.items_text}>3004</Text>
+            {product?.map((product) => (
+              <Text style={styles.items_text}>{product?.hsn}</Text>
+            ))}
+            {/* <Text style={styles.items_text}>3004</Text>
+            <Text style={styles.items_text}>3004</Text> */}
           </View>
           <View
             style={{
@@ -353,9 +393,9 @@ export const MyDocument = () => (
             }}
           >
             <Text style={styles.items_text}>QTY</Text>
-            <Text style={styles.items_text}>100</Text>
-            <Text style={styles.items_text}>100</Text>
-            <Text style={styles.items_text}>100</Text>
+            {product?.map((product) => (
+              <Text style={styles.items_text}>{product?.quantity}</Text>
+            ))}
           </View>
           <View
             style={{
@@ -364,9 +404,9 @@ export const MyDocument = () => (
             }}
           >
             <Text style={styles.items_text}>Unit</Text>
-            <Text style={styles.items_text}>1x200 ml</Text>
-            <Text style={styles.items_text}>1x200 ml</Text>
-            <Text style={styles.items_text}>1x200 ml</Text>
+            {product?.map((product) => (
+              <Text style={styles.items_text}>{product?.unit}</Text>
+            ))}
           </View>
           <View
             style={{
@@ -375,9 +415,10 @@ export const MyDocument = () => (
             }}
           >
             <Text style={styles.items_text}>Rate</Text>
-            <Text style={styles.items_text}>22</Text>
-            <Text style={styles.items_text}>22</Text>
-            <Text style={styles.items_text}>22</Text>
+            {/* <Text style={styles.items_text}>22</Text> */}
+            {product?.map((product) => (
+              <Text style={styles.items_text}>{product?.salePrice}</Text>
+            ))}
           </View>
           <View
             style={{
@@ -385,10 +426,11 @@ export const MyDocument = () => (
               flexDirection: "column",
             }}
           >
-            <Text style={styles.items_text}>Taxable Amt</Text>
-            <Text style={styles.items_text}>2200.00</Text>
-            <Text style={styles.items_text}>2200.00</Text>
-            <Text style={styles.items_text}>2200.00</Text>
+            {/* <Text style={styles.items_text}>Taxable gst</Text> */}
+            <Text style={styles.items_text}>CESS</Text>
+            {product?.map((product) => (
+              <Text style={styles.items_text}>{product?.cess}%</Text>
+            ))}
           </View>
           <View
             style={{
@@ -397,9 +439,9 @@ export const MyDocument = () => (
             }}
           >
             <Text style={styles.items_text}>IGST</Text>
-            <Text style={styles.items_text}>12.00%</Text>
-            <Text style={styles.items_text}>12.00%</Text>
-            <Text style={styles.items_text}>12.00%</Text>
+            {product?.map((product) => (
+              <Text style={styles.items_text}>{product?.gst}%</Text>
+            ))}
           </View>
           <View
             style={{
@@ -408,9 +450,10 @@ export const MyDocument = () => (
             }}
           >
             <Text style={styles.items_text}>Total</Text>
-            <Text style={styles.items_text}>2464.00</Text>
-            <Text style={styles.items_text}>2464.00</Text>
-            <Text style={styles.items_text}>2464.00</Text>
+            {/* final_price */}
+            {product?.map((product) => (
+              <Text style={styles.items_text}>{product?.final_price}</Text>
+            ))}
           </View>
         </View>
 
@@ -436,7 +479,7 @@ export const MyDocument = () => (
           >
             <Text style={styles.items_text}>Total</Text>
           </View>
-          <View
+          {/* <View
             style={{
               display: "flex",
               flexDirection: "column",
@@ -444,8 +487,8 @@ export const MyDocument = () => (
             }}
           >
             <Text style={styles.items_text}>300</Text>
-          </View>
-          <View
+          </View> */}
+          {/* <View
             style={{
               display: "flex",
               flexDirection: "column",
@@ -453,8 +496,8 @@ export const MyDocument = () => (
             }}
           >
             <Text style={styles.items_text}>6600.00</Text>
-          </View>
-          <View
+          </View> */}
+          {/* <View
             style={{
               display: "flex",
               flexDirection: "column",
@@ -462,7 +505,7 @@ export const MyDocument = () => (
             }}
           >
             <Text style={styles.items_text}>792</Text>
-          </View>
+          </View> */}
           <View
             style={{
               display: "flex",
@@ -470,7 +513,7 @@ export const MyDocument = () => (
               paddingLeft: 5,
             }}
           >
-            <Text style={styles.items_text}>7392.00</Text>
+            <Text style={styles.items_text}>{totalProductPrice}</Text>
           </View>
         </View>
 
@@ -510,7 +553,7 @@ export const MyDocument = () => (
             >
               <Text style={styles.items_text}>Total Amount in words</Text>
               <Text style={styles.items_text}>
-                Seven Thousand Three Hundred and Ninety Two Only{" "}
+                {/* Seven Thousand Three Hundred and Ninety Two Only{" "} */}
               </Text>
             </View>
             <View
@@ -522,12 +565,10 @@ export const MyDocument = () => (
               }}
             >
               <Text style={styles.items_text}>Terms and Conditions</Text>
-              <Text style={styles.items_text}>
-                1. This is an electronically generated document
-              </Text>
-              <Text style={styles.items_text}>
+              <Text style={styles.items_text}>{termsAndConditions}</Text>
+              {/* <Text style={styles.items_text}>
                 2. All disputes are subject to BERHAMPORE jurisdiction
-              </Text>
+              </Text> */}
             </View>
           </View>
           <View
@@ -546,10 +587,11 @@ export const MyDocument = () => (
                 width: "100%",
               }}
             >
-              <Text style={styles.items_text}>Total Taxable Amount :</Text>
-              <Text style={styles.items_text}>Rs 6600.00</Text>
+              {/* <Text style={styles.items_text}>Total Taxable Amount :</Text> */}
+              <Text style={styles.items_text}>Total Tax:</Text>
+              <Text style={styles.items_text}>{totalTaxAmount}%</Text>
             </View>
-            <View
+            {/* <View
               style={{
                 display: "flex",
                 flexDirection: "row",
@@ -561,7 +603,7 @@ export const MyDocument = () => (
               <Text style={styles.items_text}>Total GST :</Text>
 
               <Text style={styles.items_text}>Rs 792.00</Text>
-            </View>
+            </View> */}
             <View
               style={{
                 display: "flex",
@@ -573,7 +615,7 @@ export const MyDocument = () => (
             >
               <Text style={styles.items_text}>Total Amount After Tax :</Text>
 
-              <Text style={styles.items_text}>Rs 7392.00</Text>
+              <Text style={styles.items_text}>{totalProductPrice}</Text>
             </View>
 
             <View
