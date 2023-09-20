@@ -23,7 +23,7 @@ export default function Invoicetable(props) {
   //   console.log("handle");
   // };
   return (
-    <TableContainer component={Paper} sx={{ height: 800 }}>
+    <TableContainer component={Paper} sx={{ height: 600, overflowX: "hidden" }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead
           sx={{
@@ -33,8 +33,6 @@ export default function Invoicetable(props) {
           <TableRow
             sx={{
               background: "#073259",
-              // position: "fixed",
-              width: "full",
             }}
           >
             {/* <TableCell>Dessert (100g serving)</TableCell> */}
@@ -87,10 +85,6 @@ export default function Invoicetable(props) {
                   Accept Payment
                 </Button>
               </TableCell>
-              {/* <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell> */}
             </TableRow>
           ))}
         </TableBody>

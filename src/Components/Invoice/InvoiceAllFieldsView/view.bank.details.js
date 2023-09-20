@@ -19,13 +19,13 @@ const ViewBankDetails = () => {
         }}
       >
         {bankData?.data?.accountHolderName && (
-          <Typography variant="h6">
-            {bankData.data?.accountHolderName}
+          <Typography variant="subtitle1">
+            Account Holder: {bankData.data?.accountHolderName}
           </Typography>
         )}
         {bankData?.data?.accountNumber && (
           <Typography variant="subtitle1">
-            accountNumber: {bankData?.data?.accountNumber}
+            Account Number: {bankData?.data?.accountNumber}
           </Typography>
         )}
         {bankData?.data?.ifscNumber && (
@@ -35,7 +35,7 @@ const ViewBankDetails = () => {
         )}
         {bankData?.data?.bankName && (
           <Typography variant="subtitle1">
-            BankName: {bankData?.data?.bankName}
+            Bank Name: {bankData?.data?.bankName}
           </Typography>
         )}
         {bankData?.data?.branchName && (
