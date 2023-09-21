@@ -38,17 +38,17 @@ const ViewTransportDetails = () => {
         )}
         {transportData?.data?.placeOfSupply && (
           <Typography variant="subtitle1">
-            placeOfSupply: {transportData?.data?.placeOfSupply}
+            Place Of Supply: {transportData?.data?.placeOfSupply}
           </Typography>
         )}
         {transportData?.data?.vehicleNumber && (
           <Typography variant="subtitle1">
-            vehicleNumber: {transportData?.data?.vehicleNumber}
+            Vehicle Number: {transportData?.data?.vehicleNumber}
           </Typography>
         )}
         {transportData?.data?.supplyType && (
           <Typography variant="subtitle1">
-            supplyType: {transportData?.data?.supplyType}
+            Supply Type: {transportData?.data?.supplyType}
           </Typography>
         )}
       </Box>

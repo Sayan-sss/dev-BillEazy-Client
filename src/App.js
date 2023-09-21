@@ -1,6 +1,6 @@
 import { lazy, Suspense, useState } from "react";
 import "./App.css";
-import { Box, Paper, Stepper } from "@mui/material";
+import { Box, DialogContent, Paper, Stepper } from "@mui/material";
 // import Contact from "./Components/Contact/Contact";
 // import { useNavigate } from "react-router-dom";
 // import MobileNavabr from "./Components/Navigation Bar/Mobile.Navbar";
@@ -67,11 +67,14 @@ function App() {
   // console.log(User);
   const User = useSelector((state) => state.authReducer);
   const { token, user } = User;
+  const data = useSelector((state) => state.ProductReducer);
+  console.log(data);
   // console.log(token);
   return (
     <div className="App">
       <Box
         sx={{
+          // border: "1px solid red",
           display: "flex",
           flexDirection: "row",
           height: "100vh",
@@ -84,7 +87,7 @@ function App() {
               display: "flex",
               flexDirection: "row",
               // width: "15vw",
-              width: `${sidebar ? "5vw" : "18vw"}`,
+              width: `${sidebar ? "5vw" : "15vw"}`,
               // border: "1px solid green",
             }}
           >
@@ -103,8 +106,9 @@ function App() {
             // flexDirection: "column",
             justifyContent: "center",
             // alignItems: "center",
-            // border: "1px solid green",
+            // border: "10px solid green",
             // backgroundColor: "whitesmoke",
+
             background: "#D7E8EA",
 
             // backgroundColor: "rgb(214,214,214)",
@@ -205,6 +209,11 @@ function App() {
         </Box>
       </Box>
       <Toaster />
+      <DialogContent>
+        {/* {data?.data?.map((buyer) => (
+          <Box> {buyer}</Box>
+        ))} */}
+      </DialogContent>
     </div>
   );
 }

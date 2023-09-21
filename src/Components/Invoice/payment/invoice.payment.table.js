@@ -21,8 +21,9 @@ export default function Invoice_Payment_Table({
   // console.log(data);
   const { Invoice_Product } = data;
   console.log(Invoice_Product);
+  // console.log(Invoice_Product?.product[0]?.unit);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <>
@@ -44,6 +45,9 @@ export default function Invoice_Payment_Table({
               <TableCell sx={{ color: "white" }} align="center">
                 BuyerName
               </TableCell>
+              {/* <TableCell sx={{ color: "white" }} align="center">
+                ProductName
+              </TableCell> */}
               <TableCell sx={{ color: "white" }} align="center">
                 Total Amount
               </TableCell>
@@ -56,6 +60,7 @@ export default function Invoice_Payment_Table({
             </TableRow>
           </TableHead>
           <TableBody>
+            {/* {Invoice_Product?.product?.map((product) => { */}
             <TableRow
               key={data?.Invoice_Product?._id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -69,15 +74,18 @@ export default function Invoice_Payment_Table({
               <TableCell component="th" scope="row" align="center">
                 {data?.Invoice_Product?.companyName}
               </TableCell>
+              {/* <TableCell component="th" scope="row" align="center">
+                  {product?.itemName}
+                </TableCell> */}
               <TableCell component="th" scope="row" align="center">
                 <TextField
-                  value={data?.Invoice_Product?.product?.final_price}
+                  value={data?.Invoice_Product?.totalProductPrice}
                   // onChange=()
                 ></TextField>
               </TableCell>
               <TableCell component="th" scope="row" align="center">
                 <TextField
-                  value={Invoice_Product?.product?.pending_amount}
+                  value={Invoice_Product?.pendingAmount}
                   // onChange=()
                 ></TextField>
               </TableCell>
@@ -89,7 +97,6 @@ export default function Invoice_Payment_Table({
                 ></TextField>
               </TableCell>
             </TableRow>
-            ;
           </TableBody>
         </Table>
       </TableContainer>

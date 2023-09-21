@@ -23,12 +23,15 @@ export default function Invoicetable(props) {
   //   console.log("handle");
   // };
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} sx={{ height: 600, overflowX: "hidden" }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead sx={{ color: "white" }}>
+        <TableHead
+          sx={{
+            color: "white",
+          }}
+        >
           <TableRow
             sx={{
-              // borderRight: "10px solid black",
               background: "#073259",
             }}
           >
@@ -50,11 +53,15 @@ export default function Invoicetable(props) {
             </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody sx={{ overflow: "scroll" }}>
           {data?.AllInvoice?.map((invoice) => (
             <TableRow
               key={invoice?._id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              sx={{
+                "&:last-child td, &:last-child th": {
+                  border: 0,
+                },
+              }}
             >
               <TableCell component="th" scope="row" align="center">
                 {invoice?.invoiceNo}
@@ -73,15 +80,12 @@ export default function Invoicetable(props) {
               </TableCell>
               <TableCell component="th" scope="row" align="center">
                 <Button
+                  variant="outlined"
                   onClick={() => navigate(`/invoice/payment/${invoice?._id}`)}
                 >
                   Accept Payment
                 </Button>
               </TableCell>
-              {/* <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell> */}
             </TableRow>
           ))}
         </TableBody>

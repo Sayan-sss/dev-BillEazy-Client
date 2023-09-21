@@ -30,7 +30,9 @@ const ViewSupplierDetails = () => {
           flexDirection: "column",
         }}
       >
-        {firmName && <Typography variant="h6">{firmName}</Typography>}
+        {firmName && (
+          <Typography variant="subtitle1">Firm Name: {firmName}</Typography>
+        )}
         {companyEmail && (
           <Typography variant="subtitle1">Email: {companyEmail}</Typography>
         )}

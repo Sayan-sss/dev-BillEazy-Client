@@ -90,7 +90,7 @@ export default function InvoiceProduct(props) {
               margin="dense"
               id="accountnumber"
               label="Account Number"
-              type="text"
+              type="number"
               // fullWidth
               sx={{ width: "49%" }}
               variant="outlined"

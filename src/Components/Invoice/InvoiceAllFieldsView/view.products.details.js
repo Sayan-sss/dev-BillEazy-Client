@@ -1,11 +1,11 @@
-import { Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { useSelector } from "react-redux";
 
-const ViewProductsDetails = () => {
-  const productData = useSelector((state) => state.ProductReducer);
-
+const ViewProductsDetails = ({ productData }) => {
+  // const productData = useSelector((state) => state.ProductReducer);
+  console.log({ productData });
   return (
     <>
       {" "}
@@ -20,7 +20,9 @@ const ViewProductsDetails = () => {
         }}
       >
         {productData?.data?.itemName && (
-          <Typography variant="h6">{productData?.data?.itemName}</Typography>
+          <Typography variant="subtitle1">
+            Item Name: {productData?.data?.itemName}
+          </Typography>
         )}
         {productData?.data?.itemDescription && (
           <Typography variant="subtitle1">
@@ -29,7 +31,7 @@ const ViewProductsDetails = () => {
         )}
         {productData?.data?.hsn && (
           <Typography variant="subtitle1">
-            HSN.: {productData?.data?.hsn}
+            HSN: {productData?.data?.hsn}
           </Typography>
         )}
         {productData?.data?.quantity && (
@@ -44,7 +46,7 @@ const ViewProductsDetails = () => {
         )}
         {productData?.data?.salePrice && (
           <Typography variant="subtitle1">
-            salePrice: {productData?.data?.salePrice}
+            Sale Price: {productData?.data?.salePrice}
           </Typography>
         )}
         {productData?.data?.discount && (
@@ -54,20 +56,36 @@ const ViewProductsDetails = () => {
         )}
         {productData?.data?.discountType && (
           <Typography variant="subtitle1">
-            DiscountType: {productData?.data?.discountType}
+            Discount Type: {productData?.data?.discountType}
           </Typography>
         )}
         {productData?.data?.taxType && (
           <Typography variant="subtitle1">
-            TaxType: {productData?.data?.taxType}
+            Tax Type: {productData?.data?.taxType}
           </Typography>
         )}
         {productData?.data?.gst && (
           <Typography variant="subtitle1">
-            Gst: {productData?.data?.gst}
+            GST: {productData?.data?.gst}
           </Typography>
         )}
+        {productData?.data?.cess && (
+          <Typography variant="subtitle1">
+            Cess: {productData?.data?.cess}
+          </Typography>
+        )}
+        {productData?.data?.final_price && (
+          <Typography variant="subtitle1">
+            Total Amount: {productData?.data?.final_price}
+          </Typography>
+        )}
+        {/* {productData?.data?.paid_amount && (
+          <Typography variant="subtitle1">
+            PaidAmount: {productData?.data?.paid_amount}
+          </Typography>
+        )} */}
       </Box>
+      <Divider sx={{ color: "red", borderWidth: "1px" }} />
     </>
   );
 };
