@@ -34,7 +34,7 @@ export default function TransportCardViewer({ transport }) {
   };
   return (
     <Card
-      sx={{ minWidth: "50vw", marginTop: "2rem", border: "1px solid black" }}
+      sx={{ minWidth: "10vw", marginTop: "2rem", border: "1px solid black" }}
     >
       <CardContent>
         <Box

@@ -49,6 +49,7 @@ export default function ShowAllProducts(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         sx={{ height: "700px" }}
+        fullWidth={true}
       >
         <DialogTitle
           id="alert-dialog-title"
@@ -59,7 +60,7 @@ export default function ShowAllProducts(props) {
             fontSize: "bold",
           }}
         >
-          {`${totalProducts} - previous products`}
+          {`Previous Products - ${totalProducts}`}
         </DialogTitle>
         <DialogContent>
           {productData?.map((product) => (

@@ -43,7 +43,6 @@ export default function InvoiceViewer() {
     <PDFViewer style={styles.pdf}>
       <MyDocument
         supplierDetails={supplierDetails}
-        hi={"HI"}
         buyerDetails={buyerDetails}
         bankDetails={bankDetails}
         product={product}

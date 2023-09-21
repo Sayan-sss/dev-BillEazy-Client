@@ -48,6 +48,7 @@ export default function ShowAllBuyer(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         sx={{ height: "700px" }}
+        fullWidth={true}
       >
         <DialogTitle
           id="alert-dialog-title"
@@ -58,7 +59,7 @@ export default function ShowAllBuyer(props) {
             fontSize: "bold",
           }}
         >
-          {`${totalBuyers} - previous buyers`}
+          {`Previous Buyers - ${totalBuyers}`}
         </DialogTitle>
         <DialogContent>
           {buyerData?.map((buyer) => (
