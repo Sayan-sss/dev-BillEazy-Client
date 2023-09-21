@@ -72,6 +72,7 @@ function App() {
     <div className="App">
       <Box
         sx={{
+          // border: "1px solid red",
           display: "flex",
           flexDirection: "row",
           height: "100vh",
@@ -84,7 +85,7 @@ function App() {
               display: "flex",
               flexDirection: "row",
               // width: "15vw",
-              width: `${sidebar ? "5vw" : "18vw"}`,
+              width: `${sidebar ? "5vw" : "15vw"}`,
               // border: "1px solid green",
             }}
           >
@@ -103,8 +104,9 @@ function App() {
             // flexDirection: "column",
             justifyContent: "center",
             // alignItems: "center",
-            // border: "1px solid green",
+            // border: "10px solid green",
             // backgroundColor: "whitesmoke",
+
             background: "#D7E8EA",
 
             // backgroundColor: "rgb(214,214,214)",
