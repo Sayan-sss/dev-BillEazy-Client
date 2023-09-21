@@ -140,7 +140,6 @@ const Buyed_Products = ({ Invoice_Product }) => {
                   {product?.final_price}
                 </TableCell>
               </TableRow>
-              ;
             </TableBody>
           ))}
           {/* })} */}

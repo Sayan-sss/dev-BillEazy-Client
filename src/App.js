@@ -115,7 +115,7 @@ function App() {
               {/* Other Routes  */}
               {/* <Route
                 path="/"
-                element={token ? <InsideMedicineContainer /> : <LandingPage />}
+                element={token ? <InsideMe dicineContainer /> : <LandingPage />}
               ></Route> */}
               {/* <Route path="/home" element={<Home />}></Route> */}
 
