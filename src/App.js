@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { Box, DialogContent, Paper, Stepper } from "@mui/material";
 // import Contact from "./Components/Contact/Contact";
@@ -42,7 +42,7 @@ import ProformaViewer from "./Components/Proforma/Proforma.Viewer";
 
 function App() {
   const [sidebar, setSidebar] = useState(false);
-  console.log(process.env.dev);
+  console.log(process.env.REACT_APP_MODE);
   // console.log(sidebar);
   // const User = useSelector((state) => state.authReducer);
   // // console.log("Reducer user");

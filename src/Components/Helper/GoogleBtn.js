@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import React from "react";
 import GoogleIcon from "@mui/icons-material/Google";
 import { signInWithRedirect, GoogleAuthProvider } from "firebase/auth";
-import { auth } from "../../Services/firebase.prod";
+import { auth } from "../../Services/firebase";
 
 export default function GoogleBtn() {
   const provider = new GoogleAuthProvider();
