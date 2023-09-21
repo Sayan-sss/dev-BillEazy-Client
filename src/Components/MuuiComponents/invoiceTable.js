@@ -80,6 +80,7 @@ export default function Invoicetable(props) {
               </TableCell>
               <TableCell component="th" scope="row" align="center">
                 <Button
+                  variant="outlined"
                   onClick={() => navigate(`/invoice/payment/${invoice?._id}`)}
                 >
                   Accept Payment

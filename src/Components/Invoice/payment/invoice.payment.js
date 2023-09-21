@@ -55,15 +55,25 @@ const Invoice_Payment = () => {
       {/* { Invoice_Product?.map((product)=>{ */}
       <Box
         sx={{
-          height: "98%",
-          width: "98%",
+          border: "1px solid red",
+          height: "100%",
+          width: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
         }}
       >
-        <Box sx={{ marginBottom: "10rem" }}>
+        <Box
+          sx={{
+            marginBottom: "3rem",
+            // border: "1px solid blue",
+            height: "auto",
+            width: "70%",
+            // maxHeight: "60%",
+            // overflow: "scroll",
+          }}
+        >
           <Buyed_Products Invoice_Product={Invoice_Product} />
         </Box>
 
@@ -86,7 +96,13 @@ const Invoice_Payment = () => {
             width: "100%",
           }}
         >
-          <Button onClick={handleSubmit}>Submit</Button>
+          <Button
+            variant="contained"
+            onClick={handleSubmit}
+            sx={{ mr: "7rem" }}
+          >
+            Submit
+          </Button>
         </Box>
       </Box>
     </>

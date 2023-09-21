@@ -5,11 +5,11 @@ const InvoiceproductpriceCalc = ({ totalProductPrice, totalTaxAmount }) => {
   return (
     <>
       <Box>
-        <h4>TotalTax: {totalTaxAmount}</h4>
+        <h4>Total Tax: {totalTaxAmount}</h4>
       </Box>
       <Box>
         {" "}
-        <h4>TotalPrice : {totalProductPrice}</h4>{" "}
+        <h4>Total Price : {totalProductPrice}</h4>{" "}
       </Box>
     </>
   );
