@@ -37,7 +37,7 @@ export default function ShowAllSupplier(props) {
         <ListIcon
           sx={{ cursor: "pointer" }}
           onClick={async () => {
-            await getSupplierDetails(user._id);
+            await getSupplierDetails(user?._id);
             handleClickOpen();
           }}
         />
@@ -46,6 +46,7 @@ export default function ShowAllSupplier(props) {
       <Dialog
         open={open}
         onClose={handleClose}
+        fullWidth={true}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         sx={{
@@ -65,7 +66,7 @@ export default function ShowAllSupplier(props) {
             fontSize: "bold",
           }}
         >
-          {`${totalSuppliers} - previous suppliers`}
+          {`Previous Suppliers Details - ${totalSuppliers}`}
         </DialogTitle>
         <DialogContent>
           {supplierData?.map((supplier) => (
