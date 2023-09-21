@@ -52,6 +52,7 @@ export default function ShowAllTransport(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         sx={{ height: "700px" }}
+        fullWidth={true}
       >
         <DialogTitle
           id="alert-dialog-title"
@@ -62,7 +63,7 @@ export default function ShowAllTransport(props) {
             fontSize: "bold",
           }}
         >
-          {` ${totalTransports} - Previous  Transports `}
+          {`Previous  Transports - ${totalTransports} `}
         </DialogTitle>
         <DialogContent>
           {transportData?.map((transport) => (

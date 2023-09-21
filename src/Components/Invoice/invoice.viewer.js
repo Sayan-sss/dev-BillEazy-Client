@@ -25,25 +25,25 @@ export default function InvoiceViewer() {
     totalProductPrice,
     totalTaxAmount,
   } = data;
-  console.log(supplierDetails?.companyAddress);
-  console.log(supplierDetails?.firmName);
-  console.log(buyerDetails?.companyName);
-  console.log(buyerDetails?.companyAddress);
-  console.log(buyerDetails?.companyMobile);
-  console.log(buyerDetails?.companyGstin);
-  console.log(buyerDetails?.state);
-  console.log(buyerDetails?.pincode);
-  console.log(transportDetails?.placeOfSupply);
-  console.log(transportDetails?.vehicleNumber);
-  console.log(product?.hsn);
-  console.log(product?.itemDescription);
-  console.log(product[0]?.itemDescription);
+  // console.log(supplierDetails?.companyAddress);
+  // console.log(supplierDetails?.firmName);
+  // console.log(buyerDetails?.companyName);
+  // console.log(buyerDetails?.companyAddress);
+  // console.log(buyerDetails?.companyMobile);
+  // console.log(buyerDetails?.companyGstin);
+  // console.log(buyerDetails?.state);
+  // console.log(buyerDetails?.pincode);
+  // console.log(transportDetails?.placeOfSupply);
+  // console.log(transportDetails?.vehicleNumber);
+  // console.log(product?.hsn);
+  // console.log(product?.itemDescription);
+  // console.log(product[0]?.itemDescription);
 
   return (
     <PDFViewer style={styles.pdf}>
       <MyDocument
         supplierDetails={supplierDetails}
-        // hi={"HI"}
+        hi={"HI"}
         buyerDetails={buyerDetails}
         bankDetails={bankDetails}
         product={product}

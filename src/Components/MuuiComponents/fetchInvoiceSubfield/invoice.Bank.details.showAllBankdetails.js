@@ -45,6 +45,7 @@ export default function ShowAllBankDetails(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         sx={{ height: "700px" }}
+        fullWidth={true}
       >
         <DialogTitle
           id="alert-dialog-title"
@@ -55,7 +56,7 @@ export default function ShowAllBankDetails(props) {
             fontSize: "bold",
           }}
         >
-          {`${totalBanks} - previous banks`}
+          {`Bank Accounts - ${totalBanks}`}
         </DialogTitle>
         <DialogContent>
           {bankData?.map((bank) => (

@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 import InsideMedicineContainer from "../Medicine/InsideMedicineContainer";
 import API from "../../api";
 import { useDispatch, useSelector } from "react-redux";
-import GoogleIcon from "@mui/icons-material/Google";
+import GoogleBtn from "../Helper/GoogleBtn";
+
 // import { toast, ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 export default function Login() {
@@ -147,23 +148,7 @@ export default function Login() {
                 Forgot Password
               </Button>
             </Box>
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{
-                width: "25vw",
-                background: "#073259",
-                height: "2rem",
-                display: "flex",
-                flexDirection: " row",
-                justifyContent: "space-evenly",
-                marginTop: "1rem",
-                // border: "1px solid red",
-              }}
-            >
-              <GoogleIcon />
-              Log In With Google
-            </Button>
+            <GoogleBtn />
             <Divider textAlign="right" sx={{ marginTop: "2rem" }}>
               Don't Have An Account
             </Divider>
