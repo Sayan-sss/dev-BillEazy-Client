@@ -147,7 +147,7 @@ const useDeliveryChallanApis = () => {
     userId,
   }) => {
     const { data } = await API.post(
-      "/v1/api/deliveryChallan/supplierdetails/create",
+      "/v1/api/deliveryChallan/deliveryChallansupplierdetails/create",
       {
         firmName,
         companyGstin,
@@ -178,7 +178,7 @@ const useDeliveryChallanApis = () => {
     try {
       // console.log(userId);
       const { data } = await API.post(
-        `/v1/api/deliveryChallan/supplierdetails/get/${userId}`
+        `/v1/api/deliveryChallan/deliveryChallansupplierdetails/get/${userId}`
       );
       if (data?.success) {
         // console.log(data.Allbuyer);
@@ -208,7 +208,7 @@ const useDeliveryChallanApis = () => {
     userId,
   }) => {
     const { data } = await API.post(
-      "/v1/api/deliveryChallan/buyerdetails/create",
+      "/v1/api/deliveryChallan/deliveryChallanbuyerdetails/create",
       {
         companyName,
         companyGstin,
@@ -238,7 +238,7 @@ const useDeliveryChallanApis = () => {
       // handleClickOpen();
       try {
         const { data } = await API.post(
-          `/v1/api/deliveryChallan/buyerdetails/get/${userId}`
+          `/v1/api/deliveryChallan/deliveryChallanbuyerdetails/get/${userId}`
         );
         if (data?.success) {
           // console.log(data.Allbuyer);
@@ -256,7 +256,9 @@ const useDeliveryChallanApis = () => {
 
   const deleteBuyerDetails = async (id) => {
     try {
-      await API.post(`/v1/api/deliveryChallan/buyerdetails/delete/${id}`);
+      await API.post(
+        `/v1/api/deliveryChallan/deliveryChallanbuyerdetails/delete/${id}`
+      );
       // getBuyerData();
       // console.log("Buyer Deleted");
       toast.success("Deleted successfully");
@@ -289,7 +291,7 @@ const useDeliveryChallanApis = () => {
     // { productdetails }
     {
       const { data } = await API.post(
-        "/v1/api/deliveryChallan/productdetails/create",
+        "/v1/api/deliveryChallan/deliveryChallanproductdetails/create",
         {
           itemName,
           itemDescription,
@@ -325,7 +327,7 @@ const useDeliveryChallanApis = () => {
       console.log(userId);
       try {
         const { data } = await API.post(
-          `/v1/api/deliveryChallan/productdetails/get/${userId}`
+          `/v1/api/deliveryChallan/deliveryChallanproductdetails/get/${userId}`
         );
         if (data?.success) {
           // const newData = data.AllProducts;
@@ -346,7 +348,7 @@ const useDeliveryChallanApis = () => {
     // e.preventDefault;
     try {
       const { data } = await API.post(
-        `/v1/api/deliveryChallan/productdetails/delete/${id}`
+        `/v1/api/deliveryChallan/deliveryChallanproductdetails/delete/${id}`
       );
       if (data?.success) {
         await getProductDetails(user._id);
@@ -372,7 +374,7 @@ const useDeliveryChallanApis = () => {
     userId,
   }) => {
     const { data } = await API.post(
-      "/v1/api/deliveryChallan/transportdetails/create",
+      "/v1/api/deliveryChallan/deliveryChallanproductdetails/create",
       {
         type,
         lrDate,
@@ -399,7 +401,7 @@ const useDeliveryChallanApis = () => {
     console.log("called");
     try {
       const { data } = await API.post(
-        `/v1/api/deliveryChallan/transportdetails/get/${id}`
+        `/v1/api/deliveryChallan/deliveryChallanproductdetails/get/${id}`
       );
       // console.log("called");
       if (data?.success) {
@@ -426,7 +428,7 @@ const useDeliveryChallanApis = () => {
   }) => {
     try {
       const { data } = await API.post(
-        `/v1/api/deliveryChallan/bankdetails/create`,
+        `/v1/api/deliveryChallan/deliveryChallanproductdetails/create`,
         {
           accountHolderName,
           accountNumber,
@@ -455,7 +457,7 @@ const useDeliveryChallanApis = () => {
     console.log("called");
     try {
       const { data } = await API.post(
-        `/v1/api/deliveryChallan/bankdetails/get/${id}`
+        `/v1/api/deliveryChallan/deliveryChallanproductdetails/get/${id}`
       );
       // console.log("called");
       if (data?.success) {
