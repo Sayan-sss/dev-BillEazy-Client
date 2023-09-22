@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Invoicetable from "../MuuiComponents/invoiceTable";
 // import "./InvoiceList.css";
 import SearchAppBar from "../MuuiComponents/Searchbar";
+import DeliveryChallanTable from "../MuuiComponents/deliveryChallanTable";
 // import invoiceTable from "../MuuiComponents/invoiceTable";
 const ChallanList = () => {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ const ChallanList = () => {
           </Button>
           <SearchAppBar />
         </Box>
-        <Invoicetable field="Delivery Challan" />
+        <DeliveryChallanTable field="Delivery Challan" />
       </Box>
     </Box>
   );
