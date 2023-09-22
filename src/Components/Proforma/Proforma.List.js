@@ -8,6 +8,7 @@ import SearchAppBar from "../MuuiComponents/Searchbar";
 // import invoiceTable from "../MuuiComponents/invoiceTable";
 import useInvoiceApis from "../hooks/invoice.hooks";
 import { useSelector } from "react-redux";
+import ProformaTable from "../MuuiComponents/proformaTable";
 
 const ProformaList = () => {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ const ProformaList = () => {
           </Button>
           <SearchAppBar />
         </Box>
-        <Invoicetable field="Proforma" />
+        <ProformaTable field="Proforma" />
       </Box>
     </Box>
   );

@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import API from "../../api";
-const useProformaApis = () => {
+const useDeliveryChallanApis = () => {
   const dispatch = useDispatch();
   const [supplierDetailsId, setSupplierDetailsId] = useState(null);
   const [supplierData, setSupplierData] = useState([]);
@@ -23,8 +23,8 @@ const useProformaApis = () => {
   const Transport = useSelector((state) => state.TransportReducer);
   // console.log("Reducer user");
   const { user } = User;
-  // ***** proforma ******///////
-  const addProformaDetails = async ({
+  // ***** deliveryChallan ******///////
+  const addDeliveryChallanDetails = async ({
     termsAndConditions,
     productId,
     totalProductPrice,
@@ -47,7 +47,7 @@ const useProformaApis = () => {
       console.log(Supplier?.data._id);
       const Supplier_id = Supplier?.data._id;
 
-      const { data } = await API.post("/v1/api/proforma/create", {
+      const { data } = await API.post("/v1/api/deliveryChallan/create", {
         Buyer_id,
         Bank_id,
         // Products_id,
@@ -62,7 +62,7 @@ const useProformaApis = () => {
         pendingAmount: totalProductPrice,
       });
       console.log(data);
-      dispatch({ type: "POST_ONE_PROFORMA_DETAIL", payload: { data } });
+      dispatch({ type: "POST_ONE_DELIVERY_CHALLAN_DETAIL", payload: { data } });
 
       toast.success("Successfully added");
     } catch (error) {
@@ -70,51 +70,51 @@ const useProformaApis = () => {
     }
   };
 
-  const getProformaDetails = useCallback(async (id) => {
+  const getDeliveryChallanDetails = useCallback(async (id) => {
     try {
       // console.log(id);
-      // console.log("Fetch proforma");
-      const { data } = await API.post(`/v1/api/proforma/get/${id}`);
+      // console.log("Fetch deliveryChallan");
+      const { data } = await API.post(`/v1/api/deliveryChallan/get/${id}`);
       console.log(data);
-      dispatch({ type: "POST_PROFORMA_DETAILS", payload: { data } });
-      toast.success("proforma fetched successfully");
+      dispatch({ type: "POST_DELIVERY_CHALLAN_DETAILS", payload: { data } });
+      toast.success("Delivery Challan fetched successfully");
     } catch (error) {
       toast.error(error);
     }
   }, []);
-  const getProforma_Product_Details = useCallback(async (id) => {
+  const getDeliveryChallan_Product_Details = useCallback(async (id) => {
     try {
       // console.log(id);
-      // console.log("Fetch proforma");
+      // console.log("Fetch deliveryChallan");
       const { data } = await API.post(
-        `/v1/api/proforma/get/fetchProduct_proformaDetails/${id}`
+        `/v1/api/deliveryChallan/get/fetchProduct_deliveryChallanDetails/${id}`
       );
       console.log(data);
       if (data?.success) {
         dispatch({
-          type: "POST_PROFORMA_PRODUCT_DETAILS",
+          type: "POST_DELIVERY_CHALLAN_PRODUCT_DETAILS",
           payload: { data },
         });
-        toast.success("proforma & product fetched successfully");
+        toast.success("Delivery Challan & product fetched successfully");
       }
     } catch (error) {
       toast.error(error);
     }
   }, []);
 
-  const updateProformaDetails = async ({
-    proforma_Id,
+  const updateDeliveryChallanDetails = async ({
+    deliveryChallan_Id,
     paidAmount,
     pendingAmount,
   }) => {
     console.log("Hii");
-    console.log(proforma_Id);
+    console.log(deliveryChallan_Id);
     console.log(paidAmount);
     console.log(pendingAmount);
 
     try {
       const { data } = await API.post(
-        `/v1/api/proforma/proformadetails/update/${proforma_Id}`,
+        `/v1/api/deliveryChallan/deliveryChallanDetails/update/${deliveryChallan_Id}`,
         { paidAmount, pendingAmount }
       );
       if (data?.success) {
@@ -130,7 +130,7 @@ const useProformaApis = () => {
     }
   };
 
-  // ***** proforma ******///////
+  // ***** deliveryChallan ******///////
 
   //****Supplier Details*/
   const addSupplierDetails = async ({
@@ -147,7 +147,7 @@ const useProformaApis = () => {
     userId,
   }) => {
     const { data } = await API.post(
-      "/v1/api/proforma/proformaSupplierdetails/create",
+      "/v1/api/deliveryChallan/deliveryChallansupplierdetails/create",
       {
         firmName,
         companyGstin,
@@ -178,7 +178,7 @@ const useProformaApis = () => {
     try {
       // console.log(userId);
       const { data } = await API.post(
-        `/v1/api/proforma/proformaSupplierdetails/get/${userId}`
+        `/v1/api/deliveryChallan/deliveryChallansupplierdetails/get/${userId}`
       );
       if (data?.success) {
         // console.log(data.Allbuyer);
@@ -208,7 +208,7 @@ const useProformaApis = () => {
     userId,
   }) => {
     const { data } = await API.post(
-      "/v1/api/proforma/proformaBuyerdetails/create",
+      "/v1/api/deliveryChallan/deliveryChallanbuyerdetails/create",
       {
         companyName,
         companyGstin,
@@ -238,7 +238,7 @@ const useProformaApis = () => {
       // handleClickOpen();
       try {
         const { data } = await API.post(
-          `/v1/api/proforma/proformaBuyerdetails/get/${userId}`
+          `/v1/api/deliveryChallan/deliveryChallanbuyerdetails/get/${userId}`
         );
         if (data?.success) {
           // console.log(data.Allbuyer);
@@ -256,7 +256,9 @@ const useProformaApis = () => {
 
   const deleteBuyerDetails = async (id) => {
     try {
-      await API.post(`/v1/api/proforma/proformaBuyerdetails/delete/${id}`);
+      await API.post(
+        `/v1/api/deliveryChallan/deliveryChallanbuyerdetails/delete/${id}`
+      );
       // getBuyerData();
       // console.log("Buyer Deleted");
       toast.success("Deleted successfully");
@@ -289,7 +291,7 @@ const useProformaApis = () => {
     // { productdetails }
     {
       const { data } = await API.post(
-        "/v1/api/proforma/proformaProductdetails/create",
+        "/v1/api/deliveryChallan/deliveryChallanproductdetails/create",
         {
           itemName,
           itemDescription,
@@ -325,7 +327,7 @@ const useProformaApis = () => {
       console.log(userId);
       try {
         const { data } = await API.post(
-          `/v1/api/proforma/proformaProductdetails/get/${userId}`
+          `/v1/api/deliveryChallan/deliveryChallanproductdetails/get/${userId}`
         );
         if (data?.success) {
           // const newData = data.AllProducts;
@@ -346,7 +348,7 @@ const useProformaApis = () => {
     // e.preventDefault;
     try {
       const { data } = await API.post(
-        `/v1/api/proforma/proformaProductdetails/delete/${id}`
+        `/v1/api/deliveryChallan/deliveryChallanproductdetails/delete/${id}`
       );
       if (data?.success) {
         await getProductDetails(user._id);
@@ -372,7 +374,7 @@ const useProformaApis = () => {
     userId,
   }) => {
     const { data } = await API.post(
-      "/v1/api/proforma/proformaTransportdetails/create",
+      "/v1/api/deliveryChallan/deliveryChallanproductdetails/create",
       {
         type,
         lrDate,
@@ -399,7 +401,7 @@ const useProformaApis = () => {
     console.log("called");
     try {
       const { data } = await API.post(
-        `/v1/api/proforma/proformaTransportdetails/get/${id}`
+        `/v1/api/deliveryChallan/deliveryChallanproductdetails/get/${id}`
       );
       // console.log("called");
       if (data?.success) {
@@ -426,7 +428,7 @@ const useProformaApis = () => {
   }) => {
     try {
       const { data } = await API.post(
-        `/v1/api/proforma/proformaBankdetails/create`,
+        `/v1/api/deliveryChallan/deliveryChallanproductdetails/create`,
         {
           accountHolderName,
           accountNumber,
@@ -455,7 +457,7 @@ const useProformaApis = () => {
     console.log("called");
     try {
       const { data } = await API.post(
-        `/v1/api/proforma/proformaBankdetails/get/${id}`
+        `/v1/api/deliveryChallan/deliveryChallanproductdetails/get/${id}`
       );
       // console.log("called");
       if (data?.success) {
@@ -470,10 +472,10 @@ const useProformaApis = () => {
   });
 
   return {
-    addProformaDetails,
-    getProformaDetails,
-    getProforma_Product_Details,
-    updateProformaDetails,
+    addDeliveryChallanDetails,
+    getDeliveryChallanDetails,
+    getDeliveryChallan_Product_Details,
+    updateDeliveryChallanDetails,
 
     addSupplierDetails,
     getSupplierDetails,
@@ -504,4 +506,4 @@ const useProformaApis = () => {
   };
 };
 
-export default useproformaApis;
+export default useDeliveryChallanApis;

@@ -280,7 +280,7 @@ const Sidebar = (props) => {
 
             <Button
               // variant="contained"
-              onClick={() => navigate("/invoiceList")}
+              onClick={() => navigate("/ProformaList")}
               variant="contained"
               sx={{
                 display: "flex",
@@ -300,7 +300,7 @@ const Sidebar = (props) => {
 
             <Button
               variant="contained"
-              onClick={() => navigate("/invoiceList")}
+              onClick={() => navigate("/ChallanList")}
               // variant="contained"
               sx={{
                 display: "flex",

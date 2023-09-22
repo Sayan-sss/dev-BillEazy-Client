@@ -39,6 +39,7 @@ import LoadingPage from "./Components/Helper/Loading.Page";
 import ProformaList from "./Components/Proforma/Proforma.List";
 import ProformaCreater from "./Components/Proforma/Proforma.creater";
 import ProformaViewer from "./Components/Proforma/Proforma.Viewer";
+import Inventory from "./Components/MuuiComponents/Inventory Table/Inventory";
 
 function App() {
   const [sidebar, setSidebar] = useState(false);
@@ -117,7 +118,7 @@ function App() {
             <Route path="/About" element={<About />} />
 
             {/* Private Routes */}
-
+            <Route path="/inventory" element={<Inventory />} />
             <Route path="/" element={<PrivateRoute />}>
               <Route path="contact" element={<Contact />} />
               {/* invoice routes */}
@@ -137,6 +138,7 @@ function App() {
                 path="DeliveryChallan/create"
                 element={<DeliveryChallanCreater />}
               />
+              {/* <Route path="invoicelist" element={<InvoiceList />} /> */}
               <Route
                 path="Proforma/create"
                 element={<DeliveryChallanCreater />}

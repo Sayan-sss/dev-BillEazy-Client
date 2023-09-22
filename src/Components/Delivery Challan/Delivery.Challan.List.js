@@ -2,15 +2,31 @@ import Button from "@mui/material/Button";
 import { Box } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Invoicetable from "../MuuiComponents/invoiceTable";
-// import "./InvoiceList.css";
+import deliveryChallantable from "../MuuiComponents/deliveryChallanTable";
+// import "./deliveryChallanList.css";
 import SearchAppBar from "../MuuiComponents/Searchbar";
-// import invoiceTable from "../MuuiComponents/invoiceTable";
+import DeliveryChallanTable from "../MuuiComponents/deliveryChallanTable";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import useDeliveryChallanApis from "../hooks/delivery.challan.hooks";
+
 const ChallanList = () => {
+  const User = useSelector((state) => state.authReducer);
+  const { user } = User;
+  console.log(user);
   const navigate = useNavigate();
+  const { getDeliveryChallanDetails } = useDeliveryChallanApis();
+  useEffect(() => {
+    window.addEventListener("load", getDeliveryChallanDetails(user._id));
+
+    // return () => {
+    //   window.removeEventListener("load", getdeliveryChallanDetails(user._id));
+    // };
+  }, [getDeliveryChallanDetails]);
+
   return (
     <Box
-      className="invoice_container"
+      className="deliveryChallan_container"
       sx={{
         // border: "10px solid red",
         height: "100vh",
@@ -52,7 +68,7 @@ const ChallanList = () => {
           </Button>
           <SearchAppBar />
         </Box>
-        <Invoicetable field="Delivery Challan" />
+        <DeliveryChallanTable field="Delivery Challan" />
       </Box>
     </Box>
   );
