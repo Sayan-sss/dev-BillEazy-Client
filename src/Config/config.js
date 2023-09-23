@@ -1,4 +1,5 @@
 console.log(process.env.REACT_APP_MODE);
+console.log(process.env.REACT_APP_ENV);
 let firebaseConfig = {};
 if (process.env.REACT_APP_MODE === "dev") {
   firebaseConfig = {
