@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "dev-billeazy"
+    "default": "billeazy",
+    "prod": "billeazy"
   }
 }
