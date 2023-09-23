@@ -420,6 +420,8 @@ export const MyDocument = ({
             style={{
               display: "flex",
               flexDirection: "column",
+              borderRight: "1px solid black",
+              width: "10%",
             }}
           >
             <Text style={styles.items_text}>SR No.</Text>
@@ -434,12 +436,14 @@ export const MyDocument = ({
             style={{
               display: "flex",
               flexDirection: "column",
-              maxWidth: 150,
+              Width: "10%",
+              // border: "1px solid black",
+              borderRight: "1px solid black",
             }}
           >
             <Text style={styles.items_text}>Description Of Product </Text>
             {product?.map((product) => (
-              <Text style={styles.items_text}>{product?.itemDescription} </Text>
+              <Text style={styles.items_text}>{product?.itemName} </Text>
             ))}
             {/* <Text style={styles.items_text}>ULSOL-O GEL SYRUP </Text>
             <Text style={styles.items_text}>ULSOL-O GEL SYRUP </Text> */}
@@ -448,6 +452,7 @@ export const MyDocument = ({
             style={{
               display: "flex",
               flexDirection: "column",
+              borderRight: "1px solid black",
             }}
           >
             <Text style={styles.items_text}>HSN Code</Text>
@@ -461,6 +466,7 @@ export const MyDocument = ({
             style={{
               display: "flex",
               flexDirection: "column",
+              borderRight: "1px solid black",
             }}
           >
             <Text style={styles.items_text}>QTY</Text>
@@ -472,6 +478,7 @@ export const MyDocument = ({
             style={{
               display: "flex",
               flexDirection: "column",
+              borderRight: "1px solid black",
             }}
           >
             <Text style={styles.items_text}>Unit</Text>
@@ -483,6 +490,7 @@ export const MyDocument = ({
             style={{
               display: "flex",
               flexDirection: "column",
+              borderRight: "1px solid black",
             }}
           >
             <Text style={styles.items_text}>Rate</Text>
@@ -495,6 +503,7 @@ export const MyDocument = ({
             style={{
               display: "flex",
               flexDirection: "column",
+              borderRight: "1px solid black",
             }}
           >
             {/* <Text style={styles.items_text}>Taxable gst</Text> */}
@@ -507,6 +516,7 @@ export const MyDocument = ({
             style={{
               display: "flex",
               flexDirection: "column",
+              borderRight: "1px solid black",
             }}
           >
             <Text style={styles.items_text}>IGST</Text>
@@ -518,6 +528,7 @@ export const MyDocument = ({
             style={{
               display: "flex",
               flexDirection: "column",
+              // border: "1px solid black",
             }}
           >
             <Text style={styles.items_text}>Total</Text>
@@ -623,7 +634,7 @@ export const MyDocument = ({
               }}
             >
               <Text style={styles.items_text}>
-                {converter.toWords({ totalProductPrice })}
+                {/* {converter.toWords({ totalProductPrice })} */}
               </Text>
               <Text style={styles.items_text}>
                 {/* Seven Thousand Three Hundred and Ninety Two Only{" "} */}
