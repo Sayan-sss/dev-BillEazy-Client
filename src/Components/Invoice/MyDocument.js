@@ -1,6 +1,9 @@
 import React from "react";
 // import { useSelector } from "react-redux";
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
+import logo from "../Assets/icon.png";
+// import logo from "../Assets/newlogo.png";
+// const image = require("../Assets/icon.png");
 
 // Create styles
 const styles = StyleSheet.create({
@@ -34,11 +37,11 @@ const styles = StyleSheet.create({
     width: "100%",
     minHeight: 100,
     textAlign: "right",
-    borderBottom: "1px solid black",
+    // borderBottom: "1px solid black",
     // height: "100%",
   },
   logoContainer: {
-    border: "1px solid black",
+    // border: "1px solid black",
     height: 100,
     display: "flex",
     justifyContent: "center",
@@ -48,14 +51,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 2,
     maxWidth: "25%",
   },
-  logo: {
-    fontSize: 15,
-  },
+  // logo: {
+  //   fontSize: 15,
+  // },
   companyNameAndAddress: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    border: "1px solid black",
+    justifyContent: "center",
+    // border: "1px solid black",
     width: "75%",
   },
   documentType: {
@@ -65,16 +69,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     // borderBottom: "1px solid black",
     backgroundColor: "#062541",
-    height: 50,
+    height: 30,
     color: "white",
   },
   buyerDetails: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "stretch",
+    // alignItems: "stretch",
 
-    // width: "100%",
-    // border: "1px solid red",
+    width: "100vw",
+    // border: "3px solid blue",
   },
   buyerDetails_col_1: {
     display: "flex",
@@ -87,7 +91,7 @@ const styles = StyleSheet.create({
     maxWidth: "60%",
 
     // backgroundColor: "red",
-    // border: "1px solid red",
+    // border: "10px solid red",
     // borderRightColor: "red",
     // backgroundColor: "red",
   },
@@ -97,11 +101,12 @@ const styles = StyleSheet.create({
     // justifyContent: "flex-start",
     // marginLeft: "10rem",
     // marginLeft: "10rem",
-    width: "59%",
-    maxWidth: "59%",
+    width: "40%",
+    maxWidth: "40%",
+    // border: "10px solid red",
     // width: "60%",
     // maxWidth: "60%",
-    borderRight: "1px solid black",
+    // borderRight: "1px solid black",
     // backgroundColor: "red",
   },
   text: {
@@ -117,7 +122,7 @@ const styles = StyleSheet.create({
   priceDetails: {
     display: "flex",
     flexDirection: "column",
-    border: "1px solid red",
+    // border: "1px solid red",
   },
   price_heading_view: {
     display: "flex",
@@ -186,10 +191,13 @@ export const MyDocument = ({
         <View style={styles.companyDetails}>
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>
-              Sheerina
+              {/* Sheerina
               <br />
-              Enterprise{" "}
+              Enterprise */}
+              {/* <img src={logo} alt="" /> */}
+              {/* <img src={image} /> */}
             </Text>
+            <img src={logo} alt="" height={"100%"} width={"100%"} />
           </View>
           {/* data?.supplierDetails?.companyAddress */}
           <View style={styles.companyNameAndAddress}>
@@ -199,7 +207,7 @@ export const MyDocument = ({
           </View>
         </View>
         <View style={styles.documentType}>
-          <Text style={{ fontWeight: "bold" }}>Invoice</Text>
+          <Text style={{ fontWeight: "bold" }}>INVOICE</Text>
         </View>
         {/* CONSIGNEE DETAILS */}
         <View style={styles.buyerDetails}>
@@ -208,9 +216,7 @@ export const MyDocument = ({
               BUYER DETAILS (DETAILS FOR RECIEVER)
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {"      "}:
             </Text>
-            <Text style={styles.text}>
-              Company Name:{buyerDetails?.companyName}
-            </Text>
+            <Text style={styles.text}>Name:{buyerDetails?.companyName}</Text>
             <Text style={styles.text}>
               Address :{buyerDetails?.companyAddress}
             </Text>
