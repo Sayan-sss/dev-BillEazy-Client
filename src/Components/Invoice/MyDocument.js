@@ -1,6 +1,14 @@
 import React from "react";
 // import { useSelector } from "react-redux";
-import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
+import {
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+  Image,
+} from "@react-pdf/renderer";
+import logo from "../Assets/icon.png";
 
 // Create styles
 const styles = StyleSheet.create({
@@ -48,15 +56,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 2,
     maxWidth: "25%",
   },
-  // logo: {
-  //   fontSize: 15,
-  // },
+  logo: {
+    fontSize: 15,
+  },
   companyNameAndAddress: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     // border: "1px solid black",
+    // fontSize: "5",
+    height: 100,
     width: "75%",
   },
   documentType: {
@@ -72,10 +82,10 @@ const styles = StyleSheet.create({
   buyerDetails: {
     display: "flex",
     flexDirection: "row",
-    // alignItems: "stretch",
+    alignItems: "stretch",
 
-    width: "100vw",
-    // border: "3px solid blue",
+    // width: "100%",
+    // border: "1px solid red",
   },
   buyerDetails_col_1: {
     display: "flex",
@@ -88,7 +98,7 @@ const styles = StyleSheet.create({
     maxWidth: "60%",
 
     // backgroundColor: "red",
-    // border: "10px solid red",
+    // border: "1px solid red",
     // borderRightColor: "red",
     // backgroundColor: "red",
   },
@@ -100,7 +110,6 @@ const styles = StyleSheet.create({
     // marginLeft: "10rem",
     width: "40%",
     maxWidth: "40%",
-    // border: "10px solid red",
     // width: "60%",
     // maxWidth: "60%",
     // borderRight: "1px solid black",
@@ -119,7 +128,7 @@ const styles = StyleSheet.create({
   priceDetails: {
     display: "flex",
     flexDirection: "column",
-    // border: "1px solid red",
+    border: "1px solid red",
   },
   price_heading_view: {
     display: "flex",
@@ -165,20 +174,34 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     textOverflow: "clipped",
+    // display: "flex",
+    // alignItems: "center",
+    // justifyContent: "space-around",
+    // flexDirection: "row",
+  },
+  table_text: {
+    fontSize: 10,
+    // fontWeight: "ultrabold",
+    // paddingHorizontal: 10,
+    // paddingVertical: 5,
+    // textOverflow: "clipped",
+  },
+  bold_text: {
+    fontWeight: "heavy",
+    fontSize: 12,
+    borderBottom: "1px solid black",
+    borderRight: "1px solid black",
+    maxWidth: 350,
+    textAlign: "left",
+    paddingVertical: 1,
+    paddingLeft: 6,
+  },
+  supplier: {
+    fontSize: "15",
+    fontWeight: "bold",
+    paddingVertical: 1,
   },
 });
-// const location = useLocation();
-// const {
-//   supplierDetails,
-//   buyerDetails,
-//   bankDetails,
-//   product,
-//   transportDetails,
-//   termsAndConditions,
-//   totalProductPrice,
-//   totalTaxAmount,
-// } = location.state;
-// console.log(supplierDetails);
 // const { token, user } = data;
 // const { data } = useSelector((state) => state.Single_Invoice_Reducer);
 // console.log(data);
@@ -194,95 +217,96 @@ export const MyDocument = ({
   totalTaxAmount,
 }) => (
   <Document>
-    {/* const location = useLocation(); const{" "}
-    {
-      (supplierDetails,
-      buyerDetails,
-      bankDetails,
-      product,
-      transportDetails,
-      termsAndConditions,
-      totalProductPrice,
-      totalTaxAmount)
-    }{" "}
-    =location.state; console.log(supplierDetails); */}
     {/* console.log(product) */}
     <Page size="A4" style={styles.page}>
       <View style={styles.parentContainer}>
         <View style={styles.companyDetails}>
           <View style={styles.logoContainer}>
-            <Text style={styles.logo}>
-              {/* Sheerina
+            {/* <Text style={styles.logo}>
+              Sheerina
               <br />
-              Enterprise */}
-              {/* <img src={logo} alt="" /> */}
-              {/* <img src={image} /> */}
-            </Text>
-            <img src={logo} alt="" height={"100%"} width={"100%"} />
+              Enterprise{" "}
+            </Text> */}
+            <Image src={logo} />
           </View>
           {/* data?.supplierDetails?.companyAddress */}
           <View style={styles.companyNameAndAddress}>
-            <Text>{supplierDetails?.firmName}</Text>
-            <Text>Company Address</Text>
-            <Text>{supplierDetails?.companyAddress}</Text>
+            <Text style={styles.supplier}>{supplierDetails?.firmName}</Text>
+            {/* <Text>Company Address</Text> */}
+            <Text style={styles.supplier}>
+              {supplierDetails?.companyAddress}
+            </Text>
+            <Text style={styles.supplier}>
+              {supplierDetails?.companyMobile}
+            </Text>
           </View>
         </View>
         <View style={styles.documentType}>
-          <Text style={{ fontWeight: "bold" }}>INVOICE</Text>
+          <Text style={{ fontWeight: "bold" }}>Invoice</Text>
         </View>
         {/* CONSIGNEE DETAILS */}
         <View style={styles.buyerDetails}>
-          <View styles={styles.buyerDetails_col_1}>
-            <Text style={[{ fontWeight: "bold" }, styles.text]}>
+          <View style={styles.buyerDetails_col_1}>
+            <Text style={[{ fontWeight: "bold" }, styles.bold_text]}>
               BUYER DETAILS (DETAILS FOR RECIEVER)
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {"      "}:
-            </Text>
-            <Text style={styles.text}>Name:{buyerDetails?.companyName}</Text>
-            <Text style={styles.text}>
-              Address :{buyerDetails?.companyAddress}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {"      "}
             </Text>
             <Text style={styles.text}>
-              Mobile :{buyerDetails?.companyMobile}
+              Name {"        "}: {buyerDetails?.companyName}
             </Text>
             <Text style={styles.text}>
-              GSTIN :{buyerDetails?.companyGstin}{" "}
+              Address{"     "}: {buyerDetails?.companyAddress}
             </Text>
-            <Text style={styles.text}>State : {buyerDetails?.state} </Text>
+            <Text style={styles.text}>
+              Mobile {"       "}: {buyerDetails?.companyMobile}
+            </Text>
+            <Text style={styles.text}>
+              GSTIN{"       "}: {buyerDetails?.companyGstin}{" "}
+            </Text>
+            <Text style={styles.text}>
+              State {"          "}: {buyerDetails?.state}{" "}
+            </Text>
             <Text style={styles.text}>
               State Code : {buyerDetails?.pincode}
             </Text>
           </View>
 
           <View style={styles.buyerDetails_col_2}>
-            <Text style={styles.text}>Challan No : </Text>
-            <Text style={styles.text}>Challan Date :</Text>
+            <Text style={styles.text}>Challan No {"               "}: </Text>
+            <Text style={styles.text}>Challan Date {"            "}: </Text>
             <Text style={styles.text}>
-              Place Of Supply:{transportDetails?.placeOfSupply}{" "}
+              Place Of Supply{"        "}: {transportDetails?.placeOfSupply}{" "}
             </Text>
-            <Text style={styles.text}>State : {buyerDetails?.state} </Text>
-            <Text style={styles.text}>Transportation Mode : None</Text>
-            <Text style={styles.text}>Transporter Name :</Text>
             <Text style={styles.text}>
-              Vehicle No :{transportDetails?.vehicleNumber}
+              State{"                          "}: {buyerDetails?.state}{" "}
+            </Text>
+            <Text style={styles.text}>Transportation Mode : </Text>
+            <Text style={styles.text}>Transporter Name {"    "}: </Text>
+            <Text style={styles.text}>
+              Vehicle No {"               "} :{transportDetails?.vehicleNumber}
             </Text>
           </View>
         </View>
         <View style={styles.buyerDetails}>
-          <View styles={styles.buyerDetails_col_1}>
-            <Text style={[{ fontWeight: "bold" }, styles.text]}>
-              CONSIGNEE DETAILS(DETAILS FOR CONSIGNEE):&nbsp;
-            </Text>
-            <Text style={styles.text}>Name :{buyerDetails?.companyName} </Text>
-            <Text style={styles.text}>
-              Address : {buyerDetails?.companyAddress}
+          <View style={styles.buyerDetails_col_1}>
+            <Text style={styles.bold_text}>
+              CONSIGNEE DETAILS(DETAILS FOR CONSIGNEE)&nbsp;
             </Text>
             <Text style={styles.text}>
-              Mobile : {buyerDetails?.companyMobile}
+              Name {"        "}: {buyerDetails?.companyName}{" "}
             </Text>
             <Text style={styles.text}>
-              GSTIN :{buyerDetails?.companyGstin}{" "}
+              Address{"     "}: {buyerDetails?.companyAddress}
             </Text>
-            <Text style={styles.text}>State : {buyerDetails?.state} </Text>
+            <Text style={styles.text}>
+              Mobile {"       "}: {buyerDetails?.companyMobile}
+            </Text>
+            <Text style={styles.text}>
+              GSTIN{"       "}: {buyerDetails?.companyGstin}{" "}
+            </Text>
+            <Text style={styles.text}>
+              State {"          "}: {buyerDetails?.state}{" "}
+            </Text>
             <Text style={styles.text}>
               State Code : {buyerDetails?.pincode}
             </Text>
@@ -291,17 +315,17 @@ export const MyDocument = ({
       lrNumber: 1233, */}
 
           <View style={styles.buyerDetails_col_2}>
-            <Text style={styles.text}>Transporter ID :</Text>
+            <Text style={styles.text}>Transporter ID {"          "}: </Text>
             <Text style={styles.text}>
-              LR Number :{transportDetails?.lrNumber}
+              LR Number {"              "}: {transportDetails?.lrNumber}
             </Text>
             <Text style={styles.text}>
-              LR Date : {transportDetails?.lrDate}{" "}
+              LR Date {"                    "}: {transportDetails?.lrDate}{" "}
             </Text>
-            {/* <Text style={styles.text}></Text>
-            <Text style={styles.text}></Text>
-            <Text style={styles.text}></Text>
-            <Text style={styles.text}></Text> */}
+            <Text style={styles.text}>{""} </Text>
+            <Text style={styles.text}>{""} </Text>
+            <Text style={styles.text}>{""} </Text>
+            <Text style={styles.text}>{""} </Text>
           </View>
         </View>
         {/* <View style={styles.priceDetails}>
@@ -377,14 +401,18 @@ export const MyDocument = ({
         <View
           style={{
             width: "100%",
-            border: "1px soild black",
+            // border: "1px soild black",
           }}
         ></View>
 
         <View
           style={{
             display: "flex",
+            width: "100%",
             flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-around",
+            border: "1px solid black",
           }}
         >
           <View
@@ -502,7 +530,7 @@ export const MyDocument = ({
         <View
           style={{
             width: "100%",
-            border: "1px soild black",
+            // border: "1px soild black",
           }}
         ></View>
 
@@ -562,7 +590,7 @@ export const MyDocument = ({
         <View
           style={{
             width: "100%",
-            border: "1px soild black",
+            // border: "1px soild black",
           }}
         ></View>
 
@@ -630,7 +658,7 @@ export const MyDocument = ({
               }}
             >
               {/* <Text style={styles.items_text}>Total Taxable Amount :</Text> */}
-              <Text style={styles.items_text}>Total Tax:</Text>
+              <Text style={styles.items_text}>Total Tax :</Text>
               <Text style={styles.items_text}>{totalTaxAmount}%</Text>
             </View>
             {/* <View
