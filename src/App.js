@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { Box, DialogContent, Paper, Stepper } from "@mui/material";
 // import Contact from "./Components/Contact/Contact";
@@ -40,6 +40,7 @@ import ProformaList from "./Components/Proforma/Proforma.List";
 import ProformaCreater from "./Components/Proforma/Proforma.creater";
 import ProformaViewer from "./Components/Proforma/Proforma.Viewer";
 import Inventory from "./Components/MuuiComponents/Inventory Table/Inventory";
+import useInvoiceApis from "./Components/hooks/invoice.hooks";
 
 function App() {
   const [sidebar, setSidebar] = useState(false);
@@ -53,10 +54,23 @@ function App() {
   // console.log(token, user);
   // console.log("User");
   // console.log(User);
-  const User = useSelector((state) => state.authReducer);
-  const { token, user } = User;
-  const data = useSelector((state) => state.ProductReducer);
-  console.log(data);
+  // const User = useSelector((state) => state.authReducer);
+  // const { token, user } = User;
+  // const data = useSelector((state) => state.ProductReducer);
+  // console.log(data);
+  let user = "650df978a7f08f5bb70bb84b";
+  const { getInvoiceDetails } = useInvoiceApis();
+  // const handleSubmit = useCallback(() => {
+  //   getInvoiceDetails(user._id);
+  // }, []);
+
+  useEffect(() => {
+    getInvoiceDetails("650df978a7f08f5bb70bb84b");
+
+    // return () => {
+    //   window.removeEventListener("load", getInvoiceDetails(user._id));
+    // };
+  }, [getInvoiceDetails]);
   // console.log(token);
   return (
     <div className="App">
