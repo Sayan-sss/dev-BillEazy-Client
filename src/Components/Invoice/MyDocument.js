@@ -78,21 +78,31 @@ const styles = StyleSheet.create({
   },
   buyerDetails_col_1: {
     display: "flex",
+    // display:
     flexDirection: "column",
-    width: 100,
-    // maxWidth: "60%",
-    // borderRight: "1px solid ",
+    // width: 100,
+    // justifyContent: "flex-start",
+    width: "60%",
+    // minWidth: 1000,
+    maxWidth: "60%",
+
+    // backgroundColor: "red",
+    // border: "1px solid red",
     // borderRightColor: "red",
     // backgroundColor: "red",
   },
   buyerDetails_col_2: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "flex-start",
-
-    width: "40%",
-    maxWidth: "40%",
+    // justifyContent: "flex-start",
+    // marginLeft: "10rem",
+    // marginLeft: "10rem",
+    width: "59%",
+    maxWidth: "59%",
+    // width: "60%",
+    // maxWidth: "60%",
     borderRight: "1px solid black",
+    // backgroundColor: "red",
   },
   text: {
     borderBottom: "1px solid black",
@@ -189,15 +199,18 @@ export const MyDocument = ({
           </View>
         </View>
         <View style={styles.documentType}>
-          <Text style={{ fontWeight: "bold" }}>Delivery Challan</Text>
+          <Text style={{ fontWeight: "bold" }}>Invoice</Text>
         </View>
         {/* CONSIGNEE DETAILS */}
         <View style={styles.buyerDetails}>
           <View styles={styles.buyerDetails_col_1}>
             <Text style={[{ fontWeight: "bold" }, styles.text]}>
-              BUYER DETAILS(DETAILS FOR RECIEVER):
+              BUYER DETAILS (DETAILS FOR RECIEVER)
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {"      "}:
             </Text>
-            <Text style={styles.text}>{buyerDetails?.companyName}</Text>
+            <Text style={styles.text}>
+              Company Name:{buyerDetails?.companyName}
+            </Text>
             <Text style={styles.text}>
               Address :{buyerDetails?.companyAddress}
             </Text>
@@ -212,6 +225,7 @@ export const MyDocument = ({
               State Code : {buyerDetails?.pincode}
             </Text>
           </View>
+
           <View style={styles.buyerDetails_col_2}>
             <Text style={styles.text}>Challan No : </Text>
             <Text style={styles.text}>Challan Date :</Text>
@@ -229,12 +243,11 @@ export const MyDocument = ({
         <View style={styles.buyerDetails}>
           <View styles={styles.buyerDetails_col_1}>
             <Text style={[{ fontWeight: "bold" }, styles.text]}>
-              CONSIGNEE DETAILS(DETAILS FOR CONSIGNEE):
+              CONSIGNEE DETAILS(DETAILS FOR CONSIGNEE):&nbsp;
             </Text>
-            <Text style={styles.text}>Name : MAGBRO HEALTHCARE PVT.LTD </Text>
+            <Text style={styles.text}>Name :{buyerDetails?.companyName} </Text>
             <Text style={styles.text}>
-              Address : 218,OM SANTI COMPLEX, INDUSTRIAL AREA COMPLEX , LUDHIANA
-              , 141003{" "}
+              Address : {buyerDetails?.companyAddress}
             </Text>
             <Text style={styles.text}>
               Mobile : {buyerDetails?.companyMobile}
