@@ -19,12 +19,12 @@ const InvoiceList = () => {
   // }, []);
 
   useEffect(() => {
-    window.addEventListener("load", getInvoiceDetails(user._id));
+    getInvoiceDetails(user?._id);
 
     // return () => {
     //   window.removeEventListener("load", getInvoiceDetails(user._id));
     // };
-  }, [getInvoiceDetails]);
+  }, [getInvoiceDetails, user?._id]);
 
   return (
     <Box

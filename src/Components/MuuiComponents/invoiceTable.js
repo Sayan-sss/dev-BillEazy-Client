@@ -7,9 +7,9 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useSelector } from "react-redux";
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
+import moment from "moment";
 export default function Invoicetable(props) {
   const { data } = useSelector((state) => state.InvoicesReducer);
   const Product_data = useSelector((state) => state.Invoice_Product_Reducer);
@@ -67,24 +67,25 @@ export default function Invoicetable(props) {
                 {invoice?.invoiceNo}
               </TableCell>
               <TableCell component="th" scope="row" align="center">
-                {invoice?.invoiceDate}
+                {moment(invoice?.invoiceDate).format("DD MMM, YYYY")}
               </TableCell>
               <TableCell component="th" scope="row" align="center">
                 {invoice?.buyerDetails?.companyName}
               </TableCell>
               <TableCell component="th" scope="row" align="center">
-                <TextField
-                  value={status}
-                  onChange={(e) => setStatus(e.target.value)}
-                ></TextField>
+                <Typography variant="body2">
+                  {invoice?.pendingAmount === 0 ? "Paid" : "Unpaid"}
+                </Typography>
               </TableCell>
               <TableCell component="th" scope="row" align="center">
-                <Button
-                  variant="outlined"
-                  onClick={() => navigate(`/invoice/payment/${invoice?._id}`)}
-                >
-                  Accept Payment
-                </Button>
+                {invoice?.pendingAmount != 0 ? (
+                  <Button
+                    variant="outlined"
+                    onClick={() => navigate(`/invoice/payment/${invoice?._id}`)}
+                  >
+                    Accept Payment
+                  </Button>
+                ) : null}
               </TableCell>
             </TableRow>
           ))}

@@ -11,13 +11,13 @@ import { useEffect } from "react";
 import useDeliveryChallanApis from "../hooks/delivery.challan.hooks";
 
 const ChallanList = () => {
-  const User = useSelector((state) => state.authReducer);
-  const { user } = User;
+  const { user } = useSelector((state) => state.authReducer);
+  // const  = User;
   console.log(user);
   const navigate = useNavigate();
   const { getDeliveryChallanDetails } = useDeliveryChallanApis();
   useEffect(() => {
-    window.addEventListener("load", getDeliveryChallanDetails(user._id));
+    getDeliveryChallanDetails(user._id);
 
     // return () => {
     //   window.removeEventListener("load", getdeliveryChallanDetails(user._id));

@@ -44,6 +44,7 @@ import Inventory from "./Components/MuuiComponents/Inventory Table/Inventory";
 function App() {
   const [sidebar, setSidebar] = useState(false);
   console.log(process.env.REACT_APP_MODE);
+  console.log(process.env.REACT_APP_ENV);
   // console.log(sidebar);
   // const User = useSelector((state) => state.authReducer);
   // // console.log("Reducer user");

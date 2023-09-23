@@ -3,7 +3,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import InvoiceRadioGroup from "./InvoiceRadiogrp";
 
-export default function InvoiceTextField() {
+export default function InvoiceTextField(props) {
+  const { invoiceNo, setInvoiceNo, date, setDate } = props;
   return (
     <Box
       component="form"
@@ -28,12 +29,24 @@ export default function InvoiceTextField() {
         label="Invoice Prefix"
         variant="standard"
       />
-      <TextField id="filled-basic" label="Invoice no" variant="standard" />
+      <TextField
+        id="filled-basic"
+        label="Invoice no"
+        variant="standard"
+        value={invoiceNo}
+        onChange={(e) => {
+          setInvoiceNo(e.target.value);
+        }}
+      />
       <TextField
         id="standard-basic"
         // label="invoice date"
         variant="standard"
         type={"date"}
+        value={date}
+        onChange={(e) => {
+          setDate(e.target.value);
+        }}
       />
     </Box>
   );

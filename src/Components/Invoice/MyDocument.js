@@ -367,7 +367,9 @@ export const MyDocument = ({
             }}
           >
             <Text style={styles.items_text}>SR No.</Text>
-            <Text style={styles.items_text}>1</Text>
+            {product?.map((product, index) => (
+              <Text style={styles.items_text}>{index} </Text>
+            ))}
             {/* <Text style={styles.items_text}>2</Text>
             <Text style={styles.items_text}>3</Text> */}
           </View>

@@ -20,12 +20,17 @@ import useInvoiceApis from "../hooks/invoice.hooks";
 import InvoiceproductpriceCalc from "../MuuiComponents/invoice.product.priceCalc";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+
+import moment from "moment";
 const Invoicecreator = () => {
   const { addInvoiceDetails } = useInvoiceApis();
   const navigate = useNavigate();
   const [totalProductPrice, setTotalProductPrice] = useState();
   const [totalTaxAmount, setTotalTaxAmount] = useState();
   const [productId, setProductId] = useState([]);
+  const [invoiceNo, setInvoiceNo] = useState("");
+  const [date, setDate] = useState(moment().format());
+
   //
   //
   // const User = useSelector((state) => state.authReducer);
@@ -44,6 +49,8 @@ const Invoicecreator = () => {
       productId,
       totalProductPrice,
       totalTaxAmount,
+      invoiceNo,
+      date,
     });
     navigate("/invoice/view");
   };
@@ -161,7 +168,12 @@ const Invoicecreator = () => {
             }}
           >
             <Box className="up_left">
-              <InvoiceTextField />
+              <InvoiceTextField
+                invoiceNo={invoiceNo}
+                setInvoiceNo={setInvoiceNo}
+                date={date}
+                setDate={setDate}
+              />
             </Box>
 
             <Box
