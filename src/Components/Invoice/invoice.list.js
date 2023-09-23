@@ -69,6 +69,9 @@ const InvoiceList = () => {
             Create
           </Button>
           <SearchAppBar />
+          {/* <Button onClick={() => navigate("/invoice/allinvoicepdf")}>
+            Get PDF
+          </Button> */}
         </Box>
         <Invoicetable field="Invoice" />
       </Box>

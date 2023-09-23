@@ -56,6 +56,7 @@ export default function SignUp() {
         elevation={16}
         sx={{
           display: "flex",
+          justifyContent: "center",
           height: "70vh",
           width: "25vw",
           padding: "1rem",
@@ -64,7 +65,15 @@ export default function SignUp() {
           borderStyle: "solid",
         }}
       >
-        <Box sx={{ color: "blue" }}>
+        <Box
+          sx={{
+            color: "#000",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            // border: "1px solid red",
+          }}
+        >
           {/* <Typography
             variant="h6"
             gutterBottom
@@ -79,13 +88,7 @@ export default function SignUp() {
             Welcome to virus
           </Typography> */}
           {/* <Divider variant="middle" color="black" /> */}
-          <Divider
-            fullWidth
-            textAlign="right"
-            sx={{ width: "25vw", marginTop: "2rem" }}
-          >
-            Welcome to Virus
-          </Divider>
+          <Typography variant="h5">Personal Details</Typography>
           <Box
             sx={{
               display: "flex",
@@ -145,15 +148,19 @@ export default function SignUp() {
                 onClick={signUp}
                 variant="contained"
                 color="success"
-                sx={{ width: "6vw", height: "2rem", marginTop: "0.5rem" }}
+                sx={{
+                  width: "fit-content",
+                  height: "2rem",
+                  marginTop: "0.5rem",
+                }}
               >
                 Sign Up
               </Button>
             </Box>
-            <GoogleBtn />
-            <Divider textAlign="right" sx={{ marginTop: "2rem" }}>
+            {/* <GoogleBtn /> */}
+            {/* <Divider textAlign="right" sx={{ marginTop: "2rem" }}>
               Already Have An Account
-            </Divider>
+            </Divider> */}
             <Box
               sx={{
                 display: "flex",
