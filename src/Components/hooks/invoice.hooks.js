@@ -29,6 +29,8 @@ const useInvoiceApis = () => {
     productId,
     totalProductPrice,
     totalTaxAmount,
+    invoiceNo,
+    date,
   }) => {
     try {
       // const data = Buyer;
@@ -60,6 +62,8 @@ const useInvoiceApis = () => {
         totalTaxAmount,
         paidAmount: 0,
         pendingAmount: totalProductPrice,
+        invoiceNo,
+        invoiceDate: date,
       });
       console.log(data);
       dispatch({ type: "POST_ONE_INVOICE_DETAIL", payload: { data } });

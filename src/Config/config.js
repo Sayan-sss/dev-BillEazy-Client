@@ -21,4 +21,17 @@ if (process.env.REACT_APP_MODE === "dev") {
     measurementId: "G-ZMZ5273YFE",
   };
 }
-export { firebaseConfig };
+let baseURL = "";
+if (process.env.REACT_APP_MODE === "dev") {
+  if (process.env.REACT_APP_ENV === "local") {
+    baseURL = "http://localhost:8080";
+  } else {
+    baseURL = "https://dev-billeazy-7jon2.ondigitalocean.app/";
+  }
+} else {
+  if (process.env.REACT_APP_ENV === "local") {
+  } else {
+    baseURL = "https://prod-billeazy-qj84i.ondigitalocean.app/";
+  }
+}
+export { baseURL, firebaseConfig };
