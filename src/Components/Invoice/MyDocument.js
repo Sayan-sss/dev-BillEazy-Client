@@ -1,7 +1,7 @@
 import React from "react";
 // import { useSelector } from "react-redux";
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
-
+import { useLocation } from "react-router-dom";
 // Create styles
 const styles = StyleSheet.create({
   page: {
@@ -165,6 +165,18 @@ const styles = StyleSheet.create({
     textOverflow: "clipped",
   },
 });
+// const location = useLocation();
+// const {
+//   supplierDetails,
+//   buyerDetails,
+//   bankDetails,
+//   product,
+//   transportDetails,
+//   termsAndConditions,
+//   totalProductPrice,
+//   totalTaxAmount,
+// } = location.state;
+// console.log(supplierDetails);
 // const { token, user } = data;
 // const { data } = useSelector((state) => state.Single_Invoice_Reducer);
 // console.log(data);
@@ -180,6 +192,18 @@ export const MyDocument = ({
   totalTaxAmount,
 }) => (
   <Document>
+    {/* const location = useLocation(); const{" "}
+    {
+      (supplierDetails,
+      buyerDetails,
+      bankDetails,
+      product,
+      transportDetails,
+      termsAndConditions,
+      totalProductPrice,
+      totalTaxAmount)
+    }{" "}
+    =location.state; console.log(supplierDetails); */}
     {/* console.log(product) */}
     <Page size="A4" style={styles.page}>
       <View style={styles.parentContainer}>

@@ -86,6 +86,19 @@ const useInvoiceApis = () => {
       toast.error(error);
     }
   }, []);
+
+  const getInvoicePdf = useCallback(async (id) => {
+    try {
+      console.log(id);
+      const { data } = await API.post(`/v1/api/invoice/getpdf/${id}`);
+      console.log(data);
+      dispatch({ type: "POST_ONE_INVOICE_DETAIL", payload: { data } });
+    } catch (error) {
+      console.log(error);
+      toast.error(error);
+    }
+  }, []);
+
   const getInvoice_Product_Details = useCallback(async (id) => {
     try {
       // console.log(id);
@@ -461,6 +474,7 @@ const useInvoiceApis = () => {
     getInvoiceDetails,
     getInvoice_Product_Details,
     updateInvoiceDetails,
+    getInvoicePdf,
 
     addSupplierDetails,
     getSupplierDetails,
