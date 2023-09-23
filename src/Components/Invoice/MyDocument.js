@@ -202,6 +202,7 @@ const styles = StyleSheet.create({
     paddingVertical: 1,
   },
 });
+var converter = require("number-to-words");
 // const { token, user } = data;
 // const { data } = useSelector((state) => state.Single_Invoice_Reducer);
 // console.log(data);
@@ -621,7 +622,9 @@ export const MyDocument = ({
                 minHeight: 100,
               }}
             >
-              <Text style={styles.items_text}>Total Amount in words</Text>
+              <Text style={styles.items_text}>
+                {converter.toWords({ totalProductPrice })}
+              </Text>
               <Text style={styles.items_text}>
                 {/* Seven Thousand Three Hundred and Ninety Two Only{" "} */}
               </Text>
