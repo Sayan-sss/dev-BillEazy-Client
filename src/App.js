@@ -40,6 +40,7 @@ import ProformaList from "./Components/Proforma/Proforma.List";
 import ProformaCreater from "./Components/Proforma/Proforma.creater";
 import ProformaViewer from "./Components/Proforma/Proforma.Viewer";
 import Inventory from "./Components/MuuiComponents/Inventory Table/Inventory";
+import AllDetails from "./Components/Auth/SignUp/All.Details";
 
 function App() {
   const [sidebar, setSidebar] = useState(false);
@@ -117,6 +118,7 @@ function App() {
             <Route path="/*" element={<NotFound />} />
             <Route path="/Pricing" element={<Pricing />} />
             <Route path="/About" element={<About />} />
+            <Route path="/AllDetails" element={<AllDetails />} />
 
             {/* Private Routes */}
             <Route path="/inventory" element={<Inventory />} />

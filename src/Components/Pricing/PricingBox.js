@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Paper, Typography } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -6,18 +6,20 @@ const PricingBox = (props) => {
   const navigate = useNavigate();
 
   return (
-    <Box
+    <Paper
+      elevation={20}
       sx={{
-        border: "2px solid #073259",
+        // border: "2px solid #073259",
         height: "50vh",
         width: "20vw",
-        borderRadius: "2px",
+        borderRadius: "5px",
         boxShadow: 5,
       }}
     >
       <Box
         sx={{
           background: "#073259",
+          borderRadius: "5px",
           color: "white",
           height: "10vh",
           width: "20vw",
@@ -91,7 +93,7 @@ const PricingBox = (props) => {
           </Button>
         </Box>
       </Box>
-    </Box>
+    </Paper>
   );
 };
 

@@ -5,7 +5,7 @@ const Details = () => {
   return (
     <Box sx={{ height: "60vh", width: "50vw" }}>
       <Divider textAlign="left" sx={{ color: "#073259" }}>
-        Personal Details
+        Organisation Details
       </Divider>
       <Box
         sx={{
@@ -27,9 +27,9 @@ const Details = () => {
             justifyContent: "space-evenly",
           }}
         >
-          <TextField label="Company Name" variant="outlined" />
-          <TextField label="Company Email" variant="outlined" />
-          <TextField label="Company Mobile" variant="outlined" />
+          <TextField label="Name" variant="outlined" />
+          <TextField label="Email" variant="outlined" />
+          <TextField label="Mobile" variant="outlined" />
         </Box>
         <Box
           sx={{
@@ -45,7 +45,7 @@ const Details = () => {
             multiline
             rows={6}
             fullWidth
-            label="Company Address"
+            label="Address"
             variant="outlined"
           />
         </Box>
@@ -107,9 +107,9 @@ const Details = () => {
         >
           <Box
             sx={{
-              //   border: "1px solid blue",
+              // border: "1px solid blue",
               height: "9vh",
-              width: "43vw",
+              width: "96.5%",
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
@@ -119,18 +119,32 @@ const Details = () => {
             <TextField
               label="Account Number"
               variant="outlined"
-              sx={{ width: "18vw" }}
+              sx={{ width: "45%" }}
             />
             <TextField
               label="Branch Name"
               variant="outlined"
-              sx={{ width: "24vw" }}
+              sx={{ width: "53.5%" }}
             />
           </Box>
-          <Button variant="contained" sx={{ background: "#073259" }}>
-            Save
-          </Button>
         </Box>
+        {/* <Box
+          sx={{
+            // border: "1px solid red",
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            mt: "1.5rem",
+          }}
+        >
+          <Button
+            variant="contained"
+            sx={{ background: "#073259", mr: "5rem", width: "20%" }}
+          >
+            Submit
+          </Button>
+        </Box> */}
       </Box>
     </Box>
   );

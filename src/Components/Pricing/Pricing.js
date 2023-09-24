@@ -8,7 +8,7 @@ const Pricing = () => {
       <Box
         sx={{
           //   border: "1px solid blue",
-          height: "30vh",
+          height: "25vh",
           width: "85vw",
           display: "flex",
           flexDirection: "column",
@@ -38,24 +38,24 @@ const Pricing = () => {
         }}
       >
         <PricingBox
-          title="Monthly"
-          price="Rs 250/mo"
+          title="Free Trial"
+          price="Rs 00/mo"
           about="body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos  blanditiis tenetur unde suscipit, quam beatae rerum inventore
           consectetur "
           button="Get Started"
         />
 
         <PricingBox
-          title="Yearly"
-          price="Rs 2500/year"
+          title="Monthly"
+          price="Rs 250/year"
           about="body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos  blanditiis tenetur unde suscipit, quam beatae rerum inventore
          consectetur "
           button="Get Started"
         />
 
         <PricingBox
-          title="Lifetime"
-          price="Rs 10000"
+          title="Yearly"
+          price="Rs 2500"
           about="body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos  blanditiis tenetur unde suscipit, quam beatae rerum inventore
           consectetur "
           button="Get Started"
