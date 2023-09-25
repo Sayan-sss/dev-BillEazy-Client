@@ -26,7 +26,7 @@ import InsideMedicineContainer from "./Components/Medicine/InsideMedicineContain
 
 import InvoiceList from "./Components/Invoice/invoice.list";
 import Invoicecreator from "./Components/Invoice/invoice.creator";
-import SignUp from "./Components/Auth/SignUp";
+import SignUp from "./Components/Auth/SignUp/SignUp";
 import Login from "./Components/Auth/Login";
 import Account from "./Components/Account/Account";
 import Pricing from "./Components/Pricing/Pricing";
@@ -41,6 +41,7 @@ import ProformaCreater from "./Components/Proforma/Proforma.creater";
 import ProformaViewer from "./Components/Proforma/Proforma.Viewer";
 import Inventory from "./Components/MuuiComponents/Inventory Table/Inventory";
 import AllDetails from "./Components/Auth/SignUp/All.Details";
+import TabView from "./Components/Auth/SignUp/TabView";
 
 function App() {
   const [sidebar, setSidebar] = useState(false);
