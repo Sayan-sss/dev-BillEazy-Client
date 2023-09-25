@@ -22,7 +22,7 @@ const ChallanList = () => {
     // return () => {
     //   window.removeEventListener("load", getdeliveryChallanDetails(user._id));
     // };
-  }, [getDeliveryChallanDetails]);
+  }, []);
 
   return (
     <Box

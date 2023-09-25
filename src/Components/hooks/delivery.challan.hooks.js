@@ -15,12 +15,14 @@ const useDeliveryChallanApis = () => {
   const [transportData, setTransportData] = useState([]);
   const [bankData, setBankData] = useState([]);
   const User = useSelector((state) => state.authReducer);
-  const Supplier = useSelector((state) => state.SupplierReducer);
-  const Buyer = useSelector((state) => state.BuyerReducer);
-  const Bank = useSelector((state) => state.BuyerReducer);
-  const Products = useSelector((state) => state.ProductReducer);
+  const Supplier = useSelector((state) => state.DeliveryChallanSupplierReducer);
+  const Buyer = useSelector((state) => state.DeliveryChallanBuyerReducer);
+  // const Bank = useSelector((state) => state.BuyerReducer);
+  const Products = useSelector((state) => state.DeliveryChallanProductReducer);
   console.log(Products);
-  const Transport = useSelector((state) => state.TransportReducer);
+  const Transport = useSelector(
+    (state) => state.DeliveryChallanTransportReducer
+  );
   // console.log("Reducer user");
   const { user } = User;
   // ***** deliveryChallan ******///////
@@ -72,7 +74,8 @@ const useDeliveryChallanApis = () => {
 
   const getDeliveryChallanDetails = useCallback(async (id) => {
     try {
-      // console.log(id);
+      console.log("Delivery challan");
+      console.log(id);
       // console.log("Fetch deliveryChallan");
       const { data } = await API.post(`/v1/api/deliveryChallan/get/${id}`);
       console.log(data);

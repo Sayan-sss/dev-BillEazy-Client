@@ -110,6 +110,20 @@ const DeliveryChallanCreater = () => {
           <Box sx={{ width: "99%" }}>
             <TermsAndCondition />
           </Box>
+
+          <Button
+            variant="contained"
+            sx={{
+              background: "#073259",
+              marginLeft: "auto",
+              marginRight: "1.5rem",
+              marginTop: "1rem",
+              marginBottom: "1rem",
+            }}
+            // onClick={handleCreateInvoice}
+          >
+            Create
+          </Button>
         </Box>
       </Box>
     </>
