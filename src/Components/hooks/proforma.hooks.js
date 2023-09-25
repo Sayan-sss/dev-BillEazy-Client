@@ -73,7 +73,7 @@ const useProformaApis = () => {
   const getProformaDetails = useCallback(async (id) => {
     try {
       // console.log(id);
-      // console.log("Fetch proforma");
+      console.log("Fetch proforma");
       const { data } = await API.post(`/v1/api/proforma/get/${id}`);
       console.log(data);
       dispatch({ type: "POST_PROFORMA_DETAILS", payload: { data } });
@@ -504,4 +504,4 @@ const useProformaApis = () => {
   };
 };
 
-export default useproformaApis;
+export default useProformaApis;
