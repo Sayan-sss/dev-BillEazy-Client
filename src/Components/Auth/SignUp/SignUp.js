@@ -41,6 +41,24 @@ export default function SignUp() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const [disabled, setDisabled] = useState(
+    !(
+      name &&
+      email &&
+      password &&
+      companyName &&
+      mobile &&
+      address &&
+      pin &&
+      gstin &&
+      bankName &&
+      accountHolder &&
+      accountNumber &&
+      ifsc &&
+      branchName &&
+      plan
+    )
+  );
   const handleSignUp = async () => {
     try {
       const { data } = await API.post("/v1/api/auth/signup", {
@@ -101,8 +119,32 @@ export default function SignUp() {
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <TabList onChange={handleChange} aria-label="lab API tabs example">
               <Tab label="Personal Details" value="1" />
-              <Tab label="Organisation Details" value="2" />
-              <Tab label="Subscription" value="3" />
+              <Tab
+                disabled={!(name && email && password)}
+                label="Organisation Details"
+                value="2"
+              />
+              <Tab
+                disabled={
+                  !(
+                    name &&
+                    email &&
+                    password &&
+                    companyName &&
+                    mobile &&
+                    address &&
+                    pin &&
+                    gstin &&
+                    bankName &&
+                    accountHolder &&
+                    accountNumber &&
+                    ifsc &&
+                    branchName
+                  )
+                }
+                label="Subscription"
+                value="3"
+              />
             </TabList>
           </Box>
           <TabPanel value="1">
@@ -156,6 +198,7 @@ export default function SignUp() {
               formImg={formImg}
               setFormImg={setFormImg}
               handleSignUp={handleSignUp}
+              disabled={disabled}
             />
           </TabPanel>
         </TabContext>
