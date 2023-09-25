@@ -13,6 +13,13 @@ import { DeliveryChallanProductReducer } from "./Delivery_Challan/delivery.chall
 import { DeliveryChallanReducer } from "./Delivery_Challan/delivery.challan.reducer";
 import { DeliveryChallanSupplierReducer } from "./Delivery_Challan/delivery.challan.supplier.details.reducer";
 import { DeliveryChallanTransportReducer } from "./Delivery_Challan/delivery.challan.transport.details.reducer";
+import { ProformaBankReducer } from "./proforma/proforma.bank.details.reducer";
+import { ProformaBuyerReducer } from "./proforma/proforma.buyer.details.reducer";
+import { ProformaProductReducer } from "./proforma/proforma.product.details.reducer";
+import { ProformaReducer } from "./proforma/proforma.reducer";
+import { ProformaSupplierReducer } from "./proforma/proforma.supplier.details.reducer";
+import { ProformaTransportReducer } from "./proforma/proforma.transport.details.reducer";
+
 export default combineReducers({
   authReducer,
   SupplierReducer,
@@ -28,4 +35,11 @@ export default combineReducers({
   DeliveryChallanReducer,
   DeliveryChallanSupplierReducer,
   DeliveryChallanTransportReducer,
+
+  ProformaBankReducer,
+  ProformaBuyerReducer,
+  ProformaProductReducer,
+  ProformaReducer,
+  ProformaSupplierReducer,
+  ProformaTransportReducer,
 });

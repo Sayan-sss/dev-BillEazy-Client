@@ -6,13 +6,14 @@ import Invoicetable from "../MuuiComponents/invoiceTable";
 // import "./InvoiceList.css";
 import SearchAppBar from "../MuuiComponents/Searchbar";
 // import invoiceTable from "../MuuiComponents/invoiceTable";
-import useInvoiceApis from "../hooks/invoice.hooks";
+// import useInvoiceApis from "../hooks/invoice.hooks";
 import { useSelector } from "react-redux";
 import ProformaTable from "../MuuiComponents/proformaTable";
+import useProformaApis from "../hooks/proforma.hooks";
 
 const ProformaList = () => {
   const navigate = useNavigate();
-  const { getProformaDetails } = useInvoiceApis();
+  const { getProformaDetails } = useProformaApis();
   const User = useSelector((state) => state.authReducer);
   const { user } = User;
 
