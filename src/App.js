@@ -58,6 +58,8 @@ function App() {
   // console.log(User);
   const User = useSelector((state) => state.authReducer);
   const { token, user } = User;
+  console.log(token);
+  console.log(user);
   const data = useSelector((state) => state.ProductReducer);
   console.log(data);
   // console.log(token);

@@ -71,7 +71,8 @@ export default function SignUp() {
       if (data?.success) {
         localStorage.setItem("user", JSON.stringify(data?.user));
         localStorage.setItem("token", JSON.stringify(data?.token));
-        dispatch({ type: "AddAuth", payload: data?.user });
+        console.log(data?.token);
+        dispatch({ type: "AddAuth", payload: data });
         console.log("User :", data);
         // navigate("/medicines");
       }
