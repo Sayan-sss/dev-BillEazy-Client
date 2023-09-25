@@ -34,14 +34,12 @@ export default function OrgDetails(props) {
   } = props;
   return (
     <Box
-      // elevation={6}
       sx={{
         display: "flex",
         justifyContent: "center",
         // alignItems: "center",
         height: "100%",
         width: "100%",
-        // padding: "1rem",
         // border: "1px solid red",
       }}
     >
@@ -64,108 +62,156 @@ export default function OrgDetails(props) {
             // marginTop: "1rem",
           }}
         >
-          <TextField
-            fullWidth={true}
-            id="outlined-basic"
-            label="Name"
-            variant="outlined"
-            margin="normal"
-            required
-            type="text"
-            color="primary"
-            placeholder="Enter your Name"
-            value={companyName}
-            onChange={(e) => setCompanyName(e.target.value)}
-          />
-          <TextField
-            fullWidth={true}
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
-            margin="normal"
-            required
-            type="email"
-            color="primary"
-            placeholder="Enter your email"
-            value={companyEmail}
-            onChange={(e) => setCompanyEmail(e.target.value)}
-          />
-          <TextField
-            fullWidth={true}
-            id="outlined-basic"
-            label="Mobile Number"
-            variant="outlined"
-            color="primary"
-            type="number"
-            required
-            placeholder="Enter your Mobile No."
-            // sx={{ marginTop: "1rem" }}
-            margin="normal"
-            value={mobile}
-            onChange={(e) => setMobile(e.target.value)}
-          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              // border: "1px solid red",
+            }}
+          >
+            <TextField
+              // fullWidth={true}
+              id="outlined-basic"
+              label="Name"
+              variant="outlined"
+              margin="normal"
+              required
+              type="text"
+              color="primary"
+              placeholder="Enter your Name"
+              value={companyName}
+              onChange={(e) => setCompanyName(e.target.value)}
+            />
+            <TextField
+              // fullWidth={true}
+              id="outlined-basic"
+              label="Email"
+              variant="outlined"
+              margin="normal"
+              required
+              type="email"
+              color="primary"
+              placeholder="Enter your email"
+              value={companyEmail}
+              onChange={(e) => setCompanyEmail(e.target.value)}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              // border: "1px solid red",
+            }}
+          >
+            <TextField
+              // fullWidth={true}
+              id="outlined-basic"
+              label="Mobile Number"
+              variant="outlined"
+              color="primary"
+              type="number"
+              required
+              placeholder="Enter your Mobile No."
+              // sx={{ marginTop: "1rem" }}
+              margin="normal"
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+            />
+            <TextField
+              label="GST No"
+              variant="outlined"
+              margin="normal"
+              // sx={{ width: "29vw" }}
+              value={gstin}
+              onChange={(e) => setGstin(e.target.value)}
+            />
+          </Box>
           <TextField
             multiline
             rows={6}
             fullWidth
+            margin="normal"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             label="Address"
             variant="outlined"
           />
-          <TextField
-            label="Pincode"
-            variant="outlined"
-            sx={{ width: "19vw" }}
-            value={pin}
-            onChange={(e) => setPin(e.target.value)}
-          />
-          <TextField
-            label="GST No"
-            variant="outlined"
-            sx={{ width: "29vw" }}
-            value={gstin}
-            onChange={(e) => setGstin(e.target.value)}
-          />
-          <TextField
-            label="Bank Name"
-            variant="outlined"
-            sx={{ width: "16vw" }}
-            value={bankName}
-            onChange={(e) => setBankName(e.target.value)}
-          />
-          <TextField
-            label="Account Holder"
-            variant="outlined"
-            sx={{ width: "17vw" }}
-            value={accountHolder}
-            onChange={(e) => setAccountHolder(e.target.value)}
-          />
-          <TextField
-            label="IFSC"
-            variant="outlined"
-            value={ifsc}
-            onChange={(e) => setIfsc(e.target.value)}
-            //   sx={{ width: "29vw" }}
-          />
-          <TextField
-            label="Account Number"
-            variant="outlined"
-            sx={{ width: "45%" }}
-            value={accountNumber}
-            onChange={(e) => setAccountNumber(e.target.value)}
-          />
-          <TextField
-            label="Branch Name"
-            variant="outlined"
-            sx={{ width: "53.5%" }}
-            value={branchName}
-            onChange={(e) => setBranchName(e.target.value)}
-          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              label="Pincode"
+              variant="outlined"
+              margin="normal"
+              // sx={{ width: "19vw" }}
+              value={pin}
+              onChange={(e) => setPin(e.target.value)}
+            />
+
+            <TextField
+              label="Bank Name"
+              variant="outlined"
+              margin="normal"
+              // sx={{ width: "16vw" }}
+              value={bankName}
+              onChange={(e) => setBankName(e.target.value)}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              label="Account Holder"
+              variant="outlined"
+              margin="normal"
+              // sx={{ width: "17vw" }}
+              value={accountHolder}
+              onChange={(e) => setAccountHolder(e.target.value)}
+            />
+            <TextField
+              label="IFSC"
+              variant="outlined"
+              value={ifsc}
+              margin="normal"
+              onChange={(e) => setIfsc(e.target.value)}
+              //   sx={{ width: "29vw" }}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              label="Account Number"
+              variant="outlined"
+              margin="normal"
+              // sx={{ width: "45%" }}
+              value={accountNumber}
+              onChange={(e) => setAccountNumber(e.target.value)}
+            />
+            <TextField
+              label="Branch Name"
+              variant="outlined"
+              margin="normal"
+              // sx={{ width: "53.5%" }}
+              value={branchName}
+              onChange={(e) => setBranchName(e.target.value)}
+            />
+          </Box>
           <Box sx={{ width: "100%", display: "flex", justifyContent: "end" }}>
             <Button
               variant="contained"
-              sx={{ background: "#073259" }}
+              sx={{ background: "#073259", mt: 3 }}
               disabled={
                 !(
                   companyName &&
