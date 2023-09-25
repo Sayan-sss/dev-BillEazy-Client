@@ -3,7 +3,7 @@ import React from "react";
 
 const Details = () => {
   return (
-    <Box sx={{ height: "60vh", width: "50vw" }}>
+    <Box sx={{ height: "auto", width: "100%", border: "1px solid red" }}>
       <Divider textAlign="left" sx={{ color: "#073259" }}>
         Organisation Details
       </Divider>
@@ -11,9 +11,9 @@ const Details = () => {
         sx={{
           display: "flex",
           flexDirection: "row",
-          height: "27vh",
-          //   border: "1px solid black",
-          width: "50vw",
+          height: "60%",
+          // border: "1px solid black",
+          width: "100%",
           justifyContent: "space-evenly",
         }}
       >
@@ -22,8 +22,8 @@ const Details = () => {
             // border: "1px solid red",
             display: "flex",
             flexDirection: "column",
-            width: "20vw",
-            height: "27vh",
+            width: "40%",
+            // height: "80%",
             justifyContent: "space-evenly",
           }}
         >
@@ -35,7 +35,7 @@ const Details = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            width: "28vw",
+            width: "56%",
             // border: "1px solid blue",
             alignItems: "center",
             height: "27vh",
@@ -52,7 +52,7 @@ const Details = () => {
       </Box>
       <Box
         sx={{
-          //   border: "1px solid red",
+          border: "1px solid red",
           height: "10vh",
           width: "50vw",
           display: "flex",
@@ -128,7 +128,7 @@ const Details = () => {
             />
           </Box>
         </Box>
-        {/* <Box
+        <Box
           sx={{
             // border: "1px solid red",
             width: "100%",
@@ -144,7 +144,7 @@ const Details = () => {
           >
             Submit
           </Button>
-        </Box> */}
+        </Box>
       </Box>
     </Box>
   );
