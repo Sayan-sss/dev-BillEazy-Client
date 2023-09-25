@@ -1,6 +1,7 @@
 import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import PhotoUploader from "../../Helper/photo.uploader";
 
 export default function OrgDetails(props) {
   const navigate = useNavigate();
@@ -59,9 +60,22 @@ export default function OrgDetails(props) {
             display: "flex",
             flexDirection: "column",
             width: "100%",
+            // alignItems: "center",
             // marginTop: "1rem",
           }}
         >
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: "100%",
+              alignItems: "center",
+              mt: 3,
+              mb: 3,
+            }}
+          >
+            <PhotoUploader formImg={logo} setFormImg={setLogo} />
+          </Box>
           <Box
             sx={{
               display: "flex",

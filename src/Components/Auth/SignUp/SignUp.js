@@ -22,7 +22,9 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // Organisation Details states
-  const [logo, setLogo] = useState("");
+  const [logo, setLogo] = useState(
+    "https://firebasestorage.googleapis.com/v0/b/dev-billeazy.appspot.com/o/images%2ForgDefault.jpg?alt=media&token=348a95f8-59fd-4e67-b0e5-d2620b463ea3"
+  );
   const [companyName, setCompanyName] = useState("");
   const [companyEmail, setCompanyEmail] = useState("");
   const [mobile, setMobile] = useState("");
@@ -41,24 +43,6 @@ export default function SignUp() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const [disabled, setDisabled] = useState(
-    !(
-      name &&
-      email &&
-      password &&
-      companyName &&
-      mobile &&
-      address &&
-      pin &&
-      gstin &&
-      bankName &&
-      accountHolder &&
-      accountNumber &&
-      ifsc &&
-      branchName &&
-      plan
-    )
-  );
   const handleSignUp = async () => {
     try {
       const { data } = await API.post("/v1/api/auth/signup", {
@@ -68,6 +52,7 @@ export default function SignUp() {
           password,
         },
         organisation: {
+          logo,
           name: companyName,
           email: companyEmail,
           address,
@@ -84,6 +69,7 @@ export default function SignUp() {
           endDate: moment().add(7, "days"),
           price: plan === "Monthly" ? 250 : plan === "Annually" ? 2400 : 0,
           plan,
+          proofOfPayment: formImg,
         },
       });
       if (data?.success) {
@@ -198,7 +184,6 @@ export default function SignUp() {
               formImg={formImg}
               setFormImg={setFormImg}
               handleSignUp={handleSignUp}
-              disabled={disabled}
             />
           </TabPanel>
         </TabContext>

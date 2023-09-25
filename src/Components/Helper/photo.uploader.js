@@ -12,8 +12,8 @@ import { storage } from "../../Services/firebase";
 import CircularProgressWithLabel from "../Helper/CircularProgressWithLabel";
 const styles = {
   container: {
-    width: "20rem",
-    border: "1px solid red",
+    width: "fit-content",
+    border: "1px solid #073259",
     borderRadius: "2vw",
     borderStyle: "dashed",
     display: "flex",
@@ -26,6 +26,7 @@ const styles = {
     height: "fit-content",
     "& > ::file-selector-button": {
       // backgroundColor: 'red',
+      // width: "100%",
       borderRadius: "2vw",
       borderStyle: "dashed",
       outline: "none",
@@ -89,6 +90,17 @@ export default function PhotoUploader(props) {
   }
   return (
     <Box sx={styles.container}>
+      <Box>
+        {loading ? <CircularProgressWithLabel value={progress} /> : <></>}
+      </Box>
+      {formImg ? (
+        <Box>
+          <img
+            style={{ height: "fit-content", width: "200px" }}
+            src={formImg}
+          />
+        </Box>
+      ) : null}
       <Box
         sx={{
           width: "100%",
@@ -104,17 +116,6 @@ export default function PhotoUploader(props) {
           sx={styles.uploadBtn}
         />
       </Box>
-      <Box>
-        {loading ? <CircularProgressWithLabel value={progress} /> : <></>}
-      </Box>
-      {formImg ? (
-        <Box>
-          <img
-            style={{ height: "fit-content", width: "200px" }}
-            src={formImg}
-          />
-        </Box>
-      ) : null}
     </Box>
   );
 }
