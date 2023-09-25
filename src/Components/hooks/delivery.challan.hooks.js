@@ -40,8 +40,8 @@ const useDeliveryChallanApis = () => {
       console.log(termsAndConditions);
       console.log(Buyer?.data._id);
       const Buyer_id = Buyer?.data._id;
-      console.log(Bank?.data._id);
-      const Bank_id = Bank?.data._id;
+      // console.log(Bank?.data._id);
+      // const Bank_id = Bank?.data._id;
       console.log(Products?.data._id);
       const Products_id = Products?.data._id;
       console.log(Transport?.data._id);
@@ -51,7 +51,7 @@ const useDeliveryChallanApis = () => {
 
       const { data } = await API.post("/v1/api/deliveryChallan/create", {
         Buyer_id,
-        Bank_id,
+        // Bank_id,
         // Products_id,
         productId,
         Transport_id,

@@ -6,8 +6,8 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case "AddAuth":
-      // console.log("payload");
-      // console.log(action.payload);
+      console.log("payload");
+      console.log(action.payload);
       return {
         ...state,
         ...action.payload,
