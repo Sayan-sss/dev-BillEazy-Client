@@ -2,6 +2,7 @@ import React from "react";
 import { MyDocument } from "./MyDocument";
 import { PDFViewer, StyleSheet } from "@react-pdf/renderer";
 import { useSelector } from "react-redux";
+import { BillOfSupply } from "./BillOfSupply";
 
 export default function InvoiceViewer() {
   const styles = StyleSheet.create({
@@ -41,7 +42,18 @@ export default function InvoiceViewer() {
 
   return (
     <PDFViewer style={styles.pdf}>
-      <MyDocument
+      {/* <MyDocument
+        supplierDetails={supplierDetails}
+        hi={"HI"}
+        buyerDetails={buyerDetails}
+        bankDetails={bankDetails}
+        product={product}
+        transportDetails={transportDetails}
+        termsAndConditions={termsAndConditions}
+        totalProductPrice={totalProductPrice}
+        totalTaxAmount={totalTaxAmount}
+      /> */}
+      <BillOfSupply
         supplierDetails={supplierDetails}
         hi={"HI"}
         buyerDetails={buyerDetails}

@@ -130,6 +130,7 @@ function App() {
               {/* invoice routes */}
               {/* <Route path="/InvoiceList" element={<InvoiceList />}/> */}
               <Route path="invoice" element={<InvoiceViewer />} />
+
               <Route path="invoicelist" element={<InvoiceList />} />
               <Route path="invoice/create" element={<Invoicecreator />} />
               <Route path="invoice/view" element={<InvoiceViewer />} />

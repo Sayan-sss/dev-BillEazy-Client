@@ -63,6 +63,9 @@ export default function Invoicetable(props) {
             <TableCell sx={{ color: "white" }} align="center">
               Actions
             </TableCell>
+            <TableCell sx={{ color: "white" }} align="center">
+              PDF
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody sx={{ overflow: "scroll" }}>
